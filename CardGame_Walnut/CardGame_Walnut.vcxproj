@@ -69,14 +69,23 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_net-devel-2.0.1-VC\SDL2_net-2.0.1\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_Mixxer_Audio\SDL2_mixer-2.0.1\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_2.04\SDL2-2.0.4\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL_trueTypeFonts\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0\boost;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_net-devel-2.0.1-VC\SDL2_net-2.0.1\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_Mixxer_Audio\SDL2_mixer-2.0.1\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_2.04\SDL2-2.0.4\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL_trueTypeFonts\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2_net.lib;lua53.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,6 +124,188 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arrow.cpp" />
+    <ClCompile Include="Audio_class.cpp" />
+    <ClCompile Include="Basic_Card.cpp" />
+    <ClCompile Include="Battlecry.cpp" />
+    <ClCompile Include="BoostCard.cpp" />
+    <ClCompile Include="bTexture.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Click_EventHandler.cpp" />
+    <ClCompile Include="ClientSocket.cpp" />
+    <ClCompile Include="CL_EventHandler.cpp" />
+    <ClCompile Include="Collection_Card.cpp" />
+    <ClCompile Include="Collection_EH.cpp" />
+    <ClCompile Include="Collection_Menu.cpp" />
+    <ClCompile Include="Create_Deck.cpp" />
+    <ClCompile Include="CurrentTurn.cpp" />
+    <ClCompile Include="Deathwish.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DefaultTexture.cpp" />
+    <ClCompile Include="Default_Card.cpp" />
+    <ClCompile Include="draw.cpp" />
+    <ClCompile Include="draw_collection.cpp" />
+    <ClCompile Include="DynamicNumbers.cpp" />
+    <ClCompile Include="EffectField.cpp" />
+    <ClCompile Include="EffectManager.cpp" />
+    <ClCompile Include="Effects.cpp" />
+    <ClCompile Include="Effect_Card.cpp" />
+    <ClCompile Include="Effect_Description.cpp" />
+    <ClCompile Include="EnergyInterface.cpp" />
+    <ClCompile Include="EnergySign.cpp" />
+    <ClCompile Include="Escape_Overlay.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="FPS_Timer.cpp" />
+    <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEndScreen.cpp" />
+    <ClCompile Include="GameField.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="GameObj.cpp" />
+    <ClCompile Include="getEffectAsString.cpp" />
+    <ClCompile Include="GetFiles.cpp" />
+    <ClCompile Include="Graveyard.cpp" />
+    <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="HealOrDmg.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="HeroHealth.cpp" />
+    <ClCompile Include="HostSocket.cpp" />
+    <ClCompile Include="Hover_Card.cpp" />
+    <ClCompile Include="Icons.cpp" />
+    <ClCompile Include="IPAdress.cpp" />
+    <ClCompile Include="loadCards.cpp" />
+    <ClCompile Include="Load_Deck.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ManageCardsC.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Menu_Button.cpp" />
+    <ClCompile Include="Menu_Play.cpp" />
+    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Name_Plate.cpp" />
+    <ClCompile Include="Net_Interface.cpp" />
+    <ClCompile Include="NumberPopup.cpp" />
+    <ClCompile Include="Opponent.cpp" />
+    <ClCompile Include="Opponent_Deck.cpp" />
+    <ClCompile Include="Opponent_Field.cpp" />
+    <ClCompile Include="Opponent_Hand.cpp" />
+    <ClCompile Include="Place.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player_Deck.cpp" />
+    <ClCompile Include="Player_Field.cpp" />
+    <ClCompile Include="Player_Hand.cpp" />
+    <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="Save_Deck.cpp" />
+    <ClCompile Include="Save_Manager.cpp" />
+    <ClCompile Include="SDLNet_init.cpp" />
+    <ClCompile Include="SDL_init.cpp" />
+    <ClCompile Include="ShowGameObjInfo.cpp" />
+    <ClCompile Include="StatsSign.cpp" />
+    <ClCompile Include="TcpSocket.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TTF_Text.cpp" />
+    <ClCompile Include="Victory_Loss_Screen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Arrow.hpp" />
+    <ClInclude Include="Audio_class.hpp" />
+    <ClInclude Include="Basic_Card.hpp" />
+    <ClInclude Include="Battlecry.hpp" />
+    <ClInclude Include="BoostCard.hpp" />
+    <ClInclude Include="bTexture.hpp" />
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="Card_Effects.hpp" />
+    <ClInclude Include="Card_Types.hpp" />
+    <ClInclude Include="Click_EventHandler.hpp" />
+    <ClInclude Include="ClientSocket.hpp" />
+    <ClInclude Include="CL_EventHandler.hpp" />
+    <ClInclude Include="CL_EventNames.hpp" />
+    <ClInclude Include="Collection_Card.hpp" />
+    <ClInclude Include="Collection_EH.hpp" />
+    <ClInclude Include="Collection_Menu.hpp" />
+    <ClInclude Include="Create_Deck.hpp" />
+    <ClInclude Include="CurrentTurn.hpp" />
+    <ClInclude Include="Deathwish.hpp" />
+    <ClInclude Include="Deck.hpp" />
+    <ClInclude Include="DefaultTexture.hpp" />
+    <ClInclude Include="Default_Card.hpp" />
+    <ClInclude Include="draw.hpp" />
+    <ClInclude Include="draw_collection.hpp" />
+    <ClInclude Include="DynamicNumbers.hpp" />
+    <ClInclude Include="eBoost.hpp" />
+    <ClInclude Include="eCard_Effects.hpp" />
+    <ClInclude Include="EffectField.hpp" />
+    <ClInclude Include="EffectManager.hpp" />
+    <ClInclude Include="Effects.hpp" />
+    <ClInclude Include="Effect_Card.hpp" />
+    <ClInclude Include="Effect_Description.hpp" />
+    <ClInclude Include="EnergyInterface.hpp" />
+    <ClInclude Include="EnergySign.hpp" />
+    <ClInclude Include="ePosition.hpp" />
+    <ClInclude Include="Escape_Overlay.hpp" />
+    <ClInclude Include="fdeleter.hpp" />
+    <ClInclude Include="Field.hpp" />
+    <ClInclude Include="FPS_Timer.hpp" />
+    <ClInclude Include="Frame.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GameEndScreen.hpp" />
+    <ClInclude Include="GameField.hpp" />
+    <ClInclude Include="GameLoop.hpp" />
+    <ClInclude Include="GameObj.hpp" />
+    <ClInclude Include="getEffectAsString.hpp" />
+    <ClInclude Include="GetFiles.hpp" />
+    <ClInclude Include="gMouse.hpp" />
+    <ClInclude Include="gQuit.hpp" />
+    <ClInclude Include="Graveyard.hpp" />
+    <ClInclude Include="gRenderer.hpp" />
+    <ClInclude Include="gScreenSize.hpp" />
+    <ClInclude Include="Hand.hpp" />
+    <ClInclude Include="HealOrDmg.hpp" />
+    <ClInclude Include="Hero.hpp" />
+    <ClInclude Include="HeroHealth.hpp" />
+    <ClInclude Include="HostSocket.hpp" />
+    <ClInclude Include="Hover_Card.hpp" />
+    <ClInclude Include="Icons.hpp" />
+    <ClInclude Include="IPAdress.hpp" />
+    <ClInclude Include="loadCards.hpp" />
+    <ClInclude Include="Load_Deck.hpp" />
+    <ClInclude Include="Main_Btn_Enum.hpp" />
+    <ClInclude Include="ManageCardsC.hpp" />
+    <ClInclude Include="Menu.hpp" />
+    <ClInclude Include="MenuBtn_Enum.hpp" />
+    <ClInclude Include="Menu_Button.hpp" />
+    <ClInclude Include="Menu_Play.hpp" />
+    <ClInclude Include="Mouse.hpp" />
+    <ClInclude Include="Name_Plate.hpp" />
+    <ClInclude Include="Net_Interface.hpp" />
+    <ClInclude Include="NumberPopup.hpp" />
+    <ClInclude Include="Opponent.hpp" />
+    <ClInclude Include="Opponent_Deck.hpp" />
+    <ClInclude Include="Opponent_Field.hpp" />
+    <ClInclude Include="Opponent_Hand.hpp" />
+    <ClInclude Include="Place.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Player_Deck.hpp" />
+    <ClInclude Include="Player_Field.hpp" />
+    <ClInclude Include="Player_Hand.hpp" />
+    <ClInclude Include="Rarity.hpp" />
+    <ClInclude Include="Resource.hpp" />
+    <ClInclude Include="Save_Deck.hpp" />
+    <ClInclude Include="Save_Manager.hpp" />
+    <ClInclude Include="SDLNet_init.hpp" />
+    <ClInclude Include="SDL_init.hpp" />
+    <ClInclude Include="ShowGameObjInfo.h" />
+    <ClInclude Include="StatsSign.hpp" />
+    <ClInclude Include="Sub_Btn_Enum.hpp" />
+    <ClInclude Include="TcpSocket.hpp" />
+    <ClInclude Include="test.h" />
+    <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="TTF_Text.hpp" />
+    <ClInclude Include="Turn_Enum.hpp" />
+    <ClInclude Include="Victory_Loss_Screen.hpp" />
+    <ClInclude Include="WalnutResult.hpp" />
+    <ClInclude Include="Who.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

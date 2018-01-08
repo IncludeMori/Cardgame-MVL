@@ -1,0 +1,76 @@
+#include "StatsSign.hpp"
+#include "gRenderer.hpp"
+
+StatsSign::StatsSign()
+{
+
+}
+StatsSign::StatsSign(Stats_Size size)
+{
+	if (size == Stats_Size::STANDARD)
+	{
+		free();
+
+		mTexture = nullptr;
+		loadFromFile("Data/numbers.png");
+
+		int x = 0, y = 0, w = 35, h = 35;
+		for (int i = 1; i < 9; i++)
+		{
+			mNumbers[i] = { x,y,w,h };
+			x += 35;
+
+			if (i == 5) { x = 0; y += 35; }
+		}
+		mNumbers[0] = { x + 35,y,w,h };
+		mNumbers[10] = { 0,y + 35,w,h };
+		mNumbers[11] = { 35,70,35,35 };
+
+		mPosX = 0;
+		mPosY = 0;
+		mWidth = 35;
+		mHeight = 35;
+
+		mCurrentStat = 0;
+		mBaseStat = 0;
+	}
+	else //hover
+	{
+		free();
+
+		mTexture = nullptr;
+		loadFromFile("Data/BigCard_Interface/numbers_big.png");
+
+		int x = 0, y = 0, w = 50, h = 50;
+		for (int i = 1; i < 9; i++)
+		{
+			mNumbers[i] = { x,y,w,h };
+			x += 50;
+
+			if (i == 5) { x = 0; y += 50; }
+		}
+		mNumbers[0] = { x + 50,y,w,h };
+		mNumbers[10] = { 0,y + 50,w,h };
+		mNumbers[11] = { 50,100,50,50 };
+
+		mPosX = 0;
+		mPosY = 0;
+		mWidth = 50;
+		mHeight = 50;
+
+		mCurrentStat = 0;
+		mBaseStat = 0;
+	}
+}
+StatsSign::~StatsSign()
+{
+	free();
+}
+
+void StatsSign::move(int x, int y)
+{
+	mPosX += x;
+	mPosY += y;
+}
+
+
