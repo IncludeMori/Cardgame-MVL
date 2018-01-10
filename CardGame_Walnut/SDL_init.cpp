@@ -63,7 +63,7 @@ bool SDL_init::SDLinit(const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const st
 				}
 
 				//INIT Audio
-				if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+				if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 20000) < 0)
 				{
 					printf("SDL_mixer creation failed -> SDL_mixer Error: %s\n", Mix_GetError());
 					success = false;

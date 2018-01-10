@@ -3,7 +3,7 @@
 #include "Audio_class.hpp" // header
 
 
-
+#include <iostream>
 
 /////////////////////////////////////////////////////
 //////// CLASS FOR SAMPLES-SOUND EFFECTS    /////////
@@ -75,7 +75,10 @@ Music::~Music()
 
 bool Music::loadMusicFromFile(std::string path)
 {
+	std::cout << "Load music from:" << path << std::endl;
 	mMusic = Mix_LoadMUS(path.c_str()); // can load mp3,ogg,  etc (background music, only one at a time)
+	if (mMusic == nullptr)
+		std::cout << "EERRRROOOR" << std::endl;
 
 	return true;
 }

@@ -15,6 +15,8 @@
 
 #include "Escape_Overlay.hpp"
 
+#include "Audio_class.hpp"
+
 
 class Menu
 {
@@ -38,6 +40,8 @@ public:
 	void free();
 
 private:
+	Music mBackgroundMusic;
+
 	Escape_Overlay Esc_Overlay;
 	//
 	Click_EventHandler EventHandler;

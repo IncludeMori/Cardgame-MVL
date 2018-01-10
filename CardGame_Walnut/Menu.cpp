@@ -19,6 +19,8 @@ bool Menu::loop()
 {
 	Fps_Timer FpsTimer; // init & start fps timer
 
+	mBackgroundMusic.start();
+
 	while (!QuitGame)
 	{
 
@@ -43,6 +45,8 @@ bool Menu::loop()
 		FpsTimer.endFrame();
 	} // main loop 
 	
+	mBackgroundMusic.stop();
+
 	return false;
 }
 bool Menu::update()
@@ -211,11 +215,15 @@ void Menu::free()
 	mSubButton[static_cast<int>(Btn_Type::CREATE_DECK)].free();
 	mSubButton[static_cast<int>(Btn_Type::SHOW_CARDS)].free();
 	mSubButton[4].free();
+
+	mBackgroundMusic.free();
 }
 
 
 bool Menu::initBtns()
 {
+	mBackgroundMusic.loadMusicFromFile("Data/Music/menu/music1.wav");
+
 	mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].loadFromFile("Data/pvp_btn.png");
 	mSubButton[static_cast<int>(Btn_Type::VS_AI)].loadFromFile("Data/pve_btn.png");
 
