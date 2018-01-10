@@ -38,7 +38,10 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 
 		}
 		else
+		{
 			mGraveyard->add(card);
+			return true;
+		}
 	}
 	else
 		return false;

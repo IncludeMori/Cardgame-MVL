@@ -50,7 +50,7 @@ void Player_Deck::createDeck(const std::shared_ptr<Opponent_Field>&field)
 	deck = lD.loadDeck();
 	std::random_shuffle(deck.begin(), deck.end());
 
-	for (int i = 0; i <deck.size(); i++)
+	for (unsigned int i = 0; i <deck.size(); i++)
 	{
 		std::string y = deck.at(i).substr(1, deck.at(i).size());
 
@@ -87,7 +87,7 @@ void Player_Deck::createDeck(const std::shared_ptr<Opponent_Field>&field)
 
 	
 	// load card_texture
-	for (int i = 0; i < mCard.size(); i++)
+	for (unsigned int i = 0; i < mCard.size(); i++)
 	{
 		if (deck.at(i).at(0) == 'm') dynamic_pointer_cast<Default_Card>(mCard[i])->loadTexture();
 	}

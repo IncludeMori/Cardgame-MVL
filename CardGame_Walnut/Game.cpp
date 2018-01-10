@@ -17,7 +17,7 @@ Game::~Game()
 bool Game::loop()
 {
 	Fps_Timer FpsTimer; // init & start fps timer
-	int fps;
+	float fps;
 	static int counter = 0;
 	while (!QuitGame)
 	{

@@ -80,7 +80,7 @@ bool BoostCard::activate()
 			
 			break; // ALL
 		case(eTarget_spec::RANDOM):  //->Boost one random card
-			srand(time(nullptr));
+			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mDeck->getSize();
 			if (mDeck->CardAt(rnd) != nullptr)
@@ -106,7 +106,7 @@ bool BoostCard::activate()
 			}
 			break;//ALL
 		case(eTarget_spec::RANDOM):
-			srand(time(nullptr));
+			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand->getSize();
 			dynamic_pointer_cast<Default_Card>(mHand->CardAt(rnd))->increase(mStat, mAmount);
@@ -126,7 +126,7 @@ bool BoostCard::activate()
 				dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->increase(mStat, mAmount);
 			break;
 		case(eTarget_spec::RANDOM):
-			srand(time(nullptr));
+			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand->getSize();
 			dynamic_pointer_cast<Default_Card>(mField->CardAt(rnd))->increase(mStat, mAmount);
@@ -167,4 +167,5 @@ bool BoostCard::activate()
 	default:
 		return false;
 	}
+	return false;
 }

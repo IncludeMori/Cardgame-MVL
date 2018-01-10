@@ -28,11 +28,12 @@ std::vector<std::string> GetFiles::getFiles(const std::string &p)
 			}
 
 			std::sort(files.begin(), files.end());
-			for (int i = 0; i < files.size(); i++)
+			for (unsigned int i = 0; i < files.size(); i++)
 				std::cout << files[i] << std::endl;
 
 			return files;
 		}
+		else return files;
 	}
 	else return files;
 }

@@ -91,4 +91,5 @@ std::string getEffectAsString::getAsString(StatIndex stat_index, int index)
 		}
 		break;
 	}
+	return "ERROR";
 }

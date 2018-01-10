@@ -25,7 +25,7 @@ void Effect_Description::render()
 {
 	mBackground.render();
 
-	for (int i = 0; i < mEffectDescr.size(); i++)
+	for (unsigned int i = 0; i < mEffectDescr.size(); i++)
 		mEffectDescr.at(i).render();
 }
 void Effect_Description::setPos(int x, int y)
@@ -34,7 +34,7 @@ void Effect_Description::setPos(int x, int y)
 	y = y + 75;
 	mBackground.setPos(x, y);
 
-	for (int i=0;i<mEffectDescr.size();i++)
+	for (unsigned int i=0;i<mEffectDescr.size();i++)
 	mEffectDescr.at(i).setPos(x+5, y+(i*30));
 
 	//....
@@ -45,7 +45,7 @@ void Effect_Description::setEffect(std::vector<std::string> &effects)
 	mEffectDescr.resize(effects.size());
 	int size = 24;
 
-	for (int i = 0; i < mEffectDescr.size(); i++)
+	for (unsigned int i = 0; i < mEffectDescr.size(); i++)
 		mEffectDescr.at(i).loadFromRenderedText(size, effects.at(i));
 
 }
@@ -54,6 +54,6 @@ void Effect_Description::free()
 {
 	mBackground.free();
 	
-	for (int i = 0; i < mEffectDescr.size(); i++)
+	for (unsigned int i = 0; i < mEffectDescr.size(); i++)
 		mEffectDescr.at(i).free();
 }

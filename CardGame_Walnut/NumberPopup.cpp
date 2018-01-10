@@ -21,7 +21,7 @@ void NumberPopup::render()
 	update();
 	
 
-	for (int i = 0; i < mStat.size(); i++)
+	for (unsigned int i = 0; i < mStat.size(); i++)
 	{
 		mNumberBackground.setPos(mPosX.at(i)-15,mPosY.at(i));
 		CurrentNumbers.setPos(mPosX.at(i)+23, mPosY.at(i)+30);
