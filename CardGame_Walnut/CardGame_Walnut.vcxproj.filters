@@ -13,549 +13,591 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{b49eadf1-5a00-4f51-b2ce-b44dd247255f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Opponent">
+      <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Card">
+      <UniqueIdentifier>{6892ab86-bbb4-47a3-bf0b-594b053dc934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{492fac10-fd6f-4b53-ab4e-6c2ad65dc63b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="load">
+      <UniqueIdentifier>{20713368-0fb9-4768-9203-6b1fbdffe8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="save">
+      <UniqueIdentifier>{145bab20-da40-4209-aea5-9e3da4b4c679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manage Turn">
+      <UniqueIdentifier>{f593d9c2-924a-4add-8669-bf1c5c690382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Card Effects">
+      <UniqueIdentifier>{a0a75e16-5904-4f11-ade0-6ca46bcb013c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dev">
+      <UniqueIdentifier>{3b8ad610-0cfd-4d87-958b-a696ca8a9fd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menue">
+      <UniqueIdentifier>{45900e88-b49f-439f-b61a-846d2d3a2f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{6bd2a3a6-fa5f-424b-b50d-7a655767d36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDLNet">
+      <UniqueIdentifier>{dab0fd83-e608-47a9-8b90-0ee68c442d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDL">
+      <UniqueIdentifier>{51dd191e-28b4-449a-9fd6-d7a3fa8452a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{336a1cad-e022-4ea0-99b4-e0b6537bf6d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{a68183ea-946e-4a01-a9a4-fba6f82c7563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other Stuff">
+      <UniqueIdentifier>{b0fea79e-e1a3-46a9-862a-e312826f0ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Namespace">
+      <UniqueIdentifier>{d699e7e4-fbb1-44e1-9388-24e42f906dc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Field,Hand,Deck">
+      <UniqueIdentifier>{7fdc5b8d-702f-4cb7-b2ec-e0faa53a3f02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Arrow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Audio_class.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Basic_Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Battlecry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BoostCard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CL_EventHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Click_EventHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collection_Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collection_EH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collection_Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Create_Deck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CurrentTurn.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Deathwish.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Deck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Default_Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="draw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="draw_collection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicNumbers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect_Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect_Description.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EffectField.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EffectManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Effects.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnergyInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnergySign.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Escape_Overlay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Field.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FPS_Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Frame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEndScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameField.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLoop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObj.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="getEffectAsString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GetFiles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Graveyard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HealOrDmg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HeroHealth.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HostSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hover_Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Icons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IPAdress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Load_Deck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="loadCards.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ManageCardsC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu_Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu_Play.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Name_Plate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Net_Interface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberPopup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opponent_Deck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opponent_Field.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Opponent_Hand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Place.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Deck.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Field.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Hand.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Player</Filter>
     </ClCompile>
-    <ClCompile Include="Resource.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Opponent.cpp">
+      <Filter>Opponent</Filter>
     </ClCompile>
-    <ClCompile Include="Save_Deck.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Opponent_Deck.cpp">
+      <Filter>Opponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Opponent_Field.cpp">
+      <Filter>Opponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Opponent_Hand.cpp">
+      <Filter>Opponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic_Card.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="BoostCard.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Collection_Card.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Default_Card.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect_Card.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Hover_Card.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="loadCards.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageCardsC.cpp">
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio_class.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="GameField.cpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="Hand.cpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="Create_Deck.cpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="Load_Deck.cpp">
+      <Filter>load</Filter>
     </ClCompile>
     <ClCompile Include="Save_Manager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>save</Filter>
     </ClCompile>
-    <ClCompile Include="SDL_init.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Save_Deck.cpp">
+      <Filter>save</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentTurn.cpp">
+      <Filter>Manage Turn</Filter>
+    </ClCompile>
+    <ClCompile Include="getEffectAsString.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect_Description.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectField.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectManager.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>dev</Filter>
+    </ClCompile>
+    <ClCompile Include="draw_collection.cpp">
+      <Filter>dev</Filter>
+    </ClCompile>
+    <ClCompile Include="Collection_Menu.cpp">
+      <Filter>Menue</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menue</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Button.cpp">
+      <Filter>Menue</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Play.cpp">
+      <Filter>Menue</Filter>
+    </ClCompile>
+    <ClCompile Include="bTexture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultTexture.cpp">
+      <Filter>Texture</Filter>
     </ClCompile>
     <ClCompile Include="SDLNet_init.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>SDLNet</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL_init.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEndScreen.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLoop.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="ShowGameObjInfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StatsSign.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="TcpSocket.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>SDLNet</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Net_Interface.cpp">
+      <Filter>SDLNet</Filter>
+    </ClCompile>
+    <ClCompile Include="IPAdress.cpp">
+      <Filter>SDLNet</Filter>
+    </ClCompile>
+    <ClCompile Include="HostSocket.cpp">
+      <Filter>SDLNet</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Battlecry.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Deathwish.cpp">
+      <Filter>Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Click_EventHandler.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_EventHandler.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Menue</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EnergySign.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EnergyInterface.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumbers.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Escape_Overlay.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FPS_Timer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Graveyard.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Icons.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Name_Plate.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberPopup.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Place.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsSign.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Card</Filter>
     </ClCompile>
     <ClCompile Include="TTF_Text.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Collection_EH.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GetFiles.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="HealOrDmg.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroHealth.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Victory_Loss_Screen.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arrow.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Audio_class.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Basic_Card.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Battlecry.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BoostCard.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bTexture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Card_Effects.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Card_Types.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CL_EventHandler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CL_EventNames.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Click_EventHandler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientSocket.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Collection_Card.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Collection_EH.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Collection_Menu.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Create_Deck.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CurrentTurn.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Deathwish.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Deck.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Default_Card.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultTexture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="draw.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="draw_collection.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicNumbers.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="eBoost.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="eCard_Effects.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect_Card.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect_Description.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EffectField.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EffectManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effects.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnergyInterface.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnergySign.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ePosition.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Escape_Overlay.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fdeleter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Field.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FPS_Timer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Frame.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEndScreen.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameField.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLoop.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObj.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="getEffectAsString.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GetFiles.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gMouse.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gQuit.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graveyard.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gRenderer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gScreenSize.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hand.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HealOrDmg.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hero.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HeroHealth.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HostSocket.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hover_Card.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Icons.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IPAdress.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Load_Deck.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="loadCards.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Main_Btn_Enum.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ManageCardsC.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu_Button.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu_Play.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuBtn_Enum.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Name_Plate.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Net_Interface.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NumberPopup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opponent_Deck.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opponent_Field.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Opponent_Hand.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Place.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player_Deck.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Player_Hand.hpp">
+      <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="Player_Field.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Player</Filter>
     </ClInclude>
-    <ClInclude Include="Player_Hand.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Player_Deck.hpp">
+      <Filter>Player</Filter>
     </ClInclude>
-    <ClInclude Include="Rarity.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Player.hpp">
+      <Filter>Player</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Opponent.hpp">
+      <Filter>Opponent</Filter>
     </ClInclude>
-    <ClInclude Include="Save_Deck.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Opponent_Deck.hpp">
+      <Filter>Opponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Opponent_Field.hpp">
+      <Filter>Opponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Opponent_Hand.hpp">
+      <Filter>Opponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic_Card.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="BoostCard.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Card_Effects.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Card_Types.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection_Card.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Default_Card.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="eCard_Effects.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect_Card.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Hover_Card.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="loadCards.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageCardsC.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio_class.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.hpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="GameField.hpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="Hand.hpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Deck.hpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.hpp">
+      <Filter>Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="Load_Deck.hpp">
+      <Filter>load</Filter>
     </ClInclude>
     <ClInclude Include="Save_Manager.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>save</Filter>
     </ClInclude>
-    <ClInclude Include="SDL_init.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Save_Deck.hpp">
+      <Filter>save</Filter>
     </ClInclude>
-    <ClInclude Include="SDLNet_init.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShowGameObjInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StatsSign.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sub_Btn_Enum.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpSocket.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TTF_Text.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CurrentTurn.hpp">
+      <Filter>Manage Turn</Filter>
     </ClInclude>
     <ClInclude Include="Turn_Enum.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Manage Turn</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect_Description.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectField.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectManager.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="getEffectAsString.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.hpp">
+      <Filter>dev</Filter>
+    </ClInclude>
+    <ClInclude Include="draw_collection.hpp">
+      <Filter>dev</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection_Menu.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Button.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Play.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBtn_Enum.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="bTexture.hpp">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultTexture.hpp">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLNet_init.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_init.hpp">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Battlecry.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Deathwish.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="eBoost.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="HealOrDmg.hpp">
+      <Filter>Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEndScreen.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLoop.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowGameObjInfo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSocket.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="HostSocket.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="IPAdress.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="Net_Interface.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpSocket.hpp">
+      <Filter>SDLNet</Filter>
+    </ClInclude>
+    <ClInclude Include="CL_EventHandler.hpp">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="CL_EventNames.hpp">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Click_EventHandler.hpp">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EnergyInterface.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EnergySign.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Escape_Overlay.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="fdeleter.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FPS_Timer.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Graveyard.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroHealth.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Icons.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Name_Plate.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberPopup.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsSign.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.hpp">
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Victory_Loss_Screen.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="WalnutResult.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Button.hpp">
+      <Filter>Menue</Filter>
+    </ClInclude>
+    <ClInclude Include="gMouse.hpp">
+      <Filter>Namespace</Filter>
+    </ClInclude>
+    <ClInclude Include="gQuit.hpp">
+      <Filter>Namespace</Filter>
+    </ClInclude>
+    <ClInclude Include="gRenderer.hpp">
+      <Filter>Namespace</Filter>
+    </ClInclude>
+    <ClInclude Include="gScreenSize.hpp">
+      <Filter>Namespace</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Rarity.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="TTF_Text.hpp">
+      <Filter>Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection_EH.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Sub_Btn_Enum.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Place.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Main_Btn_Enum.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GetFiles.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ePosition.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNumbers.hpp">
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Who.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -131,7 +131,6 @@
     <ClCompile Include="BoostCard.cpp" />
     <ClCompile Include="bTexture.cpp" />
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Click_EventHandler.cpp" />
     <ClCompile Include="ClientSocket.cpp" />
     <ClCompile Include="CL_EventHandler.cpp" />
@@ -214,7 +213,6 @@
     <ClInclude Include="BoostCard.hpp" />
     <ClInclude Include="bTexture.hpp" />
     <ClInclude Include="Button.hpp" />
-    <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Card_Effects.hpp" />
     <ClInclude Include="Card_Types.hpp" />
     <ClInclude Include="Click_EventHandler.hpp" />
@@ -299,12 +297,10 @@
     <ClInclude Include="StatsSign.hpp" />
     <ClInclude Include="Sub_Btn_Enum.hpp" />
     <ClInclude Include="TcpSocket.hpp" />
-    <ClInclude Include="test.h" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="TTF_Text.hpp" />
     <ClInclude Include="Turn_Enum.hpp" />
     <ClInclude Include="Victory_Loss_Screen.hpp" />
-    <ClInclude Include="WalnutResult.hpp" />
     <ClInclude Include="Who.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
