@@ -188,7 +188,6 @@
     <ClCompile Include="Opponent_Deck.cpp" />
     <ClCompile Include="Opponent_Field.cpp" />
     <ClCompile Include="Opponent_Hand.cpp" />
-    <ClCompile Include="Place.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_Deck.cpp" />
     <ClCompile Include="Player_Field.cpp" />
@@ -282,7 +281,6 @@
     <ClInclude Include="Opponent_Deck.hpp" />
     <ClInclude Include="Opponent_Field.hpp" />
     <ClInclude Include="Opponent_Hand.hpp" />
-    <ClInclude Include="Place.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Player_Deck.hpp" />
     <ClInclude Include="Player_Field.hpp" />
