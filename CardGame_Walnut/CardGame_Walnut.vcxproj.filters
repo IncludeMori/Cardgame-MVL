@@ -332,6 +332,7 @@
     <ClCompile Include="DynamicNumbers.cpp">
       <Filter>Game_\Card</Filter>
     </ClCompile>
+    <ClCompile Include="Place.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -617,5 +618,6 @@
     <ClInclude Include="DynamicNumbers.hpp">
       <Filter>Game_\Card</Filter>
     </ClInclude>
+    <ClInclude Include="Place.hpp" />
   </ItemGroup>
 </Project>
