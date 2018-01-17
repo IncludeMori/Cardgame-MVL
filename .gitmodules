@@ -1,3 +1,6 @@
 [submodule "CardGame_Walnut/Card_Files"]
-	path = CardGame_Walnut/Card_Files
+	path = CardGame_Walnut/Data/Cards_Lua
 	url = git://github.com/IncludeMori/Cardgame_W-Cards
+[submodule "CardGame_Walnut/Data/Card_Png"]
+	path = Cardgame_Walnut/Data/Cards_Png
+	url = git://github.com/IncludeMori/Cardgame_W-Cards-PNG-.git
