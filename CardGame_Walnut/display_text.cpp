@@ -71,7 +71,8 @@ void Text::renderText(int x, int y, const std::string &text)
 				int letter = (unsigned char)text[i];
 				
 				//Show the character
-				mTexture.render(curX, curY, &mChar[letter]);
+				mTexture.setPos(curX, curY);
+				mTexture.render(&mChar[letter]);
 
 				//Move over the width of the character with one pixel of padding
 				curX += mChar[letter].w -5;
