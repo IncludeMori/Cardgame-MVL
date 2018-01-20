@@ -23,14 +23,17 @@ private:
 	void resume();
 
 	void playNext();
+	void playPrev();
 	void mute();
 
 	std::vector<Music> BMusic;
 	std::vector<std::string> BMusicName;
+	//std::vector<std::string> BMusicAuthor;
 
-	Button Next, Resume, Stop, Mute;
-	TTF_Text CurrentSong;
+	Button NextBtn, PrevBtn, PauseBtn, ResumeBtn, StopBtn;
+	TTF_Text CurrentSong, Intro;
 	int CurrentSongIndex;
+	SDL_Rect MusicBox;
 
 };
 

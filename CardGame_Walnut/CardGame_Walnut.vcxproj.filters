@@ -334,6 +334,7 @@
     <ClCompile Include="Create_Deck.cpp">
       <Filter>Game_\Collection</Filter>
     </ClCompile>
+    <ClCompile Include="display_text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -621,5 +622,6 @@
     <ClInclude Include="Create_Deck.hpp">
       <Filter>Game_\Collection</Filter>
     </ClInclude>
+    <ClInclude Include="display_text.hpp" />
   </ItemGroup>
 </Project>
