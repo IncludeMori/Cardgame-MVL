@@ -66,6 +66,10 @@ Music::Music()
 {
 	mMusic = NULL;
 }
+Music::Music(std::string &path)
+{
+	loadMusicFromFile(path);
+}
 
 Music::~Music()
 {
@@ -73,7 +77,7 @@ Music::~Music()
 
 }
 
-bool Music::loadMusicFromFile(std::string path)
+bool Music::loadMusicFromFile(std::string &path)
 {
 	std::cout << "Load music from:" << path << std::endl;
 	mMusic = Mix_LoadMUS(path.c_str()); // can load mp3,ogg,  etc (background music, only one at a time)

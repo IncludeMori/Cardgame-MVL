@@ -144,9 +144,6 @@
     <ClCompile Include="Deck.cpp">
       <Filter>Game_\Field,Hand,Deck</Filter>
     </ClCompile>
-    <ClCompile Include="Create_Deck.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
-    </ClCompile>
     <ClCompile Include="Load_Deck.cpp">
       <Filter>Game_\loadSave</Filter>
     </ClCompile>
@@ -333,6 +330,10 @@
       <Filter>Game_\Card</Filter>
     </ClCompile>
     <ClCompile Include="Place.cpp" />
+    <ClCompile Include="Menu_Music.cpp" />
+    <ClCompile Include="Create_Deck.cpp">
+      <Filter>Game_\Collection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -384,9 +385,6 @@
       <Filter>Game_\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Hand.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
-    </ClInclude>
-    <ClInclude Include="Create_Deck.hpp">
       <Filter>Game_\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Deck.hpp">
@@ -619,5 +617,9 @@
       <Filter>Game_\Card</Filter>
     </ClInclude>
     <ClInclude Include="Place.hpp" />
+    <ClInclude Include="Menu_Music.hpp" />
+    <ClInclude Include="Create_Deck.hpp">
+      <Filter>Game_\Collection</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

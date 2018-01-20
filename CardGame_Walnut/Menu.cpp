@@ -19,7 +19,6 @@ bool Menu::loop()
 {
 	Fps_Timer FpsTimer; // init & start fps timer
 
-	mBackgroundMusic.start();
 
 	while (!QuitGame)
 	{
@@ -35,6 +34,7 @@ bool Menu::loop()
 		FpsTimer.calcFps();
 
 		if (!update())
+
 			QuitGame = true;
 
 		SDL_RenderClear(gRenderer); //clear screen
@@ -45,14 +45,13 @@ bool Menu::loop()
 		FpsTimer.endFrame();
 	} // main loop 
 	
-	mBackgroundMusic.stop();
-
 	return false;
 }
 bool Menu::update()
 {
 	gMouse.update();
 	SDL_PollEvent(&e);
+	
 
 	if (Esc_Overlay.update(e))
 	{
@@ -122,6 +121,8 @@ bool Menu::update()
 
 
 	}
+	Music.update();
+
 
 	if (mActiveSubBtn != Btn_Type::ERROR)
 		return false;
@@ -155,6 +156,8 @@ void Menu::render()
 		Esc_Overlay.render();
 
 	drawRect(rect);
+
+	Music.render();
 }
 
 bool Menu::isActive()
@@ -215,15 +218,11 @@ void Menu::free()
 	mSubButton[static_cast<int>(Btn_Type::CREATE_DECK)].free();
 	mSubButton[static_cast<int>(Btn_Type::SHOW_CARDS)].free();
 	mSubButton[4].free();
-
-	mBackgroundMusic.free();
 }
 
 
 bool Menu::initBtns()
 {
-	mBackgroundMusic.loadMusicFromFile("Data/Music/menu/music1.wav");
-
 	mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].loadFromFile("Data/pvp_btn.png");
 	mSubButton[static_cast<int>(Btn_Type::VS_AI)].loadFromFile("Data/pve_btn.png");
 

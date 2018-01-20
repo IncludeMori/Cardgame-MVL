@@ -179,6 +179,7 @@
     <ClCompile Include="ManageCardsC.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Menu_Button.cpp" />
+    <ClCompile Include="Menu_Music.cpp" />
     <ClCompile Include="Menu_Play.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Name_Plate.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="Menu.hpp" />
     <ClInclude Include="MenuBtn_Enum.hpp" />
     <ClInclude Include="Menu_Button.hpp" />
+    <ClInclude Include="Menu_Music.hpp" />
     <ClInclude Include="Menu_Play.hpp" />
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Name_Plate.hpp" />

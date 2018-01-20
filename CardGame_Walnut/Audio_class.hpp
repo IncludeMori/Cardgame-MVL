@@ -36,9 +36,10 @@ class Music
 {
 public:
 	Music();
+	Music(std::string &path);
 	~Music();
 	
-	bool loadMusicFromFile(std::string path); //load music from file
+	bool loadMusicFromFile(std::string &path); //load music from file
 
 	//various actions									  
 	void start();   
