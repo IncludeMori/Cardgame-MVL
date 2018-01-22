@@ -11,6 +11,7 @@ public:
 	InputField(int width, int height);
 	InputField(int x, int y, int w, int h);
 
+	void update();
 	void render();
 
 

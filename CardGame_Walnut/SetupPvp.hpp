@@ -1,5 +1,9 @@
 #pragma once
 
+#include "InputField.hpp"
+#include "Button.hpp"
+#include "TTF_Text.hpp"
+
 class SetupPvp
 {
 public:
@@ -9,5 +13,9 @@ public:
 	void render();
 
 private:
-	
+	Button mCreateServBtn, mConnectBtn;
+
+	TTF_Text mHostIP; //local host ip
+	InputField mInputIP; //
+
 };
