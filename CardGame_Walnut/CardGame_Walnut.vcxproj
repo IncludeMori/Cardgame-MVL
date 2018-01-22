@@ -199,6 +199,7 @@
     <ClCompile Include="Player_Deck.cpp" />
     <ClCompile Include="Player_Field.cpp" />
     <ClCompile Include="Player_Hand.cpp" />
+    <ClCompile Include="pvp-setup.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Save_Deck.cpp" />
     <ClCompile Include="Save_Manager.cpp" />
@@ -299,6 +300,7 @@
     <ClInclude Include="Player_Deck.hpp" />
     <ClInclude Include="Player_Field.hpp" />
     <ClInclude Include="Player_Hand.hpp" />
+    <ClInclude Include="pvp-setup.hpp" />
     <ClInclude Include="Rarity.hpp" />
     <ClInclude Include="Resource.hpp" />
     <ClInclude Include="Save_Deck.hpp" />

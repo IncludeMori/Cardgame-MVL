@@ -18,6 +18,8 @@
 #include "Menu_Music.hpp"
 #include "FPS_Timer.hpp"
 
+#include "pvp-setup.hpp"
+
 
 class Menu
 {

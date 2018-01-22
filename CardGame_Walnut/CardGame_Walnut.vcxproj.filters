@@ -100,6 +100,9 @@
     <Filter Include="Game_\PVP">
       <UniqueIdentifier>{6e5ca9d6-b5cb-45e6-ab6c-92e684f14387}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game_\main-menu\pvp-setup">
+      <UniqueIdentifier>{52a77bfd-8b5e-4481-bc95-cb768220c566}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -349,6 +352,9 @@
     </ClCompile>
     <ClCompile Include="connectPVP.cpp">
       <Filter>Game_\PVP</Filter>
+    </ClCompile>
+    <ClCompile Include="pvp-setup.cpp">
+      <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -649,6 +655,9 @@
     </ClInclude>
     <ClInclude Include="connectPVP.hpp">
       <Filter>Game_\PVP</Filter>
+    </ClInclude>
+    <ClInclude Include="pvp-setup.hpp">
+      <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
