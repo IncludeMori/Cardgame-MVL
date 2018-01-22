@@ -353,9 +353,10 @@
     <ClCompile Include="connectPVP.cpp">
       <Filter>Game_\PVP</Filter>
     </ClCompile>
-    <ClCompile Include="pvp-setup.cpp">
+    <ClCompile Include="SetupPvp.cpp">
       <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClCompile>
+    <ClCompile Include="InputField.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -656,8 +657,9 @@
     <ClInclude Include="connectPVP.hpp">
       <Filter>Game_\PVP</Filter>
     </ClInclude>
-    <ClInclude Include="pvp-setup.hpp">
+    <ClInclude Include="SetupPvp.hpp">
       <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClInclude>
+    <ClInclude Include="InputField.hpp" />
   </ItemGroup>
 </Project>

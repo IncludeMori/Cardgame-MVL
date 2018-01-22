@@ -18,7 +18,7 @@
 #include "Menu_Music.hpp"
 #include "FPS_Timer.hpp"
 
-#include "pvp-setup.hpp"
+#include "SetupPvp.hpp"
 
 
 class Menu
@@ -43,6 +43,7 @@ public:
 	void free();
 
 private:
+	SetupPvp PvpMenu;
 
 	Fps_Timer FpsTimer; // init & start fps timer
 	Menu_Music Music;

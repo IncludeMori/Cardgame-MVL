@@ -176,6 +176,7 @@
     <ClCompile Include="Hover_Card.cpp" />
     <ClCompile Include="Icons.cpp" />
     <ClCompile Include="initPVP.cpp" />
+    <ClCompile Include="InputField.cpp" />
     <ClCompile Include="IPAdress.cpp" />
     <ClCompile Include="loadCards.cpp" />
     <ClCompile Include="Load_Deck.cpp" />
@@ -199,7 +200,7 @@
     <ClCompile Include="Player_Deck.cpp" />
     <ClCompile Include="Player_Field.cpp" />
     <ClCompile Include="Player_Hand.cpp" />
-    <ClCompile Include="pvp-setup.cpp" />
+    <ClCompile Include="SetupPvp.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Save_Deck.cpp" />
     <ClCompile Include="Save_Manager.cpp" />
@@ -276,6 +277,7 @@
     <ClInclude Include="Hover_Card.hpp" />
     <ClInclude Include="Icons.hpp" />
     <ClInclude Include="initPVP.hpp" />
+    <ClInclude Include="InputField.hpp" />
     <ClInclude Include="IPAdress.hpp" />
     <ClInclude Include="loadCards.hpp" />
     <ClInclude Include="Load_Deck.hpp" />
@@ -300,7 +302,7 @@
     <ClInclude Include="Player_Deck.hpp" />
     <ClInclude Include="Player_Field.hpp" />
     <ClInclude Include="Player_Hand.hpp" />
-    <ClInclude Include="pvp-setup.hpp" />
+    <ClInclude Include="SetupPvp.hpp" />
     <ClInclude Include="Rarity.hpp" />
     <ClInclude Include="Resource.hpp" />
     <ClInclude Include="Save_Deck.hpp" />

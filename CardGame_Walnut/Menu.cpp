@@ -61,6 +61,11 @@ bool Menu::update()
 	{
 		if (x != 0)
 		{
+			if (mActiveSubBtn == Btn_Type::VS_PLAYER)
+			{
+				PvpMenu.update();
+			}
+	
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
@@ -121,7 +126,7 @@ bool Menu::update()
 	Music.update();
 
 
-	if (mActiveSubBtn != Btn_Type::ERROR)
+	if (mActiveSubBtn != Btn_Type::ERROR && mActiveSubBtn != Btn_Type::VS_PLAYER)
 		return false;
 
 	return true;
@@ -136,8 +141,15 @@ void Menu::render()
 	switch (mActiveButton)
 	{
 	case(PLAY_BTN):
-		mSubButton[0].render();
-		mSubButton[1].render();
+		if (mActiveSubBtn == Btn_Type::VS_PLAYER)
+		{
+			PvpMenu.render();
+		}
+		else
+		{
+			mSubButton[0].render();
+			mSubButton[1].render();
+		}
 		break;
 	case(COLLECTION_BTN):
 		mSubButton[2].render();
@@ -271,7 +283,7 @@ bool Menu::initBtns()
 
 	mButtons[CREDITS_BTN].setPos(X_POSITION, Y_POSITION);
 
-	mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].disable();
+	//mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].disable();
 	mButtons[CREDITS_BTN].disable();
 	mSubButton[static_cast<int>(Btn_Type::SHOW_CARDS)].disable();
 
