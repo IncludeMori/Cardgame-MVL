@@ -4,7 +4,6 @@
 #include <iostream>
 #include "gMouse.hpp"
 #include "gQuit.hpp"
-#include "FPS_Timer.hpp"
 #include "display_text.hpp"
 
 Menu::Menu()
@@ -18,10 +17,6 @@ Menu::~Menu()
 
 bool Menu::loop()
 {
-	Fps_Timer FpsTimer; // init & start fps timer
-	Text ShowFps;
-	ShowFps.setPos(5, 5);
-
 	while (!QuitGame)
 	{
 
@@ -33,7 +28,7 @@ bool Menu::loop()
 
 
 		FpsTimer.start();
-		ShowFps.initText(std::to_string(FpsTimer.calcFps()));
+		FpsTimer.calcFps(); //
 
 		if (!update())
 
@@ -41,7 +36,6 @@ bool Menu::loop()
 
 		SDL_RenderClear(gRenderer); //clear screen
 		render();
-		ShowFps.renderText();
 
 		SDL_RenderPresent(gRenderer); // update screen
 
@@ -162,6 +156,8 @@ void Menu::render()
 
 	Music.render();
 
+	FpsTimer.render();
+
 	
 }
 
@@ -201,6 +197,8 @@ bool Menu::setActive()
 
 Btn_Type Menu::activeBtn()
 {
+	if (mActiveSubBtn == Btn_Type::VS_PLAYER || mActiveSubBtn == Btn_Type::VS_AI)
+		Music.stop();
 	return mActiveSubBtn;
 }
 

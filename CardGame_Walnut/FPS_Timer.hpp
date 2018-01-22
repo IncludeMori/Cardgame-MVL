@@ -6,11 +6,14 @@
 #pragma once
 
 #include "Timer.hpp"
+#include "display_text.hpp"
 
 class Fps_Timer
 {
 public:
 	Fps_Timer();
+
+	void render();
 
 	void start();
 	void endFrame();
@@ -27,4 +30,6 @@ private:
 
 	Timer fpsTimer;
 	Timer capTimer;
+
+	Text ShowFps;
 };

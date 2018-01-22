@@ -137,6 +137,8 @@
     <ClCompile Include="Collection_Card.cpp" />
     <ClCompile Include="Collection_EH.cpp" />
     <ClCompile Include="Collection_Menu.cpp" />
+    <ClCompile Include="connectionData.cpp" />
+    <ClCompile Include="connectPVP.cpp" />
     <ClCompile Include="Create_Deck.cpp" />
     <ClCompile Include="CurrentTurn.cpp" />
     <ClCompile Include="Deathwish.cpp" />
@@ -173,6 +175,7 @@
     <ClCompile Include="HostSocket.cpp" />
     <ClCompile Include="Hover_Card.cpp" />
     <ClCompile Include="Icons.cpp" />
+    <ClCompile Include="initPVP.cpp" />
     <ClCompile Include="IPAdress.cpp" />
     <ClCompile Include="loadCards.cpp" />
     <ClCompile Include="Load_Deck.cpp" />
@@ -182,6 +185,7 @@
     <ClCompile Include="Menu_Button.cpp" />
     <ClCompile Include="Menu_Music.cpp" />
     <ClCompile Include="Menu_Play.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Name_Plate.cpp" />
     <ClCompile Include="Net_Interface.cpp" />
@@ -224,6 +228,8 @@
     <ClInclude Include="Collection_Card.hpp" />
     <ClInclude Include="Collection_EH.hpp" />
     <ClInclude Include="Collection_Menu.hpp" />
+    <ClInclude Include="connectionData.hpp" />
+    <ClInclude Include="connectPVP.hpp" />
     <ClInclude Include="Create_Deck.hpp" />
     <ClInclude Include="CurrentTurn.hpp" />
     <ClInclude Include="Deathwish.hpp" />
@@ -268,6 +274,7 @@
     <ClInclude Include="HostSocket.hpp" />
     <ClInclude Include="Hover_Card.hpp" />
     <ClInclude Include="Icons.hpp" />
+    <ClInclude Include="initPVP.hpp" />
     <ClInclude Include="IPAdress.hpp" />
     <ClInclude Include="loadCards.hpp" />
     <ClInclude Include="Load_Deck.hpp" />
@@ -278,6 +285,7 @@
     <ClInclude Include="Menu_Button.hpp" />
     <ClInclude Include="Menu_Music.hpp" />
     <ClInclude Include="Menu_Play.hpp" />
+    <ClInclude Include="Message.hpp" />
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Name_Plate.hpp" />
     <ClInclude Include="Net_Interface.hpp" />

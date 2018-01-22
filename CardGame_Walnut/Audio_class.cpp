@@ -64,26 +64,36 @@ void Sample::free()
 
 Music::Music()
 {
-	mMusic = NULL;
+	mMusic = nullptr;
+	//mMusic2 = nullptr;
 }
 Music::Music(std::string &path)
 {
-	loadMusicFromFile(path);
+	std::string x = "Data/Music/menu/" + path;
+	loadMusicFromFile(x);
 }
+
+//Music::Music(const Music &music)
+//{
+//	std::cout << "calling copy construktor" << std::endl;
+//	mMusic2.reset(music.mMusic2);
+//}
 
 Music::~Music()
 {
-	free();
+	//free();
 
 }
+
 
 bool Music::loadMusicFromFile(std::string &path)
 {
 	std::cout << "Load music from:" << path << std::endl;
-	mMusic = Mix_LoadMUS(path.c_str()); // can load mp3,ogg,  etc (background music, only one at a time)
+	//mMusic2.reset(Mix_LoadMUS(path.c_str())); // can load mp3,ogg,  etc (background music, only one at a time)
+	mMusic = Mix_LoadMUS(path.c_str());
 	if (mMusic == nullptr)
-		std::cout << "EERRRROOOR" << std::endl;
-
+		std::cout << "loadMusic failed." << std::endl;
+	//mMusic2.reset(mMusic);
 	return true;
 }
 
@@ -120,6 +130,9 @@ void Music::stop()
 //close
 void Music::free()
 {
-	Mix_FreeMusic(mMusic);
-	mMusic = NULL;
+	std::cout << "free called" << std::endl;
+	if (this != nullptr)
+		if (mMusic != nullptr)
+			Mix_FreeMusic(mMusic);
+	mMusic = nullptr;
 }

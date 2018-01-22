@@ -16,21 +16,24 @@ public:
 	void update();
 	void render();
 
+	void stop();
+
 private:
 	void start();
 
-	void pause();
-	void resume();
+	void callButton(int btn);
+	//void pause();
+	//void resume();
 
-	void playNext();
-	void playPrev();
-	void mute();
+	//void playNext();
+	//void playPrev();
+	//void stop();
 
 	std::vector<Music> BMusic;
 	std::vector<std::string> BMusicName;
 	//std::vector<std::string> BMusicAuthor;
 
-	Button NextBtn, PrevBtn, PauseBtn, ResumeBtn, StopBtn;
+	Button MusicBtn[5];
 	TTF_Text CurrentSong, Intro;
 	int CurrentSongIndex;
 	SDL_Rect MusicBox;

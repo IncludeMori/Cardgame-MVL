@@ -10,6 +10,12 @@
 #include <SDL_mixer.h>
 
 #include <string>
+#include <memory>
+
+struct sdl_deleter
+{
+	void operator()(Mix_Music *p) const { Mix_FreeMusic(p); }
+};
 
 // Sound effects
 class Sample
@@ -37,7 +43,16 @@ class Music
 public:
 	Music();
 	Music(std::string &path);
+	Music(const Music &music) = default;
 	~Music();
+
+	Music &operator = (const Music &music) = default;
+	//{
+	//	if (this != &music)
+	//	{
+	//		mMusic = music.mMusic;
+	//	}
+	//}
 	
 	bool loadMusicFromFile(std::string &path); //load music from file
 
@@ -50,4 +65,5 @@ public:
 
 private:
 	Mix_Music* mMusic; // The music file
+	//std::unique_ptr<Mix_Music, sdl_deleter> kacke;
 };

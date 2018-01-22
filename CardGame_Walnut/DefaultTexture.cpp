@@ -143,7 +143,7 @@ void DefaultTexture::free()
 		mTexture = nullptr;
 		mWidth = 0;
 		mHeight = 0;
-		mPosX = 0;
-		mPosY = 0;
+		//mPosX = 0;
+		//mPosY = 0;
 	}
 }

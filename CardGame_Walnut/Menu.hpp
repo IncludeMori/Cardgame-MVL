@@ -16,6 +16,7 @@
 #include "Escape_Overlay.hpp"
 
 #include "Menu_Music.hpp"
+#include "FPS_Timer.hpp"
 
 
 class Menu
@@ -41,6 +42,7 @@ public:
 
 private:
 
+	Fps_Timer FpsTimer; // init & start fps timer
 	Menu_Music Music;
 
 	Escape_Overlay Esc_Overlay;

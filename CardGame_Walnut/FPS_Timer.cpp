@@ -2,11 +2,17 @@
 
 Fps_Timer::Fps_Timer()
 {
+	ShowFps.setPos(5, 5);
+
 	mCurrentFps = 0;
 	mCounted_frames = 0;
 	fpsTimer.start();
 }
 
+void Fps_Timer::render()
+{
+	ShowFps.renderText();
+}
 void Fps_Timer::start()
 {
 	capTimer.start();
@@ -28,6 +34,10 @@ void Fps_Timer::endFrame()
 float Fps_Timer::calcFps()
 {
 	mCurrentFps = mCounted_frames / (fpsTimer.getTicks() / 1000.f);
+
+	if (mCurrentFps > 59)
+		mCurrentFps = 60;
+	ShowFps.initText(std::to_string((int)mCurrentFps));
 	return mCurrentFps;
 }
 

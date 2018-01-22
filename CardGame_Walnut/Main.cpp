@@ -7,7 +7,6 @@
 #include "SDL_init.hpp"
 #include "GameLoop.hpp"
 
-
 //global renderer -> render texture etc to screen
 SDL_Renderer* gRenderer = nullptr;
 SDL_Window* gWindow = nullptr;
@@ -29,7 +28,6 @@ int main(int argc, char* args[])
 	SDL_init SDL;
 	SDL.SDLinit(SCREEN_WIDTH, SCREEN_HEIGHT, "WINDOW_NAME");
 	
-
 	GameClass myGame; //initialise game
 		
 	myGame.main_loop(); //start main loop

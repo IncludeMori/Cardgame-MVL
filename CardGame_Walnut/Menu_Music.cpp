@@ -6,32 +6,43 @@
 #include "GetFiles.hpp"
 #include "draw.hpp"
 
+#include <iostream>
+
+enum {
+	PAUSE = 0,
+	STOP = 1,
+	RESUME = 2,
+	NEXT = 3,
+	PREV = 4,
+	MAX_BTN = 5
+};
 Menu_Music::Menu_Music()
 {
-	NextBtn.loadFromFile("Data/Menu/skip.png");
-	StopBtn.loadFromFile("Data/Menu/stop.png");
-	ResumeBtn.loadFromFile("Data/Menu/resume.png");
-	PrevBtn.loadFromFile("Data/Menu/prev.png");
-	PauseBtn.loadFromFile("Data/Menu/pause.png");
+	MusicBtn[NEXT].loadFromFile("Data/Menu/skip.png");
+	MusicBtn[STOP].loadFromFile("Data/Menu/stop.png");
+	MusicBtn[RESUME].loadFromFile("Data/Menu/resume.png");
+	MusicBtn[PREV].loadFromFile("Data/Menu/prev.png");
+	MusicBtn[PAUSE].loadFromFile("Data/Menu/pause.png");
 
 	
 	int x = 25;
-	int y = 100;
+	int y = 125;
 	MusicBox = { x-10,y-70,300,110 };
-	PauseBtn.setPos(x, y);
-	StopBtn.setPos(x + 40, y);
-	ResumeBtn.setPos(x+80, y);
-	NextBtn.setPos(x + 120, y);
-	PrevBtn.setPos(x + 160, y);
+	MusicBtn[PAUSE].setPos(x, y);
+	MusicBtn[STOP].setPos(x + 40, y);
+	MusicBtn[RESUME].setPos(x+80, y);
+	MusicBtn[NEXT].setPos(x + 120, y);
+	MusicBtn[PREV].setPos(x + 160, y);
 
 	Intro.setPos(x, y-65);
 	CurrentSong.setPos(x, y-35);
 	GetFiles files;
 	BMusicName = files.getFiles("Data/Music/menu/");
 
-	for (int i=0;i<BMusicName.size();i++)
+	for (int i = 0; i < BMusicName.size(); i++)
+	{
 		BMusic.push_back(Music(BMusicName.at(i)));
-
+	}
 	start();
 }
 
@@ -47,6 +58,9 @@ Menu_Music::~Menu_Music()
 
 void Menu_Music::update()
 {
+	for (int i = 0; i < MAX_BTN; i++)
+		if (MusicBtn[i].IsPressed())
+			callButton(i);
 }
 
 void Menu_Music::render()
@@ -54,17 +68,21 @@ void Menu_Music::render()
 	Intro.render();
 	CurrentSong.render();
 
-	NextBtn.render();
-	PrevBtn.render();
-	StopBtn.render();
-	PauseBtn.render();
-	ResumeBtn.render();
+	MusicBtn[NEXT].render();
+	MusicBtn[PREV].render();
+	MusicBtn[STOP].render();
+	MusicBtn[PAUSE].render();
+	MusicBtn[RESUME].render();
 
 
 	drawRect(MusicBox);
 
 }
 
+void Menu_Music::stop()
+{
+	BMusic.at(CurrentSongIndex).pause();
+}
 
 void Menu_Music::start()
 {
@@ -76,7 +94,38 @@ void Menu_Music::start()
 	Intro.loadFromRenderedText(intro);
 	CurrentSong.loadFromRenderedText(BMusicName.at(i));
 	CurrentSongIndex = i;
+}
 
-
-
+void Menu_Music::callButton(int btn)
+{
+	switch (btn)
+	{
+	case(PAUSE):
+		BMusic.at(CurrentSongIndex).pause();
+		break;
+	case(STOP):
+		BMusic.at(CurrentSongIndex).stop();
+		break;
+	case(RESUME):
+		BMusic.at(CurrentSongIndex).start();
+		break;
+	case(NEXT):
+		CurrentSongIndex++;
+		BMusic.at(CurrentSongIndex - 1).stop();
+		if (CurrentSongIndex < BMusic.size())
+		{
+			BMusic.at(CurrentSongIndex).start();
+			CurrentSong.loadFromRenderedText(BMusicName.at(CurrentSongIndex));
+		}
+		else
+		{
+			CurrentSongIndex = 0;
+			BMusic.at(CurrentSongIndex).start();
+			CurrentSong.loadFromRenderedText(BMusicName.at(CurrentSongIndex));
+		}
+		break;
+	case(PREV):
+		//todo
+		break;
+	}
 }
