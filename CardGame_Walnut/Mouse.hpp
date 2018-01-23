@@ -25,6 +25,8 @@ public:
 	int getX_df(); 
 	int getY_df(); 
 
+	bool isInside(SDL_Rect &rect);
+
 private:
 	int mPosX, mPosY;
 

@@ -5,6 +5,8 @@
 #include "TTF_Text.hpp"
 #include "InputHandler.hpp"
 
+#include "draw.hpp"
+
 class SetupPvp
 {
 public:
@@ -20,13 +22,18 @@ private:
 	bool mIsActive;
 
 	Button mCreateServBtn, mConnectBtn, mBackBtn;
+	Button mConnectToServer;
 
 	TTF_Text mHostIP; //local host ip
+	TTF_Text EnterIP,EnterPort;
 	//InputField mInputIP; //
 
-	Text mIPInput;
+	Text mIPInput,mPortInput;
 	InputHandler mhandleInput;
 
-	bool connectIsActive = false;
+	bool mButtonIsActive[2];
+
+	SDL_Rect field1, field2;
+	int mActiveField;
 
 };

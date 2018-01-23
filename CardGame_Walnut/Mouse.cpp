@@ -54,3 +54,11 @@ int Mouse::getY_df()
 {
 	return mY_df;
 }
+
+bool Mouse::isInside(SDL_Rect & rect)
+{
+	if (mPosX > rect.x && mPosY > rect.y && mPosX < rect.x + rect.w && mPosY < rect.y + rect.h)
+		return true;
+	else
+		return false;
+}
