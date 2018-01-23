@@ -57,18 +57,18 @@ bool Menu::update()
 	}
 
 	int x = EventHandler.handleEvent(e);
-	if (!Esc_Overlay.isActive())
+
+	if (mActiveSubBtn == Btn_Type::VS_PLAYER)
+	{
+		if (!PvpMenu.isActive())
+			mActiveSubBtn = Btn_Type::ERROR;
+		else
+			PvpMenu.update(e);
+	}
+	else if (!Esc_Overlay.isActive())
 	{
 		if (x != 0)
 		{
-			if (mActiveSubBtn == Btn_Type::VS_PLAYER)
-			{
-				if (!PvpMenu.isActive())
-					mActiveSubBtn = Btn_Type::ERROR;
-				else
-				    PvpMenu.update();
-			}
-	
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
@@ -126,6 +126,8 @@ bool Menu::update()
 
 
 	}
+
+
 	Music.update();
 
 
@@ -290,6 +292,7 @@ bool Menu::initBtns()
 	mButtons[CREDITS_BTN].disable();
 	mSubButton[static_cast<int>(Btn_Type::SHOW_CARDS)].disable();
 
+	
 	// check if buttons != empty
 	if (mButtons[PLAY_BTN].isEmpty() ||
 		mButtons[COLLECTION_BTN].isEmpty() ||

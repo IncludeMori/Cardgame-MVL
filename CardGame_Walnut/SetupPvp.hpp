@@ -3,13 +3,14 @@
 #include "InputField.hpp"
 #include "Button.hpp"
 #include "TTF_Text.hpp"
+#include "InputHandler.hpp"
 
 class SetupPvp
 {
 public:
 	SetupPvp();
 
-	void update();
+	void update(SDL_Event &e);
 	void render();
 
 	bool isActive();
@@ -24,5 +25,8 @@ private:
 	//InputField mInputIP; //
 
 	Text mIPInput;
+	InputHandler mhandleInput;
+
+	bool connectIsActive = false;
 
 };

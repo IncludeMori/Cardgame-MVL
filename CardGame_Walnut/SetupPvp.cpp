@@ -15,11 +15,37 @@ SetupPvp::SetupPvp()
 	mConnectBtn.setPos(x+330, 350);
 	mBackBtn.setPos(x - 170, 450);
 
+	mIPInput.setPos(400, 10);
+
 }
 
-void SetupPvp::update()
+void SetupPvp::update(SDL_Event &e)
 {
 	
+	if (mBackBtn.IsPressed())
+	{
+		//mIsActive = false;
+	}
+	else if (mCreateServBtn.IsPressed())
+	{
+		//show own ip
+		//[waiting for opponent....]
+		//
+	}
+	else if (mConnectBtn.IsPressed())
+	{
+		connectIsActive = true;
+	}
+
+	if (connectIsActive)
+	{
+		mhandleInput.update(e);
+		mIPInput.initText(mhandleInput.getMod());
+	}
+}
+
+void SetupPvp::render()
+{
 	if (mBackBtn.IsPressed())
 	{
 		mIsActive = false;
@@ -32,15 +58,19 @@ void SetupPvp::update()
 	}
 	else if (mConnectBtn.IsPressed())
 	{
-		
+		connectIsActive = true;
 	}
-}
 
-void SetupPvp::render()
-{
-	mCreateServBtn.render();
-	mConnectBtn.render();
-	mBackBtn.render();
+	if (connectIsActive)
+	{
+		mIPInput.renderText();
+	}
+	else
+	{
+		mCreateServBtn.render();
+		mConnectBtn.render();
+		mBackBtn.render();
+	}
 }
 
 
