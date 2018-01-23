@@ -177,6 +177,7 @@
     <ClCompile Include="Icons.cpp" />
     <ClCompile Include="initPVP.cpp" />
     <ClCompile Include="InputField.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="IPAdress.cpp" />
     <ClCompile Include="loadCards.cpp" />
     <ClCompile Include="Load_Deck.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="Icons.hpp" />
     <ClInclude Include="initPVP.hpp" />
     <ClInclude Include="InputField.hpp" />
+    <ClInclude Include="InputHandler.hpp" />
     <ClInclude Include="IPAdress.hpp" />
     <ClInclude Include="loadCards.hpp" />
     <ClInclude Include="Load_Deck.hpp" />

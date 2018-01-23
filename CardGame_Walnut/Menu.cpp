@@ -53,7 +53,7 @@ bool Menu::update()
 	if (Esc_Overlay.update(e))
 	{
 		gQuitGame = true;
-		return false;
+	    return false;
 	}
 
 	int x = EventHandler.handleEvent(e);
@@ -63,13 +63,16 @@ bool Menu::update()
 		{
 			if (mActiveSubBtn == Btn_Type::VS_PLAYER)
 			{
-				PvpMenu.update();
+				if (!PvpMenu.isActive())
+					mActiveSubBtn = Btn_Type::ERROR;
+				else
+				    PvpMenu.update();
 			}
 	
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
-				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; }
+				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); }
 				else if (mSubButton[static_cast<int>(Btn_Type::VS_AI)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_AI; }
 				break;
 			case(COLLECTION_BTN):

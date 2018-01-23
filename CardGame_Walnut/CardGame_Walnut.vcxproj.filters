@@ -357,6 +357,7 @@
       <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClCompile>
     <ClCompile Include="InputField.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -661,5 +662,6 @@
       <Filter>Game_\main-menu\pvp-setup</Filter>
     </ClInclude>
     <ClInclude Include="InputField.hpp" />
+    <ClInclude Include="InputHandler.hpp" />
   </ItemGroup>
 </Project>

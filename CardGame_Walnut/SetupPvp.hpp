@@ -12,10 +12,17 @@ public:
 	void update();
 	void render();
 
+	bool isActive();
+	void enable();
+
 private:
-	Button mCreateServBtn, mConnectBtn;
+	bool mIsActive;
+
+	Button mCreateServBtn, mConnectBtn, mBackBtn;
 
 	TTF_Text mHostIP; //local host ip
-	InputField mInputIP; //
+	//InputField mInputIP; //
+
+	Text mIPInput;
 
 };
