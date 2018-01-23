@@ -47,6 +47,8 @@ public:
 	void renderText(const std::string &text);
 	void renderText(int x, int y, const std::string &text);
 
+	std::string asString();
+
 protected:
 	//functions
 	void buildFont();

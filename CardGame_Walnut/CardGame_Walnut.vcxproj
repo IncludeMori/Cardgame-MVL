@@ -213,6 +213,7 @@
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TTF_Text.cpp" />
     <ClCompile Include="Victory_Loss_Screen.cpp" />
+    <ClCompile Include="W_ipconfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrow.hpp" />
@@ -320,6 +321,7 @@
     <ClInclude Include="Turn_Enum.hpp" />
     <ClInclude Include="Victory_Loss_Screen.hpp" />
     <ClInclude Include="Who.hpp" />
+    <ClInclude Include="W_ipconfig.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

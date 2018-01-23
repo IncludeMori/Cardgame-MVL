@@ -23,6 +23,10 @@ enum {
 };
 SetupPvp::SetupPvp()
 {
+	system("ipconfig > ipconfig.txt");
+
+
+
 	int x = 680;
 	int y = 450;
 
