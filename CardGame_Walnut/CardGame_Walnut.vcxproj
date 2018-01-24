@@ -179,6 +179,7 @@
     <ClCompile Include="InputField.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="IPAdress.cpp" />
+    <ClCompile Include="IPInfo.cpp" />
     <ClCompile Include="loadCards.cpp" />
     <ClCompile Include="Load_Deck.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -282,6 +283,7 @@
     <ClInclude Include="InputField.hpp" />
     <ClInclude Include="InputHandler.hpp" />
     <ClInclude Include="IPAdress.hpp" />
+    <ClInclude Include="IPInfo.hpp" />
     <ClInclude Include="loadCards.hpp" />
     <ClInclude Include="Load_Deck.hpp" />
     <ClInclude Include="Main_Btn_Enum.hpp" />

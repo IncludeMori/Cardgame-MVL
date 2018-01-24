@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "gMouse.hpp"
+#include "IPInfo.hpp"
 
 
 bool isMouseEvent(SDL_Event &e)
@@ -23,9 +24,7 @@ enum {
 };
 SetupPvp::SetupPvp()
 {
-	system("ipconfig > ipconfig.txt");
-
-
+	u.setPos(1450, 300);
 
 	int x = 680;
 	int y = 450;
@@ -105,6 +104,7 @@ void SetupPvp::update(SDL_Event &e)
 
 void SetupPvp::render()
 {
+	u.render();
 	
 	if (mButtonIsActive[CONNECT])
 	{

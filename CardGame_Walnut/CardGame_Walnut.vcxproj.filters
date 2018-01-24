@@ -359,6 +359,7 @@
     <ClCompile Include="InputField.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="W_ipconfig.cpp" />
+    <ClCompile Include="IPInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -665,5 +666,6 @@
     <ClInclude Include="InputField.hpp" />
     <ClInclude Include="InputHandler.hpp" />
     <ClInclude Include="W_ipconfig.hpp" />
+    <ClInclude Include="IPInfo.hpp" />
   </ItemGroup>
 </Project>

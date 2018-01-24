@@ -6,6 +6,7 @@
 #include "InputHandler.hpp"
 
 #include "draw.hpp"
+#include "IPInfo.hpp"
 
 class SetupPvp
 {
@@ -35,5 +36,9 @@ private:
 
 	SDL_Rect field1, field2;
 	int mActiveField;
+
+
+	//test
+	IPInfo u;
 
 };
