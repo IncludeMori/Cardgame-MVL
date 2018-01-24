@@ -28,9 +28,18 @@ W_ipconfig::W_ipconfig()
 		mLocal_IP_Info.push_back("");
 	}
 
-	for (int i = 0; i < mLocal_IP_Info.size(); i++)
-		if (mLocal_IP_Info.at(i).empty())
-			mLocal_IP_Info.erase(mLocal_IP_Info.begin()+i);
+	std::vector<std::string>::iterator iter2;
+	for (iter2 = mLocal_IP_Info.begin(); iter2 != mLocal_IP_Info.end();)
+	{
+		if (iter2->empty())
+		{
+			iter2 = mLocal_IP_Info.erase(iter2);
+		}
+		else if (iter2->substr(0, 4) != "IPv4")
+			iter2 = mLocal_IP_Info.erase(iter2);
+		else
+			++iter2;
+	}
 
 	//NET
 	std::ifstream ipNetFile("ipnet.txt");
@@ -48,9 +57,26 @@ W_ipconfig::W_ipconfig()
 		mIP_Info.push_back("");
 	}
 
-	for (int i = 0; i < mIP_Info.size(); i++)
-		if (mIP_Info.at(i).empty())
-			mIP_Info.erase(mIP_Info.begin() + i);
+	std::vector<std::string>::iterator iter;
+	for (iter = mIP_Info.begin(); iter != mIP_Info.end();)
+	{
+		if (iter->empty())
+		{
+			iter = mIP_Info.erase(iter);
+		}
+		else if (iter->substr(0, 4) != "Addr")
+			iter = mIP_Info.erase(iter);
+		else
+			++iter;
+	}
+
+	mIP_Info.erase(mIP_Info.begin());
+	//whats left
+	for (auto i : mLocal_IP_Info)
+		std::cout << "left:" << i << "-" << std::endl;
+	for (auto i : mIP_Info)
+		std::cout << "left:" << i << "-" << std::endl;
+
 }
 
 

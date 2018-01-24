@@ -6,22 +6,11 @@ IPInfo::IPInfo()
 {
 	int x = 0;
 	int size = 16;
-	for (int i = 0; i < mIpConfg.getIpInfo().size(); i++)
-	{
-		mIPTexture[i].loadFromRenderedText(size,mIpConfg.getIpInfo().at(i));
-		std::cout << "->" << i << std::endl;
-		std::cout << mIPTexture[i].AsString() << std::endl;
-		x = i;
-	}
-
-	for (int i = x; i < mIpConfg.getLocalIpInfo().size() + (x - 1); i++)
-	{
-		std::cout << "i-x=" << i - x << std::endl;
-		std::cout << "size:" << mIpConfg.getLocalIpInfo().size() << std::endl;
-		mIPTexture[i].loadFromRenderedText(size,mIpConfg.getLocalIpInfo().at(i - (x)));
-		std::cout << "->" << i << std::endl;
-		std::cout << mIPTexture[i].AsString() << std::endl;
-	}
+	
+		mIPTexture[0].loadFromRenderedText(size, mIpConfg.getIpInfo().at(0).substr(mIpConfg.getIpInfo().at(0).find_first_of(":")+1, mIpConfg.getIpInfo().at(0).size()));
+	
+		mIPTexture[1].loadFromRenderedText(size,mIpConfg.getLocalIpInfo().at(0).substr(mIpConfg.getLocalIpInfo().at(0).find_first_of(":")+1, mIpConfg.getLocalIpInfo().at(0).size()));
+	
 
 }
 

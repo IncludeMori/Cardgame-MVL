@@ -20,9 +20,8 @@ Ethernet adapter Ethernet 3:
 Wireless LAN adapter WLAN:
 
    Connection-specific DNS Suffix  . : Speedport_W_724V_01011603_05_033
-   IPv6 Address. . . . . . . . . . . : 2003:4c:6c3f:3b1b:e1df:9626:2486:8c12
-   Temporary IPv6 Address. . . . . . : 2003:4c:6c3f:3b1b:b191:9f4f:3d2d:c297
-   IPv6 Address. . . . . . . . . . . : 2003:4c:6c3f:3bdf:e1df:9626:2486:8c12
+   IPv6 Address. . . . . . . . . . . : 2003:4c:6c3f:3be6:e1df:9626:2486:8c12
+   Temporary IPv6 Address. . . . . . : 2003:4c:6c3f:3be6:f0b6:9461:2646:8fca
    Link-local IPv6 Address . . . . . : fe80::e1df:9626:2486:8c12%2
    IPv4 Address. . . . . . . . . . . : 192.168.2.105
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
