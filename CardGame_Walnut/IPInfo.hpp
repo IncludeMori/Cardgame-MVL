@@ -18,6 +18,8 @@ public:
 private:
 	W_ipconfig mIpConfg;
 
-	TTF_Text mIPTexture[40];
+	TTF_Text mIPTexture[2];
+
+	int size;
 };
 

@@ -46,9 +46,27 @@ bool Menu::loop()
 }
 bool Menu::update()
 {
+
 	gMouse.update();
 	SDL_PollEvent(&e);
 	
+	SDL_Keymod Keymod = SDL_GetModState();
+
+
+
+	//e.key.keysym.mod
+	if (e.key.type == SDL_KEYDOWN)
+	{
+
+		int Scancode = e.key.keysym.scancode;
+
+		if (Scancode = SDLK_1)
+		{
+			mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable();
+		}
+
+	}
+
 
 	if (Esc_Overlay.update(e))
 	{

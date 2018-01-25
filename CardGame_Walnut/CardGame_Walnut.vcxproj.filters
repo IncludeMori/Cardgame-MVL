@@ -360,6 +360,8 @@
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="W_ipconfig.cpp" />
     <ClCompile Include="IPInfo.cpp" />
+    <ClCompile Include="PortInfo.cpp" />
+    <ClCompile Include="PvpSessionData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -667,5 +669,7 @@
     <ClInclude Include="InputHandler.hpp" />
     <ClInclude Include="W_ipconfig.hpp" />
     <ClInclude Include="IPInfo.hpp" />
+    <ClInclude Include="PortInfo.hpp" />
+    <ClInclude Include="PvpSessionData.hpp" />
   </ItemGroup>
 </Project>

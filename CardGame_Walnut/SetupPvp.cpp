@@ -24,7 +24,7 @@ enum {
 };
 SetupPvp::SetupPvp()
 {
-	u.setPos(1450, 300);
+	u.setPos(750, 300);
 
 	int x = 680;
 	int y = 450;
@@ -68,10 +68,12 @@ void SetupPvp::update(SDL_Event &e)
 	else if (mCreateServBtn.IsPressed())
 	{
 		mButtonIsActive[CREATE_SERVER] = true;
+		mButtonIsActive[CONNECT] = false;
 	}
 	else if (mConnectBtn.IsPressed())
 	{
 		mButtonIsActive[CONNECT] = true;
+		mButtonIsActive[CREATE_SERVER] = false;
 	}
 
 	if (mButtonIsActive[CONNECT])
@@ -104,9 +106,9 @@ void SetupPvp::update(SDL_Event &e)
 
 void SetupPvp::render()
 {
-	u.render();
-	
-	if (mButtonIsActive[CONNECT])
+	if (mButtonIsActive[CREATE_SERVER])
+		u.render();
+	else if (mButtonIsActive[CONNECT])
 	{
 		EnterIP.render();
 		EnterPort.render();

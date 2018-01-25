@@ -6,7 +6,10 @@
 #include "InputHandler.hpp"
 
 #include "draw.hpp"
+
+//Create server
 #include "IPInfo.hpp"
+#include "PortInfo.hpp"
 
 class SetupPvp
 {
@@ -38,7 +41,8 @@ private:
 	int mActiveField;
 
 
-	//test
+	//Create Server
 	IPInfo u;
+	PortInfo p;
 
 };
