@@ -61,20 +61,10 @@ SetupPvp::SetupPvp()
 
 void SetupPvp::update(SDL_Event &e)
 {
-	
+
 	if (mBackBtn.IsPressed())
 	{
 		mIsActive = false;
-	}
-	else if (mCreateServBtn.IsPressed())
-	{
-		mButtonIsActive[CREATE_SERVER] = true;
-		mButtonIsActive[CONNECT] = false;
-	}
-	else if (mConnectBtn.IsPressed())
-	{
-		mButtonIsActive[CONNECT] = true;
-		mButtonIsActive[CREATE_SERVER] = false;
 	}
 
 	if (mButtonIsActive[CONNECT])
@@ -103,6 +93,21 @@ void SetupPvp::update(SDL_Event &e)
 			}
 		}
 	}
+	else if (mButtonIsActive[CREATE_SERVER])
+	{
+
+	}
+	else if (mCreateServBtn.IsPressed())
+	{
+		mButtonIsActive[CREATE_SERVER] = true;
+		mButtonIsActive[CONNECT] = false;
+	}
+	else if (mConnectBtn.IsPressed())
+	{
+		mButtonIsActive[CONNECT] = true;
+		mButtonIsActive[CREATE_SERVER] = false;
+	}
+
 }
 
 void SetupPvp::render()
