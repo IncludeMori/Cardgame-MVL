@@ -26,6 +26,7 @@ SetupPvp::SetupPvp()
 {
 	u.setPos(750, 300);
 
+
 	int x = 680;
 	int y = 450;
 
@@ -107,7 +108,9 @@ void SetupPvp::update(SDL_Event &e)
 void SetupPvp::render()
 {
 	if (mButtonIsActive[CREATE_SERVER])
+	{
 		u.render();
+	}
 	else if (mButtonIsActive[CONNECT])
 	{
 		EnterIP.render();

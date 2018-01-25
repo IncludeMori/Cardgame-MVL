@@ -9,7 +9,6 @@
 
 //Create server
 #include "IPInfo.hpp"
-#include "PortInfo.hpp"
 
 class SetupPvp
 {
@@ -42,7 +41,6 @@ private:
 
 
 	//Create Server
-	IPInfo u;
-	PortInfo p;
+	IPInfo u;;
 
 };

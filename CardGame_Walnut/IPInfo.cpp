@@ -7,7 +7,7 @@ IPInfo::IPInfo()
 	int x = 0;
 	size = 24;
 
-
+	mChangePortBtn.loadFromFile("Data/changeport.png");
 	
 	if (mIpConfg.getIpInfo().size() > 0)
 		mIPTexture[0].loadFromRenderedText(size,"                 IPv4:    "+ mIpConfg.getIpInfo().at(0).substr(mIpConfg.getIpInfo().at(0).find_first_of(":") + 1, mIpConfg.getIpInfo().at(0).size()));
@@ -20,7 +20,8 @@ IPInfo::IPInfo()
 		mIPTexture[1].loadFromRenderedText(size, "Not able to get local IP. Please use cmd>ipconfig");
 
 
-	
+	mPort = 3794;
+	mPortTexture.loadFromRenderedText(size,"               Port:    " + getPortAsString());
 }
 
 
@@ -28,11 +29,16 @@ IPInfo::~IPInfo()
 {
 }
 
+void IPInfo::update()
+{
+}
+
 void IPInfo::render()
 {
 	for (int i = 0; i < 2; i++)
 		mIPTexture[i].render();
-	
+	mPortTexture.render();
+	mChangePortBtn.render();
 }
 void IPInfo::setPos(int x, int y)
 {
@@ -41,5 +47,32 @@ void IPInfo::setPos(int x, int y)
 		mIPTexture[i].setPos(x, y);
 		y = y + 40;
 	}
+	mPortTexture.setPos(x, y);
+	mChangePortBtn.setPos(x + mPortTexture.getWidth() + 10, y-mChangePortBtn.getHeight()/4);
 	
+}
+
+void IPInfo::setPort(int port)
+{
+	if (isValid(port))
+	{
+		mPort = port;
+		mPortTexture.free();
+		mPortTexture.loadFromRenderedText("               Port:    " + getPortAsString());
+	}
+}
+
+std::string IPInfo::getPortAsString()
+{
+	return std::to_string(mPort);
+}
+
+bool IPInfo::isValid(int port)
+{
+	if (port < 65535 && port > 0)
+		return true;
+	else
+		return false;
+
+	//check if port is already listening??
 }
