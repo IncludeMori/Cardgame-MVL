@@ -44,7 +44,7 @@ SetupPvp::SetupPvp()
 	mBackBtn.loadFromFile("Data/back_arrow.png");
 	mCreateServBtn.setPos(x+30, 350);
 	mConnectBtn.setPos(x+330, 350);
-	mBackBtn.setPos(x - 170, 450);
+	mBackBtn.setPos(x - 200, 450);
 
 	mConnectToServer.loadFromFile("Data/connecttoserver.png");
 	mConnectToServer.setPos(x + 200, 670);
@@ -61,10 +61,15 @@ SetupPvp::SetupPvp()
 
 void SetupPvp::update(SDL_Event &e)
 {
-
 	if (mBackBtn.IsPressed())
 	{
-		mIsActive = false;
+		if (mButtonIsActive[CONNECT] || mButtonIsActive[CREATE_SERVER])
+		{
+			mButtonIsActive[CONNECT] = false;
+			mButtonIsActive[CREATE_SERVER] = false;
+		}
+		else
+			mIsActive = false;
 	}
 
 	if (mButtonIsActive[CONNECT])
@@ -112,6 +117,8 @@ void SetupPvp::update(SDL_Event &e)
 
 void SetupPvp::render()
 {
+	mBackBtn.render();
+
 	if (mButtonIsActive[CREATE_SERVER])
 	{
 		u.render();
@@ -132,7 +139,6 @@ void SetupPvp::render()
 	{
 		mCreateServBtn.render();
 		mConnectBtn.render();
-		mBackBtn.render();
 	}
 }
 

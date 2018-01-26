@@ -25,8 +25,7 @@ bool Menu::loop()
 		//{
 		//	std::cout << "lololol";
 		//}
-
-
+		
 		FpsTimer.start();
 		FpsTimer.calcFps(); //
 
@@ -49,11 +48,9 @@ bool Menu::update()
 
 	gMouse.update();
 	SDL_PollEvent(&e);
+		
 	
 	SDL_Keymod Keymod = SDL_GetModState();
-
-
-
 	//e.key.keysym.mod
 	if (e.key.type == SDL_KEYDOWN)
 	{
@@ -90,7 +87,7 @@ bool Menu::update()
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
-				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); }
+				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); gMouse.BtnUp(); }
 				else if (mSubButton[static_cast<int>(Btn_Type::VS_AI)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_AI; }
 				break;
 			case(COLLECTION_BTN):

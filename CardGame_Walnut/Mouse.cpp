@@ -23,11 +23,13 @@ void Mouse::update()
 
 void Mouse::BtnDown()
 {
+	std::cout << "mouse down" << std::endl;
 	mBtnPressed = true;
 }
 
 void Mouse::BtnUp()
 {
+	std::cout << "mouse up" << std::endl;
 	mBtnPressed = false;
 }
 

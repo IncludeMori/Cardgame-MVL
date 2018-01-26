@@ -143,6 +143,7 @@
     <ClCompile Include="CurrentTurn.cpp" />
     <ClCompile Include="Deathwish.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DefaultAnimation.cpp" />
     <ClCompile Include="DefaultTexture.cpp" />
     <ClCompile Include="Default_Card.cpp" />
     <ClCompile Include="display_text.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="CurrentTurn.hpp" />
     <ClInclude Include="Deathwish.hpp" />
     <ClInclude Include="Deck.hpp" />
+    <ClInclude Include="DefaultAnimation.hpp" />
     <ClInclude Include="DefaultTexture.hpp" />
     <ClInclude Include="Default_Card.hpp" />
     <ClInclude Include="display_text.hpp" />
@@ -326,6 +328,9 @@
     <ClInclude Include="Victory_Loss_Screen.hpp" />
     <ClInclude Include="Who.hpp" />
     <ClInclude Include="W_ipconfig.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="wichtig.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
