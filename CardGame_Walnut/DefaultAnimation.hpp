@@ -2,13 +2,15 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
+#include "DefaultTexture.hpp"
 
 class DefaultAnimation
 {
 public:
 	DefaultAnimation();
-	DefaultAnimation(int amountOfFrames);
-	DefaultAnimation(int amountOfFrames, const std::vector<std::string> &files);
+	DefaultAnimation(const std::vector<std::string> &files);
 	~DefaultAnimation();
 
 	void update();
@@ -16,10 +18,14 @@ public:
 
 	void loadTextures(const std::vector<std::string> &files);
 
+	void setPos(int x, int y);
+
 
 private:
 	int mAmountOfFrames;
 	int mCurrentFrame;
+
+	std::vector<std::unique_ptr<DefaultTexture>> mTextures;
 
 };
 

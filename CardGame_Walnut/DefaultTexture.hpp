@@ -14,6 +14,7 @@ class DefaultTexture
 public:
 	DefaultTexture();
 	DefaultTexture(int x, int y);
+	DefaultTexture(std::string &path);
 	~DefaultTexture();
 
 	//Loads Image from "path"

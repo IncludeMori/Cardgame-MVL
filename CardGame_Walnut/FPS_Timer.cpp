@@ -1,5 +1,6 @@
 #include "FPS_Timer.hpp"
 
+
 Fps_Timer::Fps_Timer()
 {
 	ShowFps.setPos(5, 5);
@@ -20,6 +21,7 @@ void Fps_Timer::start()
 
 void Fps_Timer::endFrame()
 {
+
 	// add one frame
 	mCounted_frames++;
 	//delay if fps > MAX_FPS

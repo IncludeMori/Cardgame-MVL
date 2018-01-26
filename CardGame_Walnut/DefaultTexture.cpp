@@ -21,6 +21,15 @@ DefaultTexture::DefaultTexture(int x, int y)
 	mPosY = y;
 	int lol = 0;
 }
+DefaultTexture::DefaultTexture(std::string &path)
+{
+	mTexture = nullptr;
+	mWidth = 0;
+	mHeight = 0;
+	mPosX = 0;
+	mPosY = 0;
+	loadFromFile(path);
+}
 DefaultTexture::~DefaultTexture()
 {
 	free();

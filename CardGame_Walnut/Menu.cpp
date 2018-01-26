@@ -6,6 +6,7 @@
 #include "gQuit.hpp"
 #include "display_text.hpp"
 
+
 Menu::Menu()
 {
 	initBtns();
@@ -17,6 +18,8 @@ Menu::~Menu()
 
 bool Menu::loop()
 {
+	FpsTimer.start();
+
 	while (!QuitGame)
 	{
 
@@ -26,7 +29,7 @@ bool Menu::loop()
 		//	std::cout << "lololol";
 		//}
 		
-		FpsTimer.start();
+
 		FpsTimer.calcFps(); //
 
 		if (!update())
