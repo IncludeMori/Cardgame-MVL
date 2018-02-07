@@ -19,12 +19,11 @@ Ethernet adapter Ethernet 3:
 
 Wireless LAN adapter WLAN:
 
-   Connection-specific DNS Suffix  . : Speedport_W_724V_01011603_05_033
-   IPv6 Address. . . . . . . . . . . : 2003:4c:6c3f:3bfe:e1df:9626:2486:8c12
-   IPv6 Address. . . . . . . . . . . : 2003:4c:6c3f:3b5b:e1df:9626:2486:8c12
-   Temporary IPv6 Address. . . . . . : 2003:4c:6c3f:3bfe:31a1:b1aa:6ff:ac0b
+   Connection-specific DNS Suffix  . : Speedport_W_724V_Typ_A_05011603_05_028
+   IPv6 Address. . . . . . . . . . . : 2003:d2:4721:fe99:e1df:9626:2486:8c12
+   Temporary IPv6 Address. . . . . . : 2003:d2:4721:fe99:65bc:f506:3b91:47a
    Link-local IPv6 Address . . . . . : fe80::e1df:9626:2486:8c12%2
-   IPv4 Address. . . . . . . . . . . : 192.168.2.105
+   IPv4 Address. . . . . . . . . . . : 192.168.2.100
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
    Default Gateway . . . . . . . . . : fe80::1%2
                                        192.168.2.1
@@ -33,8 +32,3 @@ Ethernet adapter Bluetooth-Netzwerkverbindung:
 
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
-
-Tunnel adapter isatap.Speedport_W_724V_01011603_05_033:
-
-   Media State . . . . . . . . . . . : Media disconnected
-   Connection-specific DNS Suffix  . : Speedport_W_724V_01011603_05_033

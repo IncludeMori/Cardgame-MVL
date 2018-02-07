@@ -17,12 +17,12 @@ bool Click_EventHandler::handleEvent(SDL_Event &e)
 	} // event type -> SDL_QUIT X-Window
 	else if (e.type == SDL_MOUSEBUTTONDOWN)
 	{
-		//gMouse.BtnDown();
+		gMouse.BtnDown();
 	}
 	else if (e.type == SDL_MOUSEBUTTONUP)
 	{
-		//gMouse.BtnUp();
-		gMouse.BtnDown();
+		gMouse.BtnUp();
+		//gMouse.BtnDown();
 	}
 
 	
