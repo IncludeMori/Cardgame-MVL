@@ -90,7 +90,7 @@ bool Menu::update()
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
-				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); gMouse.BtnUp(); }
+				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); }
 				else if (mSubButton[static_cast<int>(Btn_Type::VS_AI)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_AI; }
 				break;
 			case(COLLECTION_BTN):

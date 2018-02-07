@@ -40,14 +40,13 @@ bool Button::IsPressed()
 
 		if (mouse_x > mPosX && mouse_x < mPosX + mWidth &&
 			mouse_y > mPosY && mouse_y < mPosY + mHeight &&
-			gMouse.isPressed())
+			gMouse.isPressed() && gMouse.canPressBtn())
 		{
-			std::cout << "T";
+			gMouse.setBtnPressed();
 			return true;
 		}
 		else if (gMouse.isPressed())
 		{
-			std::cout << "F";
 			return false;
 		}
 	}

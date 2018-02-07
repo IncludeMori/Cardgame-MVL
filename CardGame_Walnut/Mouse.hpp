@@ -17,6 +17,7 @@ public:
 	void BtnDown();
 	void BtnUp();
 	bool isPressed(); // return true if btn is down --- rename
+	bool canPressBtn();
 
 	int getX(); 
 	int getY();
@@ -27,12 +28,17 @@ public:
 
 	bool isInside(SDL_Rect &rect);
 
+	void setBtnPressed();
+
 private:
 	int mPosX, mPosY;
 
 	int mOldX, mOldY;
 	int mX_df, mY_df;
 
-	bool mBtnPressed;
+	bool mLeftMouseBtnPressed;
 	bool WheelUp, WheelDown;
+
+	bool mCanPressBtn;
+
 };
