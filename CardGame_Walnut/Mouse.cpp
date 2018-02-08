@@ -27,7 +27,7 @@ void Mouse::BtnDown()
 	if (!mLeftMouseBtnPressed)
 	{
 		mCanPressBtn = true;
-		std::cout << "set to true" << std::endl;
+		
 	}
 	mLeftMouseBtnPressed = true;
 }
@@ -35,7 +35,6 @@ void Mouse::BtnDown()
 void Mouse::BtnUp()
 {
 	mLeftMouseBtnPressed = false;
-	std::cout << "BTN UP";
 	mCanPressBtn = false;
 }
 
@@ -45,7 +44,6 @@ bool Mouse::isPressed()
 }
 bool Mouse::canPressBtn()
 {
-	std::cout << "CHECK:" << mCanPressBtn << std::endl;
 	return mCanPressBtn;
 }
 
@@ -78,6 +76,5 @@ bool Mouse::isInside(SDL_Rect & rect)
 
 void Mouse::setBtnPressed()
 {
-	std::cout << "set to false" << std::endl;
 	mCanPressBtn = false;
 }

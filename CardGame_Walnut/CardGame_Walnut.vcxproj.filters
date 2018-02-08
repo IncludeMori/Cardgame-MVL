@@ -362,6 +362,7 @@
     <ClCompile Include="IPInfo.cpp" />
     <ClCompile Include="PvpSessionData.cpp" />
     <ClCompile Include="DefaultAnimation.cpp" />
+    <ClCompile Include="LoadingScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -671,6 +672,7 @@
     <ClInclude Include="IPInfo.hpp" />
     <ClInclude Include="PvpSessionData.hpp" />
     <ClInclude Include="DefaultAnimation.hpp" />
+    <ClInclude Include="LoadingScreen.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt" />
