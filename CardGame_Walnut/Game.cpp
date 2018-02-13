@@ -17,29 +17,16 @@ Game::~Game()
 
 bool Game::loop()
 {
-	Fps_Timer FpsTimer; // init & start fps timer
-	float fps;
-	static int counter = 0;
+	FpsTimer.start();
 	while (!QuitGame)
 	{
-
+		FpsTimer.startFrame();
 
 		//if (key[SDL_SCANCODE_ESCAPE])
 		//{
 		//	std::cout << "lololol";
 		//}
-
-
-		FpsTimer.start();
-		fps = FpsTimer.calcFps();
 		
-		counter++;
-		if (counter > 1000)
-		{
-			std::cout << "Fps:" << fps << std::endl;
-			counter = 0;
-		}
-
 
 		if (!update())
 			QuitGame = true;
@@ -49,6 +36,7 @@ bool Game::loop()
 
 		SDL_RenderPresent(gRenderer); // update screen
 
+		FpsTimer.calcFps();
 		FpsTimer.endFrame();
 
 		
@@ -172,6 +160,7 @@ void Game::render()
 	if (Esc_Overlay.isActive())
 		Esc_Overlay.render();
 
+	FpsTimer.render();
 
 }
 

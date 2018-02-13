@@ -1,6 +1,5 @@
 ﻿ESC-> Leave Game bug fix [DONE]
-FPS-> INGAME (Nicht nur Menu)
-LADESCREEN
+LADESCREEN [DONE]
 FPS_TIMER Ingame(PVE)
 Alle Bugs fixen, Code aufräumen
 PVP implementieren

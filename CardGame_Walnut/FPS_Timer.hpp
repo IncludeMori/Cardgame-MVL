@@ -13,9 +13,11 @@ class Fps_Timer
 public:
 	Fps_Timer();
 
+	void start();
+
 	void render();
 
-	void start();
+	void startFrame();
 	void endFrame();
 
 	float calcFps();

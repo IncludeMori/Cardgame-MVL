@@ -81,7 +81,7 @@ bool Create_Deck::loop()
 		//}
 
 
-		FpsTimer.start();
+		FpsTimer.startFrame();
 		FpsTimer.calcFps();
 
 		if (!update())

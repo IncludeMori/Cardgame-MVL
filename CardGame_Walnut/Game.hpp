@@ -14,6 +14,8 @@
 #include "Escape_Overlay.hpp"
 #include "GameEndScreen.hpp"
 
+#include "FPS_Timer.hpp"
+
 class Game
 {
 public:
@@ -43,6 +45,8 @@ private:
 
 	std::shared_ptr<Player> mPlayer = nullptr;
 	std::shared_ptr<Opponent> mOpponent = nullptr;
+
+	Fps_Timer FpsTimer; // init & start fps timer
 
 
 };

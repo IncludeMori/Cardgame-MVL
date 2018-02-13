@@ -7,6 +7,11 @@ Fps_Timer::Fps_Timer()
 
 	mCurrentFps = 0;
 	mCounted_frames = 0;
+	
+}
+
+void Fps_Timer::start()
+{
 	fpsTimer.start();
 }
 
@@ -14,7 +19,7 @@ void Fps_Timer::render()
 {
 	ShowFps.renderText();
 }
-void Fps_Timer::start()
+void Fps_Timer::startFrame()
 {
 	capTimer.start();
 }

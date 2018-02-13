@@ -22,18 +22,14 @@ bool Menu::loop()
 
 	while (!QuitGame)
 	{
-
+		FpsTimer.startFrame();
 
 		//if (key[SDL_SCANCODE_ESCAPE])
 		//{
 		//	std::cout << "lololol";
 		//}
-		
-
-		FpsTimer.calcFps(); //
 
 		if (!update())
-
 			QuitGame = true;
 
 		SDL_RenderClear(gRenderer); //clear screen
@@ -41,6 +37,7 @@ bool Menu::loop()
 
 		SDL_RenderPresent(gRenderer); // update screen
 
+		FpsTimer.calcFps(); //
 		FpsTimer.endFrame();
 	} // main loop 
 	
