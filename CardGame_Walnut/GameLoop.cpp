@@ -20,7 +20,9 @@ bool GameClass::main_loop()
 
 	while (!gQuitGame)
 	{
+		loadScreen.start();
 		mMenu.reset(new Menu());
+		loadScreen.end();
 		if (!mMenu->loop()) //Menu wird beendet wenn ein Btn gedrückt wird
 			mCurrentlyActive = mMenu->activeBtn(); //gedrückten Button abfragen
 
