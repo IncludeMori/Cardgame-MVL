@@ -42,6 +42,9 @@ Player_Field::Player_Field()
 	}
 	//....
 	mPosY[0] = mPosY[1];
+
+
+	mBackground.setPos(SCREEN_WIDTH / 6, SCREEN_HEIGHT - 2*(SCREEN_HEIGHT/4));
 	
 }
 Player_Field::~Player_Field()
@@ -256,7 +259,10 @@ void Player_Field::render()
 	int hover = -1;
 	bool hoverIsActive = false;
 
+	
 	drawRect(mData);
+
+	mBackground.render();
 
 	Effect_Field.render();
 

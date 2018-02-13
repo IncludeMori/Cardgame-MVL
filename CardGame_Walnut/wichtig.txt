@@ -1,4 +1,5 @@
-﻿ESC-> Leave Game bug fix
+﻿ESC-> Leave Game bug fix [DONE]
+FPS-> INGAME (Nicht nur Menu)
 LADESCREEN
 FPS_TIMER Ingame(PVE)
 Alle Bugs fixen, Code aufräumen

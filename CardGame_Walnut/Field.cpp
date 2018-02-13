@@ -7,6 +7,7 @@
 #include "Arrow.hpp"
 #include "Click_EventHandler.hpp"
 #include "gRenderer.hpp"
+#include "gScreenSize.hpp"
 
 Field::Field()
 {
@@ -15,6 +16,9 @@ Field::Field()
 
 	mAttackCard.loadFromFile("Data/pfeil_attack.png");
 	mAttackTarget.loadFromFile("Data/target_attack.png");
+
+	mBackground.loadFromFile("Data/Field/field_background.png");
+	mBackground.setPos(SCREEN_WIDTH / 6, SCREEN_HEIGHT / 4);
 }
 Field::~Field()
 {
@@ -23,6 +27,7 @@ Field::~Field()
 
 void Field::render()
 {
+	mBackground.render();
 	//std::shared_ptr<Basic_Card> card(new Default_Card());
     //std::dynamic_pointer_cast<Default_Card>(card)->
 	
@@ -48,6 +53,8 @@ void Field::render()
 
 	if (hover != -1)
 		mCard[hover]->renderHoverEffect();
+
+
 }
 
 void Field::addCard(const std::shared_ptr<Basic_Card>& card)

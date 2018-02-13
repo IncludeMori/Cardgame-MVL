@@ -4,169 +4,178 @@
     <Filter Include="dev">
       <UniqueIdentifier>{3b8ad610-0cfd-4d87-958b-a696ca8a9fd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_">
+    <Filter Include="Game">
       <UniqueIdentifier>{ce91dd3f-bd9b-4704-954e-2a3c2efb0d36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\Other Stuff">
+    <Filter Include="Game\Other Stuff">
       <UniqueIdentifier>{b0fea79e-e1a3-46a9-862a-e312826f0ec1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\Opponent">
-      <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Player">
-      <UniqueIdentifier>{b49eadf1-5a00-4f51-b2ce-b44dd247255f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\SDL">
-      <UniqueIdentifier>{51dd191e-28b4-449a-9fd6-d7a3fa8452a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\SDLNet">
-      <UniqueIdentifier>{dab0fd83-e608-47a9-8b90-0ee68c442d84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Texture">
-      <UniqueIdentifier>{6bd2a3a6-fa5f-424b-b50d-7a655767d36b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Audio">
-      <UniqueIdentifier>{492fac10-fd6f-4b53-ab4e-6c2ad65dc63b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Card">
-      <UniqueIdentifier>{6892ab86-bbb4-47a3-bf0b-594b053dc934}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Card\Card Effects">
-      <UniqueIdentifier>{a0a75e16-5904-4f11-ade0-6ca46bcb013c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Card\Monster">
-      <UniqueIdentifier>{59c0df4c-1470-4884-9b56-071dabe3cac5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Card\Spell">
-      <UniqueIdentifier>{df552b3c-617c-47a2-8bb4-9a254f2c6fbb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Card\Interface">
-      <UniqueIdentifier>{c48f685e-213f-479c-840b-233916542a9d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Collection">
-      <UniqueIdentifier>{bcbe809b-78cb-4978-818b-9d4197e65f72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Field,Hand,Deck">
-      <UniqueIdentifier>{7fdc5b8d-702f-4cb7-b2ec-e0faa53a3f02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\main-menu">
-      <UniqueIdentifier>{45900e88-b49f-439f-b61a-846d2d3a2f19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\main_Game">
-      <UniqueIdentifier>{336a1cad-e022-4ea0-99b4-e0b6537bf6d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Other Stuff\Namespace">
+    <Filter Include="Game\Other Stuff\Namespace">
       <UniqueIdentifier>{d699e7e4-fbb1-44e1-9388-24e42f906dc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main_Game\Manage Turn">
-      <UniqueIdentifier>{f593d9c2-924a-4add-8669-bf1c5c690382}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Interface">
-      <UniqueIdentifier>{7e3f6bad-df47-474c-9c28-2c465ed7bc94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\SDLEvent">
-      <UniqueIdentifier>{a68183ea-946e-4a01-a9a4-fba6f82c7563}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\loadSave">
-      <UniqueIdentifier>{20713368-0fb9-4768-9203-6b1fbdffe8db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\loadSave\save">
-      <UniqueIdentifier>{145bab20-da40-4209-aea5-9e3da4b4c679}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Other Stuff\Timer">
+    <Filter Include="Game\Other Stuff\Timer%28+FPS%29">
       <UniqueIdentifier>{27521904-8bf4-472f-9e54-62d0937df342}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\Other Stuff\Timer\FPSTimer">
+    <Filter Include="Game\Other Stuff\Timer%28+FPS%29\FPSTimer">
       <UniqueIdentifier>{c6d63cf4-957f-48ec-9989-da75a5418fed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main_Game\Resource">
-      <UniqueIdentifier>{4cb667e8-3616-4979-8ece-1325817c3877}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\main_Game\Game End">
-      <UniqueIdentifier>{fd96a649-f51d-4f9e-9df6-759745850046}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game_\Other Stuff\Mouse">
+    <Filter Include="Game\Other Stuff\Mouse">
       <UniqueIdentifier>{ee4fbcac-9e64-4009-9dc8-e497bb280009}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main_Game\Card action">
-      <UniqueIdentifier>{f8ab2652-3d32-4be0-9c31-0b4414cbd48e}</UniqueIdentifier>
+    <Filter Include="Game\Audio">
+      <UniqueIdentifier>{492fac10-fd6f-4b53-ab4e-6c2ad65dc63b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main_Game\Interface">
+    <Filter Include="Game\Card">
+      <UniqueIdentifier>{6892ab86-bbb4-47a3-bf0b-594b053dc934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Card\Card Effects">
+      <UniqueIdentifier>{a0a75e16-5904-4f11-ade0-6ca46bcb013c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Card\Monster">
+      <UniqueIdentifier>{59c0df4c-1470-4884-9b56-071dabe3cac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Card\Spell">
+      <UniqueIdentifier>{df552b3c-617c-47a2-8bb4-9a254f2c6fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Card\Interface">
+      <UniqueIdentifier>{c48f685e-213f-479c-840b-233916542a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Collection">
+      <UniqueIdentifier>{bcbe809b-78cb-4978-818b-9d4197e65f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Menu">
+      <UniqueIdentifier>{45900e88-b49f-439f-b61a-846d2d3a2f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Menu\pvp-setup">
+      <UniqueIdentifier>{52a77bfd-8b5e-4481-bc95-cb768220c566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame">
+      <UniqueIdentifier>{336a1cad-e022-4ea0-99b4-e0b6537bf6d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\Game End">
+      <UniqueIdentifier>{fd96a649-f51d-4f9e-9df6-759745850046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\Interface">
       <UniqueIdentifier>{fe3d7970-870a-456a-92e3-ee3ea4815423}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main_Game\Hero">
+    <Filter Include="Game\_mainGame\Hero">
       <UniqueIdentifier>{be9953ea-7d9e-4bbc-a0cc-061a3c6f4c70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\PVP">
+    <Filter Include="Game\_mainGame\Field,Hand,Deck">
+      <UniqueIdentifier>{7fdc5b8d-702f-4cb7-b2ec-e0faa53a3f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\PVP">
       <UniqueIdentifier>{6e5ca9d6-b5cb-45e6-ab6c-92e684f14387}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game_\main-menu\pvp-setup">
-      <UniqueIdentifier>{52a77bfd-8b5e-4481-bc95-cb768220c566}</UniqueIdentifier>
+    <Filter Include="Game\_mainGame\Texture">
+      <UniqueIdentifier>{6bd2a3a6-fa5f-424b-b50d-7a655767d36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Interface">
+      <UniqueIdentifier>{7e3f6bad-df47-474c-9c28-2c465ed7bc94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\loadSave">
+      <UniqueIdentifier>{20713368-0fb9-4768-9203-6b1fbdffe8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\loadSave\save">
+      <UniqueIdentifier>{145bab20-da40-4209-aea5-9e3da4b4c679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Resources">
+      <UniqueIdentifier>{b3901925-724b-4e9f-93f1-2a3eb9cca113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Resources\SDL">
+      <UniqueIdentifier>{51dd191e-28b4-449a-9fd6-d7a3fa8452a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Resources\SDLEvent">
+      <UniqueIdentifier>{a68183ea-946e-4a01-a9a4-fba6f82c7563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Resources\SDLNet">
+      <UniqueIdentifier>{dab0fd83-e608-47a9-8b90-0ee68c442d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\PVE">
+      <UniqueIdentifier>{ec562b7a-6dcf-4dea-ae36-5855205d44db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\PVE\Opponent">
+      <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\PVE\Player">
+      <UniqueIdentifier>{b49eadf1-5a00-4f51-b2ce-b44dd247255f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\IG_Resources">
+      <UniqueIdentifier>{4cb667e8-3616-4979-8ece-1325817c3877}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\Manage Turns">
+      <UniqueIdentifier>{f593d9c2-924a-4add-8669-bf1c5c690382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\Interface\Arrow">
+      <UniqueIdentifier>{f8ab2652-3d32-4be0-9c31-0b4414cbd48e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\Animations">
+      <UniqueIdentifier>{06c2ac63-7c61-472c-a210-beebbe304798}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Deck.cpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Field.cpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClCompile>
     <ClCompile Include="Player_Hand.cpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClCompile>
     <ClCompile Include="Opponent.cpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Deck.cpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Field.cpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Hand.cpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Basic_Card.cpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClCompile>
     <ClCompile Include="loadCards.cpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClCompile>
     <ClCompile Include="ManageCardsC.cpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClCompile>
     <ClCompile Include="Audio_class.cpp">
-      <Filter>Game_\Audio</Filter>
+      <Filter>Game\Audio</Filter>
     </ClCompile>
     <ClCompile Include="GameField.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="Hand.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="Deck.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="Load_Deck.cpp">
-      <Filter>Game_\loadSave</Filter>
+      <Filter>Game\loadSave</Filter>
     </ClCompile>
     <ClCompile Include="Save_Manager.cpp">
-      <Filter>Game_\loadSave\save</Filter>
+      <Filter>Game\loadSave\save</Filter>
     </ClCompile>
     <ClCompile Include="Save_Deck.cpp">
-      <Filter>Game_\loadSave\save</Filter>
+      <Filter>Game\loadSave\save</Filter>
     </ClCompile>
     <ClCompile Include="CurrentTurn.cpp">
-      <Filter>Game_\main_Game\Manage Turn</Filter>
+      <Filter>Game\_mainGame\Manage Turns</Filter>
     </ClCompile>
     <ClCompile Include="getEffectAsString.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="Effects.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="draw.cpp">
       <Filter>dev</Filter>
@@ -175,270 +184,294 @@
       <Filter>dev</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Menu_Button.cpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Menu_Play.cpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClCompile>
     <ClCompile Include="bTexture.cpp">
-      <Filter>Game_\Texture</Filter>
+      <Filter>Game\_mainGame\Texture</Filter>
     </ClCompile>
     <ClCompile Include="DefaultTexture.cpp">
-      <Filter>Game_\Texture</Filter>
+      <Filter>Game\_mainGame\Texture</Filter>
     </ClCompile>
     <ClCompile Include="SDLNet_init.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="GameObj.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="TcpSocket.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="Net_Interface.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="IPAdress.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="HostSocket.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="Battlecry.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="Deathwish.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="Click_EventHandler.cpp">
-      <Filter>Game_\SDLEvent</Filter>
+      <Filter>Game\Resources\SDLEvent</Filter>
     </ClCompile>
     <ClCompile Include="CL_EventHandler.cpp">
-      <Filter>Game_\SDLEvent</Filter>
+      <Filter>Game\Resources\SDLEvent</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Graveyard.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="Icons.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="Name_Plate.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="NumberPopup.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="StatsSign.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="Field.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
-    </ClCompile>
-    <ClCompile Include="GetFiles.cpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="Default_Card.cpp">
-      <Filter>Game_\Card\Monster</Filter>
+      <Filter>Game\Card\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Frame.cpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClCompile>
     <ClCompile Include="BoostCard.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="Effect_Description.cpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClCompile>
     <ClCompile Include="Effect_Card.cpp">
-      <Filter>Game_\Card\Spell</Filter>
+      <Filter>Game\Card\Spell</Filter>
     </ClCompile>
     <ClCompile Include="Hover_Card.cpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClCompile>
     <ClCompile Include="Collection_Card.cpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClCompile>
     <ClCompile Include="TTF_Text.cpp">
-      <Filter>Game_\Interface</Filter>
+      <Filter>Game\Interface</Filter>
     </ClCompile>
     <ClCompile Include="EffectField.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="EffectManager.cpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
     <ClCompile Include="SDL_init.cpp">
-      <Filter>Game_\SDL</Filter>
+      <Filter>Game\Resources\SDL</Filter>
     </ClCompile>
     <ClCompile Include="Collection_Menu.cpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Game_\Other Stuff\Timer</Filter>
+      <Filter>Game\Other Stuff\Timer%28+FPS%29</Filter>
     </ClCompile>
     <ClCompile Include="FPS_Timer.cpp">
-      <Filter>Game_\Other Stuff\Timer\FPSTimer</Filter>
+      <Filter>Game\Other Stuff\Timer%28+FPS%29\FPSTimer</Filter>
     </ClCompile>
     <ClCompile Include="Resource.cpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClCompile>
     <ClCompile Include="Victory_Loss_Screen.cpp">
-      <Filter>Game_\main_Game\Game End</Filter>
+      <Filter>Game\_mainGame\Game End</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>Game_\Other Stuff\Mouse</Filter>
+      <Filter>Game\Other Stuff\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="Arrow.cpp">
-      <Filter>Game_\main_Game\Card action</Filter>
+      <Filter>Game\_mainGame\Interface\Arrow</Filter>
     </ClCompile>
     <ClCompile Include="Collection_EH.cpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClCompile>
     <ClCompile Include="EnergyInterface.cpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClCompile>
     <ClCompile Include="EnergySign.cpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClCompile>
     <ClCompile Include="GameEndScreen.cpp">
-      <Filter>Game_\main_Game\Game End</Filter>
+      <Filter>Game\_mainGame\Game End</Filter>
     </ClCompile>
-    <ClCompile Include="GameLoop.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Escape_Overlay.cpp">
-      <Filter>Game_\main_Game\Interface</Filter>
+      <Filter>Game\_mainGame\Interface</Filter>
     </ClCompile>
     <ClCompile Include="HealOrDmg.cpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClCompile>
     <ClCompile Include="Hero.cpp">
-      <Filter>Game_\main_Game\Hero</Filter>
+      <Filter>Game\_mainGame\Hero</Filter>
     </ClCompile>
     <ClCompile Include="HeroHealth.cpp">
-      <Filter>Game_\main_Game\Hero</Filter>
+      <Filter>Game\_mainGame\Hero</Filter>
     </ClCompile>
     <ClCompile Include="DynamicNumbers.cpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClCompile>
-    <ClCompile Include="Place.cpp" />
-    <ClCompile Include="Menu_Music.cpp" />
     <ClCompile Include="Create_Deck.cpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="display_text.cpp" />
     <ClCompile Include="initPVP.cpp">
-      <Filter>Game_\PVP</Filter>
-    </ClCompile>
-    <ClCompile Include="ShowGameObjInfo.cpp">
-      <Filter>Game_</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClCompile>
     <ClCompile Include="ClientSocket.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="connectionData.cpp">
-      <Filter>Game_\PVP</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClCompile>
     <ClCompile Include="Message.cpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="connectPVP.cpp">
-      <Filter>Game_\PVP</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClCompile>
     <ClCompile Include="SetupPvp.cpp">
-      <Filter>Game_\main-menu\pvp-setup</Filter>
+      <Filter>Game\Menu\pvp-setup</Filter>
     </ClCompile>
-    <ClCompile Include="InputField.cpp" />
-    <ClCompile Include="InputHandler.cpp" />
-    <ClCompile Include="W_ipconfig.cpp" />
-    <ClCompile Include="IPInfo.cpp" />
-    <ClCompile Include="PvpSessionData.cpp" />
-    <ClCompile Include="DefaultAnimation.cpp" />
-    <ClCompile Include="LoadingScreen.cpp" />
+    <ClCompile Include="ShowGameObjInfo.cpp">
+      <Filter>Game\_mainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLoop.cpp">
+      <Filter>Game\_mainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Place.cpp">
+      <Filter>Game\_mainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultAnimation.cpp">
+      <Filter>Game\_mainGame\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="display_text.cpp">
+      <Filter>Game\_mainGame\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="IPInfo.cpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Music.cpp">
+      <Filter>Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="W_ipconfig.cpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PvpSessionData.cpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClCompile>
+    <ClCompile Include="GetFiles.cpp">
+      <Filter>Game\Other Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingScreen.cpp">
+      <Filter>Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="InputField.cpp">
+      <Filter>Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Game\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClInclude>
     <ClInclude Include="Player_Field.hpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClInclude>
     <ClInclude Include="Player_Deck.hpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClInclude>
     <ClInclude Include="Player.hpp">
-      <Filter>Game_\Player</Filter>
+      <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClInclude>
     <ClInclude Include="Opponent.hpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Deck.hpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Field.hpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Hand.hpp">
-      <Filter>Game_\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Basic_Card.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="Card_Types.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="eCard_Effects.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="loadCards.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="ManageCardsC.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="Audio_class.hpp">
-      <Filter>Game_\Audio</Filter>
+      <Filter>Game\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Field.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="GameField.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Hand.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Deck.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Load_Deck.hpp">
-      <Filter>Game_\loadSave</Filter>
+      <Filter>Game\loadSave</Filter>
     </ClInclude>
     <ClInclude Include="Save_Manager.hpp">
-      <Filter>Game_\loadSave\save</Filter>
+      <Filter>Game\loadSave\save</Filter>
     </ClInclude>
     <ClInclude Include="Save_Deck.hpp">
-      <Filter>Game_\loadSave\save</Filter>
+      <Filter>Game\loadSave\save</Filter>
     </ClInclude>
     <ClInclude Include="CurrentTurn.hpp">
-      <Filter>Game_\main_Game\Manage Turn</Filter>
+      <Filter>Game\_mainGame\Manage Turns</Filter>
     </ClInclude>
     <ClInclude Include="Turn_Enum.hpp">
-      <Filter>Game_\main_Game\Manage Turn</Filter>
+      <Filter>Game\_mainGame\Manage Turns</Filter>
     </ClInclude>
     <ClInclude Include="Effects.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="getEffectAsString.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="draw.hpp">
       <Filter>dev</Filter>
@@ -447,234 +480,258 @@
       <Filter>dev</Filter>
     </ClInclude>
     <ClInclude Include="Menu.hpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Menu_Button.hpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Menu_Play.hpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="MenuBtn_Enum.hpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="bTexture.hpp">
-      <Filter>Game_\Texture</Filter>
+      <Filter>Game\_mainGame\Texture</Filter>
     </ClInclude>
     <ClInclude Include="DefaultTexture.hpp">
-      <Filter>Game_\Texture</Filter>
+      <Filter>Game\_mainGame\Texture</Filter>
     </ClInclude>
     <ClInclude Include="SDLNet_init.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="SDL_init.hpp">
-      <Filter>Game_\SDL</Filter>
+      <Filter>Game\Resources\SDL</Filter>
     </ClInclude>
     <ClInclude Include="Battlecry.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="Deathwish.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="eBoost.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="HealOrDmg.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="Game.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="GameObj.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="ShowGameObjInfo.h">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="ClientSocket.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="HostSocket.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="IPAdress.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="Net_Interface.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="TcpSocket.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="CL_EventHandler.hpp">
-      <Filter>Game_\SDLEvent</Filter>
+      <Filter>Game\Resources\SDLEvent</Filter>
     </ClInclude>
     <ClInclude Include="CL_EventNames.hpp">
-      <Filter>Game_\SDLEvent</Filter>
+      <Filter>Game\Resources\SDLEvent</Filter>
     </ClInclude>
     <ClInclude Include="Click_EventHandler.hpp">
-      <Filter>Game_\SDLEvent</Filter>
+      <Filter>Game\Resources\SDLEvent</Filter>
     </ClInclude>
     <ClInclude Include="fdeleter.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Graveyard.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Icons.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Name_Plate.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="NumberPopup.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="StatsSign.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Button.hpp">
-      <Filter>Game_\main-menu</Filter>
+      <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="gMouse.hpp">
-      <Filter>Game_\Other Stuff\Namespace</Filter>
+      <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>
     <ClInclude Include="gQuit.hpp">
-      <Filter>Game_\Other Stuff\Namespace</Filter>
+      <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>
     <ClInclude Include="gRenderer.hpp">
-      <Filter>Game_\Other Stuff\Namespace</Filter>
+      <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>
     <ClInclude Include="gScreenSize.hpp">
-      <Filter>Game_\Other Stuff\Namespace</Filter>
+      <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>
     <ClInclude Include="Sub_Btn_Enum.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Main_Btn_Enum.hpp">
-      <Filter>Game_\main_Game</Filter>
-    </ClInclude>
-    <ClInclude Include="GetFiles.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="ePosition.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Who.hpp">
-      <Filter>Game_\main_Game</Filter>
+      <Filter>Game\_mainGame</Filter>
     </ClInclude>
     <ClInclude Include="Default_Card.hpp">
-      <Filter>Game_\Card\Monster</Filter>
+      <Filter>Game\Card\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Frame.hpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClInclude>
     <ClInclude Include="Rarity.hpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClInclude>
     <ClInclude Include="BoostCard.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="Effect_Description.hpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClInclude>
     <ClInclude Include="Effect_Card.hpp">
-      <Filter>Game_\Card\Spell</Filter>
+      <Filter>Game\Card\Spell</Filter>
     </ClInclude>
     <ClInclude Include="Card_Effects.hpp">
-      <Filter>Game_\Card\Card Effects</Filter>
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
     <ClInclude Include="Hover_Card.hpp">
-      <Filter>Game_\Card\Interface</Filter>
+      <Filter>Game\Card\Interface</Filter>
     </ClInclude>
     <ClInclude Include="Collection_Card.hpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClInclude>
     <ClInclude Include="TTF_Text.hpp">
-      <Filter>Game_\Interface</Filter>
+      <Filter>Game\Interface</Filter>
     </ClInclude>
     <ClInclude Include="EffectField.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="EffectManager.hpp">
-      <Filter>Game_\Field,Hand,Deck</Filter>
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
     <ClInclude Include="Collection_Menu.hpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClInclude>
     <ClInclude Include="Timer.hpp">
-      <Filter>Game_\Other Stuff\Timer</Filter>
+      <Filter>Game\Other Stuff\Timer%28+FPS%29</Filter>
     </ClInclude>
     <ClInclude Include="FPS_Timer.hpp">
-      <Filter>Game_\Other Stuff\Timer\FPSTimer</Filter>
+      <Filter>Game\Other Stuff\Timer%28+FPS%29\FPSTimer</Filter>
     </ClInclude>
     <ClInclude Include="Resource.hpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClInclude>
     <ClInclude Include="Victory_Loss_Screen.hpp">
-      <Filter>Game_\main_Game\Game End</Filter>
+      <Filter>Game\_mainGame\Game End</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.hpp">
-      <Filter>Game_\Other Stuff\Mouse</Filter>
+      <Filter>Game\Other Stuff\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Arrow.hpp">
-      <Filter>Game_\main_Game\Card action</Filter>
+      <Filter>Game\_mainGame\Interface\Arrow</Filter>
     </ClInclude>
     <ClInclude Include="Collection_EH.hpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClInclude>
     <ClInclude Include="EnergySign.hpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClInclude>
     <ClInclude Include="EnergyInterface.hpp">
-      <Filter>Game_\main_Game\Resource</Filter>
+      <Filter>Game\_mainGame\IG_Resources</Filter>
     </ClInclude>
     <ClInclude Include="GameEndScreen.hpp">
-      <Filter>Game_\main_Game\Game End</Filter>
+      <Filter>Game\_mainGame\Game End</Filter>
     </ClInclude>
-    <ClInclude Include="GameLoop.hpp" />
     <ClInclude Include="Escape_Overlay.hpp">
-      <Filter>Game_\main_Game\Interface</Filter>
+      <Filter>Game\_mainGame\Interface</Filter>
     </ClInclude>
     <ClInclude Include="Hero.hpp">
-      <Filter>Game_\main_Game\Hero</Filter>
+      <Filter>Game\_mainGame\Hero</Filter>
     </ClInclude>
     <ClInclude Include="HeroHealth.hpp">
-      <Filter>Game_\main_Game\Hero</Filter>
+      <Filter>Game\_mainGame\Hero</Filter>
     </ClInclude>
     <ClInclude Include="DynamicNumbers.hpp">
-      <Filter>Game_\Card</Filter>
+      <Filter>Game\Card</Filter>
     </ClInclude>
-    <ClInclude Include="Place.hpp" />
-    <ClInclude Include="Menu_Music.hpp" />
     <ClInclude Include="Create_Deck.hpp">
-      <Filter>Game_\Collection</Filter>
+      <Filter>Game\Collection</Filter>
     </ClInclude>
-    <ClInclude Include="display_text.hpp" />
     <ClInclude Include="initPVP.hpp">
-      <Filter>Game_\PVP</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClInclude>
     <ClInclude Include="connectionData.hpp">
-      <Filter>Game_\PVP</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClInclude>
     <ClInclude Include="Message.hpp">
-      <Filter>Game_\SDLNet</Filter>
+      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="connectPVP.hpp">
-      <Filter>Game_\PVP</Filter>
+      <Filter>Game\_mainGame\PVP</Filter>
     </ClInclude>
     <ClInclude Include="SetupPvp.hpp">
-      <Filter>Game_\main-menu\pvp-setup</Filter>
+      <Filter>Game\Menu\pvp-setup</Filter>
     </ClInclude>
-    <ClInclude Include="InputField.hpp" />
-    <ClInclude Include="InputHandler.hpp" />
-    <ClInclude Include="W_ipconfig.hpp" />
-    <ClInclude Include="IPInfo.hpp" />
-    <ClInclude Include="PvpSessionData.hpp" />
-    <ClInclude Include="DefaultAnimation.hpp" />
-    <ClInclude Include="LoadingScreen.hpp" />
+    <ClInclude Include="GameLoop.hpp">
+      <Filter>Game\_mainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Place.hpp">
+      <Filter>Game\_mainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultAnimation.hpp">
+      <Filter>Game\_mainGame\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="display_text.hpp">
+      <Filter>Game\_mainGame\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IPInfo.hpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Music.hpp">
+      <Filter>Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="W_ipconfig.hpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClInclude>
+    <ClInclude Include="PvpSessionData.hpp">
+      <Filter>Game\_mainGame\PVP</Filter>
+    </ClInclude>
+    <ClInclude Include="GetFiles.hpp">
+      <Filter>Game\Other Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScreen.hpp">
+      <Filter>Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.hpp">
+      <Filter>Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="InputField.hpp">
+      <Filter>Game\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="wichtig.txt" />
+    <Text Include="wichtig.txt">
+      <Filter>dev</Filter>
+    </Text>
   </ItemGroup>
 </Project>

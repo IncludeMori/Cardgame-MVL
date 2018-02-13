@@ -8,6 +8,7 @@ Game::Game()
 	keyUp = true;
 	Init();
 	//MPlayerField->setHero(mOppHero);
+	mBackground.loadFromFile("Data/background/background.png");
 }
 Game::~Game()
 {

@@ -8,13 +8,15 @@
 #include "Escape_Overlay.hpp"
 #include "Create_Deck.hpp"
 
+#include "LoadingScreen.hpp"
+
 GameClass::GameClass()
 {
 }
 bool GameClass::main_loop()
 {
 	//test
-
+	LoadingScreen loadScreen;
 
 	while (!gQuitGame)
 	{
@@ -31,7 +33,9 @@ bool GameClass::main_loop()
 			{
 				//start actual game
 			case(Btn_Type::VS_AI):
+				loadScreen.start();
 				mGame.reset(new Game());
+				loadScreen.end();
 				if (!mGame->loop()) {
 					mGame->free();
 					mGame.release();

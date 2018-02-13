@@ -43,6 +43,7 @@ public:
 	void free();
 
 protected:
+	DefaultTexture mBackground;
 	std::shared_ptr<EffectField> mEffectField; //shared between PlayerField && OpponentField
 
 	void rearrange(int index); // -> removed card[index]
