@@ -44,7 +44,9 @@ bool GameClass::main_loop()
 				break;
 				//go to-> collection menu
 			case(Btn_Type::CREATE_DECK):
+				loadScreen.start();
 				mCreateDeck.reset(new Create_Deck());
+				loadScreen.end();
 				if (!mCreateDeck->loop())
 				{
 					mCreateDeck->free();

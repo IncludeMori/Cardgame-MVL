@@ -16,7 +16,7 @@ public:
 		std::cout << "Start: Loading Screen" << std::endl;
 	}
 	void end() {
-		y = false;
+		mIsActive = false;
 		mThread.join();
 		std::cout << "End: Loading Screen" << std::endl;
 	}
@@ -27,7 +27,7 @@ private:
 	int mPercent;
 	std::thread mThread;
 
-	bool y = true;
-	DefaultTexture x;
+	bool mIsActive = true;
+	DefaultTexture mLoading;
 
 };
