@@ -12,6 +12,7 @@ public:
 	LoadingScreen();
 
 	void start() {
+		mIsActive = true;
 		mThread = std::thread(&LoadingScreen::render, this);
 		std::cout << "Start: Loading Screen" << std::endl;
 	}
