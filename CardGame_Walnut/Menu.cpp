@@ -52,7 +52,7 @@ bool Menu::update()
 	gMouse.update();
 	SDL_PollEvent(&e);
 		
-	
+	/*
 	SDL_Keymod Keymod = SDL_GetModState();
 	//e.key.keysym.mod
 	if (e.key.type == SDL_KEYDOWN)
@@ -65,7 +65,7 @@ bool Menu::update()
 			mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable();
 		}
 
-	}
+	}*/
 
 
 	if (Esc_Overlay.update(e))
@@ -76,7 +76,7 @@ bool Menu::update()
 
 	int x = EventHandler.handleEvent(e);
 
-	if (mActiveSubBtn == Btn_Type::VS_PLAYER)
+	if (mActiveSubBtn == Btn_Type::VS_PLAYER && !Esc_Overlay.isActive())
 	{
 		if (!PvpMenu.isActive())
 			mActiveSubBtn = Btn_Type::ERROR;
