@@ -34,17 +34,23 @@ public:
 
 protected:
 	void rearrange(int index);
+
+	void rearrangeRm(int index);
+	void rearrangeAdd();
+
 	void updatePos(int index);
 
 	//check if I need everything for OPP_HAND
 	const int MAX_SIZE = 10;
 	int mSize; //current handsize
+	int mNextDrawIndex = 0;
 	bool mPlayable[10];
 
 	std::shared_ptr<Basic_Card> mCard[10];
 	Resource mResource;
 
 	int mPosX[10], mPosY[10];
+	int mShift[10];
 	bool mCard_isActive[10]; // Spieler hat die Karte in der Hand
 
 	bool isMovingACard = false;

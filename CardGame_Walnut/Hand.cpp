@@ -2,7 +2,10 @@
 
 Hand::Hand()
 {
+	for (int i = 0; i < MAX_SIZE; i++)
+		mShift[i] = 0;
 
+	mNextDrawIndex = 4;
 }
 Hand::~Hand()
 {
@@ -20,6 +23,46 @@ void Hand::render()
 
 }
 
+/* draw new
+int x;
+
+if (card != nullptr)
+{
+if (mSize < MAX_SIZE)
+{
+if (mSize % 2 == 1)
+{
+  x = mNextDrawIndex;
+  while mCard[x] != nullptr)
+  {
+  mShift[x] = mShift[x]-1;
+  x--;
+  }
+  NextDrawIndex++;
+}
+else
+x = NextDrawIndex;
+
+mSize++;
+mCard[x] = card;
+mCard[x]->changePosition(Position::HAND);
+mCard[x]->setPos(mPosX[x], mPosY[x]);
+mPlayable[mNextDrawIndex - 1] = true;
+mCard_isActive[mNextDrawIndex - 1] = true;
+std::cout << "Added Card at index:" << mNextDrawIndex - 1 << std::endl;
+std::cout << "Set Pos: X:" << mPosX[mNextDrawIndex - 1] << "  Y:" << mPosY[mNextDrawIndex - 1] << std::endl;
+return true;
+
+}
+else
+{
+mGraveyard->add(card);
+return true;
+}
+}
+else
+return false;
+*/
 bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 {
 	if (card != nullptr)
@@ -61,6 +104,7 @@ std::shared_ptr<Basic_Card> Hand::getCard(int index)
 	std::cout << "Return Card:" << index << std::endl;
 	//mCard[index] = nullptr;
 	rearrange(index);
+	//rearrangeRm(index);
 	mSize--;
 	for (int i = 0; i < mSize; i++)
 		updatePos(i);
@@ -153,10 +197,35 @@ void Hand::rearrange(int index)
 			mCard[i].swap(mCard[i + 1]);
 }
 
+void Hand::rearrangeRm(int index)
+{
+	//KARTE ENTFERN (index)
+	//if index <= 4, alle kleiner als index einen nach Rechts verschieben
+	//	if index >= 5 alle größer als index einen nach Links verschieben
+
+
+	if (index <= 4 && index != 0)
+	{
+		for (int i = 0; i++; i < index)
+			mShift[i] = mShift[i] + 1;
+	}
+	else if (index >= 5 && index != 9)
+	{
+		for (int i = index+1; i++; i < MAX_SIZE)
+			mShift[i] = mShift[i] - 1;
+	}
+
+}
+void Hand::rearrangeAdd()
+{
+	if (mSize % 2 == 1)
+		mShift[0] = mShift[0] - 1;
+}
+
 void Hand::updatePos(int index)
 {
 	if (mCard[index] != nullptr)
-		mCard[index]->setPos(mPosX[index], mPosY[index]);
+		mCard[index]->setPos(mPosX[index+mShift[index], mPosY[index+mShift[index]);
 }
 void Hand::free()
 {
