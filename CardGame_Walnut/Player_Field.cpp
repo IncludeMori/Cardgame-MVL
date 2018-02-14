@@ -153,7 +153,7 @@ bool Player_Field::update()
 		{
 			if (mCard[ba_card]->activateEffect())
 			{
-				std::cout << "false2";
+				
 
 				battlecry_active = false;
 				gMouse.BtnUp();
@@ -165,7 +165,7 @@ bool Player_Field::update()
 		{
 			if (Effect_Field.checkEffect())
 			{
-				std::cout << "false1";
+				
 
 				battlecry_active = false;
 				gMouse.BtnUp();

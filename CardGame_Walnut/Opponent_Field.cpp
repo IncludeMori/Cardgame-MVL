@@ -22,8 +22,6 @@ Opponent_Field::Opponent_Field()
 	{
 		mPosY[i] = y;
 		mPosX[i] = x;
-		std::cout << "X:" << x << std::endl;
-		std::cout << "Y:" << y << std::endl;
 		x += change;
 		if (change > 0) { change = (change + lol) *-1; }
 		else { change = (change + (lol*-1))*-1; }

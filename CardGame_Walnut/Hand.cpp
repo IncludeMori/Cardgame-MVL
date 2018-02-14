@@ -60,11 +60,7 @@ std::shared_ptr<Basic_Card> Hand::getCard(int index)
 	x.swap(mCard[index]);
 	std::cout << "Return Card:" << index << std::endl;
 	//mCard[index] = nullptr;
-	std::cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << std::endl;
-	std::cout << "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////" << std::endl;
 	rearrange(index);
-	std::cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << std::endl;
-	std::cout << "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE" << std::endl;
 	mSize--;
 	
 	std::cout << "current Hand afterwards:" << std::endl;

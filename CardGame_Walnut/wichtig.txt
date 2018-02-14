@@ -2,10 +2,22 @@
 LADESCREEN [DONE]
 FPS_TIMER Ingame(PVE) [DONE]
 ENERGY etwas zusammen rücken(passend zum Feld) [DONE]
-WIN/LOSS SCREEN
-leere Felder aufbessern
-bugs fixen
+WIN/LOSS SCREEN [DONE]
+leere Felder aufbessern [DONE]
+
+Gameplay Bugs fixen:
+
+-Boost Hand (target??) [DONE]
+-Boost Deck (target??) [DONE]
+
+-Hand draw & rearrange
+
+
+
 Code aufräumen
 Collection fixen
 2 Decks implementieren
 PVP implementieren
+
+
+Menu in GameLoop ausgeklammert, bitte löschen

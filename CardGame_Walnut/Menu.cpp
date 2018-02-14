@@ -24,10 +24,6 @@ bool Menu::loop()
 	{
 		FpsTimer.startFrame();
 
-		//if (key[SDL_SCANCODE_ESCAPE])
-		//{
-		//	std::cout << "lololol";
-		//}
 
 		if (!update())
 			QuitGame = true;
@@ -100,18 +96,13 @@ bool Menu::update()
 
 			if (mButtons[PLAY_BTN].isPressed()) {
 
-				std::cout << "st:" << static_cast<int>(mActiveSubBtn) << std::endl;
-
 				if (mActiveButton != PLAY_BTN)
 				{
-					std::cout << "st:" << static_cast<int>(mActiveSubBtn) << std::endl;
+					
 					mButtons[mActiveButton].setInactive();
-					std::cout << "st:" << static_cast<int>(mActiveSubBtn) << std::endl;
 					mActiveButton = PLAY_BTN;
-					std::cout << "st:" << static_cast<int>(mActiveSubBtn) << std::endl;
 				}
 
-				std::cout << "st:" << static_cast<int>(mActiveSubBtn) << std::endl;
 			}
 			else if (mButtons[COLLECTION_BTN].isPressed())
 			{

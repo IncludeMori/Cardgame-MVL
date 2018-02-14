@@ -26,7 +26,6 @@ bool Click_EventHandler::handleEvent(SDL_Event &e)
 		}
 		else if (e.type == SDL_MOUSEBUTTONUP)
 		{
-			std::cout << "UP" << std::endl;
 			gMouse.BtnUp();
 			//gMouse.BtnDown();
 		}

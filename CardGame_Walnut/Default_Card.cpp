@@ -74,10 +74,10 @@ Default_Card::Default_Card(std::string &path, int x)
 
 
 	sol::state lua;
-	lua.script_file("Cards_Lua/Data/card_effects.lua");
+	lua.script_file("Data/Cards_Lua/Cards_Lua/Data/card_effects.lua");
 	std::cout << "Path:" << path << std::endl;
-	lua.script_file("Cards_Lua/" + path + ".lua");
-	std::cout << "Lua script loaded";
+	lua.script_file("Data/Cards_Lua/Cards_Lua/" + path + ".lua");
+	std::cout << "Lua script loaded: Data/Cards_Lua/Cards_Lua/" + path + ".lua" << std::endl;
 
 	mName = path;
 

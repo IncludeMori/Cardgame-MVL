@@ -25,8 +25,8 @@ Effect_Card::Effect_Card(std::string &path)
 
 
 	sol::state lua;
-	lua.script_file("Cards_Lua/Data/eCard_effects.lua");
-	lua.script_file("Cards_Lua/" + path + ".lua");
+	lua.script_file("Data/Cards_Lua/Cards_Lua/Data/eCard_effects.lua");
+	lua.script_file("Data/Cards_Lua/Cards_Lua/MagicCards/" + path + ".lua");
 
 	mName = path;
 

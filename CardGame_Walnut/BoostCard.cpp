@@ -62,6 +62,9 @@ bool BoostCard::activate(Basic_Card *card)
 
 bool BoostCard::activate()
 {
+	std::cout << "Effect:" << (int)mTarget << std::endl;
+	std::cout << "Target:" << (int)mTarget_spec << std::endl;
+
 	switch (mTarget)
 	{
 	case(eTarget::DECK):
@@ -88,7 +91,10 @@ bool BoostCard::activate()
 				dynamic_pointer_cast<Default_Card>(mDeck->CardAt(rnd))->increase(mStat, mAmount);
 			}
 			else
-				std::cout << "BOOST DECK::ERROR" << std::endl;
+			{
+				std::cout << "Error: Boost Deck(Random)" << std::endl;
+				std::cout << "Checked card:" << rnd << " || Deck Size: " << mDeck->getSize() << std::endl;
+			}
 			break; // RANDOM
 		default:
 			return false;
@@ -109,7 +115,10 @@ bool BoostCard::activate()
 			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand->getSize();
-			dynamic_pointer_cast<Default_Card>(mHand->CardAt(rnd))->increase(mStat, mAmount);
+			if (mHand->CardAt(rnd) != nullptr)
+				dynamic_pointer_cast<Default_Card>(mHand->CardAt(rnd))->increase(mStat, mAmount);
+			else
+				std::cout << "Error: Boost Hand(Random)" << std::endl;
 			break;//RANDOM
 		default:
 			return false;
@@ -165,7 +174,7 @@ bool BoostCard::activate()
 		break;//FIELD
 	//--------------------------------------------------
 	default:
-		return false;
+		return true;
 	}
-	return false;
+	return true;
 }
