@@ -1,5 +1,11 @@
 ﻿ESC-> Leave Game bug fix [DONE]
 LADESCREEN [DONE]
-FPS_TIMER Ingame(PVE)
-Alle Bugs fixen, Code aufräumen
+FPS_TIMER Ingame(PVE) [DONE]
+ENERGY etwas zusammen rücken(passend zum Feld) [DONE]
+WIN/LOSS SCREEN
+leere Felder aufbessern
+bugs fixen
+Code aufräumen
+Collection fixen
+2 Decks implementieren
 PVP implementieren

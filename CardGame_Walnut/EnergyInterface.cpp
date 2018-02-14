@@ -80,9 +80,9 @@ void EnergyInterface::init(int who)
 		y = SCREEN_HEIGHT - 3 * (SCREEN_HEIGHT / 4)-60;
 	}
 
-	int shiftX = 60;
+	int shiftX = 55;
 	y = y - 10;
-	x = x - 5;
+	//x = x - 5;
 	for (int i = 0; i < 10; i++)
 	{
 		mPosX[i] = x + (i*shiftX);
@@ -97,7 +97,7 @@ void EnergyInterface::init(int who)
 		mEnergy[i].setPos(mPosX[i], mPosY[i]);
 	}
 
-	mBackground.setPos(x, y-10);
+	mBackground.setPos(x-5, y-10);
 
 
 

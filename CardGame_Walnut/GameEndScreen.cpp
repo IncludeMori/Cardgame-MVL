@@ -9,6 +9,7 @@ GameEndScreen::GameEndScreen()
 	mEndGameBtn.loadFromFile("Data/Continue.png");
 
 	mVictory.setPos(SCREEN_WIDTH / 2 - mVictory.getWidth() / 2, SCREEN_HEIGHT / 2 - mVictory.getHeight() / 2);
+	mLoss.setPos(SCREEN_WIDTH / 2 - mVictory.getWidth() / 2, SCREEN_HEIGHT / 2 - mVictory.getHeight() / 2);
 	mEndGameBtn.setPos(mVictory.getX() + mVictory.getWidth()/2-mEndGameBtn.getWidth()/2, mVictory.getY() + 125);
 }
 
