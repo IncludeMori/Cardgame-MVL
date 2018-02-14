@@ -14,8 +14,11 @@ Player_Hand::Player_Hand()
 	//cards pos
 	int test = 1;
 	int x = SCREEN_WIDTH/2-width/2, y = SCREEN_HEIGHT-(height/2)+20;
-	int change = 200;
-	for (int i = 0; i < 6; i++)
+	int change = 115;
+
+	//!
+	x = x - 4 * 125;
+	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		mPlayable[i] = false;
 		mCard_isActive[i] = false;
@@ -23,8 +26,8 @@ Player_Hand::Player_Hand()
 		mPosY[i] = y;
 		mPosX[i] = x;
 		
-		x = x + test*change;
-		change = change *-1;
+		x = x + change;
+		//change = change *-1;
 		test++;
 	}
 

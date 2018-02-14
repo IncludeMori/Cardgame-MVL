@@ -62,6 +62,8 @@ std::shared_ptr<Basic_Card> Hand::getCard(int index)
 	//mCard[index] = nullptr;
 	rearrange(index);
 	mSize--;
+	for (int i = 0; i < mSize; i++)
+		updatePos(i);
 	
 	std::cout << "current Hand afterwards:" << std::endl;
 	for (int i = 0; i < 6; i++)
@@ -104,13 +106,15 @@ bool Hand::isUsingACard()
 
 void Hand::rearrange(int index)
 {
-	//Field setup    0 1
-	//warning?
+	//DRAW-> card @ mSize
+
 	std::cout << std::endl;
 	std::cout << "current Hand before:" << std::endl;
 	for (int i = 0; i < 6; i++)
 		if (mCard[i] == nullptr) std::cout << "0"; else std::cout << "-";
     std::cout << std::endl;
+
+
 
 	if (index == 0 && index+1 < mSize)
 	{

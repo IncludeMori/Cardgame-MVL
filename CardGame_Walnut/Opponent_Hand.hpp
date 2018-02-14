@@ -16,5 +16,6 @@ public:
 	void render();
 
 private:
+	int MAX_SIZE = 6;
 
 };

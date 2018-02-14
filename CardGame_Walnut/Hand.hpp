@@ -37,15 +37,15 @@ protected:
 	void updatePos(int index);
 
 	//check if I need everything for OPP_HAND
-	const int MAX_SIZE = 6;
+	const int MAX_SIZE = 10;
 	int mSize; //current handsize
-	bool mPlayable[6];
+	bool mPlayable[10];
 
-	std::shared_ptr<Basic_Card> mCard[6];
+	std::shared_ptr<Basic_Card> mCard[10];
 	Resource mResource;
 
-	int mPosX[6], mPosY[6];
-	bool mCard_isActive[6]; // Spieler hat die Karte in der Hand
+	int mPosX[10], mPosY[10];
+	bool mCard_isActive[10]; // Spieler hat die Karte in der Hand
 
 	bool isMovingACard = false;
 

@@ -6,13 +6,16 @@ using std::dynamic_pointer_cast;
 
 Opponent_Hand::Opponent_Hand()
 {
+	MAX_SIZE = 6;
 	mSize = 0;
 	int height = 243;
 	int width = 165;
 	//cards pos
 	int test = 1;
 	int x = SCREEN_WIDTH / 2 - width / 2, y = -height / 2 -20;
-	int change = 200;
+	int change = 125;
+
+	x = x - 2 * change;
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		mPlayable[i] = false;
@@ -21,8 +24,8 @@ Opponent_Hand::Opponent_Hand()
 		mPosY[i] = y;
 		mPosX[i] = x;
 
-		x = x + test*change;
-		change = change *-1;
+		x = x + change;
+		//change = change *-1;
 		test++;
 	}
 
@@ -62,7 +65,10 @@ bool Opponent_Hand::canPlayCard()
 	for (int i = 0; i < mSize; i++)
 	{
 		if (mCard[i] == nullptr)
+		{
+			std::cout << i << std::endl;
 			__debugbreak();
+		}
 		if (mCard[i]->getCost() <= mResource.getAvailable())
 		{
 			return true;
