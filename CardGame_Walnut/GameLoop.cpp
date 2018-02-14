@@ -18,8 +18,14 @@ bool GameClass::main_loop()
 	//test
 	LoadingScreen loadScreen;
 
+	mCurrentlyActive = Btn_Type::VS_AI;
+
 	while (!gQuitGame)
 	{
+
+		//DELETE TO ENABLE MENU
+		//ALSO: delete gQuitGame = true inside VS_AI
+		/*
 		loadScreen.start();
 		mMenu.reset(new Menu());
 		loadScreen.end();
@@ -28,7 +34,7 @@ bool GameClass::main_loop()
 
 		mMenu->free();
 		mMenu.release();
-
+		*/
 		if (gQuitGame == false)
 		{
 			switch (mCurrentlyActive)
@@ -42,6 +48,9 @@ bool GameClass::main_loop()
 					mGame->free();
 					mGame.release();
 					mCurrentlyActive = Btn_Type::ERROR;
+
+					//DELETE!!!!!!!
+					gQuitGame = true;
 				}
 				break;
 				//go to-> collection menu
