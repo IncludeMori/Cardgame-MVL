@@ -234,7 +234,6 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 			if (mTimerActive == false)
 			{
 				SDL_RemoveTimer(myTimer);
-				std::cout << "start timer thread" << std::endl;
 				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
 				mTimerActive = true;
 			}
@@ -249,7 +248,6 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 		{
 			HoverEffect.disable();
 			HoverEffectIsActive = false;
-			std::cout << "disable4";
 		}
 }
 void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
@@ -280,7 +278,6 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 			if (mTimerActive == false)
 			{
 				SDL_RemoveTimer(myTimer);
-				std::cout << "start timer thread" << std::endl;
 				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
 				
 				mTimerActive = true;
@@ -297,7 +294,6 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 	else
 	{
 		HoverEffect.disable();
-		std::cout << "disable2";
 		HoverEffectIsActive = false;
 	}
 }
@@ -350,7 +346,6 @@ bool Default_Card::MouseIsAbove()
 			if (HoverEffect.isActive())
 			{
 				HoverEffect.disable();
-				std::cout << "disable3";
 				HoverEffectIsActive = false;
 				
 				mTimerActive = false;
@@ -373,7 +368,6 @@ bool Default_Card::MouseIsAbove()
 			if (HoverEffect.isActive())
 			{
 				HoverEffect.disable();
-				std::cout << "disable1";
 				HoverEffectIsActive = false;
 				mTimerActive = false;
 			}

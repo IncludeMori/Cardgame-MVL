@@ -69,14 +69,6 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 	{
 		if (mSize < MAX_SIZE)
 		{
-			for (int i = 0; i < mSize; i++)
-			{
-				if (mCard[i] == nullptr)
-					std::cout << "0";
-				else
-					std::cout << "1";
-			}
-
 
 			mSize++;
 			mCard[mSize-1] = card;
@@ -84,19 +76,9 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 			mCard[mSize - 1]->setPos(mPosX[mSize - 1+(mShift[mSize-1])], mPosY[mSize - 1+(mShift[mSize-1])]);
 			mPlayable[mSize - 1] = true;
 			mCard_isActive[mSize - 1] = true;
-			std::cout << "Added Card at index:" << mSize - 1 << std::endl;
-			std::cout << "Set Pos: X:" << mPosX[mSize - 1] << "  Y:" << mPosY[mSize - 1] << std::endl;
 
 			rearrangeAdd();
 			updatePos();
-
-			for (int i = 0; i < mSize; i++)
-			{
-				if (mCard[i] == nullptr)
-					std::cout << "0";
-				else
-					std::cout << "1";
-			}
 
 			return true;
 
@@ -227,24 +209,8 @@ void Hand::rearrangeRm(int index) //removed card@index
 		std::cout << "swapped:" << i << "," << i + 1 << std::endl;
 		mCard[i].swap(mCard[i + 1]);
 
-		for (int i = index; i < mSize; i++)
-		{
-			if (mCard[i] == nullptr)
-				std::cout << "0";
-			else
-				std::cout << "1";
-		}
 
 	}
-	//print deck
-	for (int i = index; i < mSize; i++)
-	{
-		if (mCard[i] == nullptr)
-			std::cout << "0";
-		else
-			std::cout << "1";
-	}
-
 
 	if (mSize % 2 == 1)
 	{
@@ -291,7 +257,6 @@ void Hand::updatePos()
 	for (int index = 0;index<MAX_SIZE;index++)
 		if (mCard[index] != nullptr)
 		{
-			std::cout << "Index " << index << "set to:" << index+mShift[index] << std::endl;
 			mCard[index]->setPos(mPosX[index + mShift[index]], mPosY[index + mShift[index]]);
 		}
 }
