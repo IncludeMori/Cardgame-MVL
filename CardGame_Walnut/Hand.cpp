@@ -69,6 +69,15 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 	{
 		if (mSize < MAX_SIZE)
 		{
+			for (int i = 0; i < mSize; i++)
+			{
+				if (mCard[i] == nullptr)
+					std::cout << "0";
+				else
+					std::cout << "1";
+			}
+
+
 			mSize++;
 			mCard[mSize-1] = card;
 			mCard[mSize - 1]->changePosition(Position::HAND);
@@ -80,6 +89,14 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 
 			rearrangeAdd();
 			updatePos();
+
+			for (int i = 0; i < mSize; i++)
+			{
+				if (mCard[i] == nullptr)
+					std::cout << "0";
+				else
+					std::cout << "1";
+			}
 
 			return true;
 
@@ -232,12 +249,12 @@ void Hand::rearrangeRm(int index) //removed card@index
 	if (mSize % 2 == 1)
 	{
 		for (int i = 0; i < MAX_SIZE; i++)
-			mShift[i] = mShift[i]+1;
+			mShift[i] = mShift[i];
 	}
 	else
 	{
 		for (int i = 0; i < MAX_SIZE; i++)
-			mShift[i] = mShift[i];
+			mShift[i] = mShift[i]+1;
 	}
 	/*
 	if (index <= 4 && index != 0)
