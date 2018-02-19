@@ -38,12 +38,12 @@ protected:
 	void rearrangeRm(int index);
 	void rearrangeAdd();
 
-	void updatePos(int index);
+	void updatePos();
 
 	//check if I need everything for OPP_HAND
 	const int MAX_SIZE = 10;
 	int mSize; //current handsize
-	int mNextDrawIndex = 0;
+	int mNextDrawIndex;
 	bool mPlayable[10];
 
 	std::shared_ptr<Basic_Card> mCard[10];

@@ -7,7 +7,10 @@ using std::dynamic_pointer_cast;
 
 Player_Hand::Player_Hand()
 {
-	
+	for (int i = 0; i < MAX_SIZE; i++)
+		mShift[i] = 5;
+
+
 	mSize = 0;
 	int height = 243;
 	int width = 165;

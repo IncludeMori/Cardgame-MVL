@@ -6,16 +6,19 @@ using std::dynamic_pointer_cast;
 
 Opponent_Hand::Opponent_Hand()
 {
-	MAX_SIZE = 6;
+	for (int i = 0; i < MAX_SIZE; i++)
+		mShift[i] = 5;
+
+
 	mSize = 0;
 	int height = 243;
 	int width = 165;
 	//cards pos
 	int test = 1;
 	int x = SCREEN_WIDTH / 2 - width / 2, y = -height / 2 -20;
-	int change = 125;
+	int change = 115;
 
-	x = x - 2 * change;
+	x = x - 4 * 125;
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		mPlayable[i] = false;
@@ -61,7 +64,7 @@ std::shared_ptr<Basic_Card> Opponent_Hand::getBestCard()
 
 bool Opponent_Hand::canPlayCard()
 {
-
+	/*
 	for (int i = 0; i < mSize; i++)
 	{
 		if (mCard[i] == nullptr)
@@ -74,7 +77,7 @@ bool Opponent_Hand::canPlayCard()
 			return true;
 		}
 	}
-
+	*/
 	//otherwise
 	return false;
 
