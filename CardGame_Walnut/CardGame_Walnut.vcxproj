@@ -141,6 +141,7 @@
     <ClCompile Include="connectPVP.cpp" />
     <ClCompile Include="Create_Deck.cpp" />
     <ClCompile Include="CurrentTurn.cpp" />
+    <ClCompile Include="Data.cpp" />
     <ClCompile Include="Deathwish.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefaultAnimation.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="connectPVP.hpp" />
     <ClInclude Include="Create_Deck.hpp" />
     <ClInclude Include="CurrentTurn.hpp" />
+    <ClInclude Include="Data.hpp" />
     <ClInclude Include="Deathwish.hpp" />
     <ClInclude Include="Deck.hpp" />
     <ClInclude Include="DefaultAnimation.hpp" />

@@ -55,7 +55,7 @@ void Player_Hand::update(const std::shared_ptr<Player_Field> &mField)
 
 	if (!gMouse.isPressed()) { isMovingACard = false; }
 	
-	for (int i = 0; i < mSize; i++)
+	for (int i = mSize-1; i >= 0; i--)
 	{
 		if (!mCard_isActive[i]) { mCard[i].reset(); } // remove pointer
 

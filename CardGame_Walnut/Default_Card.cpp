@@ -9,6 +9,8 @@
 #include "Card_Effects.hpp"
 #include <memory>
 #include "BoostCard.hpp"
+
+#include "Data.hpp"
 //#include "BoostCard.hpp"
 
 
@@ -196,13 +198,17 @@ void Default_Card::updateStats()
 
 Uint32 my_callbackfunc(Uint32 interval, void *param)
 {
-	std::cout << "function called" << std::endl;
+	using namespace CARD_DATA;
+
 	static_cast<Hover_Card*>(param)->enable();
+	
 	return 0;
 }
 
 void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
+	using namespace CARD_DATA;
+
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
 
@@ -238,9 +244,18 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 			HoverEffect.render();
 		}
 	}
+	else
+		if (HoverEffect.isActive())
+		{
+			HoverEffect.disable();
+			HoverEffectIsActive = false;
+			std::cout << "disable4";
+		}
 }
 void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
+	using namespace CARD_DATA;
+
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
 
@@ -267,6 +282,7 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 				SDL_RemoveTimer(myTimer);
 				std::cout << "start timer thread" << std::endl;
 				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
+				
 				mTimerActive = true;
 			}
 		}
@@ -279,7 +295,11 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 			hoverIsActive = false;
 	}
 	else
+	{
 		HoverEffect.disable();
+		std::cout << "disable2";
+		HoverEffectIsActive = false;
+	}
 }
 
 void Default_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
@@ -319,23 +339,32 @@ void Default_Card::loadTexture() {
 
 bool Default_Card::MouseIsAbove()
 {
-	if (gMouse.isPressed())
-	{
-		if (HoverEffect.isActive())
-		{
-			HoverEffect.disable();
-			mTimerActive = false;
-		}
-	}
-	else
-		if (mPos == Position::HAND)
-			HoverEffect.enable();
-
+	using namespace CARD_DATA;
 
 	int mouseX = gMouse.getX();
 	int mouseY = gMouse.getY();
 	if (mouseX > mPosX && mouseX < mPosX + mWidth && mouseY > mPosY && mouseY < mPosY + mHeight)
 	{
+		if (gMouse.isPressed())
+		{
+			if (HoverEffect.isActive())
+			{
+				HoverEffect.disable();
+				std::cout << "disable3";
+				HoverEffectIsActive = false;
+				
+				mTimerActive = false;
+			}
+		}
+		else
+			if (mPos == Position::HAND && !HoverEffectIsActive)
+			{
+				
+				HoverEffect.enable();
+				HoverEffectIsActive = true;
+			}
+
+
 		return true;
 	}
 	else {
@@ -344,6 +373,8 @@ bool Default_Card::MouseIsAbove()
 			if (HoverEffect.isActive())
 			{
 				HoverEffect.disable();
+				std::cout << "disable1";
+				HoverEffectIsActive = false;
 				mTimerActive = false;
 			}
 		}

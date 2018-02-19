@@ -10,7 +10,11 @@ Gameplay Bugs fixen:
 -Boost Hand (target??) [DONE]
 -Boost Deck (target??) [DONE]
 
--Hand draw & rearrange
+-Hand draw & rearrange[DONE]
+
+-FIELD place card(position && removal) 
+
+-change Hovercard(left or right of the board?)
 
 
 
