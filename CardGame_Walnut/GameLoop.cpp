@@ -10,13 +10,20 @@
 
 #include "LoadingScreen.hpp"
 
+#include <time.h>
+#include <chrono>
+#include <thread>
+
+
 GameClass::GameClass()
 {
 }
 bool GameClass::main_loop()
 {
 	//test
-	LoadingScreen loadScreen;
+	std::cout << "one";
+	//LoadingScreen loadScreen;
+	std::cout << "two";
 
 	mCurrentlyActive = Btn_Type::VS_AI;
 
@@ -41,9 +48,10 @@ bool GameClass::main_loop()
 			{
 				//start actual game
 			case(Btn_Type::VS_AI):
-				loadScreen.start();
+				//loadScreen.start();
 				mGame.reset(new Game());
-				loadScreen.end();
+				//std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+				//loadScreen.end();
 				if (!mGame->loop()) {
 					mGame->free();
 					mGame.release();
@@ -55,9 +63,9 @@ bool GameClass::main_loop()
 				break;
 				//go to-> collection menu
 			case(Btn_Type::CREATE_DECK):
-				loadScreen.start();
+				//loadScreen.start();
 				mCreateDeck.reset(new Create_Deck());
-				loadScreen.end();
+				//loadScreen.end();
 				if (!mCreateDeck->loop())
 				{
 					mCreateDeck->free();

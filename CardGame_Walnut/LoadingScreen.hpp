@@ -27,8 +27,8 @@ private:
 
 	int mPercent;
 	std::thread mThread;
-
-	bool mIsActive = true;
+	
+	bool mIsActive;
 	DefaultTexture mLoading;
 
 };

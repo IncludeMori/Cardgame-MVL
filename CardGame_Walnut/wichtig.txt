@@ -12,10 +12,13 @@ Gameplay Bugs fixen:
 
 -Hand draw & rearrange[DONE]
 
--FIELD place card(position && removal) 
+-fix Hovercard [DONE]
 
 -change Hovercard(left or right of the board?)
 
+-FIELD place card(position && removal) 
+
+-FIX Loading Screen (lock renderer, or second renderer?)
 
 
 Code aufräumen
