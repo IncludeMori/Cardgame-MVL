@@ -58,6 +58,7 @@ Default_Card::Default_Card(std::string &path)
 	mAPSign.changeData(mBasicAttack);
 
 	HoverEffect.loadFromFile("Data/"+name+".png");
+	HoverEffect.setPos(50, SCREEN_HEIGHT / 2 - 150);
 
 
 }
@@ -156,6 +157,7 @@ Default_Card::Default_Card(std::string &path, int x)
 	mBackground.free();
 	mBackground.loadFromFile("Data/Cards/background.png");
 	HoverEffect.disable();
+	HoverEffect.setPos(50, SCREEN_HEIGHT / 2 - 250);
 }
 Default_Card::Default_Card(int Health, int Attack, int Type, std::string &path)
 {
@@ -394,6 +396,7 @@ void Default_Card::setPos(int x, int y)
 	mAPSign.setPos(x, y + mHeight-mAPSign.getHeight());
 	mHealthSign.setPos(x + mWidth-mHealthSign.getWidth(), y + mHeight-mHealthSign.getHeight());
 
+	/*
 	switch (mPos)
 	{
 	case(Position::HAND):
@@ -404,7 +407,7 @@ void Default_Card::setPos(int x, int y)
 		break;
 
 		
-	}
+	}*/
 	HoverEffect.update();
 	
 }

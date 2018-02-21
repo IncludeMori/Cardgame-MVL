@@ -33,7 +33,7 @@ void Hover_Card::update()
 	mIcons.setPos(mPosX, mPosY);
 	mFrame.setPos(mPosX, mPosY);
 	mNameplate.setPos(mPosX, mPosY);
-	mEffectDescr.setPos(mPosX, mPosY);
+	mEffectDescr.setPos(mPosX-mWidth, mPosY+mHeight-30);
 
 	mSCost.setPos(mPosX + 5, mPosY + 5);
 	mSHealth.setPos(mPosX + 200, mPosY + 320);
