@@ -193,6 +193,7 @@
     <ClCompile Include="Menu_Play.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Name.cpp" />
     <ClCompile Include="Name_Plate.cpp" />
     <ClCompile Include="Net_Interface.cpp" />
     <ClCompile Include="NumberPopup.cpp" />
@@ -302,6 +303,7 @@
     <ClInclude Include="Menu_Play.hpp" />
     <ClInclude Include="Message.hpp" />
     <ClInclude Include="Mouse.hpp" />
+    <ClInclude Include="Name.hpp" />
     <ClInclude Include="Name_Plate.hpp" />
     <ClInclude Include="Net_Interface.hpp" />
     <ClInclude Include="NumberPopup.hpp" />

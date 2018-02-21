@@ -10,6 +10,8 @@
 #include "Resource.hpp"
 
 #include "Graveyard.hpp"
+
+#include "Name.hpp"
 //#include "CurrentTurn.hpp"
 
 class Opponent
@@ -46,8 +48,7 @@ public:
 	
 
 private:
-	//std::shared_ptr<CurrentTurn> mTurn;
-
+	//std::shared_ptr<CurrentTurn> mTurn
 	void startTurn();
 
 	bool mItsMyTurn;
@@ -62,6 +63,7 @@ private:
 
 	bool endTurn;
 
+	Name mName;
 	std::shared_ptr<Opponent_Deck> mDeck;
 	std::shared_ptr<Opponent_Hand> mHand;
 

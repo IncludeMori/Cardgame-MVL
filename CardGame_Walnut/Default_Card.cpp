@@ -157,7 +157,7 @@ Default_Card::Default_Card(std::string &path, int x)
 	mBackground.free();
 	mBackground.loadFromFile("Data/Cards/background.png");
 	HoverEffect.disable();
-	HoverEffect.setPos(50, SCREEN_HEIGHT / 2 - 250);
+	HoverEffect.setPos(30, SCREEN_HEIGHT / 2 - 275);
 }
 Default_Card::Default_Card(int Health, int Attack, int Type, std::string &path)
 {

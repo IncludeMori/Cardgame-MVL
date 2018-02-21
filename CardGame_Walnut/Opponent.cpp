@@ -3,6 +3,7 @@
 
 Opponent::Opponent()
 {
+	mName.init(OPPONENT, "Player 2");
 	int mHealth = 40;
 	mField.reset(new Opponent_Field);
 	mHero.reset(new Hero(1,mHealth));
@@ -63,6 +64,7 @@ void Opponent::update()
 }
 void Opponent::render()
 {
+	mName.render();
 	mGraveyard->render();
 	mHero->render();
 	mDeck->render();

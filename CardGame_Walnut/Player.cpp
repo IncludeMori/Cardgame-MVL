@@ -3,6 +3,7 @@
 #include <iostream>
 Player::Player()
 {
+	mName.init(PLAYER, "Player 1");
 	field_battlecry_active = false;
 
 	mHealth = 40;
@@ -40,12 +41,16 @@ bool Player::update()
 
 void Player::render()
 {
+	mName.render();
+
 	mGraveyard->render();
 	mField->render();
 	mDeck->render();
 	//mResource.render();
 	mHeroPortrait->render();
 	mHand->render();
+
+	
 	
 	
 }

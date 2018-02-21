@@ -397,6 +397,7 @@
       <Filter>Game\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Name.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -730,6 +731,7 @@
       <Filter>Game\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Data.hpp" />
+    <ClInclude Include="Name.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt">

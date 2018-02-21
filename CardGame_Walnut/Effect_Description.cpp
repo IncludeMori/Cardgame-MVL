@@ -30,8 +30,6 @@ void Effect_Description::render()
 }
 void Effect_Description::setPos(int x, int y)
 {
-	x = x + 270;
-	y = y + 75;
 	mBackground.setPos(x, y);
 
 	for (unsigned int i=0;i<mEffectDescr.size();i++)

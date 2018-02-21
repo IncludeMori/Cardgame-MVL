@@ -16,7 +16,7 @@
 #include "Turn_Enum.hpp"
 
 #include "Graveyard.hpp"
-
+#include "Name.hpp"
 
 
 class Player
@@ -57,6 +57,7 @@ private:
 
 	bool field_battlecry_active = false;
 
+	Name mName;
 	std::shared_ptr<Player_Hand> mHand;  //hand [first 4 cards from "mDeck"]
 	std::shared_ptr<Player_Deck> mDeck;
 	std::shared_ptr<Hero> mHeroPortrait;
