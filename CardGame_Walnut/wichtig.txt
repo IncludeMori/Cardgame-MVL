@@ -14,9 +14,12 @@ Gameplay Bugs fixen:
 
 -fix Hovercard [DONE]
 
+-update Ingame UI
 -change Hovercard(left or right of the board?)
 
 -FIELD place card(position && removal) 
+
+
 
 -FIX Loading Screen (lock renderer, or second renderer?)
 

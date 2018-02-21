@@ -17,7 +17,7 @@ using std::dynamic_pointer_cast;
 Player_Deck::Player_Deck()
 {
 	mPosX = SCREEN_WIDTH - SCREEN_WIDTH / 7;
-	mPosY = SCREEN_HEIGHT - SCREEN_HEIGHT / 2.3;
+	mPosY = SCREEN_HEIGHT - SCREEN_HEIGHT / 2.3 -60;
 	
 
 	mSizeIcon.setPos(mPosX, mPosY);
@@ -30,7 +30,7 @@ Player_Deck::Player_Deck(const std::shared_ptr<Player_Field> &field, const std::
 	mHand = hand;
 
 	mPosX = SCREEN_WIDTH - SCREEN_WIDTH / 7;
-	mPosY = SCREEN_HEIGHT - SCREEN_HEIGHT / 2.3;
+	mPosY = SCREEN_HEIGHT - SCREEN_HEIGHT / 2.3 -30;
 
 
 	mSizeIcon.setPos(mPosX, mPosY);

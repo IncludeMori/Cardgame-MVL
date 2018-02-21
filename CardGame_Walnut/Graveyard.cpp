@@ -1,13 +1,14 @@
 #include "Graveyard.hpp"
 
 #include "gScreenSize.hpp"
+#include "gScreenSize.hpp"
 
 Graveyard::Graveyard()
 {
 	mCurrentSize = 0;
-	mPosX = 100;
+	mPosX = SCREEN_WIDTH - SCREEN_WIDTH / 7;
 	mIsActive = false;
-	mPosY = 80;
+	mPosY = 5;
 
 	mEmptyGraveTexture.loadFromFile("Data/emptyDeck.png");
 	mEmptyGraveTexture.setPos(mPosX, mPosY);
@@ -21,7 +22,7 @@ Graveyard::Graveyard(int who)
 
 	if (who == 0)
 	{
-		mPosY = SCREEN_HEIGHT - 100;
+		mPosY = SCREEN_HEIGHT - 70;
 	}
 	else
 	{
@@ -76,7 +77,7 @@ void Graveyard::init(int who)
 {
 	if (who == 0)
 	{
-		mPosY = SCREEN_HEIGHT -330;
+		mPosY = SCREEN_HEIGHT -250;
 	}
 	else
 	{
