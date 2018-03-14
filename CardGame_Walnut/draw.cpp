@@ -24,6 +24,12 @@ void drawLines()
 	SDL_Rect rect = { 75,SCREEN_HEIGHT/2-300/2,200,300 };
 	SDL_RenderDrawRect(gRenderer, &rect);
 
+	SDL_SetRenderDrawColor(gRenderer, 300, 100, 100, 100);
+	SDL_Rect rect2 = { 300+20,SCREEN_HEIGHT - SCREEN_HEIGHT / 4,1300-20,150 };
+	SDL_RenderDrawRect(gRenderer, &rect2);
+	SDL_Rect rect3 = { 300 + 20,SCREEN_HEIGHT / 4-150,1300 - 20,150 };
+	SDL_RenderDrawRect(gRenderer, &rect3);
+	
 	//resett
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	

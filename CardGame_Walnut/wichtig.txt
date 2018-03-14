@@ -14,20 +14,33 @@ Gameplay Bugs fixen:
 
 -fix Hovercard [DONE]
 
--update Ingame UI
--change Hovercard(left or right of the board?)
+-update Ingame UI [Done...? for now]
+-change Hovercard(left or right of the board?) [DONE]
+
+
+
 
 -FIELD place card(position && removal) 
 
 
 
+Update UI {
+->Zahlen (Rot->Schaden erlitten,Grün->mehr als Grundstat)
+->Manakosten Rot falls man die Karte nicht spielen kann
+->Manaangabe 0/10 ->etwas Größer machen, verbessern
+}
+
 -FIX Loading Screen (lock renderer, or second renderer?)
 
+-fix Zaubercard (Hover)
+
+- Kampf Schadensanzeige fixen und verbessen
+
+-add 2 Decks
 
 Code aufräumen
 Collection fixen
-2 Decks implementieren
 PVP implementieren
 
 
-Menu in GameLoop ausgeklammert, bitte löschen
+!!!!!Menu in GameLoop ausgeklammert, bitte löschen

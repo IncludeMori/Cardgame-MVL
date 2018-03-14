@@ -54,6 +54,14 @@ Player_Field::~Player_Field()
 
 void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 {
+	
+	int posX = card->getX();
+	int posY = card->getY();
+
+
+	
+	
+	
 	if (card == nullptr) {}
 	else
 	{
