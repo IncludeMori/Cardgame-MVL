@@ -58,6 +58,9 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 	int posX = card->getX();
 	int posY = card->getY();
 
+	//same as in hand, but the new card can be placed in any position
+	//....
+
 
 	
 	
