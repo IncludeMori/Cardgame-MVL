@@ -18,7 +18,7 @@ Opponent_Field::Opponent_Field()
 	int y = SCREEN_HEIGHT / 4+15;
 	int change = 185;
 	int lol = change;
-	for (int i = 0; i <= mMax_Size; i++)
+	for (int i = 0; i <= MAX_SIZE; i++)
 	{
 		mPosY[i] = y;
 		mPosX[i] = x;

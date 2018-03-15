@@ -173,7 +173,7 @@ int Field::getSize()
 }
 bool Field::hasSpace()
 {
-	if (mSize < mMax_Size) { return true; }
+	if (mSize < MAX_SIZE) { return true; }
 	else return false;
 }
 int Field::wantsToAttack()
@@ -209,7 +209,7 @@ int Field::getMouseAboveCard()
 
 bool Field::isFull()
 {
-	if (mSize >= mMax_Size)
+	if (mSize >= MAX_SIZE)
 	{
 		return true;
 	}

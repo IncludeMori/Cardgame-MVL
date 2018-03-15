@@ -27,12 +27,16 @@ Player_Field::Player_Field()
 
 	// Init Card X&Y pos     
 	int x = SCREEN_WIDTH / 2 - 165 / 2;
+	int y = SCREEN_HEIGHT - SCREEN_HEIGHT / 2 + 10;
+	int change = 185;
+	x = x - 3 * change;
+	/*
 	int x2 = SCREEN_WIDTH / 2 - 165 / 2;
 	
 	int y = SCREEN_HEIGHT -SCREEN_HEIGHT/ 2+10;
 	int change = 185;
 	const int Legion = change;
-	for (int i = 0; i <= mMax_Size; i++)
+	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		mPosY[i] = y;
 		mPosX[i] = x;
@@ -40,8 +44,17 @@ Player_Field::Player_Field()
 		if (change > 0) { change = (change + Legion) *-1; }
 		else { change = (change + (Legion*-1))*-1; }
 	}
+	
 	//....
-	mPosY[0] = mPosY[1];
+	mPosY[0] = mPosY[1];*/
+
+	for (int i = 0; i < MAX_SIZE; i++)
+	{
+		mShift[i] = 3;
+		mPosX[i] = x;
+		mPosY[i] = y;
+		x += change;
+	}
 
 
 	mBackground.setPos(SCREEN_WIDTH / 6, SCREEN_HEIGHT - 2*(SCREEN_HEIGHT/4));
@@ -325,4 +338,30 @@ void Player_Field::setField(const std::shared_ptr<Opponent_Field>& OppField)
 void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
 {
 	mOppHero = hero;
+}
+
+void Player_Field::rearrangeRm(int index)
+{
+	/*
+	mCard_isActive[mSize - 1] = false;
+	mCard_isActive[index] = true;
+
+	for (int i = index; i < mSize - 1; i++)
+	{
+		std::cout << "swapped:" << i << "," << i + 1 << std::endl;
+		mCard[i].swap(mCard[i + 1]);
+
+
+	}
+
+	if (mSize % 2 == 1)
+	{
+		for (int i = 0; i < MAX_SIZE; i++)
+			mShift[i] = mShift[i];
+	}
+	else
+	{
+		for (int i = 0; i < MAX_SIZE; i++)
+			mShift[i] = mShift[i] + 1;
+	}*/
 }

@@ -56,7 +56,7 @@ protected:
 
 	SDL_Rect mData;//field data
 	
-	const int mMax_Size = 7;
+	const int MAX_SIZE = 7;
 	int mSize;
 	int mCardIsActive;
 	int mCard_isActive[7];
@@ -68,6 +68,7 @@ protected:
 	//std::vector<int, int> mPosition;
 	int mPosX[7];
 	int mPosY[7];
+	int mShift[7];
 
 	std::shared_ptr<Graveyard> mGraveyard;
 };

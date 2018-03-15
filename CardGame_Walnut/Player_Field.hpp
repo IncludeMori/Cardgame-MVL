@@ -50,4 +50,7 @@ private:
 	Arrow TargetCard;
 
 	NumberPopup mFieldNumberPopups;
+
+
+	void rearrangeRm(int index);
 };
