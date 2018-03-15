@@ -4,10 +4,13 @@
 #include "gRenderer.hpp"
 #include "gMouse.hpp"
 #include <iostream>
+#include <boost/range/irange.hpp>
 
 #include <memory>
 
 using std::dynamic_pointer_cast;
+
+using namespace boost;
 
 Player_Field::Player_Field()
 {
@@ -48,9 +51,9 @@ Player_Field::Player_Field()
 	//....
 	mPosY[0] = mPosY[1];*/
 
-	for (int i = 0; i < MAX_SIZE; i++)
+	for (int i : irange(0,MAX_SIZE))
 	{
-		mShift[i] = 3;
+		mCardPosIndex[i] = i;
 		mPosX[i] = x;
 		mPosY[i] = y;
 		x += change;
@@ -67,20 +70,25 @@ Player_Field::~Player_Field()
 
 void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 {
-	
+
 	int posX = card->getX();
 	int posY = card->getY();
-
-	//same as in hand, but the new card can be placed in any position
-	//....
-
-
+	int index = 0;
 	
-	
+	//find pos
+	for (int i : irange(0, MAX_SIZE))
+	{
+		if (posX > mPosX[i] && posX < mPosX[i] + 200)
+			index = i;
+	}
+
 	
 	if (card == nullptr) {}
 	else
 	{
+		if (mSize > 0)
+		updateFieldWithNewCard(index);
+
 		mSize++;
 		std::cout << "Index:" << mSize - 1 << std::endl;
 		mCard[mSize - 1] = card;
@@ -100,6 +108,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 
 	}
 
+	updatePositions();
 
 }
 void Player_Field::addEffectCard(const std::shared_ptr<Basic_Card>& card)
@@ -340,28 +349,28 @@ void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
 	mOppHero = hero;
 }
 
-void Player_Field::rearrangeRm(int index)
+
+void Player_Field::updateFieldWithNewCard(int index)
 {
-	/*
-	mCard_isActive[mSize - 1] = false;
-	mCard_isActive[index] = true;
+	//index = 1
+	// 1 should go to 2
+	// 0 should stay at 0
+	//all move to 1???
+	for (int i : irange(0, mSize))
+		if (mCardPosIndex[i] >= index)
+			mCardPosIndex[i]++;
+	mCardPosIndex[mSize] = index;
 
-	for (int i = index; i < mSize - 1; i++)
+	updatePositions();
+}
+
+void Player_Field::updatePositions()
+{
+	for (int i : irange(0, mSize))
 	{
-		std::cout << "swapped:" << i << "," << i + 1 << std::endl;
-		mCard[i].swap(mCard[i + 1]);
+		mCard[i]->setPos(mPosX[mCardPosIndex[i]], mPosY[mCardPosIndex[i]]);
 
+		std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
 
 	}
-
-	if (mSize % 2 == 1)
-	{
-		for (int i = 0; i < MAX_SIZE; i++)
-			mShift[i] = mShift[i];
-	}
-	else
-	{
-		for (int i = 0; i < MAX_SIZE; i++)
-			mShift[i] = mShift[i] + 1;
-	}*/
 }

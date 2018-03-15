@@ -52,5 +52,6 @@ private:
 	NumberPopup mFieldNumberPopups;
 
 
-	void rearrangeRm(int index);
+	void updateFieldWithNewCard(int index);
+	void updatePositions();
 };
