@@ -53,7 +53,7 @@ Player_Field::Player_Field()
 
 	for (int i : irange(0,MAX_SIZE))
 	{
-		mCardPosIndex[i] = i;
+		mCardPosIndex[i] = 4;
 		mPosX[i] = x;
 		mPosY[i] = y;
 		x += change;
@@ -78,12 +78,14 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 	
 	//find pos
 	
+	//search for index -> player wants to add card@index
 	for (int i : irange(0,MAX_SIZE))
 	{
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)
 			index = i;
 	}
 
+	//check if there is already a card present
 	if (index != -1 && mSize >= 1)
 		if (mCard[getCardAt(index)] == nullptr)
 		{
@@ -143,9 +145,9 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 				TargetCard.setPos(gMouse.getX()-TargetCard.getWidth()/2, gMouse.getY()-TargetCard.getHeight()/2);
 			}
 		}
-
+		organizeField();
 	}
-
+	
 	updatePositions();
 
 }
@@ -377,7 +379,6 @@ bool Player_Field::isInside(int x, int y)
 	else { return false; }
 }
 
-
 void Player_Field::setField(const std::shared_ptr<Opponent_Field>& OppField)
 {
 	mOppField = OppField;
@@ -386,7 +387,6 @@ void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
 {
 	mOppHero = hero;
 }
-
 
 void Player_Field::updateFieldWithNewCard(int index)
 {
@@ -411,6 +411,11 @@ void Player_Field::updatePositions()
 		std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
 
 	}
+}
+
+void Player_Field::organizeField()
+{
+	//karten in die mitte schieben
 }
 
 int Player_Field::getCardAt(int index)
