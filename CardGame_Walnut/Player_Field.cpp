@@ -107,6 +107,14 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 			else
 			{
 				//index von linkster karte
+
+				//rechteste karte finden
+				int linksteKarte = -1;
+				for (int i : irange(0, MAX_SIZE))
+					if (mCardPosIndex[i] < 4)
+						if (mCard[i] != nullptr)
+							if (mCardPosIndex[i] < linksteKarte)
+								linksteKarte = mCardPosIndex[i];
 			}
 		}
 	
