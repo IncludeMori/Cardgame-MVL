@@ -54,4 +54,6 @@ private:
 
 	void updateFieldWithNewCard(int index);
 	void updatePositions();
+
+	int getCardAt(int index);
 };

@@ -57,6 +57,7 @@ Player_Field::Player_Field()
 		mPosX[i] = x;
 		mPosY[i] = y;
 		x += change;
+		mCard[i] = nullptr;
 	}
 
 
@@ -73,14 +74,43 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 
 	int posX = card->getX();
 	int posY = card->getY();
-	int index = 0;
+	int index = -1;
 	
 	//find pos
-	for (int i : irange(0, MAX_SIZE))
+	
+	for (int i : irange(0,MAX_SIZE))
 	{
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)
 			index = i;
 	}
+
+	if (index != -1 && mSize >= 1)
+		if (mCard[getCardAt(index)] == nullptr)
+		{
+			//außerhalb der gespielten Karten
+			if (index > 4)
+			{
+				//index von rechster karte,
+				//dann die neue Karte einen weiter rechts hinzufügen und dann eventuell alle karten einpendeln
+
+				//rechteste karte finden
+				int rechtesteKarte = -1;
+				for (int i : irange(0, MAX_SIZE))
+					if (mCardPosIndex[i] >= 4)
+						if (mCard[i] != nullptr)
+							if (mCardPosIndex[i] > rechtesteKarte)
+								rechtesteKarte = mCardPosIndex[i];
+
+
+
+			}
+			else
+			{
+				//index von linkster karte
+			}
+		}
+	
+	
 
 	
 	if (card == nullptr) {}
@@ -372,5 +402,14 @@ void Player_Field::updatePositions()
 
 		std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
 
+	}
+}
+
+int Player_Field::getCardAt(int index)
+{
+	for (int i : irange(0, MAX_SIZE))
+	{
+		if (mCardPosIndex[i] == index)
+			return i;
 	}
 }
