@@ -104,7 +104,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 								rechtesteKarte = mCardPosIndex[i];
 
 
-				index = rechtesteKarte;
+				index = rechtesteKarte+1;
 				if (rechtesteKarte == -1)
 					index = 4;
 
@@ -121,7 +121,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 							if (mCardPosIndex[i] > linksteKarte)
 								linksteKarte = mCardPosIndex[i];
 
-				index = linksteKarte;
+				index = linksteKarte-1;
 				if (linksteKarte == -1)
 					index = 2;
 			}
