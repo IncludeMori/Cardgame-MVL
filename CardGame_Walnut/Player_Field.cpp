@@ -53,7 +53,6 @@ Player_Field::Player_Field()
 
 	for (int i : irange(0,MAX_SIZE))
 	{
-		mCardPosIndex[i] = 3;
 		mPosX[i] = x;
 		mPosY[i] = y;
 		x += change;
@@ -84,9 +83,10 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)
 			index = i;
 	}
+	std::cout << "ADD CARD AT:" << index << std::endl;
 
 	//check if there is already a card present
-	if (index != -1 && mSize >= 1)
+	if (index != -1 && mSize >= 1 && card != nullptr)
 		if (mCard[getCardAt(index)] == nullptr)
 		{
 			//auﬂerhalb der gespielten Karten
@@ -104,6 +104,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 								rechtesteKarte = mCardPosIndex[i];
 
 
+				index = rechtesteKarte;
 
 			}
 			else
@@ -113,21 +114,27 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 				//rechteste karte finden
 				int linksteKarte = -1;
 				for (int i : irange(0, MAX_SIZE))
-					if (mCardPosIndex[i] < 4)
+					if (mCardPosIndex[i] < 3)
 						if (mCard[i] != nullptr)
-							if (mCardPosIndex[i] < linksteKarte)
+							if (mCardPosIndex[i] > linksteKarte)
 								linksteKarte = mCardPosIndex[i];
+
+				if (linksteKarte == -1)
+					index = 2;
 			}
+
+			mCardPosIndex[mSize] = index;
+			updatePositions();
 		}
-	
+		else
+			updateFieldWithNewCard(index);
 	
 
 	
 	if (card == nullptr) {}
 	else
 	{
-		if (mSize > 0)
-		updateFieldWithNewCard(index);
+		
 
 		mSize++;
 		std::cout << "Index:" << mSize - 1 << std::endl;
@@ -149,6 +156,8 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 	}
 	
 	updatePositions();
+
+	Dev_printCardPosIndex();
 
 }
 void Player_Field::addEffectCard(const std::shared_ptr<Basic_Card>& card)

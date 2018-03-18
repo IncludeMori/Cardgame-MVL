@@ -15,6 +15,9 @@
 
 #include "NumberPopup.hpp"
 
+//delete
+#include <iostream>
+
 
 
 class Player_Field : public Field
@@ -58,4 +61,13 @@ private:
 	void organizeField(); //
 
 	int getCardAt(int index);
+
+
+
+	//dev
+	void Dev_printCardPosIndex()
+	{
+		for (int i = 0; i < MAX_SIZE; i++)
+			std::cout << "Card:" << i << "at index:" << mCardPosIndex[i] << std::endl;
+	}
 };

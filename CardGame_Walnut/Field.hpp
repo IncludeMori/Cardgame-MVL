@@ -68,7 +68,7 @@ protected:
 	//std::vector<int, int> mPosition;
 	int mPosX[7];
 	int mPosY[7];
-	int mCardPosIndex[7];
+	int mCardPosIndex[7] = { 3,0,1,2,4,5,6 };
 
 	std::shared_ptr<Graveyard> mGraveyard;
 };
