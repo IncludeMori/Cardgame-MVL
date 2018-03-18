@@ -53,7 +53,7 @@ Player_Field::Player_Field()
 
 	for (int i : irange(0,MAX_SIZE))
 	{
-		mCardPosIndex[i] = 4;
+		mCardPosIndex[i] = 3;
 		mPosX[i] = x;
 		mPosY[i] = y;
 		x += change;
