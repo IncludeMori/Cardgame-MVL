@@ -83,14 +83,12 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)
 			index = i;
 	}
-	std::cout << "ADD CARD AT:" << index << std::endl;
-
-	//check if there is already a card present
+	std::cout << "INDEX:" << index << std::endl;
 	if (index != -1 && mSize >= 1 && card != nullptr)
 		if (mCard[getCardAt(index)] == nullptr)
 		{
 			//außerhalb der gespielten Karten
-			if (index > 4)
+			if (index > 3)
 			{
 				//index von rechster karte,
 				//dann die neue Karte einen weiter rechts hinzufügen und dann eventuell alle karten einpendeln
@@ -113,17 +111,26 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 			{
 				//index von linkster karte
 
-				//rechteste karte finden
-				int linksteKarte = -1;
+				//linkste karte finden
+				int linksteKarte = 4;
 				for (int i : irange(0, MAX_SIZE))
-					if (mCardPosIndex[i] < 3)
+					if (mCardPosIndex[i] <= 3)
 						if (mCard[i] != nullptr)
-							if (mCardPosIndex[i] > linksteKarte)
+						{
+							std::cout << "i:" << i << std::endl;
+							std::cout << "cardindex:" << mCardPosIndex[i] << std::endl;
+							if (mCardPosIndex[i] < linksteKarte)
+							{
 								linksteKarte = mCardPosIndex[i];
+								std::cout << "linkste karte new:" << linksteKarte;
+							}
+						}
 
 				index = linksteKarte-1;
-				if (linksteKarte == -1)
+				if (linksteKarte == 3)
 					index = 2;
+
+				std::cout << "linkeste Karte:" << index << std::endl;
 			}
 
 			mCardPosIndex[mSize] = index;
@@ -432,9 +439,11 @@ void Player_Field::organizeField()
 
 int Player_Field::getCardAt(int index)
 {
-	for (int i : irange(0, MAX_SIZE))
+	
+	for (int i = 0;i<MAX_SIZE;i++)
 	{
 		if (mCardPosIndex[i] == index)
 			return i;
 	}
+	return 6;
 }
