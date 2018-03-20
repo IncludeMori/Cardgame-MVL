@@ -18,7 +18,7 @@
 //delete
 #include <iostream>
 
-enum class LAST_ADDED : bool
+enum class Last_Added : bool
 {
 	LEFT = true,
 	RIGHT = false
@@ -42,6 +42,7 @@ public:
 	void setHero(const std::shared_ptr<Hero>& hero);
 
 private:
+	Last_Added last_added;
 	int mActiveCard = 0;
 
 	bool battlecry_active = false;

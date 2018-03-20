@@ -106,6 +106,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 				if (rechtesteKarte == -1)
 					index = 4;
 
+				last_added = Last_Added::RIGHT;
 			}
 			else
 			{
@@ -131,6 +132,8 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 					index = 2;
 
 				std::cout << "linkeste Karte:" << index << std::endl;
+				last_added = Last_Added::LEFT;
+
 			}
 
 			mCardPosIndex[mSize] = index;
@@ -162,6 +165,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 				TargetCard.setPos(gMouse.getX()-TargetCard.getWidth()/2, gMouse.getY()-TargetCard.getHeight()/2);
 			}
 		}
+		if (mSize>1)
 		organizeField();
 	}
 	
@@ -456,7 +460,16 @@ void Player_Field::updatePositions()
 
 void Player_Field::organizeField()
 {
-	
+	if (last_added == Last_Added::LEFT)
+	{
+		for (int i : irange(0, MAX_SIZE))
+			mCardPosIndex[i]++;
+	}
+	else
+	{
+		for (int i : irange(0, MAX_SIZE))
+			mCardPosIndex[i]--;
+	}
 }
 
 int Player_Field::getCardAt(int index)
