@@ -18,7 +18,11 @@
 //delete
 #include <iostream>
 
-
+enum class LAST_ADDED : bool
+{
+	LEFT = true,
+	RIGHT = false
+};
 
 class Player_Field : public Field
 {
@@ -53,6 +57,8 @@ private:
 	Arrow TargetCard;
 
 	NumberPopup mFieldNumberPopups;
+
+	void removeCard(int index);
 
 
 	void updateFieldWithNewCard(int index);

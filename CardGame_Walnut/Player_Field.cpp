@@ -335,8 +335,8 @@ bool Player_Field::update()
 			if (mCard[i] != nullptr) {
 				if (!dynamic_pointer_cast<Default_Card>(mCard[i])->isAlive())
 				{
-					mCard[i].reset();
-					mCard[i] = nullptr;
+
+					removeCard(i);
 					//updatePosition();
 				}
 			}
@@ -407,6 +407,28 @@ void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
 	mOppHero = hero;
 }
 
+
+
+void Player_Field::removeCard(int index)
+{
+	mCard[index].reset();
+	mCard[index] = nullptr;
+	mSize--;
+
+	for (int i : irange(0, MAX_SIZE))
+	{
+		if (mCardPosIndex[i] > index)
+			mCardPosIndex[i]--;
+	}
+	mCardPosIndex[index] = MAX_SIZE-1;
+
+	updatePositions();
+
+
+	//update field position
+
+}
+
 void Player_Field::updateFieldWithNewCard(int index)
 {
 	//index = 1
@@ -434,7 +456,7 @@ void Player_Field::updatePositions()
 
 void Player_Field::organizeField()
 {
-	//karten in die mitte schieben
+	
 }
 
 int Player_Field::getCardAt(int index)
