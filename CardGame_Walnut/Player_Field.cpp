@@ -462,11 +462,13 @@ void Player_Field::organizeField()
 {
 	if (last_added == Last_Added::LEFT)
 	{
+		if (mSize%2 == 0)
 		for (int i : irange(0, MAX_SIZE))
 			mCardPosIndex[i]++;
 	}
 	else
 	{
+		if (mSize%2 == 1)
 		for (int i : irange(0, MAX_SIZE))
 			mCardPosIndex[i]--;
 	}
