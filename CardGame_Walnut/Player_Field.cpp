@@ -444,6 +444,17 @@ void Player_Field::updateFieldWithNewCard(int index)
 			mCardPosIndex[i]++;
 	mCardPosIndex[mSize] = index;
 
+	if (index > 3 && mSize % 2 != 1)
+	{
+		last_added == Last_Added::RIGHT;
+		special = true;
+	}
+	else if (index < 4 && mSize % 2 != 0)
+	{
+		last_added == Last_Added::LEFT;
+		special = true;
+	}
+
 	updatePositions();
 }
 
@@ -462,16 +473,17 @@ void Player_Field::organizeField()
 {
 	if (last_added == Last_Added::LEFT)
 	{
-		if (mSize%2 == 0)
+		if (mSize%2 == 0 || special == true)
 		for (int i : irange(0, MAX_SIZE))
 			mCardPosIndex[i]++;
 	}
 	else
 	{
-		if (mSize%2 == 1)
+		if (mSize%2 == 1 || special == true)
 		for (int i : irange(0, MAX_SIZE))
 			mCardPosIndex[i]--;
 	}
+	special = false;
 }
 
 int Player_Field::getCardAt(int index)

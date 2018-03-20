@@ -43,6 +43,7 @@ public:
 
 private:
 	Last_Added last_added;
+	bool special = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem feld zu fokusieren
 	int mActiveCard = 0;
 
 	bool battlecry_active = false;
