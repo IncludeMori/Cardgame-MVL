@@ -160,6 +160,7 @@
     <ClCompile Include="EnergySign.cpp" />
     <ClCompile Include="Escape_Overlay.cpp" />
     <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Field_HoverEffect.cpp" />
     <ClCompile Include="FPS_Timer.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -265,6 +266,7 @@
     <ClInclude Include="Escape_Overlay.hpp" />
     <ClInclude Include="fdeleter.hpp" />
     <ClInclude Include="Field.hpp" />
+    <ClInclude Include="Field_HoverEffect.hpp" />
     <ClInclude Include="FPS_Timer.hpp" />
     <ClInclude Include="Frame.hpp" />
     <ClInclude Include="Game.hpp" />

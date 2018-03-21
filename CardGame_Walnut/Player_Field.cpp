@@ -14,6 +14,7 @@ using namespace boost;
 
 Player_Field::Player_Field()
 {
+	//mHoverEffect.loadFromFile("Data/place_card.png");
 
 	TargetCard.loadFromFile("Data/target.png");
 	TargetCard.setInactive();
@@ -83,7 +84,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)
 			index = i;
 	}
-	std::cout << "INDEX:" << index << std::endl;
+	
 	if (index != -1 && mSize >= 1 && card != nullptr)
 		if (mCard[getCardAt(index)] == nullptr)
 		{
@@ -118,12 +119,10 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 					if (mCardPosIndex[i] <= 3)
 						if (mCard[i] != nullptr)
 						{
-							std::cout << "i:" << i << std::endl;
-							std::cout << "cardindex:" << mCardPosIndex[i] << std::endl;
 							if (mCardPosIndex[i] < linksteKarte)
 							{
 								linksteKarte = mCardPosIndex[i];
-								std::cout << "linkste karte new:" << linksteKarte;
+								
 							}
 						}
 
@@ -131,7 +130,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 				if (linksteKarte == 3)
 					index = 2;
 
-				std::cout << "linkeste Karte:" << index << std::endl;
+		
 				last_added = Last_Added::LEFT;
 
 			}
@@ -277,6 +276,13 @@ bool Player_Field::update()
 	else
 	{
 		int PLaboveCard = getMouseAboveCard();
+		if (PLaboveCard != -1)
+		{
+			mHoverEffect.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] -5);
+			mHoverEffect.set(true);
+		}
+		else
+			mHoverEffect.set(false);
 
 		if (gMouse.isPressed() && !mAttackCard.isActive() && PLaboveCard > -1)
 		{
@@ -352,6 +358,8 @@ bool Player_Field::update()
 }
 void Player_Field::render()
 {
+	
+
 	int hover = -1;
 	bool hoverIsActive = false;
 
@@ -359,6 +367,8 @@ void Player_Field::render()
 	drawRect(mData);
 
 	mBackground.render();
+
+	mHoverEffect.render();
 
 	Effect_Field.render();
 
@@ -447,13 +457,12 @@ void Player_Field::updateFieldWithNewCard(int index)
 	if (index > 3 && mSize % 2 != 1)
 	{
 		last_added = Last_Added::RIGHT;
-		special = true;
+		mLastCardOverwritten = true;
 	}
 	else if (index < 4 && mSize % 2 != 1)
 	{
 		last_added = Last_Added::LEFT;
-		special = true;
-		std::cout << "SET TO LEFT" << std::endl;
+		mLastCardOverwritten = true;
 	}
 
 	updatePositions();
@@ -474,20 +483,19 @@ void Player_Field::organizeField()
 {
 	if (last_added == Last_Added::LEFT)
 	{
-		if (mSize % 2 == 1 || special == true)
+		if (mSize % 2 == 1 || mLastCardOverwritten == true)
 		{
-			std::cout << "ALL CARDS MOVED + 1" << std::endl;
 			for (int i : irange(0, MAX_SIZE))
 				mCardPosIndex[i]--;
 		}
 	}
 	else
 	{
-		if (mSize%2 == 1 || special == true)
+		if (mSize%2 == 1 || mLastCardOverwritten == true)
 		for (int i : irange(0, MAX_SIZE))
 			mCardPosIndex[i]--;
 	}
-	special = false;
+	mLastCardOverwritten = false;
 }
 
 int Player_Field::getCardAt(int index)

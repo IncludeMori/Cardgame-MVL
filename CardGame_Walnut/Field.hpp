@@ -13,6 +13,8 @@
 
 #include "Graveyard.hpp"
 
+#include "Field_HoverEffect.hpp"
+
 class Field : public Place
 {
 public:
@@ -43,6 +45,7 @@ public:
 	void free();
 
 protected:
+	Field_HoverEffect mHoverEffect;
 	DefaultTexture mBackground;
 	std::shared_ptr<EffectField> mEffectField; //shared between PlayerField && OpponentField
 
