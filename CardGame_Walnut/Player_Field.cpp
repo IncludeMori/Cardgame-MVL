@@ -446,13 +446,14 @@ void Player_Field::updateFieldWithNewCard(int index)
 
 	if (index > 3 && mSize % 2 != 1)
 	{
-		last_added == Last_Added::RIGHT;
+		last_added = Last_Added::RIGHT;
 		special = true;
 	}
-	else if (index < 4 && mSize % 2 != 0)
+	else if (index < 4 && mSize % 2 != 1)
 	{
-		last_added == Last_Added::LEFT;
+		last_added = Last_Added::LEFT;
 		special = true;
+		std::cout << "SET TO LEFT" << std::endl;
 	}
 
 	updatePositions();
@@ -473,9 +474,12 @@ void Player_Field::organizeField()
 {
 	if (last_added == Last_Added::LEFT)
 	{
-		if (mSize%2 == 0 || special == true)
-		for (int i : irange(0, MAX_SIZE))
-			mCardPosIndex[i]++;
+		if (mSize % 2 == 1 || special == true)
+		{
+			std::cout << "ALL CARDS MOVED + 1" << std::endl;
+			for (int i : irange(0, MAX_SIZE))
+				mCardPosIndex[i]--;
+		}
 	}
 	else
 	{
