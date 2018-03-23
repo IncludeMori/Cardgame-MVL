@@ -282,6 +282,7 @@ bool Player_Field::update()
 			mHoverEffect.set(true);
 		}
 		else
+			if (!mAttackCard.isActive())
 			mHoverEffect.set(false);
 
 		if (gMouse.isPressed() && !mAttackCard.isActive() && PLaboveCard > -1)
@@ -290,6 +291,9 @@ bool Player_Field::update()
 				CardAt(PLaboveCard)->getY() + CardAt(PLaboveCard)->getHeight() / 4);
 			mAttackCard.setActive(); //activate attack arrow
 			mActiveCard = PLaboveCard;
+
+			mHoverEffect.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] - 5);
+			mHoverEffect.set(true);
 		}
 		else if (mAttackCard.isActive())
 		{
