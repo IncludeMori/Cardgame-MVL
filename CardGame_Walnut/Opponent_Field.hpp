@@ -13,7 +13,8 @@ public:
 
 	void update();
 
-	//void addCard(const std::shared_ptr<Basic_Card>& card, int index);
+	using Field::addCard;
+	void addCard(const std::shared_ptr<Basic_Card>& card, int index);
 	void attack();
 
 	bool ChooseCard();

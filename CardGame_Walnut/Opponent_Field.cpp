@@ -63,24 +63,9 @@ void Opponent_Field::update()
 			mHoverEffect.set(false);
 }
 
-/*
+
 void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 {
-	card->setPos(0, 0); //set pos to index;
-
-	int posX = card->getX();
-	int posY = card->getY();
-	int index = -1;
-
-	//find pos
-
-	//search for index -> player wants to add card@index
-	for (int i : irange(0, MAX_SIZE))
-	{
-		if (posX > mPosX[i] && posX < mPosX[i] + 200)
-			index = i;
-	}
-
 	if (index != -1 && mSize >= 1 && card != nullptr)
 		if (mCard[getCardAt(index)] == nullptr)
 		{
@@ -142,21 +127,17 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 	{
 
 
-		mSize++;
-		std::cout << "Index:" << mSize - 1 << std::endl;
-		mCard[mSize - 1] = card;
-		mCard[mSize - 1]->changePosition(Position::FIELD);
-		mCard_isActive[mSize - 1] = true;
-		mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
-		if (dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+		if (card == nullptr) {}
+		else
 		{
-			if (mCard[mSize - 1]->activateEffect() == false)
-			{
-				battlecry_active = true;
-				ba_card = mSize - 1;
-				TargetCard.setActive();
-				TargetCard.setPos(gMouse.getX() - TargetCard.getWidth() / 2, gMouse.getY() - TargetCard.getHeight() / 2);
-			}
+			mSize++;
+			mCard[mSize - 1] = card;
+			mCard_isActive[mSize - 1] = true;
+			std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->changePosition(Position::FIELD);
+			mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
+			if (std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+				mCard[mSize - 1]->activateEffect();
+
 		}
 		if (mSize>1)
 			organizeField();
@@ -167,7 +148,7 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 
 
 }
-*/
+
 
 bool Opponent_Field::ChooseCard()
 {

@@ -424,6 +424,3 @@ void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
 {
 	mOppHero = hero;
 }
-
-
-
