@@ -86,7 +86,6 @@ void Opponent::play()
 	} //draw card, get resources, once per turn
 
 	else if (!mCardPlayed) {
-
 		if (!mField->isFull()) {
 			while (mHand->canPlayCard() && !mField->isFull())
 			{

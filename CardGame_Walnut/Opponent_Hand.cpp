@@ -9,7 +9,6 @@ Opponent_Hand::Opponent_Hand()
 	for (int i = 0; i < MAX_SIZE; i++)
 		mShift[i] = 5;
 
-
 	mSize = 0;
 	int height = 243;
 	int width = 165;
@@ -64,7 +63,7 @@ std::shared_ptr<Basic_Card> Opponent_Hand::getBestCard()
 
 bool Opponent_Hand::canPlayCard()
 {
-	/*
+	
 	for (int i = 0; i < mSize; i++)
 	{
 		if (mCard[i] == nullptr)
@@ -77,7 +76,7 @@ bool Opponent_Hand::canPlayCard()
 			return true;
 		}
 	}
-	*/
+	
 	//otherwise
 	return false;
 

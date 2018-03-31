@@ -20,12 +20,6 @@
 //delete
 #include <iostream>
 
-enum class Last_Added : bool
-{
-	LEFT = true,
-	RIGHT = false
-};
-
 class Player_Field : public Field
 {
 public:
@@ -44,8 +38,6 @@ public:
 	void setHero(const std::shared_ptr<Hero>& hero);
 
 private:
-	Last_Added last_added;
-	bool mLastCardOverwritten = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem feld zu fokusieren
 	int mActiveCard = 0;
 
 	bool battlecry_active = false;
@@ -61,18 +53,6 @@ private:
 	Arrow TargetCard;
 
 	NumberPopup mFieldNumberPopups;
-
-	void removeCard(int index);
-
-
-	void updateFieldWithNewCard(int index);
-	void updatePositions();
-
-	void organizeField(); //
-
-	int getCardAt(int index);
-
-
 
 	//dev
 	void Dev_printCardPosIndex()

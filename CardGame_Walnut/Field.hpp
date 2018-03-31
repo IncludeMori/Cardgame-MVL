@@ -15,6 +15,12 @@
 
 #include "Field_HoverEffect.hpp"
 
+enum class Last_Added : bool
+{
+	LEFT = true,
+	RIGHT = false
+};
+
 class Field : public Place
 {
 public:
@@ -23,6 +29,7 @@ public:
 	
 	virtual void addCard(const std::shared_ptr<Basic_Card>& card);
 	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int posX,int posY); //not done yet
+	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int index);
 
 	virtual void addEffectCard(const std::shared_ptr<Basic_Card> &card) {};
 
@@ -45,12 +52,24 @@ public:
 	void free();
 
 protected:
+	Last_Added last_added;
+	bool mLastCardOverwritten = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem feld zu fokusieren
+
 	Field_HoverEffect mHoverEffect;
 	DefaultTexture mBackground;
 	std::shared_ptr<EffectField> mEffectField; //shared between PlayerField && OpponentField
 
 	void rearrange(int index); // -> removed card[index]
 	void updatePos(int index);
+
+	void removeCard(int index);
+
+	void updateFieldWithNewCard(int index);
+	void updatePositions();
+
+	void organizeField(); //
+
+	int getCardAt(int index);
 
 	Arrow mAttackCard;
 	Arrow mAttackTarget;

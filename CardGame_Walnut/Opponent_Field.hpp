@@ -11,9 +11,10 @@ public:
 	Opponent_Field();
 	~Opponent_Field();
 
-	void attack();
-
 	void update();
+
+	//void addCard(const std::shared_ptr<Basic_Card>& card, int index);
+	void attack();
 
 	bool ChooseCard();
 

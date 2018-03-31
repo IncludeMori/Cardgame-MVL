@@ -9,6 +9,10 @@
 #include "gRenderer.hpp"
 #include "gScreenSize.hpp"
 
+#include <boost/range/irange.hpp>
+
+using namespace boost;
+
 Field::Field()
 {
 	mSize = 0;
@@ -28,6 +32,7 @@ Field::~Field()
 void Field::render()
 {
 	mBackground.render();
+	mHoverEffect.render();
 	//std::shared_ptr<Basic_Card> card(new Default_Card());
     //std::dynamic_pointer_cast<Default_Card>(card)->
 	
@@ -136,6 +141,11 @@ void Field::addCard(const std::shared_ptr<Basic_Card>& card, int posX, int posY)
 
 	}
 	
+}
+
+void Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
+{
+	//todo
 }
 
 std::shared_ptr<Basic_Card> Field::CardAt(int index)
@@ -259,4 +269,97 @@ void Field::free()
 
 	for (int i = 0; i < 7; i++)
 		mCard[i] = nullptr;
+}
+
+
+
+
+void Field::removeCard(int index)
+{
+	mCard[index].reset();
+	mCard[index] = nullptr;
+	mSize--;
+
+	for (int i : irange(0, MAX_SIZE))
+	{
+		if (mCardPosIndex[i] > index)
+			mCardPosIndex[i]--;
+	}
+	mCardPosIndex[index] = MAX_SIZE - 1;
+
+	updatePositions();
+
+
+	//update field position
+
+}
+
+void Field::updateFieldWithNewCard(int index)
+{
+	//index = 1
+	// 1 should go to 2
+	// 0 should stay at 0
+	//all move to 1???
+	for (int i : irange(0, mSize))
+		if (mCardPosIndex[i] >= index)
+			mCardPosIndex[i]++;
+	mCardPosIndex[mSize] = index;
+
+	if (index > 3 && mSize % 2 != 1)
+	{
+		last_added = Last_Added::RIGHT;
+		mLastCardOverwritten = true;
+	}
+	else if (index < 4 && mSize % 2 != 1)
+	{
+		last_added = Last_Added::LEFT;
+		mLastCardOverwritten = true;
+	}
+
+	updatePositions();
+}
+
+void Field::updatePositions()
+{
+	for (int i : irange(0, mSize))
+	{
+		mCard[i]->setPos(mPosX[mCardPosIndex[i]], mPosY[mCardPosIndex[i]]);
+
+		std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
+
+	}
+}
+
+void Field::organizeField()
+{
+	if (last_added == Last_Added::LEFT)
+	{
+		if ((mSize - 1) % 2 == 1 && mLastCardOverwritten == false)
+		{
+			for (int i : irange(0, MAX_SIZE))
+				mCardPosIndex[i]++;
+		}
+		else if (mLastCardOverwritten == true)
+			for (int i : irange(0, MAX_SIZE))
+				mCardPosIndex[i]--;
+
+	}
+	else
+	{
+		if (mSize % 2 == 1 || mLastCardOverwritten == true)
+			for (int i : irange(0, MAX_SIZE))
+				mCardPosIndex[i]--;
+	}
+	mLastCardOverwritten = false;
+}
+
+int Field::getCardAt(int index)
+{
+
+	for (int i = 0; i<MAX_SIZE; i++)
+	{
+		if (mCardPosIndex[i] == index)
+			return i;
+	}
+	return 6;
 }

@@ -3,8 +3,11 @@
 #include <iostream>
 
 #include <memory>
+#include <boost/range/irange.hpp>
 
 using std::dynamic_pointer_cast;
+
+using namespace boost;
 
 Opponent_Field::Opponent_Field()
 {
@@ -12,21 +15,21 @@ Opponent_Field::Opponent_Field()
 	//Field data
 	mData = { 50,SCREEN_HEIGHT/4,SCREEN_WIDTH-2*50,SCREEN_HEIGHT/4 };
 
-
-	//Init Card X&Y pos
+	// Init Card X&Y pos     
 	int x = SCREEN_WIDTH / 2 - 165 / 2;
-	int y = SCREEN_HEIGHT / 4+15;
+	int y = SCREEN_HEIGHT / 4 + 15;
 	int change = 185;
-	int lol = change;
-	for (int i = 0; i <= MAX_SIZE; i++)
+	x = x - 3 * change;
+
+	for (int i : irange(0, MAX_SIZE))
 	{
-		mPosY[i] = y;
 		mPosX[i] = x;
+		mPosY[i] = y;
 		x += change;
-		if (change > 0) { change = (change + lol) *-1; }
-		else { change = (change + (lol*-1))*-1; }
+		mCard[i] = nullptr;
 	}
-	mPosY[0] = mPosY[1];
+	
+
 
 }
 Opponent_Field::~Opponent_Field()
@@ -48,7 +51,123 @@ void Opponent_Field::update()
 		}
 		
 	}
+
+	int PLaboveCard = getMouseAboveCard();
+	if (PLaboveCard != -1)
+	{
+		mHoverEffect.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] - 5);
+		mHoverEffect.set(true);
+	}
+	else
+		if (!mAttackCard.isActive())
+			mHoverEffect.set(false);
 }
+
+/*
+void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
+{
+	card->setPos(0, 0); //set pos to index;
+
+	int posX = card->getX();
+	int posY = card->getY();
+	int index = -1;
+
+	//find pos
+
+	//search for index -> player wants to add card@index
+	for (int i : irange(0, MAX_SIZE))
+	{
+		if (posX > mPosX[i] && posX < mPosX[i] + 200)
+			index = i;
+	}
+
+	if (index != -1 && mSize >= 1 && card != nullptr)
+		if (mCard[getCardAt(index)] == nullptr)
+		{
+			//außerhalb der gespielten Karten
+			if (index > 3)
+			{
+				//index von rechster karte,
+				//dann die neue Karte einen weiter rechts hinzufügen und dann eventuell alle karten einpendeln
+
+				//rechteste karte finden
+				int rechtesteKarte = -1;
+				for (int i : irange(0, MAX_SIZE))
+					if (mCardPosIndex[i] >= 4)
+						if (mCard[i] != nullptr)
+							if (mCardPosIndex[i] > rechtesteKarte)
+								rechtesteKarte = mCardPosIndex[i];
+
+
+				index = rechtesteKarte + 1;
+				if (rechtesteKarte == -1)
+					index = 4;
+
+				last_added = Last_Added::RIGHT;
+			}
+			else
+			{
+				//index von linkster karte
+
+				//linkste karte finden
+				int linksteKarte = 4;
+				for (int i : irange(0, MAX_SIZE))
+					if (mCardPosIndex[i] <= 3)
+						if (mCard[i] != nullptr)
+						{
+							if (mCardPosIndex[i] < linksteKarte)
+							{
+								linksteKarte = mCardPosIndex[i];
+
+							}
+						}
+
+				index = linksteKarte - 1;
+				if (linksteKarte == 3)
+					index = 2;
+
+
+				last_added = Last_Added::LEFT;
+
+			}
+
+			mCardPosIndex[mSize] = index;
+			updatePositions();
+		}
+		else
+			updateFieldWithNewCard(index);
+
+	if (card == nullptr) {}
+	else
+	{
+
+
+		mSize++;
+		std::cout << "Index:" << mSize - 1 << std::endl;
+		mCard[mSize - 1] = card;
+		mCard[mSize - 1]->changePosition(Position::FIELD);
+		mCard_isActive[mSize - 1] = true;
+		mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
+		if (dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+		{
+			if (mCard[mSize - 1]->activateEffect() == false)
+			{
+				battlecry_active = true;
+				ba_card = mSize - 1;
+				TargetCard.setActive();
+				TargetCard.setPos(gMouse.getX() - TargetCard.getWidth() / 2, gMouse.getY() - TargetCard.getHeight() / 2);
+			}
+		}
+		if (mSize>1)
+			organizeField();
+	}
+
+	updatePositions();
+
+
+
+}
+*/
 
 bool Opponent_Field::ChooseCard()
 {
