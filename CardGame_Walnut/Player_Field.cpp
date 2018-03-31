@@ -487,11 +487,15 @@ void Player_Field::organizeField()
 {
 	if (last_added == Last_Added::LEFT)
 	{
-		if (mSize % 2 == 1 || mLastCardOverwritten == true)
+		if ((mSize-1) % 2 == 1 && mLastCardOverwritten == false)
 		{
 			for (int i : irange(0, MAX_SIZE))
-				mCardPosIndex[i]--;
+				mCardPosIndex[i]++;
 		}
+		else if (mLastCardOverwritten == true)
+			for (int i : irange(0, MAX_SIZE))
+				mCardPosIndex[i]--;
+
 	}
 	else
 	{
