@@ -79,6 +79,12 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 	//find pos
 	
 	//search for index -> player wants to add card@index
+	if (mSize == 0)
+	{
+		mCardPosIndex[0] = 3;
+		index = 3;
+	}
+	else
 	for (int i : irange(0,MAX_SIZE))
 	{
 		if (posX > mPosX[i] && posX < mPosX[i] + 200)

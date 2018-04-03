@@ -148,6 +148,7 @@ bool BoostCard::activate()
 			{
 				for (int i = 0; i < mField->getSize(); i++)
 				{
+					if (dynamic_pointer_cast<Default_Card>(mField->CardAt(i)) != nullptr)
 					if (dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
 						dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->increase(mStat, mAmount);
@@ -157,6 +158,7 @@ bool BoostCard::activate()
 				}
 				for (int i = 0; i < mOpponentField->getSize(); i++)
 				{
+					if (dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i)) != nullptr)
 					if (dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
 						dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->increase(mStat, mAmount);

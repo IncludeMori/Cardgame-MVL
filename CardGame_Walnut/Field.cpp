@@ -282,6 +282,8 @@ void Field::removeCard(int index)
 	mCard[index] = nullptr;
 
 	int card_pos = mCardPosIndex[index];
+	mCardPosIndex[index] = mSize;
+	std::cout << "removed card pos:" << card_pos << std::endl;
 	
 	if (mSize % 2 == 0)
 	{
