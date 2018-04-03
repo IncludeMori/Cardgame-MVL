@@ -94,9 +94,6 @@
     <Filter Include="Game\_mainGame\PVE">
       <UniqueIdentifier>{ec562b7a-6dcf-4dea-ae36-5855205d44db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\_mainGame\PVE\Opponent">
-      <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\_mainGame\PVE\Player">
       <UniqueIdentifier>{b49eadf1-5a00-4f51-b2ce-b44dd247255f}</UniqueIdentifier>
     </Filter>
@@ -111,6 +108,9 @@
     </Filter>
     <Filter Include="Game\_mainGame\Animations">
       <UniqueIdentifier>{06c2ac63-7c61-472c-a210-beebbe304798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\_mainGame\PVE\AI_Opponent">
+      <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -127,16 +127,16 @@
       <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClCompile>
     <ClCompile Include="Opponent.cpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Deck.cpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Field.cpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Opponent_Hand.cpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClCompile>
     <ClCompile Include="Basic_Card.cpp">
       <Filter>Game\Card</Filter>
@@ -414,16 +414,16 @@
       <Filter>Game\_mainGame\PVE\Player</Filter>
     </ClInclude>
     <ClInclude Include="Opponent.hpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Deck.hpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Field.hpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Opponent_Hand.hpp">
-      <Filter>Game\_mainGame\PVE\Opponent</Filter>
+      <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClInclude>
     <ClInclude Include="Basic_Card.hpp">
       <Filter>Game\Card</Filter>

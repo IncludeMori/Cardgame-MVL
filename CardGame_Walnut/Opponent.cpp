@@ -49,7 +49,7 @@ void Opponent::playCard()
 {
 	if (mField->hasSpace())
 	{
-		mField->addCard(mHand->getBestCard());
+		mField->addCard(mHand->getBestCard(),7);
 	}
 	else
 	{

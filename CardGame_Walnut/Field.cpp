@@ -280,6 +280,17 @@ void Field::removeCard(int index)
 	mCard[index] = nullptr;
 	mSize--;
 
+	int card_pos = mCardPosIndex[index];
+	if (card_pos > 3)
+	{
+
+	}
+	else
+	{
+
+	}
+
+
 	for (int i : irange(0, MAX_SIZE))
 	{
 		if (mCardPosIndex[i] > index)
