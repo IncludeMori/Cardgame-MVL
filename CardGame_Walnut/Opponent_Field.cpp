@@ -44,9 +44,7 @@ void Opponent_Field::update()
 		if (mCard[i] != nullptr) {
 			if (!dynamic_pointer_cast<Default_Card>(mCard[i])->isAlive())
 			{
-				mCard[i].reset();
-				mCard[i] = nullptr;
-				//updatePosition();
+				removeCard(i);
 			}
 		}
 		

@@ -164,7 +164,8 @@ void Field::DmgCard(int index, int amount)
 		{
 			mCard[index]->activateEffect();
 		}
-		rearrange(index); mSize--; }
+		//rearrange(index); mSize--;
+	}
 }
 
 bool Field::ChooseCard()
@@ -225,7 +226,7 @@ bool Field::isFull()
 	}
 	else return false;
 }
-
+/*
 void Field::rearrange(int index)
 {
 	//Field setup    0 1
@@ -253,14 +254,15 @@ void Field::rearrange(int index)
 	else
 		std::cout << "------------------------------------------------------------------------------------" << std::endl;
 	
-}
-
+}*/
+/*
 void Field::updatePos(int index)
 {
+	/*
 	std::cout << "Update Pos:" << index << std::endl;
 	if (mCard[index] != nullptr) 
 		mCard[index]->setPos(mPosX[index], mPosY[index]);
-}
+}*/
 
 void Field::free()
 {
@@ -283,20 +285,19 @@ void Field::removeCard(int index)
 	
 	if (mSize % 2 == 0)
 	{
-			for (int i : irange(0, MAX_SIZE))
-				if (mCardPosIndex[i] > card_pos)
-					if (mCard[getCardAt(i)] != nullptr)
-						mCardPosIndex[i]--;
-			
+
+		for (int i = 0; i < MAX_SIZE; i++)
+			if (mCardPosIndex[i] > card_pos)
+				if (mCard[i] != nullptr)
+					mCardPosIndex[i]--;
 	}
 	else
 	{
-			for (int i : irange(0, MAX_SIZE))
-			    if (mCardPosIndex[i] < card_pos)
-				    if (mCard[getCardAt(i)] != nullptr)
-					   mCardPosIndex[i]++;
+		for (int i = 0; i < MAX_SIZE; i++)
+			if (mCardPosIndex[i] < card_pos)
+				if (mCard[i] != nullptr)
+					mCardPosIndex[i]++;
 	}
-
 	mSize--;
 	updatePositions();
 }
@@ -324,17 +325,19 @@ void Field::updateFieldWithNewCard(int index)
 	}
 
 	updatePositions();
+
 }
 
 void Field::updatePositions()
 {
-	for (int i : irange(0, mSize))
-	{
-		mCard[i]->setPos(mPosX[mCardPosIndex[i]], mPosY[mCardPosIndex[i]]);
+	if (mSize >= 1)
+		for (int i : irange(0, MAX_SIZE))
+			if (mCard[i] != nullptr)
+			{
+				mCard[i]->setPos(mPosX[mCardPosIndex[i]], mPosY[mCardPosIndex[i]]);
 
-		std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
-
-	}
+				std::cout << "Card@" << i << " set to index" << mCardPosIndex[i] << std::endl;
+			}
 }
 
 void Field::organizeField()
@@ -358,6 +361,8 @@ void Field::organizeField()
 				mCardPosIndex[i]--;
 	}
 	mLastCardOverwritten = false;
+
+	
 }
 
 int Field::getCardAt(int index)
