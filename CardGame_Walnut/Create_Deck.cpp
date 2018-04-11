@@ -269,7 +269,6 @@ bool Create_Deck::update()
 						if (mCurrentDeckCards[i]->MouseIsAbove() && gMouse.isPressed())
 						{
 							std::cout << "Removed:" << i << std::endl;
-							mCurrentDeckCards[i]->free();
 							mCurrentDeckCards[i].reset();
 							DeckSizeSign.add(-1);
 							DeckSize--;
@@ -435,27 +434,13 @@ bool Create_Deck::fsaveDeck()
 
 void Create_Deck::free()
 {
-	OkBtn.free();
-	newDeckBtn.free();
-	goBackBtn.free();
+	
 
 	DeckSizeSign.free();
 	PageSign.free();
 
-	Deck_Size.free();
-	saveDeck.free();
 
-	tDeck_Saved.free();
-	leftT.free();
-	right.free();
-
-	for (unsigned int i = 0; i < mCards.size(); i++)
-		mCards[i]->free();
-
-	for (unsigned int i = 0; i < mCurrentDeckCards.size(); i++)
-		if (mCurrentDeckCards[i] != nullptr)
-			mCurrentDeckCards[i]->free();
-
+	
 
 
 }

@@ -113,13 +113,5 @@ void Deck::createDeck()
 
 void Deck::free()
 {
-	mSizeIcon.free();
-
-	int i = 0;
-	for (mCardIt = mCard.begin(); mCardIt != mCard.end(); mCardIt++)
-	{
-		mCard[i]->free();
-		mCard[i] = nullptr;
-		i++;
-	}
+	
 }

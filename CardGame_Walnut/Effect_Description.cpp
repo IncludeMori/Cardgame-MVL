@@ -50,8 +50,5 @@ void Effect_Description::setEffect(std::vector<std::string> &effects)
 
 void Effect_Description::free()
 {
-	mBackground.free();
 	
-	for (unsigned int i = 0; i < mEffectDescr.size(); i++)
-		mEffectDescr.at(i).free();
 }

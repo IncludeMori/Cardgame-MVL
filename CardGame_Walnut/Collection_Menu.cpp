@@ -50,6 +50,4 @@ void Collection::free()
 {
 	mCreate.free();
 
-	mCreateDeckBtn.free();
-	mSeeDeckBtn.free();
 }

@@ -52,6 +52,5 @@ bool Menu_Button::isActive()
 
 void Menu_Button::free()
 {
-	Button::free();
-	mBorder.free();
+	
 }

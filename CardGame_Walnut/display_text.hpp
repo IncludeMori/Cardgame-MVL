@@ -35,9 +35,9 @@ public:
 
 
 	}
-	Text(SDL_Texture *Texture); //one texture for all?
+	//Text(SDL_Texture *Texture); //one texture for all?
 	Text(const std::string &text);
-	~Text();
+	
 
 	//
 	void initText(const std::string &text);

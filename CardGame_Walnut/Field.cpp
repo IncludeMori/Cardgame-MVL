@@ -266,9 +266,7 @@ void Field::updatePos(int index)
 
 void Field::free()
 {
-	mAttackTarget.free();
-	mAttackCard.free();
-
+	
 	for (int i = 0; i < 7; i++)
 		mCard[i] = nullptr;
 }

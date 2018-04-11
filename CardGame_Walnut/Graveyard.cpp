@@ -88,7 +88,5 @@ void Graveyard::init(int who)
 
 void Graveyard::free()
 {
-	for (int i = 0; i < mCurrentSize; i++)
-		if (mCards[i] != nullptr)
-			mCards[i]->free();
+	
 }

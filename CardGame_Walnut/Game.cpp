@@ -167,7 +167,7 @@ void Game::render()
 
 void Game::Init()
 {
-	mBackground.loadFromFile("Data/Background/background01.png");
+	mBackground.loadFromFile("Data/Background/background.png");
 	mBackground.setPos(0, 0);
 
 	mPlayer.reset(new Player());
@@ -186,7 +186,7 @@ void Game::free()
 {
 
 	//End_Screen.free();
-	mBackground.free();
+
 
 	mTurn->free();
 	mPlayer->free();

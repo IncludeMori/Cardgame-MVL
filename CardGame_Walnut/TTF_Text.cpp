@@ -21,7 +21,7 @@ bool TTF_Text::loadFromRenderedText(const std::string &textureText)
 	TTF_Font *gFont = TTF_OpenFont("Data/Font/gtr.ttf", mSize);
 
 	//Get rid of preexisting texture
-	free();
+	
 	SDL_Color textColor = { 0,0,0 };
 
 	//Render text surface

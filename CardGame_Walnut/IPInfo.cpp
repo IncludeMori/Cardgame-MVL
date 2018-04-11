@@ -57,7 +57,7 @@ void IPInfo::setPort(int port)
 	if (isValid(port))
 	{
 		mPort = port;
-		mPortTexture.free();
+		
 		mPortTexture.loadFromRenderedText("               Port:    " + getPortAsString());
 	}
 }

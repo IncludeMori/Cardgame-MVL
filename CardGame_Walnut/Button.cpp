@@ -6,25 +6,6 @@
 
 #include <iostream>
 
-Button::Button()
-{
-	isEnabled = true;
-}
-Button::Button(int x, int y)
-{
-	mPosX = x;
-	mPosY = y;
-}
-Button::~Button()
-{
-	free();
-}
-
-void Button::update()
-{
-
-}
-
 void Button::disable()
 {
 	setAlpha(75);

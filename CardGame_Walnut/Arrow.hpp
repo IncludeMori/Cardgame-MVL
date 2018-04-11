@@ -6,11 +6,10 @@
 class Arrow : public DefaultTexture
 {
 public:
-	Arrow();
-	~Arrow();
+	Arrow() = default;
 
-	void render(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
-	void setPos(int x, int y);
+	void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
+
 	void move(int x, int y);
 	bool isActive();
 	
@@ -18,6 +17,6 @@ public:
 	void setInactive();
 
 private:
-	int mPosX, mPosY;
-	bool mActive;
+	int mPosX = 0, mPosY = 0;
+	bool mActive = false;
 };

@@ -40,7 +40,5 @@ void GameEndScreen::render_Win()
 
 void GameEndScreen::free()
 {
-	mEndGameBtn.free();
-	mVictory.free();
-	mLoss.free();
+	
 }

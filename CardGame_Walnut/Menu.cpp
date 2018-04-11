@@ -239,11 +239,7 @@ void Menu::free()
 	mButtons[OPTIONS_BTN].free();
 	mButtons[CREDITS_BTN].free();
 
-	mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].free();
-	mSubButton[static_cast<int>(Btn_Type::VS_AI)].free();
-	mSubButton[static_cast<int>(Btn_Type::CREATE_DECK)].free();
-	mSubButton[static_cast<int>(Btn_Type::SHOW_CARDS)].free();
-	mSubButton[4].free();
+	
 }
 
 

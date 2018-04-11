@@ -154,7 +154,6 @@ Default_Card::Default_Card(std::string &path, int x)
 	HoverEffect.setEffect(effects);
 	mFrame.load(mRarity,false);
 	mIcons.load();
-	mBackground.free();
 	mBackground.loadFromFile("Data/Cards/background.png");
 	HoverEffect.disable();
 	HoverEffect.setPos(30, SCREEN_HEIGHT / 2 - 275);
@@ -502,10 +501,7 @@ void Default_Card::free()
 	mHealthSign.free();
 	mAPSign.free();
 	mCostSign.free();
-	HoverEffect.free();
-	mFrame.free();
-	mIcons.free();
-	mBackground.free();
+
 	
 	
 

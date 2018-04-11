@@ -13,9 +13,6 @@ bool DefaultTexture::loadFromFile(std::string path)
 {
 	std::cout << "Loading: " << path << std::endl;
 	
-	//delete preexisting textures
-	free();
-
 	//The final texture
 	SDL_Texture* newTexture = nullptr;
 
@@ -23,7 +20,8 @@ bool DefaultTexture::loadFromFile(std::string path)
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == nullptr)
 	{
-		printf("Unable to load %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+		__debugbreak();
+		throw std::runtime_error("Unable to load image at:" + path + "  Error:" + IMG_GetError());
 	}
 	else
 	{
@@ -32,13 +30,12 @@ bool DefaultTexture::loadFromFile(std::string path)
 
 		//Create texture from surface pixels
 		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
-		if (newTexture == nullptr)
+		if (!newTexture)
 		{
-			printf("Failed to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+			throw std::runtime_error("Failed to create texture from surface at " +path+"    Sdl_Error:" + SDL_GetError());
 		}
 		else
 		{
-			//Get image dimensions
 			mWidth = loadedSurface->w;
 			mHeight = loadedSurface->h;
 		}
@@ -47,31 +44,31 @@ bool DefaultTexture::loadFromFile(std::string path)
 		SDL_FreeSurface(loadedSurface);
 	}
 	mTexture.reset(newTexture);
+
+	//Set rendering space and render to screen
+	this->mDstRect = { mPosX,mPosY, mWidth, mHeight };
+
 	return mTexture != nullptr;
 }
 
 void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
-
-	//Set rendering space and render to screen
-	SDL_Rect renderQuad = { mPosX,mPosY, mWidth, mHeight };
-
-
-	if (clip != NULL)
+	if (clip)
 	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
+		this->mDstRect.w = clip->w;
+		this->mDstRect.h = clip->h;
 	}
 
-
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
-
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
 }
 
 void DefaultTexture::setPos(int x, int y)
 {
-	mPosX = x;
-	mPosY = y;
+	this->mPosX = x;
+	this->mPosY = y;
+
+	mDstRect.x = x;
+	mDstRect.y = y;
 }
 
 void DefaultTexture::setColor(Uint8 red, Uint8 green, Uint8 blue)

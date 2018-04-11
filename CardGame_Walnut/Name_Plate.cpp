@@ -36,6 +36,6 @@ void Name_Plate::setPos(int x, int y)
 void Name_Plate::setName(std::string &name)
 {
 	mName = name;
-	mTTFName.free();
+	
 	mTTFName.loadFromRenderedText(mName);
 }

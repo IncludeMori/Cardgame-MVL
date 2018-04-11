@@ -11,7 +11,7 @@ Field_HoverEffect::Field_HoverEffect()
 
 Field_HoverEffect::~Field_HoverEffect()
 {
-	free();
+
 }
 
 void Field_HoverEffect::set(bool v)

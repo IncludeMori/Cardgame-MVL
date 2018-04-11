@@ -10,15 +10,12 @@
 class Button : public DefaultTexture
 {
 public:
-	Button();
-	Button(int x, int y);
-	~Button();
+	using DefaultTexture::DefaultTexture;
 
-	void update();
 	void disable();
 
 	virtual bool IsPressed();
 
 private:
-	bool isEnabled;
+	bool isEnabled = true;
 };
