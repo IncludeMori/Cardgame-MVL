@@ -23,7 +23,7 @@ void Arrow::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Renderer
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
 

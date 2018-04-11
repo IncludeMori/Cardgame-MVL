@@ -319,6 +319,7 @@
     <ClInclude Include="Player_Field.hpp" />
     <ClInclude Include="Player_Hand.hpp" />
     <ClInclude Include="PvpSessionData.hpp" />
+    <ClInclude Include="SDL_Deleter.hpp" />
     <ClInclude Include="SetupPvp.hpp" />
     <ClInclude Include="Rarity.hpp" />
     <ClInclude Include="Resource.hpp" />

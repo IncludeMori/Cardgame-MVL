@@ -3,20 +3,9 @@
 
 extern SDL_Renderer *gRenderer;
 
-TTF_Text::TTF_Text()
-{
-}
-TTF_Text::TTF_Text(int size)
-{
-	mSize = size;
-}
 TTF_Text::TTF_Text(const std::string &text)
 {
 	loadFromRenderedText(text);
-}
-TTF_Text::~TTF_Text()
-{
-	free();
 }
 
 
@@ -44,7 +33,7 @@ bool TTF_Text::loadFromRenderedText(const std::string &textureText)
 	else
 	{
 		//Create texture from surface pixels
-		mTexture = SDL_CreateTextureFromSurface(gRenderer, textSurface);
+		mTexture.reset((SDL_CreateTextureFromSurface(gRenderer, textSurface)));
 		if (mTexture == nullptr)
 		{
 			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());

@@ -221,7 +221,7 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 
 	mFrame.render();
@@ -266,7 +266,7 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	mFrame.render();
 	mIcons.render();
@@ -491,8 +491,6 @@ void Default_Card::free()
 	//Free texture if it exists
 	if (mTexture != nullptr)
 	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = nullptr;
 		mWidth = 0;
 		mHeight = 0;
 		mPosX = 0;

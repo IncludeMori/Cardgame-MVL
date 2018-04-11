@@ -9,11 +9,9 @@
 class TTF_Text: public DefaultTexture
 {
 public:
-	TTF_Text();
-	TTF_Text(int size);
+	TTF_Text() = default;
+	TTF_Text(int size) : mSize(size) {};
 	TTF_Text(const std::string &text);
-
-	~TTF_Text();
 
 	bool loadFromRenderedText(int size,const std::string &textureText);
 	bool loadFromRenderedText(const std::string &textureText);

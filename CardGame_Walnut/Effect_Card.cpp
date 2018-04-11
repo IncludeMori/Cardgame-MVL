@@ -104,7 +104,7 @@ void Effect_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Re
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	renderSigns();
 
@@ -129,7 +129,7 @@ void Effect_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	renderSigns();
 
@@ -157,7 +157,7 @@ void Effect_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
 bool Effect_Card::activateEffect()

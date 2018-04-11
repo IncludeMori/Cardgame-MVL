@@ -40,7 +40,7 @@ void Collection_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SD
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
 bool Collection_Card::MouseIsAbove()

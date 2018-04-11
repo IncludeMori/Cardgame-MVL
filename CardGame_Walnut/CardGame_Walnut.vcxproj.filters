@@ -734,6 +734,9 @@
     <ClInclude Include="Data.hpp" />
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="Field_HoverEffect.hpp" />
+    <ClInclude Include="SDL_Deleter.hpp">
+      <Filter>Game\Resources\SDL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt">

@@ -4,35 +4,9 @@
 
 extern SDL_Renderer *gRenderer;
 
-DefaultTexture::DefaultTexture()
+DefaultTexture::DefaultTexture(const std::string &path, int x, int y)
 {
-	mTexture = nullptr;
-	mWidth = 0;
-	mHeight = 0;
-	mPosX = 0;
-	mPosY = 0;
-}
-DefaultTexture::DefaultTexture(int x, int y)
-{
-	mTexture = nullptr;
-	mWidth = 0;
-	mHeight = 0;
-	mPosX = x;
-	mPosY = y;
-	int lol = 0;
-}
-DefaultTexture::DefaultTexture(std::string &path)
-{
-	mTexture = nullptr;
-	mWidth = 0;
-	mHeight = 0;
-	mPosX = 0;
-	mPosY = 0;
 	loadFromFile(path);
-}
-DefaultTexture::~DefaultTexture()
-{
-	free();
 }
 
 bool DefaultTexture::loadFromFile(std::string path)
@@ -72,9 +46,8 @@ bool DefaultTexture::loadFromFile(std::string path)
 		//Get rid of old loaded surface
 		SDL_FreeSurface(loadedSurface);
 	}
-	mTexture = newTexture;
-	std::cout << mTexture << std::endl;
-	return mTexture != NULL;
+	mTexture.reset(newTexture);
+	return mTexture != nullptr;
 }
 
 void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
@@ -91,7 +64,7 @@ void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 }
 
@@ -103,30 +76,30 @@ void DefaultTexture::setPos(int x, int y)
 
 void DefaultTexture::setColor(Uint8 red, Uint8 green, Uint8 blue)
 {
-	SDL_SetTextureColorMod(mTexture, red, green, blue);
+	SDL_SetTextureColorMod(mTexture.get(), red, green, blue);
 }
 
 void DefaultTexture::setBlendMode(SDL_BlendMode blending)
 {
-	SDL_SetTextureBlendMode(mTexture, blending);
+	SDL_SetTextureBlendMode(mTexture.get(), blending);
 }
 
 void DefaultTexture::setAlpha(Uint8 alpha)
 {
-	SDL_SetTextureAlphaMod(mTexture, alpha);
+	SDL_SetTextureAlphaMod(mTexture.get(), alpha);
 
 }
 
 bool DefaultTexture::isEmpty()
 {
-	if (mTexture == nullptr) { return true; }
-	else { return false; }
+	if (mTexture) { return false; }
+	else { return true; }
 }
+
 int DefaultTexture::getWidth()
 {
 	return mWidth;
 }
-
 int DefaultTexture::getHeight()
 {
 	return mHeight;
@@ -136,23 +109,7 @@ int DefaultTexture::getX()
 {
 	return mPosX;
 }
-
 int DefaultTexture::getY()
 {
 	return mPosY;
-}
-
-
-void DefaultTexture::free()
-{
-	//Free texture if it exists
-	if (mTexture != nullptr)
-	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = nullptr;
-		mWidth = 0;
-		mHeight = 0;
-		//mPosX = 0;
-		//mPosY = 0;
-	}
 }
