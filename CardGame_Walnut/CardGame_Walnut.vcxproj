@@ -208,6 +208,7 @@
     <ClCompile Include="Player_Field.cpp" />
     <ClCompile Include="Player_Hand.cpp" />
     <ClCompile Include="PvpSessionData.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SetupPvp.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Save_Deck.cpp" />
@@ -319,6 +320,7 @@
     <ClInclude Include="Player_Field.hpp" />
     <ClInclude Include="Player_Hand.hpp" />
     <ClInclude Include="PvpSessionData.hpp" />
+    <ClInclude Include="Renderer.hpp" />
     <ClInclude Include="SDL_Deleter.hpp" />
     <ClInclude Include="SetupPvp.hpp" />
     <ClInclude Include="Rarity.hpp" />

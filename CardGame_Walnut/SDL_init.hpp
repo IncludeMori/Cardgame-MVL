@@ -7,10 +7,9 @@
 
 #include <string>
 
-class SDL_init
+namespace SDL_Init
 {
-public:
-	bool SDLinit(const int SCREEN_WIDTH, const int SCREEN_HEIGHT,
-		const std::string WINDOW_NAME);
-	void SDLclose(); 
+	bool startSDL(const int screen_width, const int screen_height,
+		const std::string &window_name);
+	void closeSDL(); 
 };

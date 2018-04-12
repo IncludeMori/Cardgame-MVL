@@ -7,10 +7,6 @@
 #include "SDL_init.hpp"
 #include "GameLoop.hpp"
 
-//global renderer -> render texture etc to screen
-SDL_Renderer* gRenderer = nullptr;
-SDL_Window* gWindow = nullptr;
-
 bool gQuitGame;
 
 Mouse gMouse; // used to access current mouse data

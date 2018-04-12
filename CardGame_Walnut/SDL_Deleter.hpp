@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <iostream>
 
-namespace Sdl_del
+namespace sdl2_Deleter
 {
 	struct SDL_Deleter {
 		void operator()(SDL_Surface*  ptr) { if (ptr) SDL_FreeSurface(ptr); }

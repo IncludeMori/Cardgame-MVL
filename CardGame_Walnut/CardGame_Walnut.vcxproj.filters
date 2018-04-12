@@ -399,6 +399,7 @@
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Field_HoverEffect.cpp" />
+    <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -737,6 +738,7 @@
     <ClInclude Include="SDL_Deleter.hpp">
       <Filter>Game\Resources\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="Renderer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt">
