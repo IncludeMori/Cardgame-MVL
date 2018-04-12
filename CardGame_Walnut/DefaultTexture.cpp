@@ -11,6 +11,7 @@ DefaultTexture::DefaultTexture(const std::string &path, int x, int y)
 	loadFromFile(path);
 }
 
+/*
 bool DefaultTexture::loadFromFile(std::string path)
 {
 	std::cout << "Loading: " << path << std::endl;
@@ -51,7 +52,7 @@ bool DefaultTexture::loadFromFile(std::string path)
 
 	return mTexture != nullptr;
 }
-
+*/
 void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	if (clip)
@@ -61,15 +62,6 @@ void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL
 	}
 
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
-}
-
-void DefaultTexture::setPos(int x, int y)
-{
-	this->mPosX = x;
-	this->mPosY = y;
-
-	mDstRect.x = x;
-	mDstRect.y = y;
 }
 
 void DefaultTexture::setColor(Uint8 red, Uint8 green, Uint8 blue)
@@ -91,15 +83,6 @@ bool DefaultTexture::isEmpty()
 {
 	if (mTexture) { return false; }
 	else { return true; }
-}
-
-int DefaultTexture::getWidth()
-{
-	return mWidth;
-}
-int DefaultTexture::getHeight()
-{
-	return mHeight;
 }
 
 int DefaultTexture::getX()

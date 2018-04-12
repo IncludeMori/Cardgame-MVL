@@ -9,7 +9,9 @@
 #include "Player.hpp"
 #include "Opponent.hpp"
 
-class CurrentTurn
+#include "GameObj.hpp"
+
+class CurrentTurn : public GameObj
 {
 public:
 	CurrentTurn();
@@ -17,7 +19,7 @@ public:
 	CurrentTurn(Who x,std::shared_ptr<Player> player, std::shared_ptr<Opponent> opp);
 
 	void update();
-	void render(double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void render(SDL_Rect* clip = nullptr,double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 	void endTurn();
 
@@ -31,19 +33,13 @@ public:
 
 	int getTurn();
 
-	void free();
-
 private:
 	bool isActive;
-	SDL_Texture *mTexture;
 
 	std::shared_ptr<Player> mPlayer;
 	std::shared_ptr<Opponent> mOpponent;
 
-	int mPosX, mPosY, mWidth, mHeight;
 	int mTurnNumber;
-
-	bool loadFromFile(std::string path);
 
 	bool mTurn[2];
 };

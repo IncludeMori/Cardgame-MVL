@@ -1,2 +1,68 @@
 #include "GameObj.hpp"
 
+#include <SDL_image.h>
+#include <iostream>
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
+void GameObj::loadFromFile(const std::string &path)
+{
+	std::cout << "Loading: " << path.c_str() << std::endl;
+
+	//Load image at specified path
+	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+	if (!loadedSurface)
+	{
+		throw std::runtime_error("Unable to load image at:" + path + "  Error:" + IMG_GetError());
+	}
+	else
+	{
+		//neutral colorkey
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
+
+		//Create texture from surface pixels
+		std::unique_ptr<SDL_Texture, sdl2_Deleter::SDL_Deleter> newTexture(SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface));
+		if (!newTexture)
+		{
+			throw std::runtime_error("Failed to create texture from surface at " + path + "    Sdl_Error:" + SDL_GetError());
+		}
+		else
+		{
+			mWidth = loadedSurface->w;
+			mHeight = loadedSurface->h;
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(loadedSurface);
+		//move ptr to member
+		mTexture = std::move(newTexture);
+	}
+	//Set rendering space
+	this->mDstRect = { mPosX,mPosY, mWidth, mHeight };
+}
+
+void GameObj::setPos(int x, int y)
+{
+	this->mPosX = x;
+	this->mPosY = y;
+	this->mDstRect = { mPosX,mPosY, mWidth, mHeight };
+}
+
+int GameObj::getPosX()
+{
+	return mPosX;
+}
+int GameObj::getPosY()
+{
+	return mPosY;
+}
+
+int GameObj::getWidth()
+{
+	return mWidth;
+}
+int GameObj::getHeight()
+{
+	return mHeight;
+}

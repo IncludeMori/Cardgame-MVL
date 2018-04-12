@@ -190,8 +190,6 @@ void Game::free()
 
 	//End_Screen.free();
 
-
-	mTurn->free();
 	mPlayer->free();
 	mOpponent->free();
 	

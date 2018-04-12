@@ -10,8 +10,8 @@ bool Menu_Button::loadFromFile(std::string path)
 {
 	mBorder.loadFromFile("Data/menu_btn_border.png");
 
-	return Button::loadFromFile(path);
-
+	Button::loadFromFile(path);
+	return true;
 	
 }
 void Menu_Button::render()
