@@ -1,5 +1,5 @@
 #include "StatsSign.hpp"
-#include "gRenderer.hpp"
+
 
 StatsSign::StatsSign()
 {

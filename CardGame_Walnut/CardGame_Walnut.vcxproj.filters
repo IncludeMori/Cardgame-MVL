@@ -579,9 +579,6 @@
     <ClInclude Include="gQuit.hpp">
       <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>
-    <ClInclude Include="gRenderer.hpp">
-      <Filter>Game\Other Stuff\Namespace</Filter>
-    </ClInclude>
     <ClInclude Include="gScreenSize.hpp">
       <Filter>Game\Other Stuff\Namespace</Filter>
     </ClInclude>

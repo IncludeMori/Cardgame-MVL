@@ -3,6 +3,9 @@
 #include "gMouse.hpp"
 #include "FPS_Timer.hpp"
 
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
 Game::Game()
 {
 	keyUp = true;
@@ -31,10 +34,10 @@ bool Game::loop()
 		if (!update())
 			QuitGame = true;
 
-		SDL_RenderClear(gRenderer); //clear screen
+		SDL_RenderClear(Renderer.get()); //clear screen
 		render();
 
-		SDL_RenderPresent(gRenderer); // update screen
+		SDL_RenderPresent(Renderer.get()); // update screen
 
 		FpsTimer.calcFps();
 		FpsTimer.endFrame();

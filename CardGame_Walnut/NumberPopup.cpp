@@ -1,9 +1,12 @@
 #include "NumberPopup.hpp"
 
-#include "gRenderer.hpp"
+
 
 #include <iostream>
 #include <String>
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 NumberPopup::NumberPopup()
 {
@@ -98,7 +101,7 @@ bool NumberPopup::loadNumberTexture()
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
 
 		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface);
 		if (newTexture == nullptr)
 		{
 			printf("Failed to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());

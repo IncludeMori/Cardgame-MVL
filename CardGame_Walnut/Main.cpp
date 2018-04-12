@@ -15,25 +15,22 @@ Mouse gMouse; // used to access current mouse data
 const int SCREEN_WIDTH =1920;
 const int SCREEN_HEIGHT = 1080;
 
-void f()
+void game()
 {
 	gQuitGame = false;
 	// init SDL and create the window
-	SDL_init SDL;
-	SDL.SDLinit(SCREEN_WIDTH, SCREEN_HEIGHT, "WINDOW_NAME");
+	sdl2_Init::startSDL(SCREEN_WIDTH, SCREEN_HEIGHT, "Walnut");
 
 	GameClass myGame; //initialise game
 
 	myGame.main_loop(); //start main loop
 
 						//quit sld
-	SDL.SDLclose();
+	sdl2_Init::closeSDL();
 }
 //..............................
 int main(int argc, char* args[])
 {
-
-	f();
-
+	game();
 	return 0;
 } // main

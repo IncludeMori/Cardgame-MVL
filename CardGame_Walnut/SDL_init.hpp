@@ -7,7 +7,7 @@
 
 #include <string>
 
-namespace SDL_Init
+namespace sdl2_Init
 {
 	bool startSDL(const int screen_width, const int screen_height,
 		const std::string &window_name);

@@ -11,6 +11,7 @@
 #include <memory>
 
 #include "SDL_Deleter.hpp"
+using namespace sdl2_Deleter;
 
 class DefaultTexture
 {
@@ -42,7 +43,7 @@ public:
 	bool isEmpty();
 
 protected:
-	std::unique_ptr<SDL_Texture, Sdl_del::SDL_Deleter> mTexture = nullptr; //actual texture
+	std::unique_ptr<SDL_Texture, sdl2_Deleter::SDL_Deleter> mTexture = nullptr; //actual texture
 	SDL_Rect mDstRect;
 
 	int mWidth = 0;

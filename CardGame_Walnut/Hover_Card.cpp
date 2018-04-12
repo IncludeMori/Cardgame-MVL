@@ -1,6 +1,7 @@
 #include "Hover_Card.hpp"
-#include "gRenderer.hpp"
 
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 Hover_Card::Hover_Card()
 {
@@ -55,7 +56,7 @@ void Hover_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Ren
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 	mFrame.render();
 	mIcons.render();
 	mNameplate.render();

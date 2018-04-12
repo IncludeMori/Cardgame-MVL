@@ -1,7 +1,6 @@
 
 #include "button.hpp"
 
-#include "gRenderer.hpp"
 #include "gMouse.hpp"
 
 #include <iostream>

@@ -6,6 +6,9 @@
 #include "gQuit.hpp"
 #include "display_text.hpp"
 
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
 
 Menu::Menu()
 {
@@ -28,10 +31,10 @@ bool Menu::loop()
 		if (!update())
 			QuitGame = true;
 
-		SDL_RenderClear(gRenderer); //clear screen
+		SDL_RenderClear(Renderer.get()); //clear screen
 		render();
 
-		SDL_RenderPresent(gRenderer); // update screen
+		SDL_RenderPresent(Renderer.get()); // update screen
 
 		FpsTimer.calcFps(); //
 		FpsTimer.endFrame();

@@ -15,7 +15,7 @@ using namespace sdl2_Window;
 using namespace sdl2_Renderer;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-bool SDL_Init::startSDL(const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const std::string &WINDOW_NAME)
+bool sdl2_Init::startSDL(const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const std::string &WINDOW_NAME)
 {
 	//INIT SDL (everything)
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) < 0)
@@ -73,7 +73,7 @@ bool SDL_Init::startSDL(const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const s
 	}
 	return true;
 }
-void SDL_Init::closeSDL()
+void sdl2_Init::closeSDL()
 {
 	Window = nullptr;
 	Renderer = nullptr;

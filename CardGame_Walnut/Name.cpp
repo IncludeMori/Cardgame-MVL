@@ -1,7 +1,9 @@
 #include "Name.hpp"
 
 #include "gScreenSize.hpp"
-#include "gRenderer.hpp"
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 Name::Name()
 {
@@ -53,6 +55,6 @@ void Name::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererF
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 }

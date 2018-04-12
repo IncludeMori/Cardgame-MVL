@@ -1,7 +1,6 @@
 #include "Player_Field.hpp"
 
 #include "gScreenSize.hpp"
-#include "gRenderer.hpp"
 #include "gMouse.hpp"
 #include <iostream>
 #include <boost/range/irange.hpp>

@@ -3,7 +3,6 @@
 #include "sol\sol.hpp"
 
 #include "eCard_Effects.hpp"
-#include "gRenderer.hpp"
 #include "gMouse.hpp"
 
 #include "eCard_Effects.hpp"
@@ -14,6 +13,9 @@
 #include "Place.hpp"
 
 #include "Player_Field.hpp"
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 Effect_Card::Effect_Card()
 {
@@ -104,7 +106,7 @@ void Effect_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Re
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	renderSigns();
 
@@ -129,7 +131,7 @@ void Effect_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	renderSigns();
 
@@ -157,7 +159,7 @@ void Effect_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
 bool Effect_Card::activateEffect()

@@ -10,6 +10,9 @@
 
 #include "loadCards.hpp"
 
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
 Create_Deck::Create_Deck()
 {
 	hover_card = -1;
@@ -87,10 +90,10 @@ bool Create_Deck::loop()
 		if (!update())
 			QuitGame = true;
 
-		SDL_RenderClear(gRenderer); //clear screen
+		SDL_RenderClear(Renderer.get()); //clear screen
 		render();
 
-		SDL_RenderPresent(gRenderer); // update screen
+		SDL_RenderPresent(Renderer.get()); // update screen
 
 		FpsTimer.endFrame();
 	} // main loop 

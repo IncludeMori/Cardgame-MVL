@@ -1,5 +1,10 @@
 #include "bTexture.hpp"
 
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
+
 bTexture::bTexture()
 {
 	mTexture = nullptr;
@@ -37,7 +42,7 @@ bool bTexture::loadFromFile(std::string path)
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
 
 		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface);
 		if (newTexture == NULL)
 		{
 			printf("Failed to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
@@ -72,7 +77,7 @@ void bTexture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* cen
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 }
 

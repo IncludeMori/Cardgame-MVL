@@ -1,5 +1,8 @@
 #include "Arrow.hpp"
 
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
 void Arrow::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	if (clip != nullptr)
@@ -8,7 +11,7 @@ void Arrow::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Renderer
 		this->mDstRect.h = clip->h;
 	}
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
 }
 
 void Arrow::move(int x, int y)

@@ -1,8 +1,11 @@
 #include "Resource.hpp"
 
-#include "gRenderer.hpp"
+
 #include <iostream>
 #include "gScreenSize.hpp"
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 Resource::Resource()
 {
@@ -55,24 +58,24 @@ void Resource::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
 
 	if (mCurrentStat < 10)
 	{
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 20;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 20;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[mBaseStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mBaseStat], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
 	else if (mCurrentStat == 10) {
 
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 30;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 15;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 15;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 30;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 

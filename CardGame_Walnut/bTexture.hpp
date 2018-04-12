@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 
-#include "gRenderer.hpp"
+
 
 class bTexture
 {

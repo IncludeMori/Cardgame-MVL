@@ -1,4 +1,4 @@
-#include "gRenderer.hpp"
+
 #include "Default_Card.hpp"
 #include <iostream>
 #include "sol\sol.hpp"
@@ -13,10 +13,16 @@
 #include "Data.hpp"
 //#include "BoostCard.hpp"
 
+#include "Renderer.hpp"
+
+
 
 #include "Place.hpp"
 
 #include "getEffectAsString.hpp"
+
+
+using namespace sdl2_Renderer;
 
 Default_Card::Default_Card()
 {
@@ -220,7 +226,7 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 
 	mFrame.render();
@@ -265,7 +271,7 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 	}
 
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	mFrame.render();
 	mIcons.render();
@@ -320,11 +326,11 @@ void Default_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* cente
 
 void Default_Card::renderSigns()
 {
-	SDL_SetRenderDrawColor(gRenderer, 100, 100, 100, 100);
+	SDL_SetRenderDrawColor(Renderer.get(), 100, 100, 100, 100);
 	mHealthSign.render();
 	mCostSign.render();
 	mAPSign.render();
-	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(Renderer.get(), 0xFF, 0xFF, 0xFF, 0xFF);
 }
 
 void Default_Card::loadTexture() {

@@ -1,6 +1,8 @@
-#include "LoadingScreen.hpp"
-#include "gRenderer.hpp"
+#include "LoadingScreen.hpp""
 #include "gScreenSize.hpp"
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 LoadingScreen::LoadingScreen()
 {
@@ -13,9 +15,9 @@ void LoadingScreen::render()
 	double angle = 0;
 	while (mIsActive)
 	{
-		SDL_RenderClear(gRenderer); //clear screen
-		mLoading.render(NULL,angle);
-		SDL_RenderPresent(gRenderer); // update screen
+		SDL_RenderClear(Renderer.get()); //clear screen
+		mLoading.render(nullptr,angle);
+		SDL_RenderPresent(Renderer.get()); // update screen
 		angle = angle + 1.25;
 		if (angle >= 360)
 			angle = 0;

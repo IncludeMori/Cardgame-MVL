@@ -6,7 +6,7 @@
 #include "gMouse.hpp"
 #include "Arrow.hpp"
 #include "Click_EventHandler.hpp"
-#include "gRenderer.hpp"
+
 #include "gScreenSize.hpp"
 
 #include <boost/range/irange.hpp>

@@ -2,7 +2,9 @@
 
 #include <iostream>
 
-extern SDL_Renderer *gRenderer;
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
+
 
 DefaultTexture::DefaultTexture(const std::string &path, int x, int y)
 {
@@ -29,7 +31,7 @@ bool DefaultTexture::loadFromFile(std::string path)
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
 
 		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface);
 		if (!newTexture)
 		{
 			throw std::runtime_error("Failed to create texture from surface at " +path+"    Sdl_Error:" + SDL_GetError());
@@ -59,7 +61,7 @@ void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL
 		this->mDstRect.h = clip->h;
 	}
 
-	SDL_RenderCopyEx(gRenderer, mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
 }
 
 void DefaultTexture::setPos(int x, int y)

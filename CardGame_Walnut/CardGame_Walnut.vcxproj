@@ -280,7 +280,6 @@
     <ClInclude Include="gMouse.hpp" />
     <ClInclude Include="gQuit.hpp" />
     <ClInclude Include="Graveyard.hpp" />
-    <ClInclude Include="gRenderer.hpp" />
     <ClInclude Include="gScreenSize.hpp" />
     <ClInclude Include="Hand.hpp" />
     <ClInclude Include="HealOrDmg.hpp" />

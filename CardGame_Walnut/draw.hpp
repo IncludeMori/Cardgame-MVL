@@ -1,8 +1,9 @@
 #pragma once
 
-#include "gRenderer.hpp"
 #include "gScreenSize.hpp"
+
+#include <SDL.h>
 
 void drawLines();
 void drawField();
-void drawRect(SDL_Rect &rect);
+void drawRect(const SDL_Rect &rect);

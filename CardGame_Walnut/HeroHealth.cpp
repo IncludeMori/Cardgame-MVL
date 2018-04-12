@@ -1,7 +1,9 @@
 #include "HeroHealth.hpp"
 
-#include "gRenderer.hpp"
 #include <iostream>
+
+#include "Renderer.hpp"
+using namespace sdl2_Renderer;
 
 HeroHealth::HeroHealth()
 {
@@ -41,23 +43,23 @@ void HeroHealth::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
 
 	if (mCurrentStat < 10)
 	{
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
 	else if (mCurrentStat > 9 && mCurrentStat < 100) {
 
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[mCurrentStat/10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat/10], &renderQuad, angle, center, flip); // renders texture to screen
 
 		renderQuad.x += mWidth-5;
 
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[mCurrentStat%10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat%10], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 	else // >90
 	{
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += mWidth-5;
-		SDL_RenderCopyEx(gRenderer, mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 }
 
@@ -135,7 +137,7 @@ bool HeroHealth::loadFromFile(std::string path)
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
 
 		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface);
 		if (newTexture == nullptr)
 		{
 			printf("Failed to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
