@@ -3,62 +3,47 @@
 #include "Renderer.hpp"
 using namespace sdl2_Renderer;
 
-
-TTF_Text::TTF_Text(const std::string &text)
+void TTF_Text::loadFromRenderedText(const std::string &textureText, int size)
 {
-	loadFromRenderedText(text);
-}
+	if (size > 0)
+		this->mSize = size;
+	TTF_Font *font = TTF_OpenFont("Data/Font/gtr.ttf", this->mSize);
 
-
-bool TTF_Text::loadFromRenderedText(int size, const std::string & textureText)
-{
-	mSize = size;
-	return loadFromRenderedText(textureText);
-}
-
-bool TTF_Text::loadFromRenderedText(const std::string &textureText)
-{
-
-	TTF_Font *gFont = TTF_OpenFont("Data/Font/gtr.ttf", mSize);
-
-	//Get rid of preexisting texture
-	
-	SDL_Color textColor = { 0,0,0 };
+	SDL_Color textColor = { 0,0,0 }; //add as parameter
 
 	//Render text surface
-	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
-	if (textSurface == nullptr)
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
+	if (!textSurface)
 	{
-		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
+		std::cout << "Unable to render text surface. Error msg:" << TTF_GetError() << std::endl;
 	}
 	else
 	{
 		//Create texture from surface pixels
-		mTexture.reset((SDL_CreateTextureFromSurface(Renderer.get(), textSurface)));
-		if (mTexture == nullptr)
+		this->mTexture.reset((SDL_CreateTextureFromSurface(Renderer.get(), textSurface)));
+		if (!this->mTexture)
 		{
-			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
+			std::cout << "Unable to create texture from rendered text. Error msg:" << SDL_GetError() << std::endl;
 		}
 		else
 		{
 			//Get image dimensions
-			mWidth = textSurface->w;
-			mHeight = textSurface->h;
+			this->mWidth = textSurface->w;
+			this->mHeight = textSurface->h;
 		}
 
-		//Get rid of old surface
+		//Get rid of old surface & font
 		SDL_FreeSurface(textSurface);
+		TTF_CloseFont(font);
 	}
 
-	//Return success
-	if (mTexture != nullptr)
-		CurrentValue = textureText;
-	return mTexture != nullptr;
+	if (this->mTexture != nullptr)
+		this->mText = textureText;
 }
 
 std::string TTF_Text::AsString()
 {
-	return CurrentValue;
+	return mText;
 }
 
 

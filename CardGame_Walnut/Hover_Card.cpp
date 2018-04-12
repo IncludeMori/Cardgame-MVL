@@ -5,7 +5,6 @@ using namespace sdl2_Renderer;
 
 Hover_Card::Hover_Card()
 {
-	mIsActive = false;
 	mIcons.loadFromFile("Data/BigCard_Interface/Icons.png");
 	mFrame.load(Rarity::Bronze, true);
 }
@@ -22,11 +21,6 @@ Hover_Card::Hover_Card(std::string &name, int health, int atk, int cost,Rarity r
 	mFrame.load(rarity,true);
 
 	mNameplate.setName(name);
-}
-
-
-Hover_Card::~Hover_Card()
-{
 }
 
 void Hover_Card::update()
@@ -92,9 +86,9 @@ void Hover_Card::setStats(std::string &name, int health, int atk, int cost, Rari
 	mFrame.load(rarity, true);
 	mNameplate.setName(name);
 
-	mSCost.changeData(mCost);
-	mSHealth.changeData(mHealth);
-	mSAttack.changeData(mAttack);
+	mSCost.changeDataTo(mCost);
+	mSHealth.changeDataTo(mHealth);
+	mSAttack.changeDataTo(mAttack);
 }
 
 void Hover_Card::setEffect(std::vector<std::string> &effects)

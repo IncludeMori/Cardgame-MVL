@@ -147,7 +147,7 @@ void Player_Deck::createDeck(const std::shared_ptr<Opponent_Field>&field)
 		//deck += "0";
 	}
 	*/
-	mSizeIcon.changeData(mSize);
+	mSizeIcon.changeDataTo(mSize);
 }
 
 Player_Deck::~Player_Deck()

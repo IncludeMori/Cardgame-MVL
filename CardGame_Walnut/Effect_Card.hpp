@@ -9,7 +9,6 @@ class Effect_Card : public Basic_Card , public std::enable_shared_from_this<Effe
 public:
 	Effect_Card();
 	Effect_Card(std::string &path);
-	~Effect_Card();
 
 	void play(const std::shared_ptr<Field> &Field);
 

@@ -214,7 +214,7 @@ bool Create_Deck::update()
 				if (mPage > Max_Page)
 					mPage--;
 				else
-					PageSign.add(1);
+					PageSign.increase(1);
 
 				SDL_Delay(500);
 			}
@@ -225,7 +225,7 @@ bool Create_Deck::update()
 				if (mPage < 0)
 					mPage++;
 				else
-					PageSign.add(-1);
+					PageSign.increase(-1);
 
 				SDL_Delay(500);
 			}
@@ -250,7 +250,7 @@ bool Create_Deck::update()
 							std::cout << "Added:" << mCards[i]->getName() << std::endl;
 							CardAdded = true;
 							DeckSize++;
-							DeckSizeSign.add(1);
+							DeckSizeSign.increase(1);
 						}
 					}
 
@@ -273,7 +273,7 @@ bool Create_Deck::update()
 						{
 							std::cout << "Removed:" << i << std::endl;
 							mCurrentDeckCards[i].reset();
-							DeckSizeSign.add(-1);
+							DeckSizeSign.increase(-1);
 							DeckSize--;
 							mCurrentDeckCards.erase(mCurrentDeckCards.begin() + i);
 							added = true;
@@ -437,13 +437,5 @@ bool Create_Deck::fsaveDeck()
 
 void Create_Deck::free()
 {
-	
-
-	DeckSizeSign.free();
-	PageSign.free();
-
-
-	
-
 
 }

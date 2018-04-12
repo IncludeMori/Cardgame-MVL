@@ -22,7 +22,6 @@ bool DefaultTexture::loadFromFile(std::string path)
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == nullptr)
 	{
-		__debugbreak();
 		throw std::runtime_error("Unable to load image at:" + path + "  Error:" + IMG_GetError());
 	}
 	else
@@ -86,7 +85,6 @@ void DefaultTexture::setBlendMode(SDL_BlendMode blending)
 void DefaultTexture::setAlpha(Uint8 alpha)
 {
 	SDL_SetTextureAlphaMod(mTexture.get(), alpha);
-
 }
 
 bool DefaultTexture::isEmpty()

@@ -44,7 +44,7 @@ void Effect_Description::setEffect(std::vector<std::string> &effects)
 	int size = 24;
 
 	for (unsigned int i = 0; i < mEffectDescr.size(); i++)
-		mEffectDescr.at(i).loadFromRenderedText(size, effects.at(i));
+		mEffectDescr.at(i).loadFromRenderedText(effects.at(i), size );
 
 }
 

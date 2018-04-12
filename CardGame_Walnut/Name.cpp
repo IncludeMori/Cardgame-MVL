@@ -7,8 +7,8 @@ using namespace sdl2_Renderer;
 
 Name::Name()
 {
-	CurrentValue = "Player_Unkown";
-	loadFromRenderedText(CurrentValue);
+	mText = "Player_Unkown";
+	loadFromRenderedText(mText);
 	mBackground.loadFromFile("Data/Hero_Interface/name_background.png");
 }
 
@@ -20,8 +20,8 @@ Name::~Name()
 void Name::init(Who o,const std::string &name)
 {
 	//if (!name.empty())
-	CurrentValue = name;
-	loadFromRenderedText(CurrentValue);
+	mText = name;
+	loadFromRenderedText(mText);
 	
 	if (o == PLAYER)
 	{
@@ -37,8 +37,8 @@ void Name::init(Who o,const std::string &name)
 void Name::setName(const std::string &name)
 {
 
-	CurrentValue = name;
-	loadFromRenderedText(CurrentValue);
+	mText = name;
+	loadFromRenderedText(mText);
 }
 
 void Name::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)

@@ -59,9 +59,9 @@ Default_Card::Default_Card(std::string &path)
 	mBasicCost = lua[name]["cost"];
 	mPath = lua[name]["path"];
 
-	mHealthSign.changeData(mBasicHealth);
-	mCostSign.changeData(mBasicCost);
-	mAPSign.changeData(mBasicAttack);
+	mHealthSign.changeDataTo(mBasicHealth);
+	mCostSign.changeDataTo(mBasicCost);
+	mAPSign.changeDataTo(mBasicAttack);
 
 	HoverEffect.loadFromFile("Data/"+name+".png");
 	HoverEffect.setPos(50, SCREEN_HEIGHT / 2 - 150);
@@ -101,9 +101,9 @@ Default_Card::Default_Card(std::string &path, int x)
 	mBasicCost = lua[name]["cost"];
 	mPath = lua[name]["path"];
 
-	mHealthSign.changeData(mBasicHealth);
-	mCostSign.changeData(mBasicCost);
-	mAPSign.changeData(mBasicAttack);
+	mHealthSign.changeDataTo(mBasicHealth);
+	mCostSign.changeDataTo(mBasicCost);
+	mAPSign.changeDataTo(mBasicAttack);
 
 	std::vector<std::string> effects;
 	mEffectType = static_cast<eEffect>(lua[name]["mEffect"]);
@@ -176,9 +176,9 @@ Default_Card::Default_Card(int Health, int Attack, int Type, std::string &path)
 	mBasicAttack = Attack;
 	mBasicCost = Type;
 	mPath = path;
-	mHealthSign.changeData(mBasicHealth);
-	mCostSign.changeData(mBasicCost);
-	mAPSign.changeData(mBasicAttack);
+	mHealthSign.changeDataTo(mBasicHealth);
+	mCostSign.changeDataTo(mBasicCost);
+	mAPSign.changeDataTo(mBasicAttack);
 }
 
 Default_Card::~Default_Card()
@@ -198,9 +198,9 @@ void Default_Card::update()
 }
 void Default_Card::updateStats()
 {
-	mHealthSign.changeData(mBasicHealth);
-	mCostSign.changeData(mBasicCost);
-	mAPSign.changeData(mBasicAttack);
+	mHealthSign.changeDataTo(mBasicHealth);
+	mCostSign.changeDataTo(mBasicCost);
+	mAPSign.changeDataTo(mBasicAttack);
 }
 
 Uint32 my_callbackfunc(Uint32 interval, void *param)
@@ -420,9 +420,9 @@ bool Default_Card::activateEffect()
 {
 	bool x = mEffect->activate(this);
 	
-	mHealthSign.changeData(mBasicHealth);
-	mCostSign.changeData(mBasicCost);
-	mAPSign.changeData(mBasicAttack);
+	mHealthSign.changeDataTo(mBasicHealth);
+	mCostSign.changeDataTo(mBasicCost);
+	mAPSign.changeDataTo(mBasicAttack);
 	return x;
 
 }
@@ -446,7 +446,7 @@ void Default_Card::increase(eStat stat, int amount)
 void Default_Card::increaseAtk(int amount)
 {
 	mBasicAttack += amount;
-	mAPSign.changeData(mBasicAttack);
+	mAPSign.changeDataTo(mBasicAttack);
 }
 void Default_Card::increaseHealth(int amount)
 {
@@ -463,7 +463,7 @@ bool Default_Card::canAttack()
 void Default_Card::removeHealth(int amount)
 {
 	mBasicHealth -= amount;
-	mHealthSign.changeData(mBasicHealth);
+	mHealthSign.changeDataTo(mBasicHealth);
 	if (mBasicHealth <= 0) { mAlive = false; }
 	std::cout << "Health left:" << mBasicHealth << std::endl;
 	if (mAlive == false) { std::cout << "dead" << std::endl; }
@@ -503,12 +503,6 @@ void Default_Card::free()
 
 		std::cout << "free.." << std::endl;
 	}
-	
-	mHealthSign.free();
-	mAPSign.free();
-	mCostSign.free();
-
-	
 	
 
 }

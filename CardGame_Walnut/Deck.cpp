@@ -13,7 +13,7 @@ Deck::Deck()
 	mCurrentTop = 0;
 	mPosX = 0;
 	mPosY = 0;
-	mSizeIcon.changeData(mSize);
+	mSizeIcon.changeDataTo(mSize);
 	mSizeIcon.setPos(mPosX, mPosY);
 	EmptyDeck.loadFromFile("Data/emptyDeck.png");
 }
@@ -48,7 +48,7 @@ std::shared_ptr<Basic_Card> Deck::getNextCard()
 {
 	if (mCurrentTop < MAX_SIZE)
 	{
-		mSizeIcon.changeData(mSize-(mCurrentTop+1));
+		mSizeIcon.changeDataTo(mSize-(mCurrentTop+1));
 		std::cout << "Get Card from Deck. Index:" << mCurrentTop << std::endl;
 		return mCard.at(mCurrentTop++);
 	}
@@ -108,7 +108,7 @@ void Deck::createDeck()
 		std::dynamic_pointer_cast<Default_Card>(mCard[i])->loadTexture();
 	}
 
-	mSizeIcon.changeData(mSize);
+	mSizeIcon.changeDataTo(mSize);
 }
 
 void Deck::free()

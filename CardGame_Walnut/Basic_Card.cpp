@@ -8,44 +8,16 @@
 
 #include "Place.hpp"
 
-Basic_Card::Basic_Card()
-{
-	
-}
-void Basic_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
-{
-
-}
-void Basic_Card::render(SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
-{
-}
-
 void Basic_Card::renderHoverEffect()
 {
 	HoverEffect.render();
 }
-
-void Basic_Card::renderBackside(SDL_Rect * clip, double angle, SDL_Point * center, SDL_RendererFlip flip)
-{
-}
-
-bool Basic_Card::activateEffect()
-{
-	return false;
-}
-
 
 bool Basic_Card::setStuff(const std::shared_ptr<Deck> &deck, const std::shared_ptr<Hand> &hand, const std::shared_ptr<Field> &field, const std::shared_ptr<Field> &oppfield)
 {
 	if (oppfield == nullptr)
 		__debugbreak();
 	return mEffect->setStuff(deck, hand, field,oppfield);
-}
-
-
-void Basic_Card::play(const std::shared_ptr<Field> &Field)
-{
-	
 }
 
 void Basic_Card::changePosition(Position newpos)
@@ -65,10 +37,6 @@ void Basic_Card::move(int x, int y)
 
 	mBackground.setPos(mPosX, mPosY);
 
-}
-
-void Basic_Card::moveSigns(int x, int y)
-{
 }
 
 void Basic_Card::setActive()
@@ -107,10 +75,6 @@ bool Basic_Card::MouseIsAbove()
 	}
 	else
 		return false;
-}
-
-void Basic_Card::setPos(int x, int y)
-{
 }
 
 void Basic_Card::increaseCost(int amount)

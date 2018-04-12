@@ -10,18 +10,18 @@ IPInfo::IPInfo()
 	mChangePortBtn.loadFromFile("Data/changeport.png");
 	
 	if (mIpConfg.getIpInfo().size() > 0)
-		mIPTexture[0].loadFromRenderedText(size,"                 IPv4:    "+ mIpConfg.getIpInfo().at(0).substr(mIpConfg.getIpInfo().at(0).find_first_of(":") + 1, mIpConfg.getIpInfo().at(0).size()));
+		mIPTexture[0].loadFromRenderedText("                 IPv4:    "+ mIpConfg.getIpInfo().at(0).substr(mIpConfg.getIpInfo().at(0).find_first_of(":") + 1, mIpConfg.getIpInfo().at(0).size()), size);
 	else
-		mIPTexture[0].loadFromRenderedText(size,"Error: getIP() failed to connect");
+		mIPTexture[0].loadFromRenderedText("Error: getIP() failed to connect", size);
 	
 	if (mIpConfg.getLocalIpInfo().size() > 0)
-		mIPTexture[1].loadFromRenderedText(size, "(Local)IPv4:    " + mIpConfg.getLocalIpInfo().at(0).substr(mIpConfg.getLocalIpInfo().at(0).find_first_of(":") + 1, mIpConfg.getLocalIpInfo().at(0).size()));
+		mIPTexture[1].loadFromRenderedText("(Local)IPv4:    " + mIpConfg.getLocalIpInfo().at(0).substr(mIpConfg.getLocalIpInfo().at(0).find_first_of(":") + 1, mIpConfg.getLocalIpInfo().at(0).size()), size);
 	else
-		mIPTexture[1].loadFromRenderedText(size, "Not able to get local IP. Please use cmd>ipconfig");
+		mIPTexture[1].loadFromRenderedText("Not able to get local IP. Please use cmd>ipconfig", size);
 
 
 	mPort = 3794;
-	mPortTexture.loadFromRenderedText(size,"               Port:    " + getPortAsString());
+	mPortTexture.loadFromRenderedText("               Port:    " + getPortAsString(), size);
 }
 
 

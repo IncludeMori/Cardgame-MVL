@@ -7,7 +7,6 @@ using namespace sdl2_Renderer;
 
 HeroHealth::HeroHealth()
 {
-	mTexture = nullptr;
 	loadFromFile("Data/numbers.png");
 
 	int x = 0, y = 0, w = 35, h = 35;
@@ -22,17 +21,8 @@ HeroHealth::HeroHealth()
 	mNumbers[10] = { 0,y + 35,w,h };
 	mNumbers[11] = { 35,70,35,35 };
 
-	mPosX = 0;
-	mPosY = 0;
 	mWidth = 35;
 	mHeight = 35;
-
-	mCurrentStat = 0;
-	mBaseStat = 0;
-}
-HeroHealth::~HeroHealth()
-{
-	free();
 }
 
 void HeroHealth::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
@@ -41,54 +31,49 @@ void HeroHealth::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX,mPosY, mHeight, mWidth };
 
-	if (mCurrentStat < 10)
+	if (mCurrentValue < 10)
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
-	else if (mCurrentStat > 9 && mCurrentStat < 100) {
+	else if (mCurrentValue > 9 && mCurrentValue < 100) {
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat/10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue/10], &renderQuad, angle, center, flip); // renders texture to screen
 
 		renderQuad.x += mWidth-5;
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat%10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue%10], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 	else // >90
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += mWidth-5;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 }
 
-
-void HeroHealth::update()
+void HeroHealth::changeBaseDataTo(int n)
 {
-	//update number if CurrentStats are different
+	mBaseValue = n;
 }
-
-
-void HeroHealth::changeData(int number)
+void HeroHealth::changeDataTo(int n)
 {
-	mCurrentStat = number;
+	mCurrentValue = n;
 }
-
-void HeroHealth::add(int amount)
+void HeroHealth::increase(int amount)
 {
-	mCurrentStat += amount;
+	mCurrentValue += amount;
 }
-
 void HeroHealth::setPos(int x, int y)
 {
 	mPosX = x;
 	mPosY = y;
 }
 
-int HeroHealth::getCurrentData()
+int HeroHealth::getValue()
 {
-	return mCurrentStat;
+	return mCurrentValue;
 }
 int HeroHealth::getHeight()
 {
@@ -100,27 +85,12 @@ int HeroHealth::getWidth()
 }
 
 
-void HeroHealth::free()
-{
-	//Free texture if it exists
-	if (mTexture != nullptr)
-	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = nullptr;
-		mWidth = 0;
-		mHeight = 0;
-		mPosX = 0;
-		mPosY = 0;
-	}
-}
-
 //protected
 
-bool HeroHealth::loadFromFile(std::string path)
+bool HeroHealth::loadFromFile(const std::string &path)
 {
 	std::cout << "Loading: " << path << std::endl;
 	//delete preexisting textures
-	free();
 
 	//The final texture
 	SDL_Texture* newTexture = nullptr;
@@ -152,6 +122,6 @@ bool HeroHealth::loadFromFile(std::string path)
 		//Get rid of old loaded surface
 		SDL_FreeSurface(loadedSurface);
 	}
-	mTexture = newTexture;
+	mTexture.reset(newTexture);
 	return mTexture != nullptr;
 }

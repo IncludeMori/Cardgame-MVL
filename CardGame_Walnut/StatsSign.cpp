@@ -9,7 +9,6 @@ StatsSign::StatsSign(Stats_Size size)
 {
 	if (size == Stats_Size::STANDARD)
 	{
-		free();
 
 		mTexture = nullptr;
 		loadFromFile("Data/numbers.png");
@@ -31,13 +30,11 @@ StatsSign::StatsSign(Stats_Size size)
 		mWidth = 35;
 		mHeight = 35;
 
-		mCurrentStat = 0;
-		mBaseStat = 0;
+		mCurrentValue = 0;
+		mBaseValue = 0;
 	}
 	else //hover
 	{
-		free();
-
 		mTexture = nullptr;
 		loadFromFile("Data/BigCard_Interface/numbers_big.png");
 
@@ -58,13 +55,9 @@ StatsSign::StatsSign(Stats_Size size)
 		mWidth = 50;
 		mHeight = 50;
 
-		mCurrentStat = 0;
-		mBaseStat = 0;
+		mCurrentValue = 0;
+		mBaseValue = 0;
 	}
-}
-StatsSign::~StatsSign()
-{
-	free();
 }
 
 void StatsSign::move(int x, int y)

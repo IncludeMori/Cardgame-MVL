@@ -5,13 +5,11 @@
 //
 #pragma once
 
-// SDL libs
 #include <SDL_image.h>
 #include <string>
 #include <memory>
 
 #include "SDL_Deleter.hpp"
-using namespace sdl2_Deleter;
 
 class DefaultTexture
 {

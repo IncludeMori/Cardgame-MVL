@@ -17,7 +17,6 @@ class StatsSign : public HeroHealth
 public:
 	StatsSign();
 	StatsSign(Stats_Size size);
-	~StatsSign();
 
 	void move(int x, int y);
 

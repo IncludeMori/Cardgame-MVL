@@ -1,26 +1,24 @@
 #pragma once
 
-#include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <string>
-#include "DefaultTexture.hpp"
+#include <SDL_ttf.h>
 
+#include "DefaultTexture.hpp"
 
 class TTF_Text: public DefaultTexture
 {
 public:
 	TTF_Text() = default;
-	TTF_Text(int size) : mSize(size) {};
-	TTF_Text(const std::string &text);
+	TTF_Text(const std::string &text) {
+		loadFromRenderedText(text);
+	};
 
-	bool loadFromRenderedText(int size,const std::string &textureText);
-	bool loadFromRenderedText(const std::string &textureText);
+	void loadFromRenderedText(const std::string &textureText, int size = -1);
 
 	std::string AsString();
 	
-
 protected:
-	std::string CurrentValue;
+	std::string mText;
 	int mSize = 28;
 };
 

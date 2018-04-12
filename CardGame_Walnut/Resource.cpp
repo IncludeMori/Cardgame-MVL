@@ -9,8 +9,8 @@ using namespace sdl2_Renderer;
 
 Resource::Resource()
 {
-	mCurrentStat = 0;
-	mBaseStat = 0;
+	mCurrentValue = 0;
+	mBaseValue = 0;
 
 	mBackground.loadFromFile("Data/Hero_Interface/Background_AmountMana.png");
 	loadFromFile("Data/numbers.png");
@@ -21,7 +21,7 @@ Resource::Resource()
 
 void Resource::removeAv(int amount)
 {
-	mCurrentStat -= amount;
+	mCurrentValue -= amount;
 
 	mEnergyInterface.subEnergy(amount);
 }
@@ -35,17 +35,17 @@ void Resource::setPos(int x, int y, int who)
 
 void Resource::increase()
 {
-	mBaseStat++;
-	if (mBaseStat > 10) { mBaseStat = 10; }
-	mCurrentStat = mBaseStat;
+	mBaseValue++;
+	if (mBaseValue > 10) { mBaseValue = 10; }
+	mCurrentValue = mBaseValue;
 
 	mEnergyInterface.increase();
 
 }
 void Resource::decrease()
 {
-	mBaseStat--;
-	if (mBaseStat < 0) { mBaseStat = 0; }
+	mBaseValue--;
+	if (mBaseValue < 0) { mBaseValue = 0; }
 
 	mEnergyInterface.decrease();
 }
@@ -56,26 +56,26 @@ void Resource::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX,mPosY, mHeight, mWidth };
 
-	if (mCurrentStat < 10)
+	if (mCurrentValue < 10)
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mCurrentStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 20;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 20;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mBaseStat], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mBaseValue], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
-	else if (mCurrentStat == 10) {
+	else if (mCurrentValue == 10) {
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 30;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 15;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[11], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 15;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[1], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += 30;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[0], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 
@@ -87,9 +87,9 @@ void Resource::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
 
 int Resource::getAmount()
 {
-	return mBaseStat;
+	return mBaseValue;
 }
 int Resource::getAvailable()
 {
-	return mCurrentStat;
+	return mCurrentValue;
 }

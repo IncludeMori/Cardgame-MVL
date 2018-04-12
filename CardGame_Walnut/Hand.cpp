@@ -262,7 +262,6 @@ void Hand::updatePos()
 }
 void Hand::free()
 {
-	mResource.free();
 
 	for (int i = 0; i < MAX_SIZE; i++)
 	{

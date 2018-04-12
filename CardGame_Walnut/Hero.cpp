@@ -36,7 +36,7 @@ Hero::Hero(int v,int amount)
 	mPortrait.loadFromFile(path);
 
 	mHPSign.setPos(mPosX, mPosY);
-	mHPSign.changeData(amount);
+	mHPSign.changeDataTo(amount);
 
 	mPortrait.setPos(mPosX, mPosY);
 
@@ -54,9 +54,9 @@ void Hero::render()
 
 void Hero::dealDmg(int amount)
 {
-	mHPSign.add(-amount);
+	mHPSign.increase(-amount);
 
-	if (mHPSign.getCurrentData() <= 0) { mIsAlive = false; }
+	if (mHPSign.getValue() <= 0) { mIsAlive = false; }
 }
 bool Hero::MouseIsAbove()
 {

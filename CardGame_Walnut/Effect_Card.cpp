@@ -41,7 +41,7 @@ Effect_Card::Effect_Card(std::string &path)
 
 	loadFromFile(mPath);
 
-	mCostSign.changeData(mBasicCost);
+	mCostSign.changeDataTo(mBasicCost);
 
 	Zauber mZauber = static_cast<Zauber>(lua[name]["mEffect"]);
 	
@@ -77,10 +77,6 @@ Effect_Card::Effect_Card(std::string &path)
 	
 }
 
-
-Effect_Card::~Effect_Card()
-{
-}
 
 void Effect_Card::play(const std::shared_ptr<Field> &Field)
 {

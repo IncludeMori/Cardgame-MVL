@@ -17,7 +17,6 @@ class Hover_Card : public DefaultTexture
 public:
 	Hover_Card();
 	Hover_Card(std::string &name,int health,int atk, int cost, Rarity rarity);
-	~Hover_Card();
 
 	void update();
 	void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
@@ -32,10 +31,10 @@ public:
 
 
 private:
-	bool mIsActive;
+	bool mIsActive = false;
+	int mCost = 0, mHealth = 0, mAttack = 0;
+	Rarity mRarity = Rarity::Undefined;
 
-	int mCost, mHealth, mAttack;
-	Rarity mRarity;
 	StatsSign mSCost{ Stats_Size::HOVER }, mSHealth{ Stats_Size::HOVER }, mSAttack{ Stats_Size::HOVER };
 
 	//Interface
@@ -44,7 +43,5 @@ private:
 
 	Name_Plate mNameplate;
 	Effect_Description mEffectDescr;
-
-	//Kartenkommentar
 };
 

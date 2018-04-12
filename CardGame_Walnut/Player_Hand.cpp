@@ -50,9 +50,7 @@ void Player_Hand::startTurn()
 
 void Player_Hand::update(const std::shared_ptr<Player_Field> &mField)
 {
-	mResource.update();
-
-
+	
 	if (!gMouse.isPressed()) { isMovingACard = false; }
 	
 	for (int i = mSize-1; i >= 0; i--)

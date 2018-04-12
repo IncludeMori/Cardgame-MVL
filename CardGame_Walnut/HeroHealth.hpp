@@ -5,40 +5,45 @@
 //
 #pragma once
 
-#include <SDL_image.h>
 #include <string>
+#include <memory>
 
-class HeroHealth
+//#include "GameObj.hpp"
+
+#include <SDL_image.h>
+#include "SDL_Deleter.hpp"
+
+class HeroHealth //public GameObj
 {
 public:
 	HeroHealth();
-	~HeroHealth();
+	HeroHealth(int base_value, int start_value) : mBaseValue(base_value),mCurrentValue(start_value) {};
 
 	//Renders texture to screen at given point with various options 
 	void render(double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
-	void update();
 
-	void changeData(int number);
-	void add(int amount);
+	void changeBaseDataTo(int n);
+	void changeDataTo(int n);
+	void increase(int amount);
+
 	void setPos(int x, int y);
 
-	int getCurrentData();
+	int getValue();
 
 	int getHeight();
 	int getWidth();
 
-	void free();
-
 protected:
+	std::unique_ptr<SDL_Texture, sdl2_Deleter::SDL_Deleter> mTexture = nullptr;
+
+	int mPosX = 0, mPosY = 0;
+	int mWidth = 0, mHeight = 0;
+
+	int mBaseValue = 0;
+	int mCurrentValue = 0;
+
 	SDL_Rect mNumbers[12];
 
 	//Loads Image from "path"
-	bool loadFromFile(std::string path);
-
-	SDL_Texture* mTexture; //texture
-
-
-	int mBaseStat, mCurrentStat;
-	int mPosX, mPosY;
-	int mWidth, mHeight;
+	bool loadFromFile(const std::string &path);
 };
