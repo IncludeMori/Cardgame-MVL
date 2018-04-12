@@ -163,7 +163,7 @@ void Opponent_Field::attack()
 	{
 		if (dynamic_pointer_cast<Default_Card>(mCard[i])->canAttack())
 		{
-			mAttackCard.setPos(mCard[i]->getX(), mCard[i]->getY());
+			mAttackCard.setPos(mCard[i]->getPosX(), mCard[i]->getPosY());
 			mAttackCard.setActive();
 			cardIndex = i;
 

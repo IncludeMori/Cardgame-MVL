@@ -71,8 +71,8 @@ Player_Field::~Player_Field()
 void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 {
 
-	int posX = card->getX();
-	int posY = card->getY();
+	int posX = card->getPosX();
+	int posY = card->getPosY();
 	int index = -1;
 	
 	//find pos
@@ -292,8 +292,8 @@ bool Player_Field::update()
 
 		if (gMouse.isPressed() && !mAttackCard.isActive() && PLaboveCard > -1)
 		{
-			mAttackCard.setPos(CardAt(PLaboveCard)->getX() + 32,
-				CardAt(PLaboveCard)->getY() + CardAt(PLaboveCard)->getHeight() / 4);
+			mAttackCard.setPos(CardAt(PLaboveCard)->getPosX() + 32,
+				CardAt(PLaboveCard)->getPosY() + CardAt(PLaboveCard)->getHeight() / 4);
 			mAttackCard.setActive(); //activate attack arrow
 			mActiveCard = PLaboveCard;
 
@@ -307,8 +307,8 @@ bool Player_Field::update()
 
 			if (OPaboveCard > -1)
 			{
-				mAttackTarget.setPos(mOppField->CardAt(OPaboveCard)->getX() + 32,
-					mOppField->CardAt(OPaboveCard)->getY() + mOppField->CardAt(OPaboveCard)->getHeight() / 4);
+				mAttackTarget.setPos(mOppField->CardAt(OPaboveCard)->getPosX() + 32,
+					mOppField->CardAt(OPaboveCard)->getPosY() + mOppField->CardAt(OPaboveCard)->getHeight() / 4);
 				mAttackTarget.setActive();
 
 
@@ -317,7 +317,7 @@ bool Player_Field::update()
 					mOppField->DmgCard(OPaboveCard, std::dynamic_pointer_cast<Default_Card>(CardAt(mActiveCard))->getAttack());
 					DmgCard(mActiveCard, dynamic_pointer_cast<Default_Card>(mOppField->CardAt(OPaboveCard))->getAttack());
 					//mOField->update(); //check if "enemy-card" is dead
-					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mOppField->CardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getX(),mCard[mActiveCard]->getY()); // NUMBER POPUP
+					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mOppField->CardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getPosX(),mCard[mActiveCard]->getPosY()); // NUMBER POPUP
 				}
 			}
 

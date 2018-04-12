@@ -128,11 +128,11 @@ void Hand::setGraveyard(std::shared_ptr<Graveyard> grave)
 
 int Hand::getPosX(int index)
 {
-	return mCard[index]->getX();
+	return mCard[index]->getPosX();
 }
 int Hand::getPosY(int index)
 {
-	return mCard[index]->getY();
+	return mCard[index]->getPosY();
 }
 int Hand::getSize()
 {

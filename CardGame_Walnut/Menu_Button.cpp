@@ -31,7 +31,7 @@ void Menu_Button::setActive()
 void Menu_Button::setPos(int x, int y)
 {
 	Button::setPos(x, y);
-	mBorder.setPos(getX(), getY() + getHeight() - mBorder.getHeight());
+	mBorder.setPos(getPosX(), getPosY() + getHeight() - mBorder.getHeight());
 }
 bool Menu_Button::isPressed()
 {

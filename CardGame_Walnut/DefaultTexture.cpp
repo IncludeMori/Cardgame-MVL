@@ -64,32 +64,8 @@ void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
 }
 
-void DefaultTexture::setColor(Uint8 red, Uint8 green, Uint8 blue)
-{
-	SDL_SetTextureColorMod(mTexture.get(), red, green, blue);
-}
-
-void DefaultTexture::setBlendMode(SDL_BlendMode blending)
-{
-	SDL_SetTextureBlendMode(mTexture.get(), blending);
-}
-
-void DefaultTexture::setAlpha(Uint8 alpha)
-{
-	SDL_SetTextureAlphaMod(mTexture.get(), alpha);
-}
-
 bool DefaultTexture::isEmpty()
 {
 	if (mTexture) { return false; }
 	else { return true; }
-}
-
-int DefaultTexture::getX()
-{
-	return mPosX;
-}
-int DefaultTexture::getY()
-{
-	return mPosY;
 }

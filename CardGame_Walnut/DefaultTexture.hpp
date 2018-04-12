@@ -22,15 +22,7 @@ public:
 	//Renders texture to screen at given point with various options 
 	virtual void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-    void setColor(Uint8 red, Uint8 green, Uint8 blue); //changes color
-    void setBlendMode(SDL_BlendMode blending); //changes blend mode
-	void setAlpha(Uint8 alpha); //changes alpha
-	
-	int getX();
-	int getY();
-
 	bool isEmpty();
-
 protected:
 
 };
