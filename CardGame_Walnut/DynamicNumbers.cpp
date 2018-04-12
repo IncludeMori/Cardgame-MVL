@@ -54,12 +54,9 @@ DynamicNumbers::DynamicNumbers()
 	*/
 	mData = 0;
 }
-DynamicNumbers::~DynamicNumbers()
-{
-	free();
-}
 
-void DynamicNumbers::render(double angle, SDL_Point* center, SDL_RendererFlip flip)
+
+void DynamicNumbers::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 
 	//Set rendering space and render to screen
@@ -67,23 +64,23 @@ void DynamicNumbers::render(double angle, SDL_Point* center, SDL_RendererFlip fl
 
 	if (mData < 10)
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mData], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mData], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
 	else if (mData > 9 && mData < 100) {
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mData / 10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mData / 10], &renderQuad, angle, center, flip); // renders texture to screen
 
 		renderQuad.x += mWidth - 5;
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[mData % 10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mData % 10], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 	else // >90
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += mWidth - 5;
-		SDL_RenderCopyEx(Renderer.get(), mTexture, &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 }
 
@@ -99,78 +96,10 @@ void DynamicNumbers::changeData(int number)
 	mData = number;
 }
 
-void DynamicNumbers::setPos(int x, int y)
-{
-	mPosX = x;
-	mPosY = y;
-}
 
 void DynamicNumbers::setSDLTexture(SDL_Texture * Texture,int width,int height)
 {
-	free();
-	//mWidth = width;
-	//mHeight = height;
-	mTexture = Texture;
-}
-
-int DynamicNumbers::getHeight()
-{
-	return mHeight;
-}
-int DynamicNumbers::getWidth()
-{
-	return mWidth;
+	mTexture.reset(Texture);
 }
 
 
-void DynamicNumbers::free()
-{
-	//Free texture if it exists
-	if (mTexture != nullptr)
-	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = nullptr;
-	}
-}
-
-//protected
-
-bool DynamicNumbers::loadFromFile(std::string path)
-{
-	std::cout << "Loading: " << path << std::endl;
-	//delete preexisting textures
-	free();
-
-	//The final texture
-	SDL_Texture* newTexture = nullptr;
-
-	//Load image at specified path
-	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
-	if (loadedSurface == nullptr)
-	{
-		printf("Unable to load %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
-	}
-	else
-	{
-		//neutral colorkey
-		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
-
-		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface);
-		if (newTexture == nullptr)
-		{
-			printf("Failed to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
-		}
-		else
-		{
-			//Get image dimensions
-			mWidth = loadedSurface->w;
-			mHeight = loadedSurface->h;
-		}
-
-		//Get rid of old loaded surface
-		SDL_FreeSurface(loadedSurface);
-	}
-	mTexture = newTexture;
-	return mTexture != nullptr;
-}
