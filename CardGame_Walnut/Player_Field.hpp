@@ -34,8 +34,8 @@ public:
 
 	bool isInside(int x, int y); // moving card from Player_Hand is inside field? -> player wants to play card
 
-	void setField(const std::shared_ptr<Opponent_Field>& OppField);
-	void setHero(const std::shared_ptr<Hero>& hero);
+	void setField(const std::weak_ptr<Opponent_Field>& OppField);
+	void setHero(const std::weak_ptr<Hero>& hero);
 
 private:
 	int mActiveCard = 0;
@@ -45,8 +45,8 @@ private:
 
 	EffectField Effect_Field;
 
-	std::shared_ptr<Opponent_Field> mOppField;
-	std::shared_ptr<Hero> mOppHero;
+	std::weak_ptr<Opponent_Field> mOppField;
+	std::weak_ptr<Hero> mOppHero;
 	//std::shared_ptr<Opponent_Field> mOField; //pointer->Opponent field
 	bool misUsingACard;
 

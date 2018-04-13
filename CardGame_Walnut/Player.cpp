@@ -112,17 +112,17 @@ bool Player::isMovingAHandCard()
 	return mHand->isUsingACard();
 }
 
-void Player::setField(const std::shared_ptr<Opponent_Field>&field)
+void Player::setField(const std::weak_ptr<Opponent_Field>&field)
 {
 	mField->setField(field);
 
-	if (field == nullptr)
+	if (field.lock() == nullptr)
 		__debugbreak();
 	mDeck->createDeck(field);
 	drawStartHand();
 	
 }
-void Player::setHero(const std::shared_ptr<Hero>&hero)
+void Player::setHero(const std::weak_ptr<Hero>&hero)
 {
 	mField->setHero(hero);
 }
@@ -133,12 +133,12 @@ void Player::setAlpha(Uint8 alpha)
 	mHeroPortrait->setAlpha(alpha);
 }
 
-std::shared_ptr<Player_Field> Player::getField()
+std::weak_ptr<Player_Field> Player::getField()
 {
 	return mField;
 }
 
-std::shared_ptr<Hero> Player::getHero()
+std::weak_ptr<Hero> Player::getHero()
 {
 	return mHeroPortrait;
 }

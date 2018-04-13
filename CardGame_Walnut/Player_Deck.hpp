@@ -16,11 +16,11 @@ class Player_Deck : public Deck
 {
 public:
 	Player_Deck();
-	Player_Deck(const std::shared_ptr<Player_Field> &field, const std::shared_ptr<Player_Hand> &hand);
+	Player_Deck(const std::weak_ptr<Player_Field> &field, const std::weak_ptr<Player_Hand> &hand);
 	~Player_Deck();
 
 	void createDeck() {};
-	void createDeck(const std::shared_ptr<Opponent_Field>&field);
+	void createDeck(const std::weak_ptr<Opponent_Field>&field);
 
 private:
 	

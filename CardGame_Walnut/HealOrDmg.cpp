@@ -33,29 +33,29 @@ bool HealOrDmg::activate(Basic_Card * card)
 
 bool HealOrDmg::activate()
 {
-	if (mField->ChooseCard() == true) // used by AI
+	if (mField.lock()->ChooseCard() == true) // used by AI
 		return true;
 	else
 	{
 		if (mAmount < 1)
 		{
-			for (int i = 0; i < mField->getSize(); i++)
+			for (int i = 0; i < mField.lock()->getSize(); i++)
 			{
-				if (std::dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+				if (std::dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 				{
-					mOpponentField->DmgCard(i, mAmount);
+					mOpponentField.lock()->DmgCard(i, mAmount);
 					std::cout << "TARGET:" << i << std::endl;
 					return true;
 				}
 
 			}
-			if (mOpponentField != nullptr)
+			if (mOpponentField.lock() != nullptr)
 			{
-				for (int i = 0; i < mOpponentField->getSize(); i++)
+				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (std::dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (std::dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
-						mOpponentField->DmgCard(i, mAmount);
+						mOpponentField.lock()->DmgCard(i, mAmount);
 						std::cout << "TARGET:" << i << std::endl;
 						return true;
 					}
@@ -67,23 +67,23 @@ bool HealOrDmg::activate()
 		}
 		else
 		{
-			for (int i = 0; i < mField->getSize(); i++)
+			for (int i = 0; i < mField.lock()->getSize(); i++)
 			{
-				if (std::dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+				if (std::dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 				{
-					std::dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->increase(eStat::HEALTH, mAmount);
+					std::dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->increase(eStat::HEALTH, mAmount);
 					std::cout << "TARGET:" << i << std::endl;
 					return true;
 				}
 
 			}
-			if (mOpponentField != nullptr)
+			if (mOpponentField.lock() != nullptr)
 			{
-				for (int i = 0; i < mOpponentField->getSize(); i++)
+				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (std::dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (std::dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
-						std::dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->increase(eStat::HEALTH, mAmount);
+						std::dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->increase(eStat::HEALTH, mAmount);
 						std::cout << "TARGET:" << i << std::endl;
 						return true;
 					}

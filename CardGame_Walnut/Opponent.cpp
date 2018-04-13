@@ -115,22 +115,22 @@ void Opponent::setAlpha(Uint8 alpha)
 //{
 //	mTurn = turn;
 //}
-void Opponent::setField(const std::shared_ptr<Player_Field>& field)
+void Opponent::setField(const std::weak_ptr<Player_Field>& field)
 {
 	//mField->setField(field);
 	
 }
-void Opponent::setHero(const std::shared_ptr<Hero>&hero)
+void Opponent::setHero(const std::weak_ptr<Hero>&hero)
 {
 	mField->setHero(hero);
 }
 
-std::shared_ptr<Opponent_Field> Opponent::getField()
+std::weak_ptr<Opponent_Field> Opponent::getField()
 {
 	return mField;
 }
 
-std::shared_ptr<Hero> Opponent::getHero()
+std::weak_ptr<Hero> Opponent::getHero()
 {
 	return mHero;
 }

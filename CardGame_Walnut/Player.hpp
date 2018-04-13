@@ -43,11 +43,11 @@ public:
 	void setAlpha(Uint8 alpha);
 
 	//Opponent Field/+Hero
-	void setField(const std::shared_ptr<Opponent_Field>&field);
-	void setHero(const std::shared_ptr<Hero>&hero);
+	void setField(const std::weak_ptr<Opponent_Field>&field);
+	void setHero(const std::weak_ptr<Hero>&hero);
 
-	std::shared_ptr<Player_Field> getField();
-	std::shared_ptr<Hero> getHero();
+	std::weak_ptr<Player_Field> getField();
+	std::weak_ptr<Hero> getHero();
 	
 	void free();
 

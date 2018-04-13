@@ -303,32 +303,32 @@ bool Player_Field::update()
 		else if (mAttackCard.isActive())
 		{
 
-			int OPaboveCard = mOppField->getMouseAboveCard();
+			int OPaboveCard = mOppField.lock()->getMouseAboveCard();
 
 			if (OPaboveCard > -1)
 			{
-				mAttackTarget.setPos(mOppField->CardAt(OPaboveCard)->getPosX() + 32,
-					mOppField->CardAt(OPaboveCard)->getPosY() + mOppField->CardAt(OPaboveCard)->getHeight() / 4);
+				mAttackTarget.setPos(mOppField.lock()->CardAt(OPaboveCard)->getPosX() + 32,
+					mOppField.lock()->CardAt(OPaboveCard)->getPosY() + mOppField.lock()->CardAt(OPaboveCard)->getHeight() / 4);
 				mAttackTarget.setActive();
 
 
 
 				if (!gMouse.isPressed()) {
-					mOppField->DmgCard(OPaboveCard, std::dynamic_pointer_cast<Default_Card>(CardAt(mActiveCard))->getAttack());
-					DmgCard(mActiveCard, dynamic_pointer_cast<Default_Card>(mOppField->CardAt(OPaboveCard))->getAttack());
+					mOppField.lock()->DmgCard(OPaboveCard, std::dynamic_pointer_cast<Default_Card>(CardAt(mActiveCard))->getAttack());
+					DmgCard(mActiveCard, dynamic_pointer_cast<Default_Card>(mOppField.lock()->CardAt(OPaboveCard))->getAttack());
 					//mOField->update(); //check if "enemy-card" is dead
-					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mOppField->CardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getPosX(),mCard[mActiveCard]->getPosY()); // NUMBER POPUP
+					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mOppField.lock()->CardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getPosX(),mCard[mActiveCard]->getPosY()); // NUMBER POPUP
 				}
 			}
 
-			else if (mOppHero->MouseIsAbove())
+			else if (mOppHero.lock()->MouseIsAbove())
 			{
-				mAttackTarget.setPos(mOppHero->getX(), mOppHero->getY());
+				mAttackTarget.setPos(mOppHero.lock()->getX(), mOppHero.lock()->getY());
 				mAttackTarget.setActive();
 
 				if (!gMouse.isPressed()) {
-					mOppHero->dealDmg(dynamic_pointer_cast<Default_Card>(mCard[mActiveCard])->getAttack());
-					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mCard[mActiveCard])->getAttack(),mOppHero->getX()-5,mOppHero->getY()-28); // NUMBER POPUP
+					mOppHero.lock()->dealDmg(dynamic_pointer_cast<Default_Card>(mCard[mActiveCard])->getAttack());
+					mFieldNumberPopups.add(dynamic_pointer_cast<Default_Card>(mCard[mActiveCard])->getAttack(), mOppHero.lock()->getX()-5, mOppHero.lock()->getY()-28); // NUMBER POPUP
 				}
 
 			}
@@ -421,11 +421,11 @@ bool Player_Field::isInside(int x, int y)
 	else { return false; }
 }
 
-void Player_Field::setField(const std::shared_ptr<Opponent_Field>& OppField)
+void Player_Field::setField(const std::weak_ptr<Opponent_Field>& OppField)
 {
 	mOppField = OppField;
 }
-void Player_Field::setHero(const std::shared_ptr<Hero>& hero)
+void Player_Field::setHero(const std::weak_ptr<Hero>& hero)
 {
 	mOppHero = hero;
 }

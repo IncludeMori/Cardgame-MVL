@@ -76,8 +76,8 @@ bool BoostCard::activate()
 			i = 29;
 			while (i >= 0)
 			{
-				if (mDeck->CardAt(i) != nullptr)
-					dynamic_pointer_cast<Default_Card>(mDeck->CardAt(i))->increase(mStat, mAmount);
+				if (mDeck.lock()->CardAt(i) != nullptr)
+					dynamic_pointer_cast<Default_Card>(mDeck.lock()->CardAt(i))->increase(mStat, mAmount);
 				i--;
 			}
 			
@@ -85,15 +85,15 @@ bool BoostCard::activate()
 		case(eTarget_spec::RANDOM):  //->Boost one random card
 			srand((unsigned int)time(nullptr));
 			int rnd;
-			rnd = rand() % mDeck->getSize();
-			if (mDeck->CardAt(rnd) != nullptr)
+			rnd = rand() % mDeck.lock()->getSize();
+			if (mDeck.lock()->CardAt(rnd) != nullptr)
 			{
-				dynamic_pointer_cast<Default_Card>(mDeck->CardAt(rnd))->increase(mStat, mAmount);
+				dynamic_pointer_cast<Default_Card>(mDeck.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			}
 			else
 			{
 				std::cout << "Error: Boost Deck(Random)" << std::endl;
-				std::cout << "Checked card:" << rnd << " || Deck Size: " << mDeck->getSize() << std::endl;
+				std::cout << "Checked card:" << rnd << " || Deck Size: " << mDeck.lock()->getSize() << std::endl;
 			}
 			break; // RANDOM
 		default:
@@ -106,17 +106,17 @@ bool BoostCard::activate()
 		switch (mTarget_spec)
 		{
 		case(eTarget_spec::ALL):
-			for (int i = 0; i < mHand->getSize(); i++)
+			for (int i = 0; i < mHand.lock()->getSize(); i++)
 			{
-				dynamic_pointer_cast<Default_Card>(mHand->CardAt(i))->increase(mStat, mAmount);
+				dynamic_pointer_cast<Default_Card>(mHand.lock()->CardAt(i))->increase(mStat, mAmount);
 			}
 			break;//ALL
 		case(eTarget_spec::RANDOM):
 			srand((unsigned int)time(nullptr));
 			int rnd;
-			rnd = rand() % mHand->getSize();
-			if (mHand->CardAt(rnd) != nullptr)
-				dynamic_pointer_cast<Default_Card>(mHand->CardAt(rnd))->increase(mStat, mAmount);
+			rnd = rand() % mHand.lock()->getSize();
+			if (mHand.lock()->CardAt(rnd) != nullptr)
+				dynamic_pointer_cast<Default_Card>(mHand.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			else
 				std::cout << "Error: Boost Hand(Random)" << std::endl;
 			break;//RANDOM
@@ -129,39 +129,39 @@ bool BoostCard::activate()
 		switch (mTarget_spec)
 		{
 		case(eTarget_spec::ALL):
-			for (int i = 0; i < mField->getSize(); i++)
-				dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->increase(mStat, mAmount);
-			for (int i = 0; i < mOpponentField->getSize(); i++)
-				dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->increase(mStat, mAmount);
+			for (int i = 0; i < mField.lock()->getSize(); i++)
+				dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
+			for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
+				dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
 			break;
 		case(eTarget_spec::RANDOM):
 			srand((unsigned int)time(nullptr));
 			int rnd;
-			rnd = rand() % mHand->getSize();
-			dynamic_pointer_cast<Default_Card>(mField->CardAt(rnd))->increase(mStat, mAmount);
+			rnd = rand() % mHand.lock()->getSize();
+			dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			break;
 		case(eTarget_spec::TARGET):
 
-			if (mField->ChooseCard() == true) // used by AI
+			if (mField.lock()->ChooseCard() == true) // used by AI
 				return true;
 			else
 			{
-				for (int i = 0; i < mField->getSize(); i++)
+				for (int i = 0; i < mField.lock()->getSize(); i++)
 				{
-					if (dynamic_pointer_cast<Default_Card>(mField->CardAt(i)) != nullptr)
-					if (dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i)) != nullptr)
+					if (dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
-						dynamic_pointer_cast<Default_Card>(mField->CardAt(i))->increase(mStat, mAmount);
+						dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
 						return true;
 					}
 
 				}
-				for (int i = 0; i < mOpponentField->getSize(); i++)
+				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i)) != nullptr)
-					if (dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i)) != nullptr)
+					if (dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
 					{
-						dynamic_pointer_cast<Default_Card>(mOpponentField->CardAt(i))->increase(mStat, mAmount);
+						dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
 						return true;
 					}
 

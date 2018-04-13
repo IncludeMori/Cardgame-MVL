@@ -173,21 +173,21 @@ void Opponent_Field::attack()
 
 	while (targetIndex == -1)
 	{
-		if (mPlayerField->CardAt(i) != nullptr)
+		if (mPlayerField.lock()->CardAt(i) != nullptr)
 		{
-			mPlayerField->DmgCard(i, dynamic_pointer_cast<Default_Card>(mCard[cardIndex])->getAttack());
+			mPlayerField.lock()->DmgCard(i, dynamic_pointer_cast<Default_Card>(mCard[cardIndex])->getAttack());
 			targetIndex = 1;
 		}
 	}
 
 }
 
-void Opponent_Field::setHero(const std::shared_ptr<Hero>& hero)
+void Opponent_Field::setHero(const std::weak_ptr<Hero>& hero)
 {
 	mPlayerHero = hero;
 }
 
-void Opponent_Field::setField(const std::shared_ptr<Field>& field)
+void Opponent_Field::setField(const std::weak_ptr<Field>& field)
 {
 	mPlayerField = field;
 }

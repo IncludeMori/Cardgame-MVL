@@ -89,7 +89,7 @@ void Deck::createDeck()
 		mCard.push_back(std::shared_ptr<Basic_Card>(new Default_Card(path,1)));
 		mCard[i]->setPos(mPosX, mPosY);
 
-		if (mField != nullptr && mHand != nullptr)
+		if (mField.lock() != nullptr && mHand.lock() != nullptr)
 		{
 			mCard[i]->setStuff(shared_from_this(), mHand, mField,mField);
 		}

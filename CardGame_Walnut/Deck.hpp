@@ -48,8 +48,8 @@ protected:
 	int mCurrentTop;
 
 	//pass to Default_Card 
-	std::shared_ptr<Field> mField = nullptr;
-	std::shared_ptr<Hand> mHand = nullptr;
+	std::weak_ptr<Field> mField;
+	std::weak_ptr<Hand> mHand;
 	//Functions
 	
 };

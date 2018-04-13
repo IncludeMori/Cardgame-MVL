@@ -13,9 +13,9 @@ void Basic_Card::renderHoverEffect()
 	HoverEffect.render();
 }
 
-bool Basic_Card::setStuff(const std::shared_ptr<Deck> &deck, const std::shared_ptr<Hand> &hand, const std::shared_ptr<Field> &field, const std::shared_ptr<Field> &oppfield)
+bool Basic_Card::setStuff(const std::weak_ptr<Deck> &deck, const std::weak_ptr<Hand> &hand, const std::weak_ptr<Field> &field, const std::weak_ptr<Field> &oppfield)
 {
-	if (oppfield == nullptr)
+	if (oppfield.lock() == nullptr)
 		__debugbreak();
 	return mEffect->setStuff(deck, hand, field,oppfield);
 }

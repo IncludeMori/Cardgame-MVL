@@ -19,12 +19,12 @@ public:
 
 	bool ChooseCard();
 
-	void setField(const std::shared_ptr<Field>& field);
-	void setHero(const std::shared_ptr<Hero>& hero);
+	void setField(const std::weak_ptr<Field>& field);
+	void setHero(const std::weak_ptr<Hero>& hero);
 
 private:
-	std::shared_ptr<Hero> mPlayerHero;
-	std::shared_ptr<Field> mPlayerField;
+	std::weak_ptr<Hero> mPlayerHero;
+	std::weak_ptr<Field> mPlayerField;
 	//std::shared_ptr<Player_Field> mPlayerField;
 	
 };
