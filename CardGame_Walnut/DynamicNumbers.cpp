@@ -56,7 +56,7 @@ DynamicNumbers::DynamicNumbers()
 }
 
 
-void DynamicNumbers::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void DynamicNumbers::render(SDL_Rect *clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 
 	//Set rendering space and render to screen

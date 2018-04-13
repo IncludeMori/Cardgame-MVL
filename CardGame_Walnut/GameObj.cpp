@@ -81,3 +81,11 @@ int GameObj::getHeight()
 {
 	return mHeight;
 }
+
+bool GameObj::isEmpty()
+{
+	if (!mTexture) 
+		return false;
+	else
+		return true;
+}

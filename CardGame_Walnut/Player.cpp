@@ -3,7 +3,7 @@
 #include <iostream>
 Player::Player()
 {
-	mName.init(PLAYER, "Player 1");
+	mName.init(who::type::PLAYER, "Player 1");
 	field_battlecry_active = false;
 
 	mHealth = 40;

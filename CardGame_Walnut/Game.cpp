@@ -182,7 +182,7 @@ void Game::Init()
 	mOpponent->setField(mPlayer->getField());
 	mOpponent->setHero(mPlayer->getHero());
 
-	mTurn.reset(new CurrentTurn(PLAYER, mPlayer, mOpponent));
+	mTurn.reset(new CurrentTurn(who::type::PLAYER, mPlayer, mOpponent));
 }
 
 void Game::free()

@@ -53,19 +53,7 @@ bool DefaultTexture::loadFromFile(std::string path)
 	return mTexture != nullptr;
 }
 */
-void DefaultTexture::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void DefaultTexture::render(SDL_Rect *clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
-	if (clip)
-	{
-		this->mDstRect.w = clip->w;
-		this->mDstRect.h = clip->h;
-	}
-
-	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &this->mDstRect, angle, center, flip); // renders texture to screen
-}
-
-bool DefaultTexture::isEmpty()
-{
-	if (mTexture) { return false; }
-	else { return true; }
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), nullptr, &this->mDstRect, angle, center, flip); // renders texture to screen
 }

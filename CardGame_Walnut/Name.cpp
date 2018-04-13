@@ -17,13 +17,13 @@ Name::~Name()
 {
 }
 
-void Name::init(Who o,const std::string &name)
+void Name::init(who::type o,const std::string &name)
 {
 	//if (!name.empty())
 	mText = name;
 	loadFromRenderedText(mText);
 	
-	if (o == PLAYER)
+	if (o == who::type::PLAYER)
 	{
 		setPos(700-10, SCREEN_HEIGHT - 163);
 		mBackground.setPos(700-mBackground.getWidth()+mWidth+27, SCREEN_HEIGHT - 150 - mHeight/2-3);

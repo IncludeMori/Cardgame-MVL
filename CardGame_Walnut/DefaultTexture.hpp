@@ -20,9 +20,8 @@ public:
 	DefaultTexture(const std::string &path, int x = 0, int y = 0);
 
 	//Renders texture to screen at given point with various options 
-	virtual void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	virtual void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
 
-	bool isEmpty();
 protected:
 
 };

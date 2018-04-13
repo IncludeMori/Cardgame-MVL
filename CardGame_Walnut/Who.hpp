@@ -1,6 +1,11 @@
 #pragma once
 
-enum Who :int {
-	PLAYER,
-	OPPONENT
-};
+namespace who
+{
+	enum class type : int {
+		PLAYER,
+		OPPONENT
+	};
+	constexpr auto PLAYER = type::PLAYER;
+	constexpr auto OPPONENT = type::OPPONENT;
+}

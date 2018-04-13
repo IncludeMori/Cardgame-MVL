@@ -15,18 +15,16 @@ class CurrentTurn : public GameObj
 {
 public:
 	CurrentTurn();
-	CurrentTurn(Who x); // player -> first turn?
-	CurrentTurn(Who x,std::shared_ptr<Player> player, std::shared_ptr<Opponent> opp);
+	CurrentTurn(who::type x);
+	CurrentTurn(who::type x, std::shared_ptr<Player> player, std::shared_ptr<Opponent> opp);
 
 	void update();
-	void render(SDL_Rect* clip = nullptr,double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
 
 	void endTurn();
 
 	void deactivate();
 	void activate();
-
-	void setAlpha(Uint8 alpha);
 
 	bool isPlayersTurn();
 	bool isPressed();
@@ -41,5 +39,5 @@ private:
 
 	int mTurnNumber;
 
-	bool mTurn[2];
+	bool mIsOpponentsTurn = false;
 };
