@@ -5,13 +5,14 @@ StatsSign::StatsSign()
 {
 
 }
-StatsSign::StatsSign(Stats_Size size)
+StatsSign::StatsSign(Stats_Size size, std::shared_ptr<SDL_Texture> texture, int width, int height)
 {
 	if (size == Stats_Size::STANDARD)
 	{
 
-		mTexture = nullptr;
-		loadFromFile("Data/numbers.png");
+		setTexture(texture);
+		mWidth = width;
+		mHeight = height;
 
 		int x = 0, y = 0, w = 35, h = 35;
 		for (int i = 1; i < 9; i++)

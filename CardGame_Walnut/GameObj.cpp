@@ -44,17 +44,17 @@ void GameObj::loadFromFile(const std::string &path)
 
 void GameObj::setColor(Uint8 red, Uint8 green, Uint8 blue)
 {
-	SDL_SetTextureColorMod(mTexture.get(), red, green, blue);
+	SDL_SetTextureColorMod(getTexture(), red, green, blue);
 }
 
 void GameObj::setBlendMode(SDL_BlendMode blending)
 {
-	SDL_SetTextureBlendMode(mTexture.get(), blending);
+	SDL_SetTextureBlendMode(getTexture(), blending);
 }
 
 void GameObj::setAlpha(Uint8 alpha)
 {
-	SDL_SetTextureAlphaMod(mTexture.get(), alpha);
+	SDL_SetTextureAlphaMod(getTexture(), alpha);
 }
 
 void GameObj::setPos(int x, int y)

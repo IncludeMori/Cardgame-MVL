@@ -27,6 +27,8 @@ public:
 protected:
 	std::unique_ptr<SDL_Texture,sdl2_Deleter::SDL_Deleter> mTexture = nullptr;
 
+	virtual SDL_Texture* getTexture() { return mTexture.get(); }
+
 	SDL_Rect mDstRect;
 	int mPosX = 0, mPosY = 0;
 	int mWidth = 0, mHeight = 0;

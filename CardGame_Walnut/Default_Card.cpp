@@ -21,8 +21,50 @@
 
 #include "getEffectAsString.hpp"
 
+#include "SDL_Deleter.hpp"
 
+using namespace sdl2_Deleter;
 using namespace sdl2_Renderer;
+
+void test(SDL_Texture*  ptr) { if (ptr) SDL_DestroyTexture(ptr); std::cout << "sdl_texture destroyed" << std::endl; }
+
+
+std::shared_ptr<SDL_Texture> loadTextureHelper(const std::string &path,int &width,int &height)
+{
+	std::cout << "Loading: " << path.c_str() << std::endl;
+
+	std::shared_ptr<SDL_Texture> texture;
+	//Load image at specified path
+	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+	if (!loadedSurface)
+	{
+		throw std::runtime_error("Unable to load image at:" + path + "  Error:" + IMG_GetError());
+	}
+	else
+	{
+		//neutral colorkey
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
+
+		//Create texture from surface pixels
+	
+		std::shared_ptr<SDL_Texture> newTexture(SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface),test);
+		if (!newTexture)
+		{
+			throw std::runtime_error("Failed to create texture from surface at " + path + "    Sdl_Error:" + SDL_GetError());
+		}
+		else
+		{
+			width = loadedSurface->w;
+			height = loadedSurface->h;
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(loadedSurface);
+		//move ptr to member
+		texture = newTexture;
+	}
+	return texture;
+}
 
 Default_Card::Default_Card()
 {
@@ -70,7 +112,14 @@ Default_Card::Default_Card(std::string &path)
 }
 Default_Card::Default_Card(std::string &path, int x)
 {
-	
+	int w, h;
+	std::string p = "";
+	std::shared_ptr<SDL_Texture> mtext = loadTextureHelper(p, w, h);
+
+	mCostSign.setup(mtext, w, h);
+	mAPSign.setup(mtext, w, h);
+	mHealthSign.setup(mtext, w, h);
+
 	getEffectAsString EffectToString;
 
 	mActive = false;

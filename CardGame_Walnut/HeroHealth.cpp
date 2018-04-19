@@ -33,23 +33,23 @@ void HeroHealth::render(SDL_Rect *clip, double angle, SDL_Point* center, SDL_Ren
 
 	if (mCurrentValue < 10)
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), getTexture(), &mNumbers[mCurrentValue], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 	// 9 < x < 100
 	else if (mCurrentValue > 9 && mCurrentValue < 100) {
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue/10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), getTexture(), &mNumbers[mCurrentValue/10], &renderQuad, angle, center, flip); // renders texture to screen
 
 		renderQuad.x += mWidth-5;
 
-		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[mCurrentValue%10], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), getTexture(), &mNumbers[mCurrentValue%10], &renderQuad, angle, center, flip); // renders texture to screen
 
 	}
 	else // >90
 	{
-		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), getTexture(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 		renderQuad.x += mWidth-5;
-		SDL_RenderCopyEx(Renderer.get(), mTexture.get(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
+		SDL_RenderCopyEx(Renderer.get(), getTexture(), &mNumbers[9], &renderQuad, angle, center, flip); // renders texture to screen
 	}
 }
 
