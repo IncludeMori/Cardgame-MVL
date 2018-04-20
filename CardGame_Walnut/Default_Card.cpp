@@ -113,7 +113,7 @@ Default_Card::Default_Card(std::string &path)
 Default_Card::Default_Card(std::string &path, int x)
 {
 	int w, h;
-	std::string p = "";
+	std::string p = "Data/numbers.png";
 	std::shared_ptr<SDL_Texture> mtext = loadTextureHelper(p, w, h);
 
 	mCostSign.setup(mtext, w, h);

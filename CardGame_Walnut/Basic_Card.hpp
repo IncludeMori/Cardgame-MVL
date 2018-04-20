@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
 #include "DefaultTexture.hpp"
 #include "StatsSign.hpp"
@@ -23,9 +24,11 @@ class Basic_Card : public DefaultTexture
 {
 public:
 	Basic_Card() = default;
+	Basic_Card(int x, int y) : DefaultTexture(x, y) {};
+	Basic_Card(const std::string &path, int x = 0, int y = 0) : DefaultTexture(path, x, y) {};
 
 	virtual void render(bool &hoverIsActive, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
-	virtual void render(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
+
 	virtual void renderHoverEffect();
 	virtual void renderBackside(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
 
@@ -36,9 +39,9 @@ public:
 	virtual void play(const std::shared_ptr<Field> &Field) {}; //Default|Effect Card, Parameter->Field,Hand,Deck? superclass needed?
 	void changePosition(Position newpos);
 
-	void move(int x, int y); //move -> mPosX+=x; mPosY+=y;
+	void move(int x, int y) override; 
+
 	virtual void moveSigns(int x,int y) {};
-	virtual void setPos(int x, int y) {}; //mPosX = x; mPosY = y;
 
 	//Player wants to move card?(hand) 
 	virtual void setActive();
@@ -52,11 +55,13 @@ public:
 	int getCost();
 
 protected:
+	Icons mIcons;
+	std::vector<StatsSign> mIconStats;
+
 	DefaultTexture mBackground;
 
 	Hover_Card HoverEffect;
 	Frame mFrame;
-	Icons mIcons;
 	Rarity mRarity = Rarity::Bronze; //add later with Lua
 
 

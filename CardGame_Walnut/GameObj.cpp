@@ -63,6 +63,11 @@ void GameObj::setPos(int x, int y)
 	this->mPosY = y;
 	this->mDstRect = { mPosX,mPosY, mWidth, mHeight };
 }
+void GameObj::move(int x, int y)
+{
+	this->mPosX += x;
+	this->mPosY += y;
+}
 
 int GameObj::getPosX()
 {

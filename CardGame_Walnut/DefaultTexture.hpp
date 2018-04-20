@@ -16,7 +16,7 @@ class DefaultTexture : public GameObj
 {
 public:
 	DefaultTexture() = default;
-	explicit DefaultTexture(int x, int y) : GameObj(x,y) {};
+	DefaultTexture(int x, int y) : GameObj(x,y) {};
 	DefaultTexture(const std::string &path, int x = 0, int y = 0);
 
 	//Renders texture to screen at given point with various options 

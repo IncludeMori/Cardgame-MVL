@@ -20,7 +20,7 @@ public:
 
 	void move(int x, int y);
 
-	void setup(std::shared_ptr<SDL_Texture> texture = nullptr, int width = 0, int height = 0) { setTexture(texture); mWidth = width; mHeight = height; };
+	void setup(std::shared_ptr<SDL_Texture> texture = nullptr, int width = 0, int height = 0) { setTexture(texture); };
 
 private:
 	std::shared_ptr<SDL_Texture> mTexture = nullptr;
