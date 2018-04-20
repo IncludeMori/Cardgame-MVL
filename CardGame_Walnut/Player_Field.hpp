@@ -38,6 +38,8 @@ public:
 	void setHero(const std::weak_ptr<Hero>& hero);
 
 private:
+	int hover = -1;
+
 	int mActiveCard = 0;
 
 	bool battlecry_active = false;

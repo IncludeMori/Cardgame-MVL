@@ -21,8 +21,8 @@
 class Default_Card : public Basic_Card, public std::enable_shared_from_this<Default_Card>
 {
 public:
-	Default_Card();
-	Default_Card(std::string &path);
+	Default_Card() = default;
+	//Default_Card(std::string &path);
 	Default_Card(std::string &path, int x);
 	Default_Card(int Health, int Attack, int Type, std::string &path);
 	~Default_Card();
@@ -31,9 +31,10 @@ public:
 
 	void update();
 	void updateStats();
-	void render(bool &hoverIsActive, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
-	void render(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) ;
-	void renderBackside(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+	void render(bool &hoverIsActive, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
+	void render(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
+	void renderBackside(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
 	void loadTexture();
 	
 	bool MouseIsAbove();
@@ -55,10 +56,10 @@ public:
 	eEffect getEffect();
 	std::string getName();
 
+	void setHover(bool &b);
+
 	int getHealth();
 	int getAttack();
-
-	void free();
 
 protected:
 	StatsSign mHealthSign;

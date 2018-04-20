@@ -66,12 +66,7 @@ std::shared_ptr<SDL_Texture> loadTextureHelper(const std::string &path,int &widt
 	return texture;
 }
 
-Default_Card::Default_Card()
-{
-	mActive = false;
-	mAlive = true;
-}
-
+/*
 Default_Card::Default_Card(std::string &path)
 {
 	
@@ -110,6 +105,7 @@ Default_Card::Default_Card(std::string &path)
 
 
 }
+*/
 Default_Card::Default_Card(std::string &path, int x)
 {
 	int w, h;
@@ -232,7 +228,7 @@ Default_Card::Default_Card(int Health, int Attack, int Type, std::string &path)
 
 Default_Card::~Default_Card()
 {
-	free();
+
 }
 
 void Default_Card::play(const std::shared_ptr<Field> &Field)
@@ -306,6 +302,7 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 			HoverEffectIsActive = false;
 		}
 }
+
 void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	using namespace CARD_DATA;
@@ -539,19 +536,31 @@ int Default_Card::getAttack()
 	return mBasicAttack;
 }
 
-void Default_Card::free()
+void Default_Card::setHover(bool &b)
 {
-	std::cout << "Deleting memory from:" << mName << std::endl;
-	//Free texture if it exists
-	if (mTexture != nullptr)
+	if (MouseIsAbove())
 	{
-		mWidth = 0;
-		mHeight = 0;
-		mPosX = 0;
-		mPosY = 0;
+		if (mPos == Position::FIELD)
+		{
+			if (mTimerActive == false)
+			{
+				SDL_RemoveTimer(myTimer);
+				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
 
-		std::cout << "free.." << std::endl;
+				mTimerActive = true;
+			}
+		}
+		if (HoverEffect.isActive())
+		{
+			HoverEffect.render();
+			b = true;
+		}
+		else
+			b = false;
 	}
-	
-
+	else
+	{
+		HoverEffect.disable();
+		b = false;
+	}
 }

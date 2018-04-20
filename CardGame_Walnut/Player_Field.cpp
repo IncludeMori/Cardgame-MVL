@@ -198,6 +198,23 @@ void Player_Field::addEffectCard(const std::shared_ptr<Basic_Card>& card)
 
 bool Player_Field::update()
 {
+	bool hoverIsActive = false;
+	hover = -1;
+	for (int i = 0; i < 7; i++)
+	{
+		if (mCard[i] != nullptr) {
+			if (mCard_isActive[i])
+			{
+				mCard[i]->setHover(hoverIsActive);
+				if (hoverIsActive)
+				{
+					hover = i;
+					hoverIsActive = false;
+				}
+			}
+
+		}
+	}
 	/*
 	int card = 0; //...
 
@@ -368,8 +385,6 @@ bool Player_Field::update()
 void Player_Field::render()
 {
 	
-
-	int hover = -1;
 	bool hoverIsActive = false;
 
 	
@@ -386,12 +401,8 @@ void Player_Field::render()
 		if (mCard[i] != nullptr) {
 			if (mCard_isActive[i])
 			{
-				mCard[i]->render(hoverIsActive);
-				if (hoverIsActive)
-				{
-					hover = i;
-					hoverIsActive = false;
-				}
+				mCard[i]->render();
+			
 			}
 		
 		}

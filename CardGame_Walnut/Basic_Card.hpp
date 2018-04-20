@@ -27,10 +27,11 @@ public:
 	Basic_Card(int x, int y) : DefaultTexture(x, y) {};
 	Basic_Card(const std::string &path, int x = 0, int y = 0) : DefaultTexture(path, x, y) {};
 
-	virtual void render(bool &hoverIsActive, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
+	using DefaultTexture::render;
+	virtual void render(bool &hoverIsActive, SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
 
 	virtual void renderHoverEffect();
-	virtual void renderBackside(SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
+	virtual void renderBackside(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
 
 	virtual bool activateEffect() { return false; };
 
@@ -47,6 +48,9 @@ public:
 	virtual void setActive();
 	virtual void setInactive();
 	virtual bool isActive();
+
+	//hover
+	virtual void setHover(bool &b) {};
 
 	virtual bool MouseIsAbove();
 

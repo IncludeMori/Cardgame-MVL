@@ -33,11 +33,11 @@ void Basic_Card::move(int x, int y)
 	for (auto &i : mIconStats)
 		i.move(x, y);
 
+
+
 	mFrame.setPos(mPosX, mPosY);
 	mIcons.setPos(mPosX, mPosY);
 	moveSigns(x, y);
-
-
 	mBackground.setPos(mPosX, mPosY);
 
 }
