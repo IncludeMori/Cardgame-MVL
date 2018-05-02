@@ -8,6 +8,8 @@
 
 #include "Place.hpp"
 
+#include "Card_Stats_Type.hpp"
+
 void Basic_Card::renderHoverEffect()
 {
 	HoverEffect.render();

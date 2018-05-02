@@ -16,6 +16,7 @@ class StatsSign : public HeroHealth
 {
 public:
 	StatsSign();
+	StatsSign(std::shared_ptr<SDL_Texture> texture = nullptr, int width = 0, int height = 0) { setTexture(texture); }
 	StatsSign(Stats_Size size, std::shared_ptr<SDL_Texture> texture = nullptr,int width = 0,int height = 0);
 
 	void move(int x, int y);

@@ -15,13 +15,15 @@
 
 #include "Renderer.hpp"
 
-
+#include "Card_Stats_Type.hpp"
 
 #include "Place.hpp"
 
 #include "getEffectAsString.hpp"
 
 #include "SDL_Deleter.hpp"
+
+using namespace CARD_STATS_TYPE;
 
 using namespace sdl2_Deleter;
 using namespace sdl2_Renderer;
@@ -110,11 +112,17 @@ Default_Card::Default_Card(std::string &path, int x)
 {
 	int w, h;
 	std::string p = "Data/numbers.png";
-	std::shared_ptr<SDL_Texture> mtext = loadTextureHelper(p, w, h);
+	std::shared_ptr<SDL_Texture> ATexture = loadTextureHelper(p, w, h);
 
-	mCostSign.setup(mtext, w, h);
-	mAPSign.setup(mtext, w, h);
-	mHealthSign.setup(mtext, w, h);
+	//to do
+	mIconStats.push_back(StatsSign(ATexture, w, h)); //cost
+	mIconStats.push_back(StatsSign(ATexture, w, h)); //healtg
+	mIconStats.push_back(StatsSign(ATexture, w, h)); //attack
+	
+
+	mCostSign.setup(ATexture, w, h);
+	mAPSign.setup(ATexture, w, h);
+	mHealthSign.setup(ATexture, w, h);
 
 	getEffectAsString EffectToString;
 

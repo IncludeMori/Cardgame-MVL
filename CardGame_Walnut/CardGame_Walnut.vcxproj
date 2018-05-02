@@ -232,6 +232,7 @@
     <ClInclude Include="bTexture.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Card_Effects.hpp" />
+    <ClInclude Include="Card_Stats_Type.hpp" />
     <ClInclude Include="Card_Types.hpp" />
     <ClInclude Include="Click_EventHandler.hpp" />
     <ClInclude Include="ClientSocket.hpp" />

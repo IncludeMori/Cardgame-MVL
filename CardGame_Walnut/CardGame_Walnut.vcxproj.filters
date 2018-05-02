@@ -736,6 +736,7 @@
       <Filter>Game\Resources\SDL</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.hpp" />
+    <ClInclude Include="Card_Stats_Type.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt">

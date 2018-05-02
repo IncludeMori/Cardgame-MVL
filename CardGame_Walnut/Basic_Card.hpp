@@ -60,7 +60,10 @@ public:
 
 protected:
 	Icons mIcons;
-	std::vector<StatsSign> mIconStats;
+
+	std::vector<int> mBaseStats; //base stats der Karte
+	std::vector<int> mCurrentStats; //anstatt hp,atk,cost
+	std::vector<StatsSign> mIconStats; //anstatt mCostSign,...etc, muss noch geändert werden
 
 	DefaultTexture mBackground;
 
