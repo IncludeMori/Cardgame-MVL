@@ -8,12 +8,6 @@ void Arrow::render(SDL_Rect *clip, double angle, SDL_Point* center, SDL_Renderer
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), nullptr, &this->mDstRect, angle, center, flip); // renders texture to screen
 }
 
-void Arrow::move(int x, int y)
-{
-	mPosX += x;
-	mPosY += y;
-}
-
 bool Arrow::isActive()
 {
 	return mActive;

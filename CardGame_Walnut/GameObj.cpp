@@ -67,6 +67,9 @@ void GameObj::move(int x, int y)
 {
 	this->mPosX += x;
 	this->mPosY += y;
+
+	this->mDstRect.x = this->mPosX;
+	this->mDstRect.y = this->mPosY;
 }
 
 int GameObj::getPosX()
