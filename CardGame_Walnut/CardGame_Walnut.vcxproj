@@ -346,6 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt" />
+    <Text Include="wichtig_neu.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

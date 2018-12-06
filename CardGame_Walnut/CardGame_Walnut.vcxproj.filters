@@ -687,5 +687,8 @@
     <Text Include="wichtig.txt">
       <Filter>dev</Filter>
     </Text>
+    <Text Include="wichtig_neu.txt">
+      <Filter>dev</Filter>
+    </Text>
   </ItemGroup>
 </Project>
