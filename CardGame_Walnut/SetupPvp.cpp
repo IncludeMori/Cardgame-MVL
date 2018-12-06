@@ -4,7 +4,7 @@
 #include "gMouse.hpp"
 #include "IPInfo.hpp"
 
-
+/*
 bool isMouseEvent(SDL_Event &e)
 {
 	std::cout << "e:" << e.type << std::endl;
@@ -151,3 +151,5 @@ void SetupPvp::enable()
 {
 	mIsActive = true;
 }
+
+*/

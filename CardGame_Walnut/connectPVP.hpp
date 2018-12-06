@@ -3,5 +3,5 @@
 class connectPVP
 {
 public:
-	connectPVP();
+	//connectPVP();
 };

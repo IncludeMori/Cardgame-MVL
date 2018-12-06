@@ -21,7 +21,7 @@
 class Default_Card : public Basic_Card, public std::enable_shared_from_this<Default_Card>
 {
 public:
-	Default_Card() = default;
+	//Default_Card() = default;
 	//Default_Card(std::string &path);
 	Default_Card(std::string &path, int x);
 	Default_Card(int Health, int Attack, int Type, std::string &path);

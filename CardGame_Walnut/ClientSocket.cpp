@@ -1,5 +1,6 @@
 #include "ClientSocket.hpp"
 
+/*
 #include <iostream>
 
 CClientSocket::CClientSocket() {
@@ -40,6 +41,9 @@ void CClientSocket::SetSocket(TCPsocket the_sdl_socket) {
 	IPaddress* ips;
 	if ((ips = SDLNet_TCP_GetPeerAddress(m_Socket))) {
 		/* Print the address, converting it onto the host format */
+
+
+/*
 		m_RemoteIp.SetIp(*ips);
 		Uint32 hbo = m_RemoteIp.GetHost();
 		Uint16 pbo = m_RemoteIp.GetPort();
@@ -94,3 +98,4 @@ bool CClientSocket::Send(CNetMessage& sData) {
 void CClientSocket::OnReady() {
 
 }
+*/

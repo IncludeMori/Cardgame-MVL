@@ -24,6 +24,7 @@ bool bTexture::loadFromFile(std::string path)
 {
 	std::cout << "Loading: " << path << std::endl;
 
+	
 	//delete preexisting textures
 	free();
 

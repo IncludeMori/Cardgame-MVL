@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-
+/*
 W_ipconfig::W_ipconfig()
 {
 	system("ipconfig > ipconfig.txt");
@@ -93,3 +93,6 @@ std::vector<std::string> W_ipconfig::getIpInfo()
 {
 	return mIP_Info;
 }
+
+
+*/

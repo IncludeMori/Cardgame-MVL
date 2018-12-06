@@ -8,7 +8,7 @@
 *
 */
 #include "Camera.hpp"
-
+#include "Renderer.hpp"
 
 Camera::Camera()
 {

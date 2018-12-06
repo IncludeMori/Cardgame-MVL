@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{2C7744BA-2182-4DFC-97F8-275EFD96A0F6}</ProjectGuid>
     <RootNamespace>CardGameWalnut</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_net-devel-2.0.1-VC\SDL2_net-2.0.1\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_Mixxer_Audio\SDL2_mixer-2.0.1\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_2.04\SDL2-2.0.4\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL_trueTypeFonts\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib\include;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0\boost;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_net-devel-2.0.1-VC\SDL2_net-2.0.1\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_Mixxer_Audio\SDL2_mixer-2.0.1\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL2_2.04\SDL2-2.0.4\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\SDL_trueTypeFonts\lib\x86;C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\boost_1_68_0;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib\include;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_image-2.0.4\include;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_mixer-2.0.4\include;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_ttf-2.0.14\include;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\lua-5.3.3_Win32_dllw4_lib;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\boost_1_68_0\stage\lib;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_image-2.0.4\lib\x86;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_mixer-2.0.4\lib\x86;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2_ttf-2.0.14\lib\x86;C:\Users\Mo\source\repos\IncludeMori\Cardgame_W\CardGame_Walnut\lib\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,11 +79,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2_net.lib;lua53.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\MoritzV\Source\Repos\CardGame_Walnut\CardGame_Walnut\lib\boost_1_64_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua53.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -94,6 +94,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -209,12 +212,12 @@
     <ClCompile Include="Player_Hand.cpp" />
     <ClCompile Include="PvpSessionData.cpp" />
     <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="SetupPvp.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Save_Deck.cpp" />
     <ClCompile Include="Save_Manager.cpp" />
     <ClCompile Include="SDLNet_init.cpp" />
     <ClCompile Include="SDL_init.cpp" />
+    <ClCompile Include="SetupPvp.cpp" />
     <ClCompile Include="ShowGameObjInfo.cpp" />
     <ClCompile Include="StatsSign.cpp" />
     <ClCompile Include="TcpSocket.cpp" />
@@ -321,14 +324,14 @@
     <ClInclude Include="Player_Hand.hpp" />
     <ClInclude Include="PvpSessionData.hpp" />
     <ClInclude Include="Renderer.hpp" />
+    <ClInclude Include="SDLNet_init.hpp" />
     <ClInclude Include="SDL_Deleter.hpp" />
-    <ClInclude Include="SetupPvp.hpp" />
     <ClInclude Include="Rarity.hpp" />
     <ClInclude Include="Resource.hpp" />
     <ClInclude Include="Save_Deck.hpp" />
     <ClInclude Include="Save_Manager.hpp" />
-    <ClInclude Include="SDLNet_init.hpp" />
     <ClInclude Include="SDL_init.hpp" />
+    <ClInclude Include="SetupPvp.hpp" />
     <ClInclude Include="ShowGameObjInfo.h" />
     <ClInclude Include="StatsSign.hpp" />
     <ClInclude Include="Sub_Btn_Enum.hpp" />
@@ -337,6 +340,7 @@
     <ClInclude Include="TTF_Text.hpp" />
     <ClInclude Include="Turn_Enum.hpp" />
     <ClInclude Include="Victory_Loss_Screen.hpp" />
+    <ClInclude Include="WalnutResult.hpp" />
     <ClInclude Include="Who.hpp" />
     <ClInclude Include="W_ipconfig.hpp" />
   </ItemGroup>

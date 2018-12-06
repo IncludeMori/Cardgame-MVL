@@ -2,6 +2,9 @@
 
 #include <cstring>
 
+
+/*
+
 CNetMessage::CNetMessage() {
 	reset();
 }
@@ -42,3 +45,5 @@ void CNetMessage::UnLoadBytes(charbuf& destbuffer) {
 		destbuffer[i] = buffer[i];
 	reset();
 }
+
+*/

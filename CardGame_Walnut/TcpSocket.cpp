@@ -1,5 +1,6 @@
 #include "TcpSocket.hpp"
 
+/*
 #include <iostream>
 CTcpSocket::CTcpSocket() {
 	m_Socket = NULL;
@@ -44,3 +45,5 @@ bool CTcpSocket::Ready() const {
 void CTcpSocket::OnReady() {
 
 }
+
+*/

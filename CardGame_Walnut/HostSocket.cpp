@@ -1,5 +1,7 @@
 #include "HostSocket.hpp"
 
+
+/*
 #include <iostream>
 #include "ClientSocket.hpp"
 CHostSocket::CHostSocket(CIpAddress& the_ip_address) {
@@ -40,3 +42,4 @@ bool CHostSocket::Accept(CClientSocket& the_client_socket) {
 void CHostSocket::OnReady() {
 
 }
+*/

@@ -74,10 +74,10 @@ bool Menu::update()
 
 	if (mActiveSubBtn == Btn_Type::VS_PLAYER && !Esc_Overlay.isActive())
 	{
-		if (!PvpMenu.isActive())
-			mActiveSubBtn = Btn_Type::ERROR;
-		else
-			PvpMenu.update(e);
+		//if (!PvpMenu.isActive())
+		//	mActiveSubBtn = Btn_Type::ERROR;
+		//else
+		//	PvpMenu.update(e);
 	}
 	else if (!Esc_Overlay.isActive())
 	{
@@ -86,7 +86,9 @@ bool Menu::update()
 			switch (mActiveButton)
 			{
 			case(PLAY_BTN):
-				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; PvpMenu.enable(); }
+				if (mSubButton[static_cast<int>(Btn_Type::VS_PLAYER)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_PLAYER; 
+				//PvpMenu.enable(); 
+				}
 				else if (mSubButton[static_cast<int>(Btn_Type::VS_AI)].IsPressed()) { mActiveSubBtn = Btn_Type::VS_AI; }
 				break;
 			case(COLLECTION_BTN):
@@ -157,7 +159,7 @@ void Menu::render()
 	case(PLAY_BTN):
 		if (mActiveSubBtn == Btn_Type::VS_PLAYER)
 		{
-			PvpMenu.render();
+		//	PvpMenu.render();
 		}
 		else
 		{

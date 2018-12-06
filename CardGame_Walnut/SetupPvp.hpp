@@ -10,6 +10,8 @@
 //Create server
 #include "IPInfo.hpp"
 
+/*
+
 class SetupPvp
 {
 public:
@@ -44,3 +46,5 @@ private:
 	IPInfo u;;
 
 };
+
+*/

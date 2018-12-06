@@ -43,7 +43,7 @@ public:
 	void free();
 
 private:
-	SetupPvp PvpMenu;
+	//SetupPvp PvpMenu;
 
 	Fps_Timer FpsTimer; // init & start fps timer
 	Menu_Music Music;

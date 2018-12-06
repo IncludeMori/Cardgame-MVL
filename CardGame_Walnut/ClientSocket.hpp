@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 #include "IPAdress.hpp"
 #include "TcpSocket.hpp"
 #include "HostSocket.hpp"
@@ -19,3 +20,4 @@ public:
 	bool Receive(CNetMessage& rData); //receive data and load it into a CNetMessage object
 	bool Send(CNetMessage& sData); //send data from a CNetMessage object
 };
+*/

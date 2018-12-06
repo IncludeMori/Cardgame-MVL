@@ -1,6 +1,7 @@
 #include "SDLNet_init.hpp"
 #include <iostream>
 
+/*
 bool SDLNet::Init() {
 	if (SDLNet_Init() < 0) {
 		std::cout << "SDLNet_Init failed: " << SDLNet_GetError() << std::endl;
@@ -15,3 +16,4 @@ bool SDLNet::Init() {
 void SDLNet::Quit() {
 	SDLNet_Quit();
 }
+*/

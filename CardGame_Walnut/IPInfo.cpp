@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+/*
 IPInfo::IPInfo()
 {
 	int x = 0;
@@ -76,3 +77,5 @@ bool IPInfo::isValid(int port)
 
 	//check if port is already listening??
 }
+
+*/

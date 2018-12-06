@@ -15,6 +15,8 @@
 #include "Icons.hpp"
 #include "Rarity.hpp"
 
+#include <boost/filesystem.hpp>
+
 class Field;
 class Hand;
 class Deck;

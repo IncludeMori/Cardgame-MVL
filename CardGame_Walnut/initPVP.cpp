@@ -1,5 +1,7 @@
 #include "initPVP.hpp"
 
+
+/*
 #include "SDLNet_init.hpp"
 #include "connectionData.hpp"
 #include "HostSocket.hpp"
@@ -77,3 +79,5 @@ initPVP::initPVP()
 	}
 
 }
+
+*/

@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 #include <SDL_net.h>
 #include <string>
 
@@ -16,3 +17,4 @@ public:
 	Uint32 GetHost() const; //return the host
 	Uint16 GetPort() const; //return the port
 };
+*/

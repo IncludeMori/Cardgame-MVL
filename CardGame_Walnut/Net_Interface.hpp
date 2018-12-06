@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 typedef char charbuf[256];
 
 class CNetMessage {
@@ -28,3 +29,6 @@ protected:
 	bufstates state; //the message state
 	void reset(); // reset message: fulfill it with zeroes and change its state to EMPTY
 };
+
+
+*/

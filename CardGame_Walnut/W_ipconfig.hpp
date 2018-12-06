@@ -2,7 +2,7 @@
 
 #include <string>
 #include <vector>
-
+/*
 class W_ipconfig
 {
 public:
@@ -16,4 +16,4 @@ private:
 	std::vector<std::string> mLocal_IP_Info;
 	std::vector<std::string> mIP_Info;
 };
-
+*/

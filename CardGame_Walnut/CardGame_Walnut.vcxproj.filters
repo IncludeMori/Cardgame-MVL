@@ -198,26 +198,11 @@
     <ClCompile Include="DefaultTexture.cpp">
       <Filter>Game\_mainGame\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="SDLNet_init.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Game\_mainGame</Filter>
     </ClCompile>
     <ClCompile Include="GameObj.cpp">
       <Filter>Game\_mainGame</Filter>
-    </ClCompile>
-    <ClCompile Include="TcpSocket.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
-    <ClCompile Include="Net_Interface.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
-    <ClCompile Include="IPAdress.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
-    <ClCompile Include="HostSocket.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
     </ClCompile>
     <ClCompile Include="Battlecry.cpp">
       <Filter>Game\Card\Card Effects</Filter>
@@ -336,24 +321,6 @@
     <ClCompile Include="Create_Deck.cpp">
       <Filter>Game\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="initPVP.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientSocket.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
-    <ClCompile Include="connectionData.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClCompile>
-    <ClCompile Include="Message.cpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClCompile>
-    <ClCompile Include="connectPVP.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClCompile>
-    <ClCompile Include="SetupPvp.cpp">
-      <Filter>Game\Menu\pvp-setup</Filter>
-    </ClCompile>
     <ClCompile Include="ShowGameObjInfo.cpp">
       <Filter>Game\_mainGame</Filter>
     </ClCompile>
@@ -369,20 +336,11 @@
     <ClCompile Include="display_text.cpp">
       <Filter>Game\_mainGame\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="IPInfo.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClCompile>
     <ClCompile Include="Menu_Music.cpp">
       <Filter>Game\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="W_ipconfig.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="PvpSessionData.cpp">
-      <Filter>Game\_mainGame\PVP</Filter>
     </ClCompile>
     <ClCompile Include="GetFiles.cpp">
       <Filter>Game\Other Stuff</Filter>
@@ -400,6 +358,20 @@
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Field_HoverEffect.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="ClientSocket.cpp" />
+    <ClCompile Include="connectionData.cpp" />
+    <ClCompile Include="connectPVP.cpp" />
+    <ClCompile Include="HostSocket.cpp" />
+    <ClCompile Include="initPVP.cpp" />
+    <ClCompile Include="IPAdress.cpp" />
+    <ClCompile Include="IPInfo.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="Net_Interface.cpp" />
+    <ClCompile Include="PvpSessionData.cpp" />
+    <ClCompile Include="SDLNet_init.cpp" />
+    <ClCompile Include="SetupPvp.cpp" />
+    <ClCompile Include="TcpSocket.cpp" />
+    <ClCompile Include="W_ipconfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -501,9 +473,6 @@
     <ClInclude Include="DefaultTexture.hpp">
       <Filter>Game\_mainGame\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="SDLNet_init.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
     <ClInclude Include="SDL_init.hpp">
       <Filter>Game\Resources\SDL</Filter>
     </ClInclude>
@@ -527,21 +496,6 @@
     </ClInclude>
     <ClInclude Include="ShowGameObjInfo.h">
       <Filter>Game\_mainGame</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientSocket.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
-    <ClInclude Include="HostSocket.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
-    <ClInclude Include="IPAdress.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
-    <ClInclude Include="Net_Interface.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpSocket.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
     </ClInclude>
     <ClInclude Include="CL_EventHandler.hpp">
       <Filter>Game\Resources\SDLEvent</Filter>
@@ -678,21 +632,6 @@
     <ClInclude Include="Create_Deck.hpp">
       <Filter>Game\Collection</Filter>
     </ClInclude>
-    <ClInclude Include="initPVP.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClInclude>
-    <ClInclude Include="connectionData.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClInclude>
-    <ClInclude Include="Message.hpp">
-      <Filter>Game\Resources\SDLNet</Filter>
-    </ClInclude>
-    <ClInclude Include="connectPVP.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClInclude>
-    <ClInclude Include="SetupPvp.hpp">
-      <Filter>Game\Menu\pvp-setup</Filter>
-    </ClInclude>
     <ClInclude Include="GameLoop.hpp">
       <Filter>Game\_mainGame</Filter>
     </ClInclude>
@@ -705,17 +644,8 @@
     <ClInclude Include="display_text.hpp">
       <Filter>Game\_mainGame\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="IPInfo.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClInclude>
     <ClInclude Include="Menu_Music.hpp">
       <Filter>Game\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="W_ipconfig.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
-    </ClInclude>
-    <ClInclude Include="PvpSessionData.hpp">
-      <Filter>Game\_mainGame\PVP</Filter>
     </ClInclude>
     <ClInclude Include="GetFiles.hpp">
       <Filter>Game\Other Stuff</Filter>
@@ -737,6 +667,21 @@
     </ClInclude>
     <ClInclude Include="Renderer.hpp" />
     <ClInclude Include="Card_Stats_Type.hpp" />
+    <ClInclude Include="ClientSocket.hpp" />
+    <ClInclude Include="connectionData.hpp" />
+    <ClInclude Include="connectPVP.hpp" />
+    <ClInclude Include="HostSocket.hpp" />
+    <ClInclude Include="initPVP.hpp" />
+    <ClInclude Include="IPAdress.hpp" />
+    <ClInclude Include="IPInfo.hpp" />
+    <ClInclude Include="Message.hpp" />
+    <ClInclude Include="Net_Interface.hpp" />
+    <ClInclude Include="PvpSessionData.hpp" />
+    <ClInclude Include="SDLNet_init.hpp" />
+    <ClInclude Include="SetupPvp.hpp" />
+    <ClInclude Include="TcpSocket.hpp" />
+    <ClInclude Include="W_ipconfig.hpp" />
+    <ClInclude Include="WalnutResult.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="wichtig.txt">

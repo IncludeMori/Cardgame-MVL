@@ -1,5 +1,7 @@
 #include "Message.hpp"
 
+
+/*
 int CNetMessageApp::NumToLoad() {
 
 	if (state == EMPTY)
@@ -45,3 +47,4 @@ char CNetMessageApp::UnLoadByte() {
 	return c[0];
 
 }
+*/

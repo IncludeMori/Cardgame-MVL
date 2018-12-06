@@ -2,6 +2,7 @@
 
 #include "Net_Interface.hpp"
 
+/*
 class CNetMessageApp : public CNetMessage {
 
 private:
@@ -25,3 +26,5 @@ public:
 	char UnLoadByte();
 
 };
+
+*/

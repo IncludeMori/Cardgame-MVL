@@ -1,5 +1,6 @@
 #include "connectPVP.hpp"
 
+/*
 
 #include "SDLNet_init.hpp"
 #include "connectionData.hpp"
@@ -97,3 +98,5 @@ connectPVP::connectPVP()
 
 
 }
+
+*/

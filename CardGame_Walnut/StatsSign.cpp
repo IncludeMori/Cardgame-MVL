@@ -1,10 +1,12 @@
 #include "StatsSign.hpp"
 
 
+/*
 StatsSign::StatsSign()
 {
 
 }
+*/
 StatsSign::StatsSign(Stats_Size size, std::shared_ptr<SDL_Texture> texture, int width, int height)
 {
 	if (size == Stats_Size::STANDARD)

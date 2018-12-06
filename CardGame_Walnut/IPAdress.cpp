@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+/*
 CIpAddress::CIpAddress(Uint16 port) {
 	if (SDLNet_ResolveHost(&m_Ip, NULL, port) < 0) {
 		std::cout << "SDLNet_ResolveHost: " << SDLNet_GetError() << std::endl;
@@ -43,3 +44,5 @@ Uint32 CIpAddress::GetHost() const {
 Uint16 CIpAddress::GetPort() const {
 	return m_Ip.port;
 }
+
+*/

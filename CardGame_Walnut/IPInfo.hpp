@@ -6,6 +6,8 @@
 #include "TTF_Text.hpp"
 #include "Button.hpp"
 
+/*
+
 class IPInfo
 {
 public:
@@ -38,3 +40,4 @@ private:
 	Button mChangePortBtn;
 };
 
+*/

@@ -8,6 +8,7 @@ using namespace sdl2_Renderer;
 
 void GameObj::loadFromFile(const std::string &path)
 {
+
 	std::cout << "Loading: " << path.c_str() << std::endl;
 
 	//Load image at specified path
@@ -40,6 +41,7 @@ void GameObj::loadFromFile(const std::string &path)
 	}
 	//Set rendering space
 	this->mDstRect = { mPosX,mPosY, mWidth, mHeight };
+	
 }
 
 void GameObj::setColor(Uint8 red, Uint8 green, Uint8 blue)

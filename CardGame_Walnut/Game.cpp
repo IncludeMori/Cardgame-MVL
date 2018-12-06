@@ -20,6 +20,7 @@ Game::~Game()
 
 bool Game::loop()
 {
+	std::cout << "lol";
 	FpsTimer.start();
 	while (!QuitGame)
 	{

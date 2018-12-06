@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 #include "TcpSocket.hpp"
 #include "IPAdress.hpp"
 #include <SDL_net.h>
@@ -14,3 +15,4 @@ public:
 	bool Accept(CClientSocket&); //set a client CTcpSocket object after listening to the port
 	virtual void OnReady(); //pure virtual
 };
+*/
