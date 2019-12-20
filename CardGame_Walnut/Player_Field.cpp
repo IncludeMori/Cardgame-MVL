@@ -157,7 +157,7 @@ void Player_Field::addCard(const std::shared_ptr<Basic_Card>& card)
 		std::cout << "Index:" << mSize - 1 << std::endl;
 		mCard[mSize - 1] = card;
 		mCard[mSize - 1]->changePosition(Position::FIELD);
-		mCard_isActive[mSize - 1] = true;
+		mFieldHasACard[mSize - 1] = true;
 		mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
 		if (dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
 		{
@@ -203,7 +203,7 @@ bool Player_Field::update()
 	for (int i = 0; i < 7; i++)
 	{
 		if (mCard[i] != nullptr) {
-			if (mCard_isActive[i])
+			if (mFieldHasACard[i])
 			{
 				mCard[i]->setHover(hoverIsActive);
 				if (hoverIsActive)
@@ -399,7 +399,7 @@ void Player_Field::render()
 	for (int i = 0; i < 7; i++)
 	{
 		if (mCard[i] != nullptr) {
-			if (mCard_isActive[i])
+			if (mFieldHasACard[i])
 			{
 				mCard[i]->render();
 			

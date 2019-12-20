@@ -34,13 +34,11 @@ public:
 
 protected:
 	void rearrange(int index);
-
-	void rearrangeRm(int index);
+	void rearrangeRemove(int index);
 	void rearrangeAdd();
 
 	void updatePos();
 
-	//check if I need everything for OPP_HAND
 	const int MAX_SIZE = 10;
 	int mSize; //current handsize
 	int mNextDrawIndex;
@@ -51,10 +49,9 @@ protected:
 
 	int mPosX[10], mPosY[10];
 	int mShift[10];
-	bool mCard_isActive[10]; // Spieler hat die Karte in der Hand
+	bool mCard_isActive[10]; 
 
 	bool isMovingACard = false;
 
 	std::shared_ptr<Graveyard> mGraveyard;
-
 };

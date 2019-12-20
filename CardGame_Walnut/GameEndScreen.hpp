@@ -13,8 +13,8 @@ public:
 
 	bool update();
 
-	void render_Loss();
-	void render_Win();
+	void renderLoss();
+	void renderWin();
 
 	void free();
 

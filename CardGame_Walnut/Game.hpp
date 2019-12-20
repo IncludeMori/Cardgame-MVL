@@ -27,11 +27,11 @@ public:
 	bool update();
 	void render();
 
-	void Init();
+	void init();
 
 	void free();
 private:
-	bool QuitGame = false;
+	bool QuitGame;
 	Escape_Overlay Esc_Overlay;
 	GameEndScreen End_Screen;
 
@@ -39,7 +39,7 @@ private:
 	bool keyUp;
 
 	Click_EventHandler EventHandler;
-	SDL_Event e;
+	SDL_Event mCurrentEvent;
 
 	std::shared_ptr<CurrentTurn> mTurn = nullptr;
 

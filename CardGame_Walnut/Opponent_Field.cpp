@@ -130,7 +130,7 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 		{
 			mSize++;
 			mCard[mSize - 1] = card;
-			mCard_isActive[mSize - 1] = true;
+			mFieldHasACard[mSize - 1] = true;
 			std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->changePosition(Position::FIELD);
 			mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
 			if (std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)

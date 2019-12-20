@@ -112,6 +112,9 @@
     <Filter Include="Game\_mainGame\PVE\AI_Opponent">
       <UniqueIdentifier>{e77a4dbe-5027-4a98-9c62-c643e8fe7b2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Online">
+      <UniqueIdentifier>{a8a5e95f-5a35-48ea-a0a6-f88067969beb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -354,24 +357,60 @@
     <ClCompile Include="InputHandler.cpp">
       <Filter>Game\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Data.cpp" />
-    <ClCompile Include="Name.cpp" />
-    <ClCompile Include="Field_HoverEffect.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="ClientSocket.cpp" />
-    <ClCompile Include="connectionData.cpp" />
-    <ClCompile Include="connectPVP.cpp" />
-    <ClCompile Include="HostSocket.cpp" />
-    <ClCompile Include="initPVP.cpp" />
-    <ClCompile Include="IPAdress.cpp" />
-    <ClCompile Include="IPInfo.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="Net_Interface.cpp" />
-    <ClCompile Include="PvpSessionData.cpp" />
-    <ClCompile Include="SDLNet_init.cpp" />
-    <ClCompile Include="SetupPvp.cpp" />
-    <ClCompile Include="TcpSocket.cpp" />
-    <ClCompile Include="W_ipconfig.cpp" />
+    <ClCompile Include="ClientSocket.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionData.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="connectPVP.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="HostSocket.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="initPVP.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="IPAdress.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="IPInfo.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Net_Interface.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="PvpSessionData.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLNet_init.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupPvp.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpSocket.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="W_ipconfig.cpp">
+      <Filter>Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Field_HoverEffect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Name.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -659,35 +698,72 @@
     <ClInclude Include="InputField.hpp">
       <Filter>Game\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Data.hpp" />
-    <ClInclude Include="Name.hpp" />
-    <ClInclude Include="Field_HoverEffect.hpp" />
     <ClInclude Include="SDL_Deleter.hpp">
       <Filter>Game\Resources\SDL</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.hpp" />
-    <ClInclude Include="Card_Stats_Type.hpp" />
-    <ClInclude Include="ClientSocket.hpp" />
-    <ClInclude Include="connectionData.hpp" />
-    <ClInclude Include="connectPVP.hpp" />
-    <ClInclude Include="HostSocket.hpp" />
-    <ClInclude Include="initPVP.hpp" />
-    <ClInclude Include="IPAdress.hpp" />
-    <ClInclude Include="IPInfo.hpp" />
-    <ClInclude Include="Message.hpp" />
-    <ClInclude Include="Net_Interface.hpp" />
-    <ClInclude Include="PvpSessionData.hpp" />
-    <ClInclude Include="SDLNet_init.hpp" />
-    <ClInclude Include="SetupPvp.hpp" />
-    <ClInclude Include="TcpSocket.hpp" />
-    <ClInclude Include="W_ipconfig.hpp" />
-    <ClInclude Include="WalnutResult.hpp" />
+    <ClInclude Include="ClientSocket.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="connectionData.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="connectPVP.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="HostSocket.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="initPVP.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="IPAdress.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="IPInfo.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Net_Interface.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="PvpSessionData.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLNet_init.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="SetupPvp.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpSocket.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="W_ipconfig.hpp">
+      <Filter>Online</Filter>
+    </ClInclude>
+    <ClInclude Include="WalnutResult.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Card_Stats_Type.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Field_HoverEffect.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Name.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="wichtig.txt">
-      <Filter>dev</Filter>
-    </Text>
-    <Text Include="wichtig_neu.txt">
+    <Text Include="todo.txt">
       <Filter>dev</Filter>
     </Text>
   </ItemGroup>

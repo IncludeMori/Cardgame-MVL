@@ -21,14 +21,14 @@ public:
 
 	void render(double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-	void increase(); // mAmount++
-	void decrease(); // mAmount--
+	void increase(); 
+	void decrease();
 
 	int getAmount();
 	int getAvailable();
 
 private:
-	const int mMax_Amount = 10;
+	const int mMaxAmount = 10;
 
 	EnergyInterface mEnergyInterface;
 	DefaultTexture mBackground;

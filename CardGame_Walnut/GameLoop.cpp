@@ -15,33 +15,32 @@
 #include <thread>
 
 
-GameClass::GameClass()
-{
-}
+GameClass::GameClass(){} //??
+
 bool GameClass::main_loop()
 {
-	//test
-	std::cout << "one";
+	//TODO : fix loading screen
 	//LoadingScreen loadScreen;
-	std::cout << "two";
 
 	mCurrentlyActive = Btn_Type::VS_AI;
 
 	while (!gQuitGame)
 	{
 
-		//DELETE TO ENABLE MENU
+		//??
 		//ALSO: delete gQuitGame = true inside VS_AI
-		/*
-		loadScreen.start();
+		
+		//loadScreen.start();
 		mMenu.reset(new Menu());
-		loadScreen.end();
-		if (!mMenu->loop()) //Menu wird beendet wenn ein Btn gedrückt wird
-			mCurrentlyActive = mMenu->activeBtn(); //gedrückten Button abfragen
+		//loadScreen.end();
 
+		//Main menu loop
+		if (!mMenu->loop()) 
+			mCurrentlyActive = mMenu->activeBtn(); 
+		//
 		mMenu->free();
 		mMenu.release();
-		*/
+	
 		if (gQuitGame == false)
 		{
 			switch (mCurrentlyActive)

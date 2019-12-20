@@ -27,12 +27,12 @@ bool GameEndScreen::update()
 	return true;
 }
 
-void GameEndScreen::render_Loss()
+void GameEndScreen::renderLoss()
 {
 	mEndGameBtn.render();
 	mLoss.render();
 }
-void GameEndScreen::render_Win()
+void GameEndScreen::renderWin()
 {
 	mEndGameBtn.render();
 	mVictory.render();

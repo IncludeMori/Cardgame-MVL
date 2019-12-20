@@ -4,7 +4,7 @@
 
 #include "Basic_Card.hpp"
 #include "Default_Card.hpp"
-#include "draw.hpp" //dev function
+#include "draw.hpp" //dev test function
 #include "Arrow.hpp"
 #include "ManageCardsC.hpp"
 #include "Place.hpp"
@@ -28,7 +28,7 @@ public:
 	~Field();
 	
 	virtual void addCard(const std::shared_ptr<Basic_Card>& card);
-	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int posX,int posY); //not done yet
+	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int posX,int posY); //TODO
 	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int index);
 
 	virtual void addEffectCard(const std::shared_ptr<Basic_Card> &card) {};
@@ -80,8 +80,8 @@ protected:
 	
 	const int MAX_SIZE = 7;
 	int mSize;
-	int mCardIsActive;
-	int mCard_isActive[7];
+	int mActiveCard; 
+	int mFieldHasACard[7];
 
 	//pointer to [Deck]
 	std::shared_ptr<Basic_Card> mCard[7];

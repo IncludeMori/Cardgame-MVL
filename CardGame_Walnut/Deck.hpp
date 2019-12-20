@@ -13,7 +13,6 @@ class Deck
 	: public Place, public std::enable_shared_from_this<Deck>
 {
 public:
-
 	Deck();
 	~Deck();
 	
@@ -27,7 +26,6 @@ public:
 
 	void free();
 
-	//
 	virtual void createDeck();
 
 protected:
@@ -51,5 +49,4 @@ protected:
 	std::weak_ptr<Field> mField;
 	std::weak_ptr<Hand> mHand;
 	//Functions
-	
 };

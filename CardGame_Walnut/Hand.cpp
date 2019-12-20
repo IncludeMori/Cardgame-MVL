@@ -4,7 +4,6 @@ Hand::Hand()
 {
 	for (int i = 0; i < MAX_SIZE; i++)
 		mShift[i] = 5;
-
 	mNextDrawIndex = 4;
 }
 Hand::~Hand()
@@ -18,51 +17,11 @@ void Hand::render()
 	for (int i = 0; i < mSize; i++)
 	{
 		if (mCard[i] != nullptr) { mCard[i]->render(); }
-		//else //__debugbreak();
+		else __debugbreak();
 	}
 
 }
 
-/* draw new
-int x;
-
-if (card != nullptr)
-{
-if (mSize < MAX_SIZE)
-{
-if (mSize % 2 == 1)
-{
-  x = mNextDrawIndex;
-  while mCard[x] != nullptr)
-  {
-  mShift[x] = mShift[x]-1;
-  x--;
-  }
-  NextDrawIndex++;
-}
-else
-x = NextDrawIndex;
-
-mSize++;
-mCard[x] = card;
-mCard[x]->changePosition(Position::HAND);
-mCard[x]->setPos(mPosX[x], mPosY[x]);
-mPlayable[mNextDrawIndex - 1] = true;
-mCard_isActive[mNextDrawIndex - 1] = true;
-std::cout << "Added Card at index:" << mNextDrawIndex - 1 << std::endl;
-std::cout << "Set Pos: X:" << mPosX[mNextDrawIndex - 1] << "  Y:" << mPosY[mNextDrawIndex - 1] << std::endl;
-return true;
-
-}
-else
-{
-mGraveyard->add(card);
-return true;
-}
-}
-else
-return false;
-*/
 bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 {
 	if (card != nullptr)
@@ -81,7 +40,6 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 			updatePos();
 
 			return true;
-
 		}
 		else
 		{
@@ -90,8 +48,9 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 		}
 	}
 	else
+	{
 		return false;
-
+	}
 }
 
 void Hand::startTurn()
@@ -104,14 +63,11 @@ std::shared_ptr<Basic_Card> Hand::getCard(int index)
 	mCard_isActive[index] = false;
 	std::shared_ptr<Basic_Card> x;
 	x.swap(mCard[index]);
-	std::cout << "Return Card:" << index << std::endl;
-	//mCard[index] = nullptr;
-	//rearrange(index);
-	rearrangeRm(index);
-	//rearrangeRm(index);
+	rearrangeRemove(index);
 	mSize--;
 	updatePos();
 
+	std::cout << "Return Card:" << index << std::endl;
 
 	return x;
 }
@@ -193,11 +149,11 @@ void Hand::rearrange(int index)
 			mCard[i].swap(mCard[i + 1]);  */
 }
 
-void Hand::rearrangeRm(int index) //removed card@index
+void Hand::rearrangeRemove(int index) //removed card@index
 {
 	//KARTE ENTFERN (index)
 	//if index <= 4, alle kleiner als index einen nach Rechts verschieben
-	//	if index >= 5 alle größer als index einen nach Links verschieben
+	//if index >= 5 alle größer als index einen nach Links verschieben
 	mPlayable[mSize-1] = false;
 	mCard_isActive[mSize-1] = false;
 
@@ -206,10 +162,7 @@ void Hand::rearrangeRm(int index) //removed card@index
 
 	for (int i = index; i < mSize-1; i++)
 	{
-		std::cout << "swapped:" << i << "," << i + 1 << std::endl;
 		mCard[i].swap(mCard[i + 1]);
-
-
 	}
 
 	if (mSize % 2 == 1)
@@ -222,25 +175,8 @@ void Hand::rearrangeRm(int index) //removed card@index
 		for (int i = 0; i < MAX_SIZE; i++)
 			mShift[i] = mShift[i]+1;
 	}
-	/*
-	if (index <= 4 && index != 0)
-	{
-		for (int i = 0; i<index;i++)
-		{
-			mShift[i] = mShift[i] + 1;
-			std::cout << "Shift @ " << i << " +1" << std::endl;
-		}
-	}
-	else if (index >= 5 && index != 9)
-	{
-		for (int i = index + 1;i < MAX_SIZE;i++)
-		{
-			mShift[i] = mShift[i] - 1;
-			std::cout << "Shift @ " << i << " -1" << std::endl;
-		}
-	}*/
-
 }
+
 void Hand::rearrangeAdd()
 {
 	if ((mSize-1) % 2 == 1)
@@ -260,9 +196,9 @@ void Hand::updatePos()
 			mCard[index]->setPos(mPosX[index + mShift[index]], mPosY[index + mShift[index]]);
 		}
 }
+
 void Hand::free()
 {
-
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		mCard[i] = nullptr;

@@ -17,7 +17,7 @@ class HeroHealth : public GameObj
 {
 public:
 	HeroHealth();
-	HeroHealth(int base_value, int start_value) : mBaseValue(base_value),mCurrentValue(start_value) {};
+	//HeroHealth(int base_value, int start_value) : mBaseValue(base_value),mCurrentValue(start_value) {};
 
 	//Renders texture to screen at given point with various options 
 	void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) override;
@@ -33,8 +33,4 @@ protected:
 	int mCurrentValue = 0;
 
 	SDL_Rect mNumbers[12];
-
-	//Loads Image from "path"
-	//void initNumbers();
-
 };

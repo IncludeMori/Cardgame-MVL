@@ -22,15 +22,12 @@ void game()
 	sdl2_Init::startSDL(SCREEN_WIDTH, SCREEN_HEIGHT, "Walnut");
 
 	GameClass myGame; //initialise game
-
-	myGame.main_loop(); //start main loop
-
-						//quit sld
+	myGame.main_loop(); 			
 	sdl2_Init::closeSDL();
 }
-//..............................
+
 int main(int argc, char* args[])
 {
 	game();
 	return 0;
-} // main
+} 
