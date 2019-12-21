@@ -28,9 +28,6 @@ Opponent_Field::Opponent_Field()
 		x += change;
 		mCard[i] = nullptr;
 	}
-	
-
-
 }
 Opponent_Field::~Opponent_Field()
 {
@@ -70,10 +67,7 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 			//außerhalb der gespielten Karten
 			if (index > 3)
 			{
-				//index von rechster karte,
-				//dann die neue Karte einen weiter rechts hinzufügen und dann eventuell alle karten einpendeln
-
-				//rechteste karte finden
+				//rightmost card
 				int rechtesteKarte = -1;
 				for (int i : irange(0, MAX_SIZE))
 					if (mCardPosIndex[i] >= 4)
@@ -90,9 +84,7 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 			}
 			else
 			{
-				//index von linkster karte
-
-				//linkste karte finden
+				//leftmost card
 				int linksteKarte = 4;
 				for (int i : irange(0, MAX_SIZE))
 					if (mCardPosIndex[i] <= 3)
@@ -158,24 +150,24 @@ void Opponent_Field::attack()
 	int cardIndex = -1;
 	int targetIndex = -1;
 
-	int i = 0;
+	int currentIndex = 0;
 	while (cardIndex == -1)
 	{
-		if (dynamic_pointer_cast<Default_Card>(mCard[i])->canAttack())
+		if (dynamic_pointer_cast<Default_Card>(mCard[currentIndex])->canAttack())
 		{
-			mAttackCard.setPos(mCard[i]->getPosX(), mCard[i]->getPosY());
+			mAttackCard.setPos(mCard[currentIndex]->getPosX(), mCard[currentIndex]->getPosY());
 			mAttackCard.setActive();
-			cardIndex = i;
+			cardIndex = currentIndex;
 
 		}
-		i++;
+		currentIndex++;
 	}
 
 	while (targetIndex == -1)
 	{
-		if (mPlayerField.lock()->CardAt(i) != nullptr)
+		if (mPlayerField.lock()->CardAt(currentIndex) != nullptr)
 		{
-			mPlayerField.lock()->DmgCard(i, dynamic_pointer_cast<Default_Card>(mCard[cardIndex])->getAttack());
+			mPlayerField.lock()->DmgCard(currentIndex, dynamic_pointer_cast<Default_Card>(mCard[cardIndex])->getAttack());
 			targetIndex = 1;
 		}
 	}

@@ -1,11 +1,6 @@
 #pragma once
 ////////////////////////////////////////////////
-//
-// AUTHOR: MORITZ VOLKENANDT
-// VERSION 0.01
-// DATE: 06.27.2016
-//
-// Purpose: Handles the text input
+// Purpose: text handle
 //////////////////////////////////////////////
 #include <string>
 
@@ -50,7 +45,6 @@ public:
 	std::string asString();
 
 protected:
-	//functions
 	void buildFont();
 
 	// member variables

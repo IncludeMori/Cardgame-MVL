@@ -1,2 +1,36 @@
 TODO:
 
+Deck mischen nach dem Start(Random)+Effekt Karten fixen [PLAYER:DONE, OPPONENT: - ]) -> Opponent -> generate random deck from lua files
+
+
+nachdem eine Karte zerstört wurde die Restlichen Karten nur eine Position nach Links bzw Rechts verschieben und nicht komplett resetten
+das selbe Problem mit der Hand
+
+Karteneffekte bekommen einen Pointer von Deck,Feld,Hand,
+dadurch könne diese die Karten manipulieren bzw neue Karten hinzufügen
+
+Text zur Anzeige von Effekten //?
+Verschiedene Standard Effekte einbauen
+
+battlecry
+-> es gibt verschiedene Effekte
+- in lua strings auslesen mit Wörtern wie "Damage","self","enemy","*amount*","spawn","play"
+
+
+Oberklasse: Effekte
+
+Jeweils UnterKlassen für 
+-Battlecry
+-Deathwish
+-andere Effekte
+
+Jeweils mit Unterklassen für die passenden Effekte welche dann beim auslesen der .lua file 
+gesetzt werden, und dann jeweils passend ausführen
+
+
+
+-> Funktion um Karten zum Feld hinzuzufügen- check for battlecry
+
+feld-> friedhof- check for deathwish
+
+andere effekte- effekt manager
