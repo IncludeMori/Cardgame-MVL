@@ -184,7 +184,7 @@ void Menu::render()
 
 	Music.render();
 
-	FpsTimer.render();
+	//FpsTimer.render();
 
 	
 }

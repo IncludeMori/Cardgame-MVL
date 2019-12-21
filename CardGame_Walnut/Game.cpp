@@ -147,7 +147,7 @@ void Game::render()
 	if (Esc_Overlay.isActive())
 		Esc_Overlay.render();
 
-	FpsTimer.render();
+	//FpsTimer.render();
 }
 
 
