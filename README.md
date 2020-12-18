@@ -1,5 +1,5 @@
 # Cardgame W
-A simple Cardgame (C++,SDL2) I wrote a few years ago while going to school.
+A simple Cardgame (C++,SDL2) I wrote a few years before going to university.
 Unfinished(working prototype) and the code is all over the place
 
 Quick preview(using placeholder & GNU art)
