@@ -141,7 +141,7 @@
     <ClCompile Include="Opponent_Hand.cpp">
       <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClCompile>
-    <ClCompile Include="Basic_Card.cpp">
+    <ClCompile Include="BaseCard.cpp">
       <Filter>Game\Card</Filter>
     </ClCompile>
     <ClCompile Include="loadCards.cpp">
@@ -240,7 +240,7 @@
     <ClCompile Include="Field.cpp">
       <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
-    <ClCompile Include="Default_Card.cpp">
+    <ClCompile Include="MonsterCard.cpp">
       <Filter>Game\Card\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Frame.cpp">
@@ -252,7 +252,7 @@
     <ClCompile Include="Effect_Description.cpp">
       <Filter>Game\Card\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="Effect_Card.cpp">
+    <ClCompile Include="EffectCard.cpp">
       <Filter>Game\Card\Spell</Filter>
     </ClCompile>
     <ClCompile Include="Hover_Card.cpp">
@@ -411,6 +411,9 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="CardSoundEffect.cpp">
+      <Filter>Game\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -437,7 +440,7 @@
     <ClInclude Include="Opponent_Hand.hpp">
       <Filter>Game\_mainGame\PVE\AI_Opponent</Filter>
     </ClInclude>
-    <ClInclude Include="Basic_Card.hpp">
+    <ClInclude Include="BaseCard.hpp">
       <Filter>Game\Card</Filter>
     </ClInclude>
     <ClInclude Include="Card_Types.hpp">
@@ -587,7 +590,7 @@
     <ClInclude Include="Who.hpp">
       <Filter>Game\_mainGame</Filter>
     </ClInclude>
-    <ClInclude Include="Default_Card.hpp">
+    <ClInclude Include="MonsterCard.hpp">
       <Filter>Game\Card\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Frame.hpp">
@@ -602,7 +605,7 @@
     <ClInclude Include="Effect_Description.hpp">
       <Filter>Game\Card\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Effect_Card.hpp">
+    <ClInclude Include="EffectCard.hpp">
       <Filter>Game\Card\Spell</Filter>
     </ClInclude>
     <ClInclude Include="Card_Effects.hpp">
@@ -760,6 +763,9 @@
     </ClInclude>
     <ClInclude Include="Renderer.hpp">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSoundEffect.hpp">
+      <Filter>Game\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

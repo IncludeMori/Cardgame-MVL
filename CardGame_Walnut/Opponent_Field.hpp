@@ -14,7 +14,7 @@ public:
 	void update();
 
 	//using Field::addCard;
-	void addCard(const std::shared_ptr<Basic_Card>& card, int index);
+	void addCard(const std::shared_ptr<BaseCard>& card, int index);
 	void attack();
 
 	bool ChooseCard();

@@ -22,7 +22,7 @@ void Hand::render()
 
 }
 
-bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
+bool Hand::drawCard(std::shared_ptr<BaseCard> card)
 {
 	if (card != nullptr)
 	{
@@ -31,7 +31,7 @@ bool Hand::drawCard(std::shared_ptr<Basic_Card> card)
 
 			mSize++;
 			mCard[mSize-1] = card;
-			mCard[mSize - 1]->changePosition(Position::HAND);
+			mCard[mSize - 1]->changePlacePosition(Position::HAND);
 			mCard[mSize - 1]->setPos(mPosX[mSize - 1+(mShift[mSize-1])], mPosY[mSize - 1+(mShift[mSize-1])]);
 			mPlayable[mSize - 1] = true;
 			mCard_isActive[mSize - 1] = true;
@@ -58,10 +58,10 @@ void Hand::startTurn()
 	mResource.increase();
 }
 
-std::shared_ptr<Basic_Card> Hand::getCard(int index)
+std::shared_ptr<BaseCard> Hand::getCard(int index)
 {
 	mCard_isActive[index] = false;
-	std::shared_ptr<Basic_Card> x;
+	std::shared_ptr<BaseCard> x;
 	x.swap(mCard[index]);
 	rearrangeRemove(index);
 	mSize--;
@@ -72,7 +72,7 @@ std::shared_ptr<Basic_Card> Hand::getCard(int index)
 	return x;
 }
 
-std::shared_ptr<Basic_Card> Hand::CardAt(int index)
+std::shared_ptr<BaseCard> Hand::CardAt(int index)
 {
 	return mCard[index];
 }

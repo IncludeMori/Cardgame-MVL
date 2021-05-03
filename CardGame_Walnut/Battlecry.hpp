@@ -5,7 +5,7 @@
 
 #include "Effects.hpp"
 
-class Default_Card;
+class MonsterCard;
 
 class Battlecry 
 	: public Effects

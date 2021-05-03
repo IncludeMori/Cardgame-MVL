@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Basic_Card.hpp"
+#include "BaseCard.hpp"
 
 
 class ManageCardsC
@@ -14,7 +14,7 @@ public:
 	void updatePos(int index);
 
 	
-	std::shared_ptr<Basic_Card> mCard[7];
+	std::shared_ptr<BaseCard> mCard[7];
 	int mPosX[7];
 	int mPosY[7];
 

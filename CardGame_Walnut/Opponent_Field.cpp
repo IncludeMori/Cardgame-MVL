@@ -39,7 +39,7 @@ void Opponent_Field::update()
 	for (int i = 0; i < 7; i++)
 	{
 		if (mCard[i] != nullptr) {
-			if (!dynamic_pointer_cast<Default_Card>(mCard[i])->isAlive())
+			if (!dynamic_pointer_cast<MonsterCard>(mCard[i])->isAlive())
 			{
 				removeCard(i);
 			}
@@ -50,16 +50,16 @@ void Opponent_Field::update()
 	int PLaboveCard = getMouseAboveCard();
 	if (PLaboveCard != -1)
 	{
-		mHoverEffect.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] - 5);
-		mHoverEffect.set(true);
+		mHoverEffectTexture.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] - 5);
+		mHoverEffectTexture.set(true);
 	}
 	else
 		if (!mAttackCard.isActive())
-			mHoverEffect.set(false);
+			mHoverEffectTexture.set(false);
 }
 
 
-void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
+void Opponent_Field::addCard(const std::shared_ptr<BaseCard>& card, int index)
 {
 	if (index != -1 && mSize >= 1 && card != nullptr)
 		if (mCard[getCardAt(index)] == nullptr)
@@ -123,9 +123,9 @@ void Opponent_Field::addCard(const std::shared_ptr<Basic_Card>& card, int index)
 			mSize++;
 			mCard[mSize - 1] = card;
 			mFieldHasACard[mSize - 1] = true;
-			std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->changePosition(Position::FIELD);
+			std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->changePlacePosition(Position::FIELD);
 			mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
-			if (std::dynamic_pointer_cast<Default_Card>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+			if (std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
 				mCard[mSize - 1]->activateEffect();
 
 		}
@@ -153,7 +153,7 @@ void Opponent_Field::attack()
 	int currentIndex = 0;
 	while (cardIndex == -1)
 	{
-		if (dynamic_pointer_cast<Default_Card>(mCard[currentIndex])->canAttack())
+		if (dynamic_pointer_cast<MonsterCard>(mCard[currentIndex])->canAttack())
 		{
 			mAttackCard.setPos(mCard[currentIndex]->getPosX(), mCard[currentIndex]->getPosY());
 			mAttackCard.setActive();
@@ -167,7 +167,7 @@ void Opponent_Field::attack()
 	{
 		if (mPlayerField.lock()->CardAt(currentIndex) != nullptr)
 		{
-			mPlayerField.lock()->DmgCard(currentIndex, dynamic_pointer_cast<Default_Card>(mCard[cardIndex])->getAttack());
+			mPlayerField.lock()->DmgCard(currentIndex, dynamic_pointer_cast<MonsterCard>(mCard[cardIndex])->getAttack());
 			targetIndex = 1;
 		}
 	}

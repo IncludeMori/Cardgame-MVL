@@ -12,7 +12,7 @@ EffectField::~EffectField()
 }
 
 
-bool EffectField::add(const std::shared_ptr<Basic_Card> &card)
+bool EffectField::add(const std::shared_ptr<BaseCard> &card)
 {
 	LastUsedCard = card;
 	LastUsedCard->setPos(87,SCREEN_HEIGHT/2-LastUsedCard->getHeight()/2);

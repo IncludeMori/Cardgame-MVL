@@ -1,9 +1,10 @@
-#include "GameObj.hpp"
 
 #include <SDL_image.h>
 #include <iostream>
 
+#include "GameObj.hpp"
 #include "Renderer.hpp"
+
 using namespace sdl2_Renderer;
 
 void GameObj::loadFromFile(const std::string &path)

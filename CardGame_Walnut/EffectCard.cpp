@@ -1,4 +1,4 @@
-#include "Effect_Card.hpp"
+#include "EffectCard.hpp"
 
 #include "sol\sol.hpp"
 
@@ -17,13 +17,13 @@
 #include "Renderer.hpp"
 using namespace sdl2_Renderer;
 
-Effect_Card::Effect_Card()
+EffectCard::EffectCard()
 {
 }
 
-Effect_Card::Effect_Card(std::string &path)
+EffectCard::EffectCard(std::string &path)
 {
-	mBasicCost = 0;
+	mBasicPlayCost = 0;
 
 
 	sol::state lua;
@@ -36,12 +36,12 @@ Effect_Card::Effect_Card(std::string &path)
 	int end = path.length();
 
 	std::string name = path.substr(begin + 1, end);
-	mBasicCost = lua[name]["cost"];
-	mPath = lua[name]["path"];
+	mBasicPlayCost = lua[name]["cost"];
+	mTexturePath = lua[name]["path"];
 
-	loadFromFile(mPath);
+	loadFromFile(mTexturePath);
 
-	mCostSign.changeDataTo(mBasicCost);
+	mCostIcon.changeDataTo(mBasicPlayCost);
 
 	Zauber mZauber = static_cast<Zauber>(lua[name]["mEffect"]);
 	
@@ -66,31 +66,34 @@ Effect_Card::Effect_Card(std::string &path)
 
 	
 
-	begin = mPath.find_last_of("/");
-	end = mPath.length();
+	begin = mTexturePath.find_last_of("/");
+	end = mTexturePath.length();
 
-	name = mPath.substr(begin + 1, end);
+	name = mTexturePath.substr(begin + 1, end);
 
-	HoverEffect.loadFromFile("Data/Big/" + name);
-
-	HoverEffect.disable();
+	std::cout << "NAME:" << name << std::endl;
+	std::cout << mName << std::endl;
+	mHoverEffectTexture.loadFromFile("Data/Big/" + name);
+	mHoverEffectTexture.setStats(mName, mBasicPlayCost, mRarity);
+	mHoverEffectTexture.disable();
+	mHoverEffectTexture.setPos(30, SCREEN_HEIGHT / 2 - 275);
 	
 }
 
 
-void Effect_Card::play(const std::shared_ptr<Field> &Field)
+void EffectCard::play(const std::shared_ptr<Field> &Field)
 {
 	Field->addEffectCard(shared_from_this());
 }
 
 
 
-void Effect_Card::renderSigns()
+void EffectCard::renderIcons()
 {
-	mCostSign.render();
+	mCostIcon.render();
 }
 
-void Effect_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void EffectCard::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
@@ -104,18 +107,18 @@ void Effect_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Re
 
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
-	renderSigns();
+	renderIcons();
 
-	if (MouseIsAbove())
+	if (mouseIsAbove())
 	{
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.render();
+			mHoverEffectTexture.render();
 		}
 	}
 }
 
-void Effect_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void EffectCard::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
@@ -129,13 +132,13 @@ void Effect_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_
 
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
-	renderSigns();
+	renderIcons();
 
-	if (MouseIsAbove())
+	if (mouseIsAbove())
 	{
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.render();
+			mHoverEffectTexture.render();
 			hoverIsActive = true;
 		}
 		else
@@ -143,7 +146,7 @@ void Effect_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_
 	}
 }
 
-void Effect_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void EffectCard::renderCardback(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
@@ -158,19 +161,19 @@ void Effect_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
-bool Effect_Card::activateEffect()
+bool EffectCard::activateEffect()
 {
 	return mEffect->activate();
 }
-bool Effect_Card::MouseIsAbove()
+bool EffectCard::mouseIsAbove()
 {
 		if (gMouse.isPressed())
 		{
-			if (HoverEffect.isActive())
-				HoverEffect.disable();
+			if (mHoverEffectTexture.isActive())
+				mHoverEffectTexture.disable();
 		}
 		else
-			HoverEffect.enable();
+			mHoverEffectTexture.enable();
 
 
 		int mouseX = gMouse.getX();
@@ -181,19 +184,19 @@ bool Effect_Card::MouseIsAbove()
 		}
 			return false;
 }
-void Effect_Card::moveSigns(int x, int y)
+void EffectCard::moveSigns(int x, int y)
 {
-	mCostSign.move(x, y);
+	mCostIcon.move(x, y);
 }
 
-void Effect_Card::setPos(int x, int y)
+void EffectCard::setPos(int x, int y)
 {
 	mPosX = x;
 	mPosY = y;
 
-	mCostSign.setPos(x, y);
+	mCostIcon.setPos(x, y);
 	
-	if (mPos == Position::HAND)
-		HoverEffect.setPos(x - 50, y - 400);
+	if (mPlacePosition == Position::HAND)
+		mHoverEffectTexture.setPos(x - 50, y - 400);
 
 }

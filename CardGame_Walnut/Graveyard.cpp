@@ -49,14 +49,14 @@ void Graveyard::render()
 		mCards[mCurrentSize-1]->render();
 }
 
-void Graveyard::add(std::shared_ptr<Basic_Card> card)
+void Graveyard::add(std::shared_ptr<BaseCard> card)
 {
 	card->setPos(mPosX, mPosY);
 	mCards[mCurrentSize] = card;
 	mCurrentSize++;
 }
 
-std::shared_ptr<Basic_Card> Graveyard::get(int index)
+std::shared_ptr<BaseCard> Graveyard::get(int index)
 {
 	if (index < mCurrentSize)
 		return mCards[index];

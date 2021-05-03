@@ -1,6 +1,6 @@
 #include "BoostCard.hpp"
 
-#include "Default_Card.hpp"
+#include "MonsterCard.hpp"
 
 #include "Player_Hand.hpp"
 
@@ -31,7 +31,7 @@ BoostCard::~BoostCard()
 {
 }
 
-bool BoostCard::activate(Basic_Card *card)
+bool BoostCard::activate(BaseCard *card)
 {
 	
 
@@ -44,13 +44,13 @@ bool BoostCard::activate(Basic_Card *card)
 		switch (mStat)
 		{
 		case(eStat::ATTACK):
-			dynamic_cast<Default_Card*>(card)->increaseAtk(mAmount);
+			dynamic_cast<MonsterCard*>(card)->increaseAtk(mAmount);
 			break;
 		case(eStat::HEALTH):
-			dynamic_cast<Default_Card*>(card)->increaseHealth(mAmount);
+			dynamic_cast<MonsterCard*>(card)->increaseHealth(mAmount);
 			break;
 		case(eStat::COST):
-			dynamic_cast<Default_Card*>(card)->increaseCost(mAmount);
+			dynamic_cast<MonsterCard*>(card)->modifyCost(mAmount);
 			break;
 		case(eStat::ERROR):
 			return false;
@@ -77,7 +77,7 @@ bool BoostCard::activate()
 			while (i >= 0)
 			{
 				if (mDeck.lock()->CardAt(i) != nullptr)
-					dynamic_pointer_cast<Default_Card>(mDeck.lock()->CardAt(i))->increase(mStat, mAmount);
+					dynamic_pointer_cast<MonsterCard>(mDeck.lock()->CardAt(i))->increase(mStat, mAmount);
 				i--;
 			}
 			
@@ -88,7 +88,7 @@ bool BoostCard::activate()
 			rnd = rand() % mDeck.lock()->getSize();
 			if (mDeck.lock()->CardAt(rnd) != nullptr)
 			{
-				dynamic_pointer_cast<Default_Card>(mDeck.lock()->CardAt(rnd))->increase(mStat, mAmount);
+				dynamic_pointer_cast<MonsterCard>(mDeck.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			}
 			else
 			{
@@ -108,7 +108,7 @@ bool BoostCard::activate()
 		case(eTarget_spec::ALL):
 			for (int i = 0; i < mHand.lock()->getSize(); i++)
 			{
-				dynamic_pointer_cast<Default_Card>(mHand.lock()->CardAt(i))->increase(mStat, mAmount);
+				dynamic_pointer_cast<MonsterCard>(mHand.lock()->CardAt(i))->increase(mStat, mAmount);
 			}
 			break;//ALL
 		case(eTarget_spec::RANDOM):
@@ -116,7 +116,7 @@ bool BoostCard::activate()
 			int rnd;
 			rnd = rand() % mHand.lock()->getSize();
 			if (mHand.lock()->CardAt(rnd) != nullptr)
-				dynamic_pointer_cast<Default_Card>(mHand.lock()->CardAt(rnd))->increase(mStat, mAmount);
+				dynamic_pointer_cast<MonsterCard>(mHand.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			else
 				std::cout << "Error: Boost Hand(Random)" << std::endl;
 			break;//RANDOM
@@ -130,15 +130,15 @@ bool BoostCard::activate()
 		{
 		case(eTarget_spec::ALL):
 			for (int i = 0; i < mField.lock()->getSize(); i++)
-				dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
+				dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
 			for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
-				dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
+				dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
 			break;
 		case(eTarget_spec::RANDOM):
 			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand.lock()->getSize();
-			dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(rnd))->increase(mStat, mAmount);
+			dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(rnd))->increase(mStat, mAmount);
 			break;
 		case(eTarget_spec::TARGET):
 
@@ -148,20 +148,20 @@ bool BoostCard::activate()
 			{
 				for (int i = 0; i < mField.lock()->getSize(); i++)
 				{
-					if (dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i)) != nullptr)
-					if (dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i)) != nullptr)
+					if (dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
 					{
-						dynamic_pointer_cast<Default_Card>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
+						dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->increase(mStat, mAmount);
 						return true;
 					}
 
 				}
 				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i)) != nullptr)
-					if (dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->MouseIsAbove() && gMouse.isPressed())
+					if (dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i)) != nullptr)
+					if (dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
 					{
-						dynamic_pointer_cast<Default_Card>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
+						dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->increase(mStat, mAmount);
 						return true;
 					}
 

@@ -2,7 +2,7 @@
 
 #include "Effects.hpp"
 
-#include "Basic_Card.hpp"
+#include "BaseCard.hpp"
 
 class HealOrDmg : public Effects
 {
@@ -11,7 +11,7 @@ public:
 	HealOrDmg(int amount);
 	~HealOrDmg();
 
-	bool activate(Basic_Card *card);
+	bool activate(BaseCard *card);
 	bool activate();
 
 private:

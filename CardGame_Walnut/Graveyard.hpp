@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "Basic_Card.hpp"
+#include "BaseCard.hpp"
 #include "DefaultTexture.hpp"
 
 class Graveyard
@@ -13,8 +13,8 @@ public:
 	~Graveyard();
 
 	void render();
-	void add(std::shared_ptr<Basic_Card> card);
-	std::shared_ptr<Basic_Card> get(int index);
+	void add(std::shared_ptr<BaseCard> card);
+	std::shared_ptr<BaseCard> get(int index);
 
 	void show();
 	bool ShowIsActive();
@@ -27,7 +27,7 @@ protected:
 	int mCurrentSize;
 	bool mIsActive;
 
-	std::shared_ptr<Basic_Card> mCards[50];
+	std::shared_ptr<BaseCard> mCards[50];
 	DefaultTexture mEmptyGraveTexture;
 };
 

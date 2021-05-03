@@ -33,7 +33,7 @@ Create_Deck::Create_Deck()
 	CardAdded = false;
 	CardRemoved = false;
 
-	mPath = "Save/player_deck.txt";
+	mTexturePath = "Save/player_deck.txt";
 
 	mPage = 0;
 	Max_Page = 3;
@@ -123,7 +123,7 @@ bool Create_Deck::update()
 				for (unsigned int i = 0; i < mCurrentDeckCards.size(); i++)
 				{
 					int j = 0;
-					if (mCurrentDeckCards[i]->MouseIsAbove())
+					if (mCurrentDeckCards[i]->mouseIsAbove())
 					{
 						std::string name = mCurrentDeckCards[i]->getName();
 
@@ -240,7 +240,7 @@ bool Create_Deck::update()
 				{
 					if (i < (mPage + 1) * 15)
 					{
-						if (mCards[i]->MouseIsAbove() && gMouse.isPressed())
+						if (mCards[i]->mouseIsAbove() && gMouse.isPressed())
 						{
 							std::cout << "Name:" << mCards[i]->getName();
 							std::string y = mCards[i]->getName();
@@ -269,7 +269,7 @@ bool Create_Deck::update()
 
 					if (mCurrentDeckCards[i] != nullptr)
 					{
-						if (mCurrentDeckCards[i]->MouseIsAbove() && gMouse.isPressed())
+						if (mCurrentDeckCards[i]->mouseIsAbove() && gMouse.isPressed())
 						{
 							std::cout << "Removed:" << i << std::endl;
 							mCurrentDeckCards[i].reset();

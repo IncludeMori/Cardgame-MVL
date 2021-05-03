@@ -66,7 +66,7 @@ void Player_Hand::update(const std::shared_ptr<Player_Field> &mField)
 				if (!isMovingACard) {
 					//check if player wants to move the card
 					if (gMouse.isPressed() &&
-						mCard[i]->MouseIsAbove())
+						mCard[i]->mouseIsAbove())
 					{
 						mCard[i]->setActive();
 						std::cout << "Player is moving card:" << i << std::endl;

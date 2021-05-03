@@ -9,7 +9,7 @@
 
 #include "Card_Effects.hpp"
 
-class Default_Card;
+class MonsterCard;
 
 class Deck;
 class Field;
@@ -24,7 +24,7 @@ public:
 	BoostCard(eTarget target, eTarget_spec target_spec, eStat stat, int amount);
 	~BoostCard();
 
-	bool activate(Basic_Card *card); //self
+	bool activate(BaseCard *card); //self
 	bool activate(); //target(s)
 
 private:

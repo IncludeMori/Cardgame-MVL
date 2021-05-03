@@ -12,7 +12,7 @@ loadCards::~loadCards()
 }
 
 
-void loadCards::load(std::vector<std::unique_ptr<Default_Card>> &cards)
+void loadCards::load(std::vector<std::unique_ptr<MonsterCard>> &cards)
 {
 	GetFiles files;
 	
@@ -21,7 +21,7 @@ void loadCards::load(std::vector<std::unique_ptr<Default_Card>> &cards)
 	for (int i = 0; i < files.getSize(); i++)
 	{
 		Filenames.at(i) = Filenames.at(i).substr(0, Filenames.at(i).find_last_of("."));
-		cards.push_back(std::unique_ptr<Default_Card>(new Default_Card(Filenames.at(i),1)));
+		cards.push_back(std::unique_ptr<MonsterCard>(new MonsterCard(Filenames.at(i),1)));
 		cards.at(i)->loadTexture();
 	}
 

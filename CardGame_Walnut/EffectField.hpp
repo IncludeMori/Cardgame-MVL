@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Effect_Card.hpp"
+#include "EffectCard.hpp"
 
 class EffectField
 {
@@ -10,7 +10,7 @@ public:
 	EffectField();
 	~EffectField();
 
-	bool add(const std::shared_ptr<Basic_Card> &card);
+	bool add(const std::shared_ptr<BaseCard> &card);
 	bool checkEffect();
 
 	void render();
@@ -18,7 +18,7 @@ public:
 	void reset();
 
 protected:
-	std::shared_ptr<Basic_Card> LastUsedCard = nullptr;
+	std::shared_ptr<BaseCard> LastUsedCard = nullptr;
 
 };
 

@@ -58,7 +58,7 @@ void Hero::dealDmg(int amount)
 
 	if (mHPSign.getValue() <= 0) { mIsAlive = false; }
 }
-bool Hero::MouseIsAbove()
+bool Hero::mouseIsAbove()
 {
 	if (gMouse.getX() > mPosX && gMouse.getX() < mPosX + mPortrait.getWidth() && gMouse.getY() > mPosY && gMouse.getY() < mPosY + mPortrait.getHeight())
 	{

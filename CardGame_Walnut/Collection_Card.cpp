@@ -17,7 +17,7 @@ Collection_Card::Collection_Card(std::string &path)
 
 	mName = path;
 	
-	mPath = lua[mName]["path"];
+	mTexturePath = lua[mName]["path"];
 
 	
 }
@@ -46,7 +46,7 @@ void Collection_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SD
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 }
 
-bool Collection_Card::MouseIsAbove()
+bool Collection_Card::mouseIsAbove()
 {
 	int mouseX = gMouse.getX();
 	int mouseY = gMouse.getY();

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Default_Card.hpp"
+#include "MonsterCard.hpp"
 
 class Collection_Card : public DefaultTexture
 {
@@ -11,7 +11,7 @@ public:
 
 	void setPos(int x, int y); //mPosX = x; mPosY = y;
 
-	bool MouseIsAbove();
+	bool mouseIsAbove();
 
 	bool loadTexture();
 
@@ -19,6 +19,6 @@ public:
 
 private:
 	std::string mName;
-	std::string mPath;
+	std::string mTexturePath;
 
 };

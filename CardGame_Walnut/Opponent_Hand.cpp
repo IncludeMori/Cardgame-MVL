@@ -34,7 +34,7 @@ Opponent_Hand::Opponent_Hand()
 	mResource.setPos(SCREEN_WIDTH / 2 + 2 * mResource.getWidth()+10, mResource.getHeight() * 4.5 -5,1);
 }
 
-std::shared_ptr<Basic_Card> Opponent_Hand::getBestCard()
+std::shared_ptr<BaseCard> Opponent_Hand::getBestCard()
 {
 	int index = -1;
 	int highest = -1;
@@ -42,9 +42,9 @@ std::shared_ptr<Basic_Card> Opponent_Hand::getBestCard()
 	for (int i = 0; i < mSize; i++)
 	{
 		if (mCard[i] != nullptr) {
-			if (dynamic_pointer_cast<Default_Card>(mCard[i])->getAttack() > highest && mCard[i]->getCost() <= mResource.getAvailable())
+			if (dynamic_pointer_cast<MonsterCard>(mCard[i])->getAttack() > highest && mCard[i]->getCost() <= mResource.getAvailable())
 			{
-				highest = dynamic_pointer_cast<Default_Card>(mCard[i])->getAttack();
+				highest = dynamic_pointer_cast<MonsterCard>(mCard[i])->getAttack();
 				index = i;
 		
 			}
@@ -87,6 +87,6 @@ void Opponent_Hand::render()
 	mResource.render();
 		for (int i = 0; i < mSize; i++)
 		{
-			if (mCard[i] != nullptr) { mCard[i]->renderBackside(); }
+			if (mCard[i] != nullptr) { mCard[i]->renderCardback(); }
 		}
 }

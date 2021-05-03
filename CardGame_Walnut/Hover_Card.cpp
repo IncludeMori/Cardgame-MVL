@@ -5,7 +5,7 @@ using namespace sdl2_Renderer;
 
 Hover_Card::Hover_Card()
 {
-	mIcons.loadFromFile("Data/BigCard_Interface/Icons.png");
+	mIcon.loadFromFile("Data/BigCard_Interface/Icons.png");
 	mFrame.load(Rarity::Bronze, true);
 }
 
@@ -17,15 +17,27 @@ Hover_Card::Hover_Card(std::string &name, int health, int atk, int cost,Rarity r
 	mCost = cost;
 	mRarity = rarity;
 
-	mIcons.loadFromFile("Data/BigCard_Interface/Icons.png");
+	mIcon.loadFromFile("Data/BigCard_Interface/Icons.png");
 	mFrame.load(rarity,true);
+
+	mNameplate.setName(name);
+}
+
+Hover_Card::Hover_Card(std::string& name, int cost, Rarity rarity) {
+
+	mIsActive = false;
+	mCost = cost;
+	mRarity = rarity;
+
+	mIcon.loadFromFile("Data/BigCard_Interface/Icons.png");
+	mFrame.load(rarity, true);
 
 	mNameplate.setName(name);
 }
 
 void Hover_Card::update()
 {
-	mIcons.setPos(mPosX, mPosY);
+	mIcon.setPos(mPosX, mPosY);
 	mFrame.setPos(mPosX, mPosY);
 	mNameplate.setPos(mPosX, mPosY);
 	mEffectDescr.setPos(mPosX, mPosY+mHeight+5);
@@ -52,7 +64,7 @@ void Hover_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Ren
 
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 	mFrame.render();
-	mIcons.render();
+	mIcon.render();
 	mNameplate.render();
 	mEffectDescr.render();
 
@@ -76,17 +88,23 @@ bool Hover_Card::isActive()
 	return mIsActive;
 }
 
-void Hover_Card::setStats(std::string &name, int health, int atk, int cost, Rarity rarity)
+void Hover_Card::setStats(std::string& name, int cost, Rarity rarity)
 {
 	mIsActive = false;
-	mHealth = health;
-	mAttack = atk;
 	mCost = cost;
 	mRarity = rarity;
 	mFrame.load(rarity, true);
 	mNameplate.setName(name);
 
 	mSCost.changeDataTo(mCost);
+}
+void Hover_Card::setStats(std::string &name, int health, int atk, int cost, Rarity rarity)
+{
+	setStats(name, cost, rarity);
+	
+	mHealth = health;
+	mAttack = atk;
+
 	mSHealth.changeDataTo(mHealth);
 	mSAttack.changeDataTo(mAttack);
 }

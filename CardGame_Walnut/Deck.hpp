@@ -3,8 +3,8 @@
 #include <memory>
 #include <vector>
 
-#include "Basic_Card.hpp"
-#include "Default_Card.hpp"
+#include "BaseCard.hpp"
+#include "MonsterCard.hpp"
 #include "HeroHealth.hpp"
 
 #include "Place.hpp"
@@ -21,8 +21,8 @@ public:
 	void setAlpha(Uint8 alpha);
 
 	int getSize();
-	std::shared_ptr<Basic_Card> getNextCard();
-	std::shared_ptr<Basic_Card> CardAt(int index);
+	std::shared_ptr<BaseCard> getNextCard();
+	std::shared_ptr<BaseCard> CardAt(int index);
 
 	void free();
 
@@ -35,9 +35,9 @@ protected:
 	const int MIN_SIZE = 20;
 	const int MAX_SAME_CARD = 3;
 
-	std::shared_ptr<Basic_Card> mEmptyCard = nullptr;
-	std::vector<std::shared_ptr<Basic_Card>> mCard;
-	std::vector<std::shared_ptr<Basic_Card>>::iterator mCardIt;
+	std::shared_ptr<BaseCard> mEmptyCard = nullptr;
+	std::vector<std::shared_ptr<BaseCard>> mCard;
+	std::vector<std::shared_ptr<BaseCard>>::iterator mCardIt;
 	DefaultTexture EmptyDeck;
 	
 	HeroHealth mSizeIcon;
@@ -45,7 +45,7 @@ protected:
 	int mSize;
 	int mCurrentTop;
 
-	//pass to Default_Card 
+	//pass to MonsterCard 
 	std::weak_ptr<Field> mField;
 	std::weak_ptr<Hand> mHand;
 	//Functions

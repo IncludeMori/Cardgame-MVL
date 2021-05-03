@@ -2,8 +2,8 @@
 
 #include <memory>
 
-#include "Basic_Card.hpp"
-#include "Default_Card.hpp"
+#include "BaseCard.hpp"
+#include "MonsterCard.hpp"
 #include "draw.hpp" //dev test function
 #include "Arrow.hpp"
 #include "ManageCardsC.hpp"
@@ -27,13 +27,13 @@ public:
 	Field();
 	~Field();
 	
-	virtual void addCard(const std::shared_ptr<Basic_Card>& card);
-	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int posX,int posY); //TODO
-	virtual void addCard(const std::shared_ptr<Basic_Card>& card, int index);
+	virtual void addCard(const std::shared_ptr<BaseCard>& card);
+	virtual void addCard(const std::shared_ptr<BaseCard>& card, int posX,int posY); //TODO
+	virtual void addCard(const std::shared_ptr<BaseCard>& card, int index);
 
-	virtual void addEffectCard(const std::shared_ptr<Basic_Card> &card) {};
+	virtual void addEffectCard(const std::shared_ptr<BaseCard> &card) {};
 
-	std::shared_ptr<Basic_Card> CardAt(int index);
+	std::shared_ptr<BaseCard> CardAt(int index);
 
 	virtual void render();
  
@@ -55,7 +55,7 @@ protected:
 	Last_Added last_added;
 	bool mLastCardOverwritten = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem feld zu fokusieren
 
-	Field_HoverEffect mHoverEffect;
+	Field_HoverEffect mHoverEffectTexture;
 	DefaultTexture mBackground;
 	std::shared_ptr<EffectField> mEffectField; //shared between PlayerField && OpponentField
 
@@ -84,7 +84,7 @@ protected:
 	int mFieldHasACard[7];
 
 	//pointer to [Deck]
-	std::shared_ptr<Basic_Card> mCard[7];
+	std::shared_ptr<BaseCard> mCard[7];
 
 	//Card position
 	//std::vector<int, int> mPosition;

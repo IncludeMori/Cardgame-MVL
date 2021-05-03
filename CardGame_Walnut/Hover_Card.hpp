@@ -17,6 +17,7 @@ class Hover_Card : public DefaultTexture
 public:
 	Hover_Card();
 	Hover_Card(std::string &name,int health,int atk, int cost, Rarity rarity);
+	Hover_Card(std::string& name, int cost, Rarity rarity);
 
 	void update();
 	void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
@@ -26,6 +27,7 @@ public:
 
 	bool isActive();
 
+	void setStats(std::string& name, int cost, Rarity rarity);
 	void setStats(std::string &name, int health, int atk, int cost, Rarity rarity);
 	void setEffect(std::vector<std::string> &effects);
 
@@ -39,7 +41,7 @@ private:
 
 	//Interface
 	Frame mFrame;
-	Icons mIcons;
+	Icons mIcon;
 
 	Name_Plate mNameplate;
 	Effect_Description mEffectDescr;

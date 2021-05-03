@@ -19,7 +19,7 @@ public:
 
 	void dealDmg(int amount);
 
-	bool MouseIsAbove();
+	bool mouseIsAbove();
 
 	void setAlpha(Uint8 alpha);
 

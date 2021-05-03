@@ -1,5 +1,5 @@
 #include "Battlecry.hpp"
-#include "Default_Card.hpp"
+#include "MonsterCard.hpp"
 
 
 Battlecry::Battlecry()

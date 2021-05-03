@@ -25,7 +25,7 @@ Deck::~Deck()
 void Deck::render()
 {
 	if (mCurrentTop < MAX_SIZE) {
-		mCard[mCurrentTop]->renderBackside();
+		mCard[mCurrentTop]->renderCardback();
 		mSizeIcon.render();
 	}
 	else
@@ -44,7 +44,7 @@ int Deck::getSize()
 	return mSize-mCurrentTop;
 }
 
-std::shared_ptr<Basic_Card> Deck::getNextCard()
+std::shared_ptr<BaseCard> Deck::getNextCard()
 {
 	if (mCurrentTop < MAX_SIZE)
 	{
@@ -55,7 +55,7 @@ std::shared_ptr<Basic_Card> Deck::getNextCard()
 	else { return nullptr; }
 }
 
-std::shared_ptr<Basic_Card> Deck::CardAt(int index)
+std::shared_ptr<BaseCard> Deck::CardAt(int index)
 {
 	if (index >= mCurrentTop)
 		return mCard[index];
@@ -86,7 +86,7 @@ void Deck::createDeck()
 
 		std::cout << "Path:" << path << std::endl;*/
 		path = "test_boost_hand";
-		mCard.push_back(std::shared_ptr<Basic_Card>(new Default_Card(path,1)));
+		mCard.push_back(std::shared_ptr<BaseCard>(new MonsterCard(path,1)));
 		mCard[i]->setPos(mPosX, mPosY);
 
 		if (mField.lock() != nullptr && mHand.lock() != nullptr)
@@ -105,7 +105,7 @@ void Deck::createDeck()
 	// load card_texture
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
-		std::dynamic_pointer_cast<Default_Card>(mCard[i])->loadTexture();
+		std::dynamic_pointer_cast<MonsterCard>(mCard[i])->loadTexture();
 	}
 
 	mSizeIcon.changeDataTo(mSize);

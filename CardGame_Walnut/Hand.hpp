@@ -3,7 +3,7 @@
 #include <memory>
 #include <iostream>
 
-#include "Default_Card.hpp"
+#include "MonsterCard.hpp"
 #include "Resource.hpp"
 
 #include "Place.hpp"
@@ -17,14 +17,14 @@ public:
 
 	virtual void render();
 	
-	bool drawCard(std::shared_ptr<Basic_Card> card);
+	bool drawCard(std::shared_ptr<BaseCard> card);
 	void startTurn();
 
 	int getSize();
 	int getPosX(int index);
 	int getPosY(int index);
-	std::shared_ptr<Basic_Card> getCard(int index);
-	std::shared_ptr<Basic_Card> CardAt(int index);
+	std::shared_ptr<BaseCard> getCard(int index);
+	std::shared_ptr<BaseCard> CardAt(int index);
 
 	void setGraveyard(std::shared_ptr<Graveyard> grave);
 
@@ -44,7 +44,7 @@ protected:
 	int mNextDrawIndex;
 	bool mPlayable[10];
 
-	std::shared_ptr<Basic_Card> mCard[10];
+	std::shared_ptr<BaseCard> mCard[10];
 	Resource mResource;
 
 	int mPosX[10], mPosY[10];

@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "Default_Card.hpp"
+#include "MonsterCard.hpp"
 #include "Arrow.hpp"
 #include "draw.hpp"
 #include <memory>
@@ -29,8 +29,8 @@ public:
 	bool update();
 	void render();
 
-	void addCard(const std::shared_ptr<Basic_Card> &card);
-	void addEffectCard(const std::shared_ptr<Basic_Card> &card);
+	void addCard(const std::shared_ptr<BaseCard> &card);
+	void addEffectCard(const std::shared_ptr<BaseCard> &card);
 
 	bool isInside(int x, int y); // moving card from Player_Hand is inside field? -> player wants to play card
 

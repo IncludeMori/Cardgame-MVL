@@ -14,12 +14,12 @@ public:
 	virtual void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) = 0;
 	virtual void loadFromFile(const std::string &path);
 
-	virtual void setColor(Uint8 red, Uint8 green, Uint8 blue); //changes color
-	virtual void setBlendMode(SDL_BlendMode blending); //changes blend mode
-	virtual void setAlpha(Uint8 alpha); //changes alpha
+	virtual void setColor(Uint8 red, Uint8 green, Uint8 blue); 
+	virtual void setBlendMode(SDL_BlendMode blending); 
+	virtual void setAlpha(Uint8 alpha); 
 
 	virtual void setPos(int x, int y);
-	virtual void move(int x, int y); //posX+=x,posY+=y
+	virtual void move(int x, int y); 
 
 	int getPosX(), getPosY();
 	int getWidth(), getHeight();
@@ -34,5 +34,6 @@ protected:
 	SDL_Rect mDstRect;
 	int mPosX = 0, mPosY = 0;
 	int mWidth = 0, mHeight = 0;
+	int mID = 0;
 };
 

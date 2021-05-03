@@ -129,11 +129,12 @@
   <ItemGroup>
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="Audio_class.cpp" />
-    <ClCompile Include="Basic_Card.cpp" />
+    <ClCompile Include="BaseCard.cpp" />
     <ClCompile Include="Battlecry.cpp" />
     <ClCompile Include="BoostCard.cpp" />
     <ClCompile Include="bTexture.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CardSoundEffect.cpp" />
     <ClCompile Include="Click_EventHandler.cpp" />
     <ClCompile Include="ClientSocket.cpp" />
     <ClCompile Include="CL_EventHandler.cpp" />
@@ -149,7 +150,7 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefaultAnimation.cpp" />
     <ClCompile Include="DefaultTexture.cpp" />
-    <ClCompile Include="Default_Card.cpp" />
+    <ClCompile Include="MonsterCard.cpp" />
     <ClCompile Include="display_text.cpp" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="draw_collection.cpp" />
@@ -157,7 +158,7 @@
     <ClCompile Include="EffectField.cpp" />
     <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="Effects.cpp" />
-    <ClCompile Include="Effect_Card.cpp" />
+    <ClCompile Include="EffectCard.cpp" />
     <ClCompile Include="Effect_Description.cpp" />
     <ClCompile Include="EnergyInterface.cpp" />
     <ClCompile Include="EnergySign.cpp" />
@@ -229,11 +230,12 @@
   <ItemGroup>
     <ClInclude Include="Arrow.hpp" />
     <ClInclude Include="Audio_class.hpp" />
-    <ClInclude Include="Basic_Card.hpp" />
+    <ClInclude Include="BaseCard.hpp" />
     <ClInclude Include="Battlecry.hpp" />
     <ClInclude Include="BoostCard.hpp" />
     <ClInclude Include="bTexture.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="CardSoundEffect.hpp" />
     <ClInclude Include="Card_Effects.hpp" />
     <ClInclude Include="Card_Stats_Type.hpp" />
     <ClInclude Include="Card_Types.hpp" />
@@ -253,7 +255,7 @@
     <ClInclude Include="Deck.hpp" />
     <ClInclude Include="DefaultAnimation.hpp" />
     <ClInclude Include="DefaultTexture.hpp" />
-    <ClInclude Include="Default_Card.hpp" />
+    <ClInclude Include="MonsterCard.hpp" />
     <ClInclude Include="display_text.hpp" />
     <ClInclude Include="draw.hpp" />
     <ClInclude Include="draw_collection.hpp" />
@@ -263,7 +265,7 @@
     <ClInclude Include="EffectField.hpp" />
     <ClInclude Include="EffectManager.hpp" />
     <ClInclude Include="Effects.hpp" />
-    <ClInclude Include="Effect_Card.hpp" />
+    <ClInclude Include="EffectCard.hpp" />
     <ClInclude Include="Effect_Description.hpp" />
     <ClInclude Include="EnergyInterface.hpp" />
     <ClInclude Include="EnergySign.hpp" />

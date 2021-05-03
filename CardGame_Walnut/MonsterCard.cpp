@@ -1,26 +1,20 @@
 
-#include "Default_Card.hpp"
+
 #include <iostream>
+#include <memory>
+
+#include "MonsterCard.hpp"
 #include "sol\sol.hpp"
 #include "gMouse.hpp"
 #include "draw.hpp"
-
 #include "Field.hpp"
 #include "Card_Effects.hpp"
-#include <memory>
 #include "BoostCard.hpp"
-
 #include "Data.hpp"
-//#include "BoostCard.hpp"
-
 #include "Renderer.hpp"
-
 #include "Card_Stats_Type.hpp"
-
 #include "Place.hpp"
-
 #include "getEffectAsString.hpp"
-
 #include "SDL_Deleter.hpp"
 
 using namespace CARD_STATS_TYPE;
@@ -28,8 +22,7 @@ using namespace CARD_STATS_TYPE;
 using namespace sdl2_Deleter;
 using namespace sdl2_Renderer;
 
-void test(SDL_Texture*  ptr) { if (ptr) SDL_DestroyTexture(ptr); std::cout << "sdl_texture destroyed" << std::endl; }
-
+void deleter_t(SDL_Texture*  ptr) { if (ptr) SDL_DestroyTexture(ptr); std::cout << "sdl_texture destroyed" << std::endl; }
 
 std::shared_ptr<SDL_Texture> loadTextureHelper(const std::string &path,int &width,int &height)
 {
@@ -49,7 +42,7 @@ std::shared_ptr<SDL_Texture> loadTextureHelper(const std::string &path,int &widt
 
 		//Create texture from surface pixels
 	
-		std::shared_ptr<SDL_Texture> newTexture(SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface),test);
+		std::shared_ptr<SDL_Texture> newTexture(SDL_CreateTextureFromSurface(Renderer.get(), loadedSurface),deleter_t);
 		if (!newTexture)
 		{
 			throw std::runtime_error("Failed to create texture from surface at " + path + "    Sdl_Error:" + SDL_GetError());
@@ -68,61 +61,21 @@ std::shared_ptr<SDL_Texture> loadTextureHelper(const std::string &path,int &widt
 	return texture;
 }
 
-/*
-Default_Card::Default_Card(std::string &path)
-{
-	
-	
-
-
-	mActive = false;
-	mAlive = true;
-	mCanAttack = true;
-
-	mBasicHealth = 0;
-	mBasicAttack = 0;
-	mBasicCost = 0;
-	
-	
-	sol::state lua;
-	lua.script_file(path+".lua");
-
-	int begin = path.find_last_of("/");
-	int end = path.length();
-	
-	std::string name = path.substr(begin + 1, end);
-	mName = name;
-
-	mBasicHealth = lua[name]["health"];
-	mBasicAttack = lua[name]["atk"];
-	mBasicCost = lua[name]["cost"];
-	mPath = lua[name]["path"];
-
-	mHealthSign.changeDataTo(mBasicHealth);
-	mCostSign.changeDataTo(mBasicCost);
-	mAPSign.changeDataTo(mBasicAttack);
-
-	HoverEffect.loadFromFile("Data/"+name+".png");
-	HoverEffect.setPos(50, SCREEN_HEIGHT / 2 - 150);
-
-
-}
-*/
-Default_Card::Default_Card(std::string &path, int x)
+MonsterCard::MonsterCard(std::string &path, int x)
 {
 	int w, h;
 	std::string p = "Data/numbers.png";
 	std::shared_ptr<SDL_Texture> ATexture = loadTextureHelper(p, w, h);
 
 	//to do
-	mIconStats.push_back(StatsSign(ATexture, w, h)); //cost
-	mIconStats.push_back(StatsSign(ATexture, w, h)); //healtg
-	mIconStats.push_back(StatsSign(ATexture, w, h)); //attack
+	mStatsIcon.push_back(StatsSign(ATexture, w, h)); //cost
+	mStatsIcon.push_back(StatsSign(ATexture, w, h)); //healtg
+	mStatsIcon.push_back(StatsSign(ATexture, w, h)); //attack
 	
 
-	mCostSign.setup(ATexture, w, h);
-	mAPSign.setup(ATexture, w, h);
-	mHealthSign.setup(ATexture, w, h);
+	mCostIcon.setup(ATexture, w, h);
+	mApIcon.setup(ATexture, w, h);
+	mHealthIcon.setup(ATexture, w, h);
 
 	getEffectAsString EffectToString;
 
@@ -132,7 +85,7 @@ Default_Card::Default_Card(std::string &path, int x)
 
 	mBasicHealth = 0;
 	mBasicAttack = 0;
-	mBasicCost = 0;
+	mBasicPlayCost = 0;
 
 
 	sol::state lua;
@@ -151,12 +104,12 @@ Default_Card::Default_Card(std::string &path, int x)
 
 	mBasicHealth = lua[name]["health"];
 	mBasicAttack = lua[name]["atk"];
-	mBasicCost = lua[name]["cost"];
-	mPath = lua[name]["path"];
+	mBasicPlayCost = lua[name]["cost"];
+	mTexturePath = lua[name]["path"];
 
-	mHealthSign.changeDataTo(mBasicHealth);
-	mCostSign.changeDataTo(mBasicCost);
-	mAPSign.changeDataTo(mBasicAttack);
+	mHealthIcon.changeDataTo(mBasicHealth);
+	mCostIcon.changeDataTo(mBasicPlayCost);
+	mApIcon.changeDataTo(mBasicAttack);
 
 	std::vector<std::string> effects;
 	mEffectType = static_cast<eEffect>(lua[name]["mEffect"]);
@@ -197,63 +150,56 @@ Default_Card::Default_Card(std::string &path, int x)
 	default:
 		break;
 	}
-	// switch with enum instead??
-   // if (effect == 1)
-	//{
-	//	mEffect.reset(new BoostCard(amount, Stat::ATTACK));
-	//}
 
-	begin = mPath.find_last_of("/");
-	end = mPath.length();
+	begin = mTexturePath.find_last_of("/");
+	end = mTexturePath.length();
 
-	name = mPath.substr(begin + 1, end);
+	name = mTexturePath.substr(begin + 1, end);
 
-	HoverEffect.loadFromFile("Data/Big/" + name);
-	HoverEffect.setStats(mName, mBasicHealth, mBasicAttack, mBasicCost, mRarity);
-	HoverEffect.setEffect(effects);
+	mHoverEffectTexture.loadFromFile("Data/Big/" + name);
+	mHoverEffectTexture.setStats(mName, mBasicHealth, mBasicAttack, mBasicPlayCost, mRarity);
+	mHoverEffectTexture.setEffect(effects);
 	mFrame.load(mRarity,false);
-	mIcons.load();
+	mIcon.load();
 	mBackground.loadFromFile("Data/Cards/background.png");
-	HoverEffect.disable();
-	HoverEffect.setPos(30, SCREEN_HEIGHT / 2 - 275);
+	mHoverEffectTexture.disable();
+	mHoverEffectTexture.setPos(30, SCREEN_HEIGHT / 2 - 275);
 }
-Default_Card::Default_Card(int Health, int Attack, int Type, std::string &path)
+MonsterCard::MonsterCard(int Health, int Attack, int Type, std::string &path)
 {
-
-	
 	mActive = false;
 	mAlive = true;
 	mCanAttack = true;
 
 	mBasicHealth = Health;
 	mBasicAttack = Attack;
-	mBasicCost = Type;
-	mPath = path;
-	mHealthSign.changeDataTo(mBasicHealth);
-	mCostSign.changeDataTo(mBasicCost);
-	mAPSign.changeDataTo(mBasicAttack);
+	mBasicPlayCost = Type;
+	mTexturePath = path;
+	mHealthIcon.changeDataTo(mBasicHealth);
+	mCostIcon.changeDataTo(mBasicPlayCost);
+	mApIcon.changeDataTo(mBasicAttack);
 }
 
-Default_Card::~Default_Card()
+MonsterCard::~MonsterCard()
 {
 
 }
 
-void Default_Card::play(const std::shared_ptr<Field> &Field)
+void MonsterCard::play(const std::shared_ptr<Field> &Field)
 {
 	Field->addCard(shared_from_this());
 }
 
-void Default_Card::update()
+void MonsterCard::update()
 {
-
-
+	updateStats();
 }
-void Default_Card::updateStats()
+
+void MonsterCard::updateStats()
 {
-	mHealthSign.changeDataTo(mBasicHealth);
-	mCostSign.changeDataTo(mBasicCost);
-	mAPSign.changeDataTo(mBasicAttack);
+	mHealthIcon.changeDataTo(mBasicHealth);
+	mCostIcon.changeDataTo(mBasicPlayCost);
+	mApIcon.changeDataTo(mBasicAttack);
 }
 
 Uint32 my_callbackfunc(Uint32 interval, void *param)
@@ -265,7 +211,7 @@ Uint32 my_callbackfunc(Uint32 interval, void *param)
 	return 0;
 }
 
-void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void MonsterCard::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	using namespace CARD_DATA;
 
@@ -283,35 +229,35 @@ void Default_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_R
 
 
 	mFrame.render();
-	mIcons.render();
+	mIcon.render();
 
-	renderSigns();
+	renderIcons();
 
-	if (MouseIsAbove())
+	if (mouseIsAbove())
 	{
-		if (mPos == Position::FIELD)
+		if (mPlacePosition == Position::FIELD)
 		{
 			if (mTimerActive == false)
 			{
 				SDL_RemoveTimer(myTimer);
-				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
+				myTimer = SDL_AddTimer(500, my_callbackfunc, &mHoverEffectTexture);//start new thread as timer
 				mTimerActive = true;
 			}
 		}
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.render();
+			mHoverEffectTexture.render();
 		}
 	}
 	else
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.disable();
+			mHoverEffectTexture.disable();
 			HoverEffectIsActive = false;
 		}
 }
 
-void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void MonsterCard::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	using namespace CARD_DATA;
 
@@ -328,25 +274,25 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), clip, &renderQuad, angle, center, flip); // renders texture to screen
 
 	mFrame.render();
-	mIcons.render();
+	mIcon.render();
 
-	renderSigns();
+	renderIcons();
 
-	if (MouseIsAbove())
+	if (mouseIsAbove())
 	{
-		if (mPos == Position::FIELD)
+		if (mPlacePosition == Position::FIELD)
 		{
 			if (mTimerActive == false)
 			{
 				SDL_RemoveTimer(myTimer);
-				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
+				myTimer = SDL_AddTimer(500, my_callbackfunc, &mHoverEffectTexture);//start new thread as timer
 				
 				mTimerActive = true;
 			}
 		}
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.render();
+			mHoverEffectTexture.render();
 			hoverIsActive = true;
 		}
 		else
@@ -354,47 +300,33 @@ void Default_Card::render(bool &hoverIsActive, SDL_Rect* clip, double angle, SDL
 	}
 	else
 	{
-		HoverEffect.disable();
+		mHoverEffectTexture.disable();
 		HoverEffectIsActive = false;
 	}
 }
 
-void Default_Card::renderBackside(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void MonsterCard::renderCardback(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
-	/*/
-	//Set rendering space and render to screen
-	SDL_Rect renderQuad = { mPosX, mPosY, mWidth, mHeight };
-
-	if (clip != NULL)
-	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
-	}
-
-
-	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, flip); // renders texture to screen*/
-
-	//mBackground.setPos(10, 10);
 	mBackground.render();
 }
 
-void Default_Card::renderSigns()
+void MonsterCard::renderIcons()
 {
 	SDL_SetRenderDrawColor(Renderer.get(), 100, 100, 100, 100);
-	mHealthSign.render();
-	mCostSign.render();
-	mAPSign.render();
+	mHealthIcon.render();
+	mCostIcon.render();
+	mApIcon.render();
 	SDL_SetRenderDrawColor(Renderer.get(), 0xFF, 0xFF, 0xFF, 0xFF);
 }
 
-void Default_Card::loadTexture() {
+void MonsterCard::loadTexture() {
 	//free();
 	//mBackground.free();
 	//mBackground.loadFromFile("Data/Cards/background.png");
-	loadFromFile(mPath);
+	loadFromFile(mTexturePath);
 }
 
-bool Default_Card::MouseIsAbove()
+bool MonsterCard::mouseIsAbove()
 {
 	using namespace CARD_DATA;
 
@@ -404,19 +336,19 @@ bool Default_Card::MouseIsAbove()
 	{
 		if (gMouse.isPressed())
 		{
-			if (HoverEffect.isActive())
+			if (mHoverEffectTexture.isActive())
 			{
-				HoverEffect.disable();
+				mHoverEffectTexture.disable();
 				HoverEffectIsActive = false;
 				
 				mTimerActive = false;
 			}
 		}
 		else
-			if (mPos == Position::HAND && !HoverEffectIsActive)
+			if (mPlacePosition == Position::HAND && !HoverEffectIsActive)
 			{
 				
-				HoverEffect.enable();
+				mHoverEffectTexture.enable();
 				HoverEffectIsActive = true;
 			}
 
@@ -424,11 +356,11 @@ bool Default_Card::MouseIsAbove()
 		return true;
 	}
 	else {
-		if (mPos == Position::FIELD)
+		if (mPlacePosition == Position::FIELD)
 		{
-			if (HoverEffect.isActive())
+			if (mHoverEffectTexture.isActive())
 			{
-				HoverEffect.disable();
+				mHoverEffectTexture.disable();
 				HoverEffectIsActive = false;
 				mTimerActive = false;
 			}
@@ -436,52 +368,52 @@ bool Default_Card::MouseIsAbove()
 		return false; }
 }
 
-void Default_Card::moveSigns(int x, int y)
+void MonsterCard::moveSigns(int x, int y)
 {
-	mHealthSign.move(x,y);
-	mCostSign.move(x, y);
-	mAPSign.move(x, y);
+	mHealthIcon.move(x,y);
+	mCostIcon.move(x, y);
+	mApIcon.move(x, y);
 }
 
-void Default_Card::setPos(int x, int y)
+void MonsterCard::setPos(int x, int y)
 {
 	mPosX = x;
 	mPosY = y;
 	mBackground.setPos(x, y);
 	
 	mFrame.setPos(x, y);
-	mIcons.setPos(x, y);
-	mCostSign.setPos(x, y);
-	mAPSign.setPos(x, y + mHeight-mAPSign.getHeight());
-	mHealthSign.setPos(x + mWidth-mHealthSign.getWidth(), y + mHeight-mHealthSign.getHeight());
+	mIcon.setPos(x, y);
+	mCostIcon.setPos(x, y);
+	mApIcon.setPos(x, y + mHeight-mApIcon.getHeight());
+	mHealthIcon.setPos(x + mWidth-mHealthIcon.getWidth(), y + mHeight-mHealthIcon.getHeight());
 
 	/*
-	switch (mPos)
+	switch (mPlacePosition)
 	{
 	case(Position::HAND):
-		HoverEffect.setPos(x - 50, y - 400);
+		mHoverEffectTexture.setPos(x - 50, y - 400);
 		break;
 	case(Position::FIELD):
-		HoverEffect.setPos(x + 200, y - 75);
+		mHoverEffectTexture.setPos(x + 200, y - 75);
 		break;
 
 		
 	}*/
-	HoverEffect.update();
+	mHoverEffectTexture.update();
 	
 }
-bool Default_Card::activateEffect()
+bool MonsterCard::activateEffect()
 {
 	bool x = mEffect->activate(this);
 	
-	mHealthSign.changeDataTo(mBasicHealth);
-	mCostSign.changeDataTo(mBasicCost);
-	mAPSign.changeDataTo(mBasicAttack);
+	mHealthIcon.changeDataTo(mBasicHealth);
+	mCostIcon.changeDataTo(mBasicPlayCost);
+	mApIcon.changeDataTo(mBasicAttack);
 	return x;
 
 }
 
-void Default_Card::increase(eStat stat, int amount)
+void MonsterCard::increase(eStat stat, int amount)
 {
 	switch (stat)
 	{
@@ -492,75 +424,75 @@ void Default_Card::increase(eStat stat, int amount)
 		mBasicHealth += amount;
 		break;
 	case(eStat::COST):
-		mBasicCost += amount;
+		mBasicPlayCost += amount;
 		break;
 	}
 	updateStats();
 }
-void Default_Card::increaseAtk(int amount)
+void MonsterCard::increaseAtk(int amount)
 {
 	mBasicAttack += amount;
-	mAPSign.changeDataTo(mBasicAttack);
+	mApIcon.changeDataTo(mBasicAttack);
 }
-void Default_Card::increaseHealth(int amount)
+void MonsterCard::increaseHealth(int amount)
 {
 	mBasicHealth += amount;
 }
 
 
-bool Default_Card::canAttack()
+bool MonsterCard::canAttack()
 {
 	return mCanAttack;
 }
 
 
-void Default_Card::removeHealth(int amount)
+void MonsterCard::removeHealth(int amount)
 {
 	mBasicHealth -= amount;
-	mHealthSign.changeDataTo(mBasicHealth);
+	mHealthIcon.changeDataTo(mBasicHealth);
 	if (mBasicHealth <= 0) { mAlive = false; }
 	std::cout << "Health left:" << mBasicHealth << std::endl;
 	if (mAlive == false) { std::cout << "dead" << std::endl; }
 }
-bool Default_Card::isAlive()
+bool MonsterCard::isAlive()
 {
 	return mAlive;
 }
 
-eEffect Default_Card::getEffect()
+eEffect MonsterCard::getEffect()
 {
 	return mEffectType;
 }
-std::string Default_Card::getName()
+std::string MonsterCard::getName()
 {
 	return mName;
 }
-int Default_Card::getHealth()
+int MonsterCard::getHealth()
 {
 	return mBasicHealth;
 }
-int Default_Card::getAttack()
+int MonsterCard::getAttack()
 {
 	return mBasicAttack;
 }
 
-void Default_Card::setHover(bool &b)
+void MonsterCard::setHover(bool &b)
 {
-	if (MouseIsAbove())
+	if (mouseIsAbove())
 	{
-		if (mPos == Position::FIELD)
+		if (mPlacePosition == Position::FIELD)
 		{
 			if (mTimerActive == false)
 			{
 				SDL_RemoveTimer(myTimer);
-				myTimer = SDL_AddTimer(500, my_callbackfunc, &HoverEffect);//start new thread as timer
+				myTimer = SDL_AddTimer(500, my_callbackfunc, &mHoverEffectTexture);//start new thread as timer
 
 				mTimerActive = true;
 			}
 		}
-		if (HoverEffect.isActive())
+		if (mHoverEffectTexture.isActive())
 		{
-			HoverEffect.render();
+			mHoverEffectTexture.render();
 			b = true;
 		}
 		else
@@ -568,7 +500,7 @@ void Default_Card::setHover(bool &b)
 	}
 	else
 	{
-		HoverEffect.disable();
+		mHoverEffectTexture.disable();
 		b = false;
 	}
 }

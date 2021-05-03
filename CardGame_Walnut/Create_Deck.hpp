@@ -66,13 +66,13 @@ private:
 	bool not_done;
 	bool QuitGame = false;
 
-	std::vector<std::unique_ptr<Default_Card>> mCards;
+	std::vector<std::unique_ptr<MonsterCard>> mCards;
 	std::vector<std::unique_ptr<Collection_Card>> mCurrentDeckCards;
 	int hover_card;
 	std::vector<std::unique_ptr<Collection_Card>>::iterator mIt;
 	std::vector<std::string> mAllCards;
 
-	std::string mPath; // Save Deck to path
+	std::string mTexturePath; // Save Deck to path
 	std::string mDeck; // 
 
 	Button goBackBtn{ 0,0 };
