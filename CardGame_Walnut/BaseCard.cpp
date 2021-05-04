@@ -42,7 +42,7 @@ void BaseCard::move(int x, int y)
 
 	mFrame.setPos(mPosX, mPosY);
 	mIcon.setPos(mPosX, mPosY);
-	moveSigns(x, y);
+	moveIcons(x, y);
 	mBackground.setPos(mPosX, mPosY);
 }
 

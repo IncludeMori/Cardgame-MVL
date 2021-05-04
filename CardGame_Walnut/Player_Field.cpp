@@ -91,7 +91,7 @@ void Player_Field::addCard(const std::shared_ptr<BaseCard>& card)
 	}
 	
 	if (index != -1 && mSize >= 1 && card != nullptr)
-		if (mCard[getCardAt(index)] == nullptr)
+		if (mCard[getFieldIndexFromCardAt(index)] == nullptr)
 		{
 			//außerhalb der gespielten Karten
 			if (index > 3)
@@ -112,7 +112,7 @@ void Player_Field::addCard(const std::shared_ptr<BaseCard>& card)
 				if (rechtesteKarte == -1)
 					index = 4;
 
-				last_added = Last_Added::RIGHT;
+				mLastCardPlacedAt = CardPlace::RIGHT;
 			}
 			else
 			{
@@ -136,7 +136,7 @@ void Player_Field::addCard(const std::shared_ptr<BaseCard>& card)
 					index = 2;
 
 		
-				last_added = Last_Added::LEFT;
+				mLastCardPlacedAt = CardPlace::LEFT;
 
 			}
 
@@ -241,10 +241,10 @@ bool Player_Field::update()
 				}
 				else
 				{
-					if (mOField->CardAt(card) != nullptr)
+					if (mOField->getCardAt(card) != nullptr)
 					{
-						mAttackArrow.setPos(mOField->CardAt(card)->getX() + mOField->CardAt(card)->getWidth() / 4,
-							mOField->CardAt(card)->getY() + mOField->CardAt(card)->getHeight() / 4);
+						mAttackArrow.setPos(mOField->getCardAt(card)->getX() + mOField->getCardAt(card)->getWidth() / 4,
+							mOField->getCardAt(card)->getY() + mOField->getCardAt(card)->getHeight() / 4);
 					}
 					if (!gMouse.getState()) {
 						mOField->DmgCard(card, 10);
@@ -304,44 +304,44 @@ bool Player_Field::update()
 			mHoverEffectTexture.set(true);
 		}
 		else
-			if (!mAttackCard.isActive())
+			if (!mArrowAttackCard.isActive())
 			mHoverEffectTexture.set(false);
 
-		if (gMouse.isPressed() && !mAttackCard.isActive() && PLaboveCard > -1)
+		if (gMouse.isPressed() && !mArrowAttackCard.isActive() && PLaboveCard > -1)
 		{
-			mAttackCard.setPos(CardAt(PLaboveCard)->getPosX() + 32,
-				CardAt(PLaboveCard)->getPosY() + CardAt(PLaboveCard)->getHeight() / 4);
-			mAttackCard.setActive(); //activate attack arrow
+			mArrowAttackCard.setPos(getCardAt(PLaboveCard)->getPosX() + 32,
+				getCardAt(PLaboveCard)->getPosY() + getCardAt(PLaboveCard)->getHeight() / 4);
+			mArrowAttackCard.setActive(); //activate attack arrow
 			mActiveCard = PLaboveCard;
 
 			mHoverEffectTexture.setPos(mPosX[mCardPosIndex[PLaboveCard]] - 5, mPosY[mCardPosIndex[PLaboveCard]] - 5);
 			mHoverEffectTexture.set(true);
 		}
-		else if (mAttackCard.isActive())
+		else if (mArrowAttackCard.isActive())
 		{
 
 			int OPaboveCard = mOppField.lock()->getMouseAboveCard();
 
 			if (OPaboveCard > -1)
 			{
-				mAttackTarget.setPos(mOppField.lock()->CardAt(OPaboveCard)->getPosX() + 32,
-					mOppField.lock()->CardAt(OPaboveCard)->getPosY() + mOppField.lock()->CardAt(OPaboveCard)->getHeight() / 4);
-				mAttackTarget.setActive();
+				mArrowAttackTarget.setPos(mOppField.lock()->getCardAt(OPaboveCard)->getPosX() + 32,
+					mOppField.lock()->getCardAt(OPaboveCard)->getPosY() + mOppField.lock()->getCardAt(OPaboveCard)->getHeight() / 4);
+				mArrowAttackTarget.setActive();
 
 
 
 				if (!gMouse.isPressed()) {
-					mOppField.lock()->DmgCard(OPaboveCard, std::dynamic_pointer_cast<MonsterCard>(CardAt(mActiveCard))->getAttack());
-					DmgCard(mActiveCard, dynamic_pointer_cast<MonsterCard>(mOppField.lock()->CardAt(OPaboveCard))->getAttack());
+					mOppField.lock()->DmgCard(OPaboveCard, std::dynamic_pointer_cast<MonsterCard>(getCardAt(mActiveCard))->getAttack());
+					DmgCard(mActiveCard, dynamic_pointer_cast<MonsterCard>(mOppField.lock()->getCardAt(OPaboveCard))->getAttack());
 					//mOField->update(); //check if "enemy-card" is dead
-					mFieldNumberPopups.add(dynamic_pointer_cast<MonsterCard>(mOppField.lock()->CardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getPosX(),mCard[mActiveCard]->getPosY()); // NUMBER POPUP
+					mFieldNumberPopups.add(dynamic_pointer_cast<MonsterCard>(mOppField.lock()->getCardAt(OPaboveCard))->getAttack(), mCard[mActiveCard]->getPosX(),mCard[mActiveCard]->getPosY()); // NUMBER POPUP
 				}
 			}
 
 			else if (mOppHero.lock()->mouseIsAbove())
 			{
-				mAttackTarget.setPos(mOppHero.lock()->getX(), mOppHero.lock()->getY());
-				mAttackTarget.setActive();
+				mArrowAttackTarget.setPos(mOppHero.lock()->getX(), mOppHero.lock()->getY());
+				mArrowAttackTarget.setActive();
 
 				if (!gMouse.isPressed()) {
 					mOppHero.lock()->dealDmg(dynamic_pointer_cast<MonsterCard>(mCard[mActiveCard])->getAttack());
@@ -350,7 +350,7 @@ bool Player_Field::update()
 
 			}
 
-			else { mAttackTarget.setInactive(); }
+			else { mArrowAttackTarget.setInactive(); }
 
 
 		}
@@ -360,8 +360,8 @@ bool Player_Field::update()
 
 		if (!gMouse.isPressed())
 		{
-			mAttackCard.setInactive();
-			mAttackTarget.setInactive();
+			mArrowAttackCard.setInactive();
+			mArrowAttackTarget.setInactive();
 		}
 
 
@@ -407,8 +407,8 @@ void Player_Field::render()
 		
 		}
 	}
-	if (mAttackCard.isActive()) { mAttackCard.render(); }
-	if (mAttackTarget.isActive()) { mAttackTarget.render(); }
+	if (mArrowAttackCard.isActive()) { mArrowAttackCard.render(); }
+	if (mArrowAttackTarget.isActive()) { mArrowAttackTarget.render(); }
 
 	if (battlecry_active)
 	{

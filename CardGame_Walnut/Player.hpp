@@ -32,6 +32,7 @@ public:
 
 	void increaseHealth(int amount);
 	void decreaseHealth(int amount);
+	bool modifyHealth(int amount);
 
 	bool isAlive();
 
@@ -54,11 +55,10 @@ public:
 private:
 	int mHealth;
 	bool mAlive;
-
-	bool field_battlecry_active = false;
+	bool mFieldEffectActive = false;
 
 	Name mName;
-	std::shared_ptr<Player_Hand> mHand;  //hand [first 4 cards from "mDeck"]
+	std::shared_ptr<Player_Hand> mHand; 
 	std::shared_ptr<Player_Deck> mDeck;
 	std::shared_ptr<Hero> mHeroPortrait;
 	std::shared_ptr<Player_Field> mField;

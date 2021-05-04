@@ -369,7 +369,7 @@ bool MonsterCard::mouseIsAbove()
 		return false; }
 }
 
-void MonsterCard::moveSigns(int x, int y)
+void MonsterCard::moveIcons(int x, int y)
 {
 	mHealthIcon.move(x,y);
 	mCostIcon.move(x, y);

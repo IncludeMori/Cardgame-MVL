@@ -20,11 +20,10 @@ public:
 	bool drawCard(std::shared_ptr<BaseCard> card);
 	void startTurn();
 
-	int getSize();
-	int getPosX(int index);
-	int getPosY(int index);
+	int getPosXFromCard(int index);
+	int getPosYFromCard(int index);
 	std::shared_ptr<BaseCard> getCard(int index);
-	std::shared_ptr<BaseCard> CardAt(int index);
+	std::shared_ptr<BaseCard> getCardAt(int index);
 
 	void setGraveyard(std::shared_ptr<Graveyard> grave);
 
@@ -40,11 +39,10 @@ protected:
 	void updatePos();
 
 	const int MAX_SIZE = 10;
-	int mSize; //current handsize
+
 	int mNextDrawIndex;
 	bool mPlayable[10];
 
-	std::shared_ptr<BaseCard> mCard[10];
 	Resource mResource;
 
 	int mPosX[10], mPosY[10];
@@ -52,6 +50,4 @@ protected:
 	bool mCard_isActive[10]; 
 
 	bool isMovingACard = false;
-
-	std::shared_ptr<Graveyard> mGraveyard;
 };

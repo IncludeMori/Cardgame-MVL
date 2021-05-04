@@ -187,7 +187,7 @@ bool EffectCard::mouseIsAbove()
 		}
 			return false;
 }
-void EffectCard::moveSigns(int x, int y)
+void EffectCard::moveIcons(int x, int y)
 {
 	mCostIcon.move(x, y);
 }

@@ -55,7 +55,7 @@ std::shared_ptr<BaseCard> Deck::getNextCard()
 	else { return nullptr; }
 }
 
-std::shared_ptr<BaseCard> Deck::CardAt(int index)
+std::shared_ptr<BaseCard> Deck::getCardAt(int index)
 {
 	if (index >= mCurrentTop)
 		return mCard[index];
@@ -68,23 +68,8 @@ void Deck::createDeck()
 {
 	std::string path = "test_card";
 
-	/*
-	int start = 0; //start, 1 nach der 0
-	int l = 0; //nächste 0 - start
-	int end = 0; //nächste 0
-	*/
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
-		/*
-		start = deck.find("0",start)+1;
-		end = deck.find("0", start + 1);
-		l = end - start ;
-
-		path = deck.substr(start,l);
-	
-		start = end + 1;
-
-		std::cout << "Path:" << path << std::endl;*/
 		path = "test_boost_hand";
 		mCard.push_back(std::shared_ptr<BaseCard>(new MonsterCard(path,1)));
 		mCard[i]->setPos(mPosX, mPosY);
@@ -97,12 +82,8 @@ void Deck::createDeck()
 
 		mSize++;
 		std::cout << "DeckSize:" << mSize << std::endl;
-
-		//deck += path;
-		//deck += "0";
 	}
 
-	// load card_texture
 	for (int i = 0; i < MAX_SIZE; i++)
 	{
 		std::dynamic_pointer_cast<MonsterCard>(mCard[i])->loadTexture();

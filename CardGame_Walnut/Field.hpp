@@ -8,14 +8,11 @@
 #include "Arrow.hpp"
 #include "ManageCardsC.hpp"
 #include "Place.hpp"
-
 #include "EffectField.hpp"
-
 #include "Graveyard.hpp"
-
 #include "Field_HoverEffect.hpp"
 
-enum class Last_Added : bool
+enum class CardPlace : bool
 {
 	LEFT = true,
 	RIGHT = false
@@ -33,7 +30,7 @@ public:
 
 	virtual void addEffectCard(const std::shared_ptr<BaseCard> &card) {};
 
-	std::shared_ptr<BaseCard> CardAt(int index);
+	std::shared_ptr<BaseCard> getCardAt(int index);
 
 	virtual void render();
  
@@ -42,7 +39,6 @@ public:
 
 	void setGraveyard(std::shared_ptr<Graveyard> grave);
 
-	int getSize();
 	bool hasSpace();
 	int wantsToAttack();
 	int getMouseAboveCard();
@@ -52,12 +48,29 @@ public:
 	void free();
 
 protected:
-	Last_Added last_added;
-	bool mLastCardOverwritten = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem feld zu fokusieren
+	CardPlace mLastCardPlacedAt;
+	bool mLastCardOverwritten = false; //wurde eine andere karte überschrieben, wird genutzt um dann trotzdem Feld zu fokusieren
 
 	Field_HoverEffect mHoverEffectTexture;
 	DefaultTexture mBackground;
 	std::shared_ptr<EffectField> mEffectField; //shared between PlayerField && OpponentField
+
+	Arrow mArrowAttackCard;
+	Arrow mArrowAttackTarget;
+
+	SDL_Rect mData;//field data
+
+	const int MAX_SIZE = 7;
+
+	int mActiveCard;
+	int mFieldHasACard[7];
+
+	//Card position
+	//std::vector<int, int> mPosition;
+	int mPosX[7];
+	int mPosY[7];
+	int mCardPosIndex[7] = { 3,0,1,2,4,5,6 };
+
 
 	//void rearrange(int index); // -> removed card[index]
 	//void updatePos(int index);
@@ -69,28 +82,9 @@ protected:
 
 	void organizeField(); //
 
-	int getCardAt(int index);
-
-	Arrow mAttackCard;
-	Arrow mAttackTarget;
+	int getFieldIndexFromCardAt(int index);
 
 	void updatePosition(); //update card position
 
-	SDL_Rect mData;//field data
-	
-	const int MAX_SIZE = 7;
-	int mSize;
-	int mActiveCard; 
-	int mFieldHasACard[7];
 
-	//pointer to [Deck]
-	std::shared_ptr<BaseCard> mCard[7];
-
-	//Card position
-	//std::vector<int, int> mPosition;
-	int mPosX[7];
-	int mPosY[7];
-	int mCardPosIndex[7] = { 3,0,1,2,4,5,6 };
-
-	std::shared_ptr<Graveyard> mGraveyard;
 };

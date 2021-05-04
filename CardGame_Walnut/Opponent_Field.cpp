@@ -54,7 +54,7 @@ void Opponent_Field::update()
 		mHoverEffectTexture.set(true);
 	}
 	else
-		if (!mAttackCard.isActive())
+		if (!mArrowAttackCard.isActive())
 			mHoverEffectTexture.set(false);
 }
 
@@ -62,7 +62,7 @@ void Opponent_Field::update()
 void Opponent_Field::addCard(const std::shared_ptr<BaseCard>& card, int index)
 {
 	if (index != -1 && mSize >= 1 && card != nullptr)
-		if (mCard[getCardAt(index)] == nullptr)
+		if (mCard[getFieldIndexFromCardAt(index)] == nullptr)
 		{
 			//außerhalb der gespielten Karten
 			if (index > 3)
@@ -80,7 +80,7 @@ void Opponent_Field::addCard(const std::shared_ptr<BaseCard>& card, int index)
 				if (rechtesteKarte == -1)
 					index = 4;
 
-				last_added = Last_Added::RIGHT;
+				mLastCardPlacedAt = CardPlace::RIGHT;
 			}
 			else
 			{
@@ -102,7 +102,7 @@ void Opponent_Field::addCard(const std::shared_ptr<BaseCard>& card, int index)
 					index = 2;
 
 
-				last_added = Last_Added::LEFT;
+				mLastCardPlacedAt = CardPlace::LEFT;
 
 			}
 
@@ -155,8 +155,8 @@ void Opponent_Field::attack()
 	{
 		if (dynamic_pointer_cast<MonsterCard>(mCard[currentIndex])->canAttack())
 		{
-			mAttackCard.setPos(mCard[currentIndex]->getPosX(), mCard[currentIndex]->getPosY());
-			mAttackCard.setActive();
+			mArrowAttackCard.setPos(mCard[currentIndex]->getPosX(), mCard[currentIndex]->getPosY());
+			mArrowAttackCard.setActive();
 			cardIndex = currentIndex;
 
 		}
@@ -165,7 +165,7 @@ void Opponent_Field::attack()
 
 	while (targetIndex == -1)
 	{
-		if (mPlayerField.lock()->CardAt(currentIndex) != nullptr)
+		if (mPlayerField.lock()->getCardAt(currentIndex) != nullptr)
 		{
 			mPlayerField.lock()->DmgCard(currentIndex, dynamic_pointer_cast<MonsterCard>(mCard[cardIndex])->getAttack());
 			targetIndex = 1;

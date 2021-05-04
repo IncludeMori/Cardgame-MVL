@@ -5,6 +5,7 @@ Hand::Hand()
 	for (int i = 0; i < MAX_SIZE; i++)
 		mShift[i] = 5;
 	mNextDrawIndex = 4;
+	mCard.resize(10);
 }
 Hand::~Hand()
 {
@@ -61,20 +62,20 @@ void Hand::startTurn()
 std::shared_ptr<BaseCard> Hand::getCard(int index)
 {
 	mCard_isActive[index] = false;
-	std::shared_ptr<BaseCard> x;
-	x.swap(mCard[index]);
+	std::shared_ptr<BaseCard> aCard;
+	aCard.swap(mCard[index]);
 	rearrangeRemove(index);
 	mSize--;
 	updatePos();
-
-	std::cout << "Return Card:" << index << std::endl;
-
-	return x;
+	return aCard;
 }
 
-std::shared_ptr<BaseCard> Hand::CardAt(int index)
+std::shared_ptr<BaseCard> Hand::getCardAt(int index)
 {
-	return mCard[index];
+	if (index < mCard.size())
+		return mCard[index];
+	else
+		return nullptr;
 }
 
 void Hand::setGraveyard(std::shared_ptr<Graveyard> grave)
@@ -82,18 +83,15 @@ void Hand::setGraveyard(std::shared_ptr<Graveyard> grave)
 	mGraveyard = grave;
 }
 
-int Hand::getPosX(int index)
+int Hand::getPosXFromCard(int index)
 {
 	return mCard[index]->getPosX();
 }
-int Hand::getPosY(int index)
+int Hand::getPosYFromCard(int index)
 {
 	return mCard[index]->getPosY();
 }
-int Hand::getSize()
-{
-	return mSize;
-}
+
 
 bool Hand::isUsingACard()
 {

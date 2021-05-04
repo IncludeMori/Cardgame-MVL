@@ -19,7 +19,7 @@ public:
 
 	bool activateEffect();
 
-	void moveSigns(int x, int y);
+	void moveIcons(int x, int y);
 	void setPos(int x, int y); //mPosX = x; mPosY = y;
 
 private:

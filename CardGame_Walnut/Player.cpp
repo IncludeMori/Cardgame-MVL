@@ -4,7 +4,7 @@
 Player::Player()
 {
 	mName.init(who::type::PLAYER, "Player 1");
-	field_battlecry_active = false;
+	mFieldEffectActive = false;
 
 	mHealth = 40;
 	mAlive = true;
@@ -12,9 +12,7 @@ Player::Player()
 	mHand.reset(new Player_Hand());
 	mField.reset(new Player_Field);
 	mHeroPortrait.reset(new Hero(0,mHealth));
-    
 	mDeck.reset(new Player_Deck(mField,mHand));
-
 	mGraveyard.reset(new Graveyard());
 	mGraveyard->init(0);
 
@@ -24,35 +22,30 @@ Player::Player()
 
 Player::~Player()
 {
-
+	free();
 }
 
 bool Player::update()
 {
-	if (!field_battlecry_active) //solange ein Effekt aktiv ist wird die Hand deaktiviert
+	if (!mFieldEffectActive) //solange ein Effekt aktiv ist wird die Hand deaktiviert
 		mHand->update(mField);
 	if (!isMovingAHandCard()) {
-		if (!mField->update()) { field_battlecry_active = true; }
+		if (!mField->update()) { mFieldEffectActive = true; }
 		else
-			field_battlecry_active = false;
+			mFieldEffectActive = false;
 	}
-	return field_battlecry_active;
+	return mFieldEffectActive;
 }
 
 void Player::render()
 {
 	mName.render();
-
 	mGraveyard->render();
 	mField->render();
 	mDeck->render();
 	//mResource.render();
 	mHeroPortrait->render();
 	mHand->render();
-
-	
-	
-	
 }
 
 void Player::startTurn()
@@ -75,6 +68,19 @@ void Player::decreaseHealth(int amount)
 	{
 		mAlive = false;
 	}
+}
+
+bool Player::modifyHealth(int amount)
+{
+	mHealth += amount;
+	if (amount <= 0) {
+		mHeroPortrait->dealDmg(amount);
+		if (mHealth <= 0) {
+			mAlive = false;
+			return false;
+		}
+	}
+	return true;
 }
 
 bool Player::isAlive()
@@ -105,7 +111,6 @@ void Player::drawStartHand()
 		drawCard();
 	}
 }
-
 
 bool Player::isMovingAHandCard()
 {

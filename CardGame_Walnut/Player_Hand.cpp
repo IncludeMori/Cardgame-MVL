@@ -80,7 +80,7 @@ void Player_Hand::update(const std::shared_ptr<Player_Field> &mField)
 				}
 
 
-				if (mField->isInside(getPosX(i), getPosY(i)) && !gMouse.isPressed() && isPlayable(i))
+				if (mField->isInside(getPosXFromCard(i), getPosYFromCard(i)) && !gMouse.isPressed() && isPlayable(i))
 				{
 					mResource.removeAv(mCard[i]->getCost());
 					getCard(i)->play(mField);

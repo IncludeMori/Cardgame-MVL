@@ -45,8 +45,7 @@ public:
 	void changePlacePosition(Position newpos);
 
 	void move(int x, int y) override; 
-
-	virtual void moveSigns(int x,int y) {};
+	virtual void moveIcons(int x,int y) {};
 
 	//Player wants to move card -> only one card can be active at a time 
 	virtual void setActive();
@@ -63,7 +62,7 @@ public:
 
 protected:
 	std::string mName;
-	std::string mTexturePath;
+	std::string mTexturePath = "ERR_UNDEFINED";
 	int mBasicPlayCost;
 	int mCurrentPlayCost;
 	bool mActive;

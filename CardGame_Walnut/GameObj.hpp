@@ -28,7 +28,7 @@ public:
 	bool isEmpty();
 
 protected:
-	std::unique_ptr<SDL_Texture,sdl2_Deleter::SDL_Deleter> mTexture = nullptr;
+	std::unique_ptr<SDL_Texture,sdl2_Deleter::SDL_Deleter> mTexture = nullptr; //used to dynamic. delete the SDL_Texture once the class is destroyed
 
 	virtual SDL_Texture* getTexture() { return mTexture.get(); }
 

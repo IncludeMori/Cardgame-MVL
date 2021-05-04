@@ -20,9 +20,10 @@ public:
 
 	void setAlpha(Uint8 alpha);
 
-	int getSize();
+	int getSize() override;
+
 	std::shared_ptr<BaseCard> getNextCard();
-	std::shared_ptr<BaseCard> CardAt(int index);
+	std::shared_ptr<BaseCard> getCardAt(int index);
 
 	void free();
 
@@ -36,13 +37,11 @@ protected:
 	const int MAX_SAME_CARD = 3;
 
 	std::shared_ptr<BaseCard> mEmptyCard = nullptr;
-	std::vector<std::shared_ptr<BaseCard>> mCard;
-	std::vector<std::shared_ptr<BaseCard>>::iterator mCardIt;
+	
 	DefaultTexture EmptyDeck;
 	
 	HeroHealth mSizeIcon;
 
-	int mSize;
 	int mCurrentTop;
 
 	//pass to MonsterCard 

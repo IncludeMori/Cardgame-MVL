@@ -9,7 +9,6 @@ using namespace sdl2_Renderer;
 
 void GameObj::loadFromFile(const std::string &path)
 {
-
 	std::cout << "Loading: " << path.c_str() << std::endl;
 
 	//Load image at specified path

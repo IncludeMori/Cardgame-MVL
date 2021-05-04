@@ -41,7 +41,7 @@ bool HealOrDmg::activate()
 		{
 			for (int i = 0; i < mField.lock()->getSize(); i++)
 			{
-				if (std::dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
+				if (std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 				{
 					mOpponentField.lock()->DmgCard(i, mAmount);
 					std::cout << "TARGET:" << i << std::endl;
@@ -53,7 +53,7 @@ bool HealOrDmg::activate()
 			{
 				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
+					if (std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 					{
 						mOpponentField.lock()->DmgCard(i, mAmount);
 						std::cout << "TARGET:" << i << std::endl;
@@ -69,9 +69,9 @@ bool HealOrDmg::activate()
 		{
 			for (int i = 0; i < mField.lock()->getSize(); i++)
 			{
-				if (std::dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
+				if (std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 				{
-					std::dynamic_pointer_cast<MonsterCard>(mField.lock()->CardAt(i))->increase(eStat::HEALTH, mAmount);
+					std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->increase(eStat::HEALTH, mAmount);
 					std::cout << "TARGET:" << i << std::endl;
 					return true;
 				}
@@ -81,9 +81,9 @@ bool HealOrDmg::activate()
 			{
 				for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				{
-					if (std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->mouseIsAbove() && gMouse.isPressed())
+					if (std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 					{
-						std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->CardAt(i))->increase(eStat::HEALTH, mAmount);
+						std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->increase(eStat::HEALTH, mAmount);
 						std::cout << "TARGET:" << i << std::endl;
 						return true;
 					}

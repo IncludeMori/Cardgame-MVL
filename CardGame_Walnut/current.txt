@@ -1,1 +1,4 @@
 
+check 
+
+Player -> field stuff etc, eventuell alles vereinfachen

@@ -330,9 +330,6 @@
     <ClCompile Include="GameLoop.cpp">
       <Filter>Game\_mainGame</Filter>
     </ClCompile>
-    <ClCompile Include="Place.cpp">
-      <Filter>Game\_mainGame</Filter>
-    </ClCompile>
     <ClCompile Include="DefaultAnimation.cpp">
       <Filter>Game\_mainGame\Animations</Filter>
     </ClCompile>
@@ -413,6 +410,9 @@
     </ClCompile>
     <ClCompile Include="CardSoundEffect.cpp">
       <Filter>Game\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Place.cpp">
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -677,9 +677,6 @@
     <ClInclude Include="GameLoop.hpp">
       <Filter>Game\_mainGame</Filter>
     </ClInclude>
-    <ClInclude Include="Place.hpp">
-      <Filter>Game\_mainGame</Filter>
-    </ClInclude>
     <ClInclude Include="DefaultAnimation.hpp">
       <Filter>Game\_mainGame\Animations</Filter>
     </ClInclude>
@@ -766,6 +763,9 @@
     </ClInclude>
     <ClInclude Include="CardSoundEffect.hpp">
       <Filter>Game\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Place.hpp">
+      <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,16 +1,13 @@
 #include "Field.hpp"
 
 #include <iostream>
+#include <boost/range/irange.hpp>
 
 #include "Card_Effects.hpp"
 #include "gMouse.hpp"
 #include "Arrow.hpp"
 #include "Click_EventHandler.hpp"
-
 #include "gScreenSize.hpp"
-
-#include <boost/range/irange.hpp>
-
 
 using namespace boost;
 
@@ -18,9 +15,10 @@ Field::Field()
 {
 	mSize = 0;
 	mActiveCard = -1;
+	mCard.resize(7);
 
-	mAttackCard.loadFromFile("Data/pfeil_attack.png");
-	mAttackTarget.loadFromFile("Data/target_attack.png");
+	mArrowAttackCard.loadFromFile("Data/pfeil_attack.png");
+	mArrowAttackTarget.loadFromFile("Data/target_attack.png");
 
 	mBackground.loadFromFile("Data/Field/field_background.png");
 	mBackground.setPos(SCREEN_WIDTH / 6, SCREEN_HEIGHT / 4);
@@ -54,8 +52,8 @@ void Field::render()
 		}
 	}
 
-	if (mAttackCard.isActive()) { mAttackCard.render(); }
-	if (mAttackTarget.isActive()) { mAttackTarget.render(); }
+	if (mArrowAttackCard.isActive()) { mArrowAttackCard.render(); }
+	if (mArrowAttackTarget.isActive()) { mArrowAttackTarget.render(); }
 
 	if (hover != -1)
 		mCard[hover]->renderHoverEffect();
@@ -149,7 +147,7 @@ void Field::addCard(const std::shared_ptr<BaseCard>& card, int index)
 	//todo
 }
 
-std::shared_ptr<BaseCard> Field::CardAt(int index)
+std::shared_ptr<BaseCard> Field::getCardAt(int index)
 {
 	return mCard[index];
 }
@@ -179,10 +177,6 @@ void Field::setGraveyard(std::shared_ptr<Graveyard> grave)
 	mGraveyard = grave;
 }
 
-int Field::getSize()
-{
-	return mSize;
-}
 bool Field::hasSpace()
 {
 	if (mSize < MAX_SIZE) { return true; }
@@ -227,43 +221,7 @@ bool Field::isFull()
 	}
 	else return false;
 }
-/*
-void Field::rearrange(int index)
-{
-	//Field setup    0 1
-	//warning?
-	if (index == 0 && mCard[index + 1] != nullptr)
-	{
-		std::cout << "swap:" << index << " with" << index + 1 << std::endl;
-		std::cout << "Current size:" << mSize - 1 << std::endl;
-		mCard[index].swap(mCard[index + 1]);
-		updatePos(index);
-		mCard_isActive[index] = true;
-		mCard_isActive[index + 1] = false;
-		rearrange(index + 1);
-	}
-	else if (mCard[index+2] != nullptr && index+2 < 7)
-	{
-		std::cout << "swap:" << index << " with" << index + 2 << std::endl;
-		std::cout << "Current size:" << mSize-1 << std::endl;
-		mCard[index].swap(mCard[index + 2]);
-		updatePos(index);
-		mCard_isActive[index] = true;
-		mCard_isActive[index + 2] = false;
-		rearrange(index + 2);
-	}
-	else
-		std::cout << "------------------------------------------------------------------------------------" << std::endl;
-	
-}*/
-/*
-void Field::updatePos(int index)
-{
-	/*
-	std::cout << "Update Pos:" << index << std::endl;
-	if (mCard[index] != nullptr) 
-		mCard[index]->setPos(mPosX[index], mPosY[index]);
-}*/
+
 
 void Field::free()
 {
@@ -271,9 +229,6 @@ void Field::free()
 	for (int i = 0; i < 7; i++)
 		mCard[i] = nullptr;
 }
-
-
-
 
 void Field::removeCard(int index)
 {
@@ -316,12 +271,12 @@ void Field::updateFieldWithNewCard(int index)
 
 	if (index > 3 && mSize % 2 != 1)
 	{
-		last_added = Last_Added::RIGHT;
+		mLastCardPlacedAt = CardPlace::RIGHT;
 		mLastCardOverwritten = true;
 	}
 	else if (index < 4 && mSize % 2 != 1)
 	{
-		last_added = Last_Added::LEFT;
+		mLastCardPlacedAt = CardPlace::LEFT;
 		mLastCardOverwritten = true;
 	}
 
@@ -343,7 +298,7 @@ void Field::updatePositions()
 
 void Field::organizeField()
 {
-	if (last_added == Last_Added::LEFT)
+	if (mLastCardPlacedAt == CardPlace::LEFT)
 	{
 		if ((mSize - 1) % 2 == 1 && mLastCardOverwritten == false)
 		{
@@ -362,11 +317,9 @@ void Field::organizeField()
 				mCardPosIndex[i]--;
 	}
 	mLastCardOverwritten = false;
-
-	
 }
 
-int Field::getCardAt(int index)
+int Field::getFieldIndexFromCardAt(int index)
 {
 
 	for (int i = 0; i<MAX_SIZE; i++)

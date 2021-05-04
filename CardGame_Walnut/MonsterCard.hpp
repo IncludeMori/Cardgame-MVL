@@ -34,7 +34,7 @@ public:
 	
 	bool mouseIsAbove();
 
-	void moveSigns(int x, int y); //move -> mPosX+=x; mPosY+=y;
+	void moveIcons(int x, int y); //move -> mPosX+=x; mPosY+=y;
 	void setPos(int x, int y); //mPosX = x; mPosY = y;
 
 	bool activateEffect();
