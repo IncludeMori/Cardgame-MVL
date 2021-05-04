@@ -1,0 +1,3 @@
+
+hover effekt und effekt karte -> wie?
+Hover aktuell bei effekt noch anders als bei monster

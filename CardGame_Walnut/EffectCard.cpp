@@ -77,6 +77,7 @@ EffectCard::EffectCard(std::string &path)
 	mHoverEffectTexture.setStats(mName, mBasicPlayCost, mRarity);
 	mHoverEffectTexture.disable();
 	mHoverEffectTexture.setPos(30, SCREEN_HEIGHT / 2 - 275);
+	mHoverEffectTexture.update();
 	
 }
 
@@ -196,7 +197,7 @@ void EffectCard::setPos(int x, int y)
 
 	mCostIcon.setPos(x, y);
 	
-	if (mPlacePosition == Position::HAND)
-		mHoverEffectTexture.setPos(x - 50, y - 400);
+	//if (mPlacePosition == Position::HAND)
+	//	mHoverEffectTexture.setPos(x - 50, y - 400);
 
 }

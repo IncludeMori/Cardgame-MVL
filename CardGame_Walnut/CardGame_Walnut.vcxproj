@@ -347,6 +347,7 @@
     <ClInclude Include="W_ipconfig.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="current.txt" />
     <Text Include="todo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

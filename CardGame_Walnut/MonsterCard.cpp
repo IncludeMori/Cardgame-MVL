@@ -206,7 +206,7 @@ Uint32 my_callbackfunc(Uint32 interval, void *param)
 {
 	using namespace CARD_DATA;
 
-	static_cast<Hover_Card*>(param)->enable();
+	static_cast<HoverCardEffect*>(param)->enable();
 	
 	return 0;
 }

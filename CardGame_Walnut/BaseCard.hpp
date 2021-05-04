@@ -78,7 +78,7 @@ protected:
 	Rarity mRarity = Rarity::Bronze; 
 	Position mPlacePosition = Position::DECK; //AI
 
-	Hover_Card mHoverEffectTexture;
+	HoverCardEffect mHoverEffectTexture;
 
 	std::unique_ptr<Effects> mEffect = nullptr;
 };

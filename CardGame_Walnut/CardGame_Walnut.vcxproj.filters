@@ -772,5 +772,8 @@
     <Text Include="todo.txt">
       <Filter>dev</Filter>
     </Text>
+    <Text Include="current.txt">
+      <Filter>dev</Filter>
+    </Text>
   </ItemGroup>
 </Project>

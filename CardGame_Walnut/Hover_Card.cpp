@@ -3,13 +3,13 @@
 #include "Renderer.hpp"
 using namespace sdl2_Renderer;
 
-Hover_Card::Hover_Card()
+HoverCardEffect::HoverCardEffect()
 {
 	mIcon.loadFromFile("Data/BigCard_Interface/Icons.png");
 	mFrame.load(Rarity::Bronze, true);
 }
 
-Hover_Card::Hover_Card(std::string &name, int health, int atk, int cost,Rarity rarity)
+HoverCardEffect::HoverCardEffect(std::string &name, int health, int atk, int cost,Rarity rarity)
 {
 	mIsActive = false;
 	mHealth = health;
@@ -23,7 +23,7 @@ Hover_Card::Hover_Card(std::string &name, int health, int atk, int cost,Rarity r
 	mNameplate.setName(name);
 }
 
-Hover_Card::Hover_Card(std::string& name, int cost, Rarity rarity) {
+HoverCardEffect::HoverCardEffect(std::string& name, int cost, Rarity rarity) {
 
 	mIsActive = false;
 	mCost = cost;
@@ -35,7 +35,7 @@ Hover_Card::Hover_Card(std::string& name, int cost, Rarity rarity) {
 	mNameplate.setName(name);
 }
 
-void Hover_Card::update()
+void HoverCardEffect::update()
 {
 	mIcon.setPos(mPosX, mPosY);
 	mFrame.setPos(mPosX, mPosY);
@@ -49,7 +49,7 @@ void Hover_Card::update()
 
 }
 
-void Hover_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void HoverCardEffect::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { mPosX,mPosY, mWidth, mHeight };
@@ -74,21 +74,21 @@ void Hover_Card::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_Ren
 }
 
 
-void Hover_Card::enable()
+void HoverCardEffect::enable()
 {
 	mIsActive = true;
 }
-void Hover_Card::disable()
+void HoverCardEffect::disable()
 {
 	mIsActive = false;
 }
 
-bool Hover_Card::isActive()
+bool HoverCardEffect::isActive()
 {
 	return mIsActive;
 }
 
-void Hover_Card::setStats(std::string& name, int cost, Rarity rarity)
+void HoverCardEffect::setStats(std::string& name, int cost, Rarity rarity)
 {
 	mIsActive = false;
 	mCost = cost;
@@ -98,7 +98,7 @@ void Hover_Card::setStats(std::string& name, int cost, Rarity rarity)
 
 	mSCost.changeDataTo(mCost);
 }
-void Hover_Card::setStats(std::string &name, int health, int atk, int cost, Rarity rarity)
+void HoverCardEffect::setStats(std::string &name, int health, int atk, int cost, Rarity rarity)
 {
 	setStats(name, cost, rarity);
 	
@@ -109,7 +109,7 @@ void Hover_Card::setStats(std::string &name, int health, int atk, int cost, Rari
 	mSAttack.changeDataTo(mAttack);
 }
 
-void Hover_Card::setEffect(std::vector<std::string> &effects)
+void HoverCardEffect::setEffect(std::vector<std::string> &effects)
 {
 	mEffectDescr.setEffect(effects);
 }

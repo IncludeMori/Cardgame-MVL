@@ -12,12 +12,12 @@
 #include "StatsSign.hpp"
 
 
-class Hover_Card : public DefaultTexture
+class HoverCardEffect : public DefaultTexture
 {
 public:
-	Hover_Card();
-	Hover_Card(std::string &name,int health,int atk, int cost, Rarity rarity);
-	Hover_Card(std::string& name, int cost, Rarity rarity);
+	HoverCardEffect();
+	HoverCardEffect(std::string &name,int health,int atk, int cost, Rarity rarity);
+	HoverCardEffect(std::string& name, int cost, Rarity rarity);
 
 	void update();
 	void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE);
