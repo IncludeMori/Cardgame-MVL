@@ -27,6 +27,11 @@ void BaseCard::changePlacePosition(Position newpos)
 	mPlacePosition = newpos;
 }
 
+void BaseCard::update()
+{
+	mHoverEffectTexture.update();
+}
+
 void BaseCard::move(int x, int y)
 {
 	mPosX += x;

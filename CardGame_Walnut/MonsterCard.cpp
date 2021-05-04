@@ -192,6 +192,7 @@ void MonsterCard::play(const std::shared_ptr<Field> &Field)
 
 void MonsterCard::update()
 {
+	mHoverEffectTexture.update();
 	updateStats();
 }
 

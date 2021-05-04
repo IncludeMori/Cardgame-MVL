@@ -12,6 +12,7 @@
 #include "SDL_Deleter.hpp"
 #include "GameObj.hpp"
 
+
 class DefaultTexture : public GameObj
 {
 public:

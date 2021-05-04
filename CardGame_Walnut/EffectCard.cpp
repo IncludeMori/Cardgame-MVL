@@ -77,8 +77,10 @@ EffectCard::EffectCard(std::string &path)
 	mHoverEffectTexture.setStats(mName, mBasicPlayCost, mRarity);
 	mHoverEffectTexture.disable();
 	mHoverEffectTexture.setPos(30, SCREEN_HEIGHT / 2 - 275);
-	mHoverEffectTexture.update();
 	
+
+
+	update();
 }
 
 

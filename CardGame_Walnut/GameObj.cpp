@@ -45,6 +45,11 @@ void GameObj::loadFromFile(const std::string &path)
 	
 }
 
+void GameObj::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+{
+	SDL_RenderCopyEx(Renderer.get(), mTexture.get(), nullptr, &this->mDstRect, angle, center, flip);
+}
+
 void GameObj::setColor(Uint8 red, Uint8 green, Uint8 blue)
 {
 	SDL_SetTextureColorMod(getTexture(), red, green, blue);

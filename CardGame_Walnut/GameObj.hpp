@@ -9,9 +9,10 @@ class GameObj
 {
 public:
 	GameObj() = default;
-	GameObj(int x, int y, const std::string &path = "") : mPosX(x), mPosY(y) { if (!path.empty()) loadFromFile(path); };
+	GameObj(int x, int y) : mPosX(x), mPosY(y) {};
+	GameObj(int x, int y, const std::string &path) : mPosX(x), mPosY(y) { if (!path.empty()) loadFromFile(path); };
 
-	virtual void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) = 0;
+	virtual void render(SDL_Rect *clip = nullptr, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE) ;
 	virtual void loadFromFile(const std::string &path);
 
 	virtual void setColor(Uint8 red, Uint8 green, Uint8 blue); 

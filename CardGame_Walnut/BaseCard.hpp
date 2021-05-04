@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include "DefaultTexture.hpp"
+#include "GameObj.hpp"
 #include "StatsSign.hpp"
 
 #include "ePosition.hpp"
@@ -22,15 +22,17 @@ class Hand;
 class Deck;
 class Place;
 
-class BaseCard : public DefaultTexture
+class BaseCard : public GameObj
 {
 public:
 	BaseCard() = default;
-	BaseCard(int x, int y) : DefaultTexture(x, y) {};
-	BaseCard(const std::string &path, int x = 0, int y = 0) : DefaultTexture(path, x, y) {};
+	BaseCard(int x, int y) : GameObj(x, y) {};
+	BaseCard(const std::string &path, int x = 0, int y = 0) : GameObj(x,y,path) {};
 
-	using DefaultTexture::render;
+	using GameObj::render;
 	virtual void render(bool &hoverIsActive, SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
+
+	virtual void update();
 
 	virtual void renderHoverEffect();
 	virtual void renderCardback(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) {};
