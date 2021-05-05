@@ -23,10 +23,10 @@ std::string getEffectAsString::getAsString(StatIndex stat_index, int index)
 
 		switch (index)
 		{
-		case((int)eEffect::BATTLECRY):
+		case((int)eEffectType::BATTLECRY):
 			return "BATTLECRY";
 			break;
-		case((int)eEffect::DEATHWISH):
+		case((int)eEffectType::DEATHWISH):
 			return "DEATHWISH";
 			break;
 		}
@@ -45,16 +45,16 @@ std::string getEffectAsString::getAsString(StatIndex stat_index, int index)
 
 		switch (index)
 		{
-		case((int)eTarget::DECK):
+		case((int)eTargetType::DECK):
 			return "DECK";
 			break;
-		case((int)eTarget::FIELD):
+		case((int)eTargetType::FIELD):
 			return "FIELD";
 			break;
-		case((int)eTarget::HAND):
+		case((int)eTargetType::HAND):
 			return "HAND";
 			break;
-		case((int)eTarget::SELF):
+		case((int)eTargetType::SELF):
 			return "SELF";
 			break;
 		}
@@ -64,13 +64,13 @@ std::string getEffectAsString::getAsString(StatIndex stat_index, int index)
 
 		switch (index)
 		{
-		case((int)eTarget_spec::ALL):
+		case((int)eTargetTypeSpec::ALL):
 			return "ALL"; 
 			break;
-		case((int)eTarget_spec::RANDOM):
+		case((int)eTargetTypeSpec::RANDOM):
 			return "RANDOM";
 			break;
-		case((int)eTarget_spec::TARGET):
+		case((int)eTargetTypeSpec::TARGET):
 			return "TARGET";
 			break;
 		}
@@ -79,13 +79,13 @@ std::string getEffectAsString::getAsString(StatIndex stat_index, int index)
 
 		switch (index)
 		{
-		case((int)eStat::ATTACK):
+		case((int)eTargetStatType::ATTACK):
 			return "ATTACK";
 			break;
-		case((int)eStat::HEALTH):
+		case((int)eTargetStatType::HEALTH):
 			return "HEALTH";
 			break;
-		case((int)eStat::COST):
+		case((int)eTargetStatType::COST):
 			return "COST";
 			break;
 		}

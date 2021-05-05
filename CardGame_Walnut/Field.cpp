@@ -71,7 +71,7 @@ void Field::addCard(const std::shared_ptr<BaseCard>& card)
 		mFieldHasACard[mSize - 1] = true;
 		std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->changePlacePosition(Position::FIELD);
 		mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
-		if (std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+		if (std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffectType::BATTLECRY)
 			mCard[mSize-1]->activateEffect();
 		
 	}	    
@@ -90,7 +90,7 @@ void Field::addCard(const std::shared_ptr<BaseCard>& card, int posX, int posY)
 			mFieldHasACard[mSize - 1] = true;
 			std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->changePlacePosition(Position::FIELD);
 			mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
-			if (std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+			if (std::dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffectType::BATTLECRY)
 				mCard[mSize - 1]->activateEffect();
 		}
 		else
@@ -159,7 +159,7 @@ void Field::DmgCard(int index, int amount)
 	if (!std::dynamic_pointer_cast<MonsterCard>(mCard[index])->isAlive()) {
 		std::dynamic_pointer_cast<MonsterCard>(mCard[index])->changePlacePosition(Position::DEAD);
 		mGraveyard->add(mCard[index]);
-		if (std::dynamic_pointer_cast<MonsterCard>(mCard[index])->getEffect() == eEffect::DEATHWISH)
+		if (std::dynamic_pointer_cast<MonsterCard>(mCard[index])->getEffect() == eEffectType::DEATHWISH)
 		{
 			mCard[index]->activateEffect();
 		}

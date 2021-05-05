@@ -20,10 +20,10 @@ BoostCard::BoostCard()
 {
 
 }
-BoostCard::BoostCard(eTarget target, eTarget_spec target_spec, eStat stat, int amount)
+BoostCard::BoostCard(eTargetType target, eTargetTypeSpec target_spec, eTargetStatType stat, int amount)
 {
 	mTarget = target;
-	mTarget_spec = target_spec;
+	mTargetSpec = target_spec;
 	mStat = stat;
 	mAmount = amount;
 }
@@ -37,22 +37,22 @@ bool BoostCard::activate(BaseCard *card)
 
 
 
-	if (mTarget != eTarget::SELF)
+	if (mTarget != eTargetType::SELF)
 		return activate();
 	else //->Boost self (card => *this)
 	{
 		switch (mStat)
 		{
-		case(eStat::ATTACK):
+		case(eTargetStatType::ATTACK):
 			dynamic_cast<MonsterCard*>(card)->increaseAtk(mAmount);
 			break;
-		case(eStat::HEALTH):
+		case(eTargetStatType::HEALTH):
 			dynamic_cast<MonsterCard*>(card)->increaseHealth(mAmount);
 			break;
-		case(eStat::COST):
+		case(eTargetStatType::COST):
 			dynamic_cast<MonsterCard*>(card)->modifyCost(mAmount);
 			break;
-		case(eStat::ERROR):
+		case(eTargetStatType::ERROR):
 			return false;
 			break;
 		}
@@ -63,15 +63,15 @@ bool BoostCard::activate(BaseCard *card)
 bool BoostCard::activate()
 {
 	std::cout << "Effect:" << (int)mTarget << std::endl;
-	std::cout << "Target:" << (int)mTarget_spec << std::endl;
+	std::cout << "Target:" << (int)mTargetSpec << std::endl;
 
 	switch (mTarget)
 	{
-	case(eTarget::DECK):
+	case(eTargetType::DECK):
     //--------------------------------------------------
-		switch (mTarget_spec)
+		switch (mTargetSpec)
 		{
-		case(eTarget_spec::ALL):
+		case(eTargetTypeSpec::ALL):
 			int i;
 			i = 29;
 			while (i >= 0)
@@ -82,7 +82,7 @@ bool BoostCard::activate()
 			}
 			
 			break; // ALL
-		case(eTarget_spec::RANDOM):  //->Boost one random card
+		case(eTargetTypeSpec::RANDOM):  //->Boost one random card
 			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mDeck.lock()->getSize();
@@ -101,17 +101,17 @@ bool BoostCard::activate()
 		}
 
 		break;//DECK
-	case(eTarget::HAND):
+	case(eTargetType::HAND):
 	//--------------------------------------------------
-		switch (mTarget_spec)
+		switch (mTargetSpec)
 		{
-		case(eTarget_spec::ALL):
+		case(eTargetTypeSpec::ALL):
 			for (int i = 0; i < mHand.lock()->getSize(); i++)
 			{
 				dynamic_pointer_cast<MonsterCard>(mHand.lock()->getCardAt(i))->increase(mStat, mAmount);
 			}
 			break;//ALL
-		case(eTarget_spec::RANDOM):
+		case(eTargetTypeSpec::RANDOM):
 			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand.lock()->getSize();
@@ -124,23 +124,23 @@ bool BoostCard::activate()
 			return false;
 		}
 		break;//HAND
-	case(eTarget::FIELD):
+	case(eTargetType::FIELD):
 	//--------------------------------------------------	
-		switch (mTarget_spec)
+		switch (mTargetSpec)
 		{
-		case(eTarget_spec::ALL):
+		case(eTargetTypeSpec::ALL):
 			for (int i = 0; i < mField.lock()->getSize(); i++)
 				dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->increase(mStat, mAmount);
 			for (int i = 0; i < mOpponentField.lock()->getSize(); i++)
 				dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->increase(mStat, mAmount);
 			break;
-		case(eTarget_spec::RANDOM):
+		case(eTargetTypeSpec::RANDOM):
 			srand((unsigned int)time(nullptr));
 			int rnd;
 			rnd = rand() % mHand.lock()->getSize();
 			dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(rnd))->increase(mStat, mAmount);
 			break;
-		case(eTarget_spec::TARGET):
+		case(eTargetTypeSpec::TARGET):
 
 			if (mField.lock()->ChooseCard() == true) // used by AI
 				return true;

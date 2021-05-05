@@ -414,6 +414,12 @@
     <ClCompile Include="Place.cpp">
       <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
     </ClCompile>
+    <ClCompile Include="EndOfTurnRandomModify.cpp">
+      <Filter>Game\Card\Card Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyStatsEffect.cpp">
+      <Filter>Game\Card\Card Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player_Hand.hpp">
@@ -766,6 +772,12 @@
     </ClInclude>
     <ClInclude Include="Place.hpp">
       <Filter>Game\_mainGame\Field,Hand,Deck</Filter>
+    </ClInclude>
+    <ClInclude Include="EndOfTurnRandomModify.hpp">
+      <Filter>Game\Card\Card Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyStatsEffect.hpp">
+      <Filter>Game\Card\Card Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

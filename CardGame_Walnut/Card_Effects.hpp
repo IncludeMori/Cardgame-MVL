@@ -1,6 +1,6 @@
 #pragma once
 
-enum class eEffect : int
+enum class eEffectType : int
 {
 	ERROR = -1,
 	BATTLECRY = 0,
@@ -12,7 +12,7 @@ enum class eType: int {
 	BOOST = 0
 };
 
-enum class eTarget : int
+enum class eTargetType : int
 {
 	ERROR = -1,
 	NO_TARGET = 0,
@@ -23,7 +23,7 @@ enum class eTarget : int
 };
 
 //if eTarget != self
-enum class eTarget_spec : int
+enum class eTargetTypeSpec : int
 {
 	ERROR = -1,
 	RANDOM = 0,
@@ -32,7 +32,7 @@ enum class eTarget_spec : int
 };
 // eTarget != self
 
-enum class eStat : int {
+enum class eTargetStatType : int {
 	ERROR = -1,
 	ATTACK = 0,
 	HEALTH = 1,

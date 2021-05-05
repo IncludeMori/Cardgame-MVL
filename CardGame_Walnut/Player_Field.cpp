@@ -159,7 +159,7 @@ void Player_Field::addCard(const std::shared_ptr<BaseCard>& card)
 		mCard[mSize - 1]->changePlacePosition(Position::FIELD);
 		mFieldHasACard[mSize - 1] = true;
 		mCard[mSize - 1]->setPos(mPosX[mSize - 1], mPosY[mSize - 1]);
-		if (dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffect::BATTLECRY)
+		if (dynamic_pointer_cast<MonsterCard>(mCard[mSize - 1])->getEffect() == eEffectType::BATTLECRY)
 		{
 			if (mCard[mSize - 1]->activateEffect() == false)
 			{

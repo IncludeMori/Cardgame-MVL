@@ -150,6 +150,8 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefaultAnimation.cpp" />
     <ClCompile Include="DefaultTexture.cpp" />
+    <ClCompile Include="EndOfTurnRandomModify.cpp" />
+    <ClCompile Include="ModifyStatsEffect.cpp" />
     <ClCompile Include="MonsterCard.cpp" />
     <ClCompile Include="display_text.cpp" />
     <ClCompile Include="draw.cpp" />
@@ -255,6 +257,8 @@
     <ClInclude Include="Deck.hpp" />
     <ClInclude Include="DefaultAnimation.hpp" />
     <ClInclude Include="DefaultTexture.hpp" />
+    <ClInclude Include="EndOfTurnRandomModify.hpp" />
+    <ClInclude Include="ModifyStatsEffect.hpp" />
     <ClInclude Include="MonsterCard.hpp" />
     <ClInclude Include="display_text.hpp" />
     <ClInclude Include="draw.hpp" />

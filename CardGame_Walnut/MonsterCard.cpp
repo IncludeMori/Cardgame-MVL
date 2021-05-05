@@ -112,21 +112,21 @@ MonsterCard::MonsterCard(std::string &path, int x)
 	mApIcon.changeDataTo(mBasicAttack);
 
 	std::vector<std::string> effects;
-	mEffectType = static_cast<eEffect>(lua[name]["mEffect"]);
+	mEffectType = static_cast<eEffectType>(lua[name]["mEffect"]);
 	effects.push_back(EffectToString.getAsString(StatIndex::Effect, lua[name]["mEffect"]));
 	// switch effekt um jeweils andere sachen hiernach zu laden
 	
 	eType Type = static_cast<eType>(lua[name]["mType"]);
 	effects.push_back(EffectToString.getAsString(StatIndex::Type, lua[name]["mType"]));
-	eTarget Target = static_cast<eTarget>(lua[name]["mTarget"]);
+	eTargetType Target = static_cast<eTargetType>(lua[name]["mTarget"]);
 	effects.push_back(EffectToString.getAsString(StatIndex::Target, lua[name]["mTarget"]));
-	eTarget_spec Target_spec = eTarget_spec::ERROR;
-	if (Target != eTarget::SELF)
+	eTargetTypeSpec Target_spec = eTargetTypeSpec::ERROR;
+	if (Target != eTargetType::SELF)
 	{
-		Target_spec = static_cast<eTarget_spec>(lua[name]["mTarget_spec"]);
+		Target_spec = static_cast<eTargetTypeSpec>(lua[name]["mTarget_spec"]);
 		effects.push_back(EffectToString.getAsString(StatIndex::Target_Spec, lua[name]["mTarget_spec"]));
 	}
-	eStat Stat = static_cast<eStat>(lua[name]["mStat"]);
+	eTargetStatType Stat = static_cast<eTargetStatType>(lua[name]["mStat"]);
 	effects.push_back(EffectToString.getAsString(StatIndex::Stat, lua[name]["mStat"]));
 	int amount = lua[name]["amount"];
 	effects.push_back(lua[name]["amount"]);
@@ -134,18 +134,18 @@ MonsterCard::MonsterCard(std::string &path, int x)
 
 	switch (mEffectType)
 	{
-	case(eEffect::BATTLECRY):
+	case(eEffectType::BATTLECRY):
 		switch (Type)
 		{
 		case(eType::BOOST):
 			mEffect.reset(new BoostCard(Target,Target_spec,Stat,amount));
 			break; //boost
 		default:
-			mEffectType = eEffect::ERROR;
+			mEffectType = eEffectType::ERROR;
 			break;
 		} // type
 		break; //battlecry
-	case(eEffect::DEATHWISH):
+	case(eEffectType::DEATHWISH):
 		break; //deathwish
 	default:
 		break;
@@ -414,17 +414,17 @@ bool MonsterCard::activateEffect()
 
 }
 
-void MonsterCard::increase(eStat stat, int amount)
+void MonsterCard::increase(eTargetStatType stat, int amount)
 {
 	switch (stat)
 	{
-	case(eStat::ATTACK):
+	case(eTargetStatType::ATTACK):
 		mBasicAttack += amount;
 		break;
-	case(eStat::HEALTH):
+	case(eTargetStatType::HEALTH):
 		mBasicHealth += amount;
 		break;
-	case(eStat::COST):
+	case(eTargetStatType::COST):
 		mBasicPlayCost += amount;
 		break;
 	}
@@ -460,7 +460,7 @@ bool MonsterCard::isAlive()
 	return mAlive;
 }
 
-eEffect MonsterCard::getEffect()
+eEffectType MonsterCard::getEffect()
 {
 	return mEffectType;
 }

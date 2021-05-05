@@ -39,7 +39,7 @@ public:
 
 	bool activateEffect();
 
-	void increase(eStat stat, int amount);
+	void increase(eTargetStatType stat, int amount);
 	void increaseHealth(int amount);
 	void increaseAtk(int amount);
 
@@ -50,7 +50,7 @@ public:
 
 	void setHover(bool& b);
 
-	eEffect getEffect();
+	eEffectType getEffect();
 	std::string getName();
 	int getHealth();
 	int getAttack();
@@ -59,7 +59,7 @@ protected:
 	StatsSign mHealthIcon;
 	StatsSign mApIcon;
 
-	eEffect mEffectType = eEffect::ERROR;
+	eEffectType mEffectType = eEffectType::ERROR;
 	int mBasicHealth;
 	int mCurrentHealth;
 	int mBasicAttack;

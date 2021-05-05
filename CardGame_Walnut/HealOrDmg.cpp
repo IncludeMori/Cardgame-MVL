@@ -71,7 +71,7 @@ bool HealOrDmg::activate()
 			{
 				if (std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 				{
-					std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->increase(eStat::HEALTH, mAmount);
+					std::dynamic_pointer_cast<MonsterCard>(mField.lock()->getCardAt(i))->increase(eTargetStatType::HEALTH, mAmount);
 					std::cout << "TARGET:" << i << std::endl;
 					return true;
 				}
@@ -83,7 +83,7 @@ bool HealOrDmg::activate()
 				{
 					if (std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->mouseIsAbove() && gMouse.isPressed())
 					{
-						std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->increase(eStat::HEALTH, mAmount);
+						std::dynamic_pointer_cast<MonsterCard>(mOpponentField.lock()->getCardAt(i))->increase(eTargetStatType::HEALTH, mAmount);
 						std::cout << "TARGET:" << i << std::endl;
 						return true;
 					}

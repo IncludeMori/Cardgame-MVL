@@ -6,8 +6,7 @@
 
 #include "Battlecry.hpp"
 #include "Deathwish.hpp"
-
-#include "Card_Effects.hpp"
+#include "ModifyStatsEffect.hpp"
 
 class MonsterCard;
 
@@ -21,7 +20,7 @@ class BoostCard
 {
 public:
 	BoostCard();
-	BoostCard(eTarget target, eTarget_spec target_spec, eStat stat, int amount);
+	BoostCard(eTargetType target, eTargetTypeSpec target_spec, eTargetStatType stat, int amount);
 	~BoostCard();
 
 	bool activate(BaseCard *card); //self
@@ -29,8 +28,9 @@ public:
 
 private:
 	int mAmount = 0;
-	eTarget mTarget = eTarget::ERROR;
-	eTarget_spec mTarget_spec = eTarget_spec::ERROR;
-	eStat mStat = eStat::ERROR;
+	eTargetType mTarget = eTargetType::ERROR;
+	eTargetTypeSpec mTargetSpec = eTargetTypeSpec::ERROR;
+	eTargetStatType mStat = eTargetStatType::ERROR;
+
 };
 
