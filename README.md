@@ -1,5 +1,5 @@
 # Cardgame W
-A simple Cardgame (C++,SDL2) I wrote a few years before going to university.
+A simple Cardgame (C++,SDL2) I wrote before going to university, inspired by Hearthstone.
 Unfinished(working prototype) with messy code
 
 Quick preview(using placeholder & GNU art)
