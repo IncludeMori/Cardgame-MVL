@@ -1,5 +1,6 @@
 # Cardgame W
 A simple Cardgame (C++,SDL2), inspired by Hearthstone.
+
 Unfinished(working prototype)
 
 Quick preview(using placeholder & GNU art)
