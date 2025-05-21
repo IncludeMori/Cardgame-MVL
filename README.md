@@ -1,4 +1,4 @@
-# Cardgame W
+# Cardgame-MVL
 A simple Cardgame (C++,SDL2), inspired by various online cardgames.
 
 Unfinished - Working prototype
